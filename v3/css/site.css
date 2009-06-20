@@ -1,0 +1,193 @@
+a:link,a:active,a:visited
+{
+	text-decoration: none;
+}
+a:hover
+{
+	text-decoration: none; color : #333333; 
+}
+body {
+	background:url('../images/Background.gif') top right no-repeat #696969;
+	margin:0;
+	/*		bgcolor="#CCCCCC" link="#999999" alink="#BBBBBB" vlink="#AAAAAA"*/
+}
+ul {
+	margin:0;
+	padding:0; 
+	color:white;
+}
+li {
+	list-style: none;
+}
+
+li a {
+	display:block;
+	font-family:"lucida grande";
+	font-size:11px;
+	color:lightgray;
+	opacity:1.0;
+	text-shadow:1 1 1 1;
+	outline: none;
+}
+li a strong{
+	font-family:"baskerville", "georgia", "lucida grande";
+	font-size:18px;
+	margin-left:-1px;
+	color:white;
+	font-weight:norma;
+}
+td#navbar hr {
+	border:0;
+	margin:10px;
+	margin-top:-2px;
+	margin-bottom:-2px;
+	background-color: #999;
+	height: 7px;
+	width:165px;
+	background: url('../images/Line.png');
+}
+span.subtitle-alpha {
+	text-transform:uppercase;
+	font-size:9px;
+	letter-spacing:5px;
+	color:#AD3816;
+}
+span.subtitle-beta {
+	text-transform:uppercase;
+	font-size:9px;
+	letter-spacing:5px;
+	color:#666;
+}
+li {
+	padding:0;
+}
+
+li a:hover {
+	opacity:1.0;
+	color:white;
+}
+
+li a {
+	cursor: default;
+	padding:10px;
+	padding-left:14px;
+	margin:0;
+	color:white;
+	text-decoration:none;
+}
+li.directlink a {
+	padding:10px;
+	padding-left:14px;
+	margin:0;
+}
+li.directlink a:hover:after {
+	content:' »';
+}
+li.small a {
+	padding:0px;
+	padding-bottom:2px;
+	padding-left:14px;
+	margin:0px;
+}
+li a.selected
+{
+	margin-right:-69px;
+
+	background:url('../images/Glow3.png');
+	color:black;
+}
+
+li a.selected, li a.selected strong
+{
+	color:gray;
+}
+div.console-top {
+	background:url('../images/console/top.png'); height:10; width:186; margin:0;
+}
+div.console-middle {
+	background:url('../images/console/middle.png') repeat; width:186;
+}	
+div.console-bottom {
+	background:url('../images/console/bottom.png'); height:10; width:186; margin:0;
+}
+
+div.details-top {
+	background:url('../images/details/top.png') no-repeat; height:38; width:315; margin:0;
+}
+div.details-middle {
+	background:url('../images/details/middle.png') repeat-y; width:315; margin:0;
+}	
+div.details-bottom {
+	background:url('../images/details/bottom.png') no-repeat; height:38; width:315; margin:0;
+}
+div.screenshots img {
+	border:1px solid white;
+}
+div#detail-contents {
+	/*border:1px solid red;*/
+	font-size:13px;
+	min-height:200;
+	width:238;
+	margin-left:17px;
+	padding-left:25px;
+	padding-right:25px;
+	font-family:"lucida grande";
+	line-height:150%;
+}
+div.detail-view {
+
+	/*margin-top:100px;*/
+	/*padding:20px;*/
+	/*border:1px solid white;*/
+
+
+
+	/*	-webkit-border-radius:6px;
+	x-webkit-box-shadow: 0px 0px 120px rgba(255, 255, 255, 0.5);*/
+}
+a.download-button {
+	
+	line-height:100%;
+	background: url('../images/DownloadButton.png');
+	width:150px;
+	height:32px;
+	display:block;
+	text-align:center;
+	font-size:11px;
+	font-weight:bold;
+	padding-top:18px;
+	overflow:hidden;
+	margin:-6px;
+
+}
+h3 {
+	margin:0;
+	margin-bottom:10px;
+}
+
+span.caption {
+	font-size:10px;
+	opacity:0.6;
+}
+div.links {
+	color:#666;
+	text-align:center;
+}
+
+div.detail-view a {
+	color:#666;
+}
+div.detail-view hr {
+	border:0;
+	background-color: #eee;
+	height: 1px;
+}
+div.links a:hover {
+	color:black;
+	text-decoration:underline;
+}
+
+table#main-table {
+	padding-left:26;
+	background:url('../images/PillarOfLight.png') no-repeat;
+}

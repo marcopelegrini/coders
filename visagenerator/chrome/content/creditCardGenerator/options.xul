@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+
+<window id="creditCardGenerator-options" title="Gerador de Cartões de Crédito" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" onload="sizeToContent();">
+
+	<script type="application/x-javascript" src="chrome://creditCardGenerator/content/optionsOverlay.js"></script>
+
+	<hbox>
+		<vbox>
+			<tabbox id="tabbox" flex="1" context="">
+				<tabs orient="horizontal">
+					<tab id="creditCardGenerator-tab-geral" label="Gerais" collapsed="false" />
+					<tab id="creditCardGenerator-tab-visual" label="Interface" collapsed="false" />
+				</tabs>
+				<spacer width="4" />
+				<tabpanels id="tabpanels" class="creditCardGenerator_tabpanels" flex="1">
+
+					<!-- / Gerais -->
+					<tabpanel id="creditCardGenerator-settings-panel-general" orient="vertical" flex="1" context="">
+						<groupbox orient="horizontal">
+							<caption label="Cartão padrão." />
+							<vbox>
+								<hbox>
+									<label value="Botão esquerdo no icone da barra de status" style="font-size: 10px; font-weight: bold;margin:2px;"/>
+								</hbox>
+								<hbox>
+									<radiogroup id="creditCardGeneratorDefault" >
+									  <radio id="visa" label="Visa" selected="true" />
+									  <radio id="master" label="MasterCard" />
+									  <radio id="amex" label="American Express" />
+									  <radio id="diners" label="Diners Club" />
+									</radiogroup>
+								</hbox>
+							</vbox>
+						</groupbox>
+					</tabpanel>
+
+					<!-- / Visuais -->
+					<tabpanel id="creditCardGenerator-settings-panel-visual" orient="vertical" flex="2" context="">
+						<groupbox orient="horizontal">
+							<caption label="Barra de status" />
+							<vbox>
+								<hbox>
+									<checkbox id="creditCardGenerator-check_icone" label="Exibir icone na barra de status" checked="false" />
+								</hbox>
+							</vbox>
+						</groupbox>
+					</tabpanel>
+				</tabpanels>
+			</tabbox>
+		</vbox>
+	</hbox>
+	<hbox>
+		<button label="Gravar" accesskey="G" oncommand="creditCardGeneratorAccept(); window.close();" />
+		<button label="Cancelar" accesskey="C" oncommand="window.close();" />
+	</hbox>
+</window>

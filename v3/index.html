@@ -1,0 +1,90 @@
+<html>
+	<head>
+		<title>Coders Tecnologia Ltda</title>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+		<link rel="stylesheet" href="css/lightbox.css" type="text/css" media="screen" />
+		<link rel="stylesheet" href="css/site.css" type="text/css" media="screen" />
+	</head>
+	<body onload="getProject()">
+		<center>
+			<table id="main-table" border="0" width="512" cellpadding="0" cellspacing="0">
+				<tr>
+					<td width="186" id="navbar" valign="top">
+						<div align="center">
+							<img style="padding-top:12px; padding-bottom:24px;" src="images/BlacktreeTitle.png" width="187" height="31" alt="BlacktreeTitle">
+						</div>
+						<div class="console-top"></div>
+						<div class="console-middle">
+							<ul>
+								<li>
+									<a id="about" href="projects/blacktree.html" onclick="updateDetailView(this); return false;" name="about"><strong>About</strong></a>
+								</li>
+							</ul>
+						</div>
+						<div class="console-bottom"></div>
+						<div class="console-top"></div>
+						<div class="console-middle">
+							<ul>
+								<li>
+									<a id="quicksilver" href="projects/quicksilver.html" onclick="updateDetailView(this); return false;" name="quicksilver"><strong>DNS Flusher</strong><br>Firefox utility</a>
+								</li>
+								<hr>
+								<li>
+									<a id="fester" href="projects/fester.html" onclick="updateDetailView(this); return false;" name="fester"><strong>iPlanning</strong><br>Easy planning poker</a>
+								</li>
+							</ul>
+						</div>
+						<div class="console-bottom"></div>
+						<div class="console-top"></div>
+						<div class="console-middle">
+							<ul>
+								<li class="small" style="padding-top:0;padding-bottom:0;padding-right:0">
+									<a href="javascript:toggleDonations();"><img style="float:right; margin-right:10px" border="0" src="images/DownArrow.png" width="16" height="12" alt="DownArrow">Please, donate !</a>
+								</li>
+							</ul>
+						</div>
+						<div class="console-bottom"></div>
+						<div id="more-projects" style="display:none;">
+							<div class="console-top"></div>
+							<div class="console-middle">
+								<ul>
+									<li>
+										<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+											<input type="hidden" name="cmd" value="_s-xclick">
+											<input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----">
+											<input type="image" src="http://www.coders.com.br/wp-content/uploads/payp.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!">											
+										</form>
+									</li>
+									<li style="list-style: none">
+										<hr>
+									</li>
+									<li>
+										<form target="pagseguro" action="https://pagseguro.uol.com.br/security/webpagamentos/webdoacao.aspx" method="post">
+											<input type="hidden" name="email_cobranca" value="marcotuliolp@gmail.com">
+											<input type="hidden" name="moeda" value="BRL">
+											<input type="image" src="http://www.coders.com.br/wp-content/uploads/pagseguro.gif" border="0" name="submit" title="Pagseguro - Pague online!">
+										</form>
+									</li>
+								</ul>
+							</div>
+							<div class="console-bottom"></div>
+						</div>
+					</td>
+					<td valign="top">
+						<div id="detail-view" style="visibility: hidden;">
+							<div class="details-top"></div>
+							<div class="details-middle">
+								<div class="detail-view" id="detail-contents"></div>
+							</div>
+							<div class="details-bottom"></div>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</center>
+	</body>
+	<script type="text/javascript" src="js/prototype.js"></script>
+	<script type="text/javascript" src="js/scriptaculous.js?load=effects"></script>
+	<script type="text/javascript" src="js/lightbox.js"></script>
+	<script type="text/javascript" src="js/site.js"></script>								
+</html>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+
+<!DOCTYPE window SYSTEM "chrome://changeHosts/locale/changeHosts.dtd">
+
+<window class="dialog" 
+	title="&changeHosts.about;" 
+	orient="vertical" 
+	autostretch="always" 
+	onload="sizeToContent()"
+	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+	<groupbox align="center" orient="horizontal">
+		<vbox>
+			<text value="Gerador de Cartões de Crédito" style="font-weight: bold; font-size: x-large;" />
+			<text value="ver. 1.0.0" />
+			<separator class="thin" />
+			<text value="Uso exclusivo para desenvolvimento/testes de aplicações que fazem uso de cartões de crédito." style="font-weight: bold;" />
+			<text value="Não me responsabilizo pelo mau uso deste ou parte deste software." style="font-weight: bold;" />
+		</vbox>
+		<spring flex="1" />
+		<image src="chrome://changeHosts/skin/icon100.png" />
+	</groupbox>
+	<hbox>
+		<spacer flex="1" />
+		<button label="Fechar" oncommand="window.close();" />
+	</hbox>
+</window>
