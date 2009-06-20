@@ -1,0 +1,14 @@
+<!ENTITY  cH.name				"Change Hosts">
+<!ENTITY  cH.description			"Extensão para alterar o arquivo hosts do sistema operacional.">
+<!ENTITY  cH.about				"Sobre o Change Hosts.">
+
+<!ENTITY  cH.preferences			"Preferências">
+<!ENTITY  cH.hostsLocation			"Caminho do arquivo hosts">
+<!ENTITY  cH.find				"Procurar">
+<!ENTITY  ch.permissionTest			"Teste de permissionamento">
+<!ENTITY  ch.doTest				"Testar">
+<!ENTITY  ch.createDefinitions			"Criar nova definição">
+<!ENTITY  ch.name				"Nome">
+<!ENTITY  ch.doCreate				"Criar">
+<!ENTITY  ch.doCancel				"Cancelar">
+<!ENTITY  cH.showInMenu				"Mostrar no menu">
