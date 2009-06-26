@@ -20,6 +20,19 @@
 				var win = topWindow.openDialog("chrome://changeHosts/content/options.xul", "_blank", "chrome,toolbar,centerscreen" , "changeHosts-options");
 			}
 		}
+		
+		function getOperationSystem() {
+			const Cc = Components.classes;
+			const Ci = Components.interfaces;
+			var sysInfo = Cc['@mozilla.org/system-info;1'].getService(Ci.nsIPropertyBag2);
+			var pratform = sysInfo.getProperty('name');
+			alert(pratform);
+		}
+		
+		function resetPreferences() {
+			var prefService = Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefService);
+			prefService.resetPrefs();
+		}
 	]]>
 	</script>
 
@@ -64,7 +77,7 @@
 				onclick="if (event.button &lt; 2) { mostraDefault(); }" />
 
 			<menupopup id="changeHosts-statepopup">
-				<menuitem label="Gerar Cartão Visa" oncommand="mostraVisa();" />
+				<menuitem label="Gerar Cartão Visa" oncommand="getOperationSystem();" />
 				<menuitem label="Gerar MasterCard" oncommand="mostraMaster();" />
 				<menuitem label="Gerar American Express" oncommand="mostraAmex();" />
 				<menuitem label="Gerar Diners Club" oncommand="mostraDiners();" />

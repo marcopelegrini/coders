@@ -7,8 +7,16 @@
 <prefwindow xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" xmlns:html="http://www.w3.org/1999/xhtml" id="changeHosts-settings" title="#change"
  windowtype="changeHosts:settings" buttons="accept,cancel">
     
-    <script type="application/x-javascript" src="chrome://changeHosts/content/optionsOverlay.js">
-    </script>
+    <script type="application/x-javascript" src="chrome://changeHosts/content/optionsOverlay.js"/>
+	
+	<script type="text/javascript">
+	<![CDATA[
+		function resetPreferences() {
+			var prefService = Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefService);
+			prefService.resetPrefs();
+		}
+	]]>
+	</script>
     
     <prefpane id="prefpane_definitions" label="#Definições">
         <hbox>
@@ -131,6 +139,7 @@
             <preference id="definitions-dir-preference" name="extensions.changeHosts.definitions-dir" type="unichar"/>
             <preference id="definitions-ext-preference" name="extensions.changeHosts.definitions-ext" type="unichar"/>
             <preference id="flush-dns-preference" name="extensions.changeHosts.flush-dns" type="bool"/>
+            <preference id="reload-page-preference" name="extensions.changeHosts.reload-page" type="bool"/>
             <preference id="show-ip-status-preference" name="extensions.changeHosts.show-ip-status" type="bool"/>
             <preference id="show-icon-status-preference" name="extensions.changeHosts.show-icon-status" type="bool"/>
         </preferences>
@@ -193,6 +202,7 @@
                                         <image id="testReadFile" class="testImgQuestion"/>
                                         <image id="testWriteFile" class="testImgQuestion"/>
                                     </row>
+									 <separator class="groove-thin borderUp5 borderDown5" />
                                     <row>
                                         <label value="#Diretório de definições:"/>
                                         <image id="testReadDir" class="testImgQuestion"/>
@@ -208,10 +218,14 @@
                 <groupbox orient="vertical">
                     <caption label="#Outras configurações"/>
                     <checkbox preference="flush-dns-preference" label="#Recarregar tabela de DNS ao trocar a definição de hosts"/>
-                    <spacer height="10"/>
-                    <checkbox preference="show-ip-status-preference" label="#Mostrar IP do site atual na barra de status"/>
+                    <checkbox preference="reload-page-preference" label="#Recarregar página ao trocar a definição de hosts"/>
+                    <separator class="groove-thin borderUp5 borderDown5" />
+                    <checkbox preference="show-ip-status-preference" label="#Mostrar IP da página atual na barra de status"/>
                     <checkbox preference="show-icon-status-preference" label="#Mostrar icone do Change Hosts na barra de status"/>
                 </groupbox>
+                <hbox align="right">
+                    <button id="reset-preferences-button" label="#Redefinir preferências" oncommand="resetPreferences();"/>
+                </hbox>
             </vbox>
         </hbox>
     </prefpane>

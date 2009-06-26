@@ -42,3 +42,11 @@ radio[pane=prefpane_definitions]
     list-style-image: url("chrome://browser/skin/preferences/Options.png");
     -moz-image-region: rect(0px, 64px,  32px, 32px);
 }
+
+.borderUp5 {
+	margin-top: 5px;
+}
+
+.borderDown5 {
+	margin-bottom: 5px;
+}

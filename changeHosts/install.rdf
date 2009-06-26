@@ -8,7 +8,7 @@
 		<em:creator/>
 		<em:homepageURL/>
 		<em:iconURL>chrome://changeHosts/skin/icon32.png</em:iconURL>
-		<em:aboutURL>chrome://changeHosts/content/about.xul</em:aboutURL>
+		<em:aboutURL>chrome://changeHosts/content/options.xul</em:aboutURL>
 		<em:optionsURL>chrome://changeHosts/content/options.xul</em:optionsURL>
 		<!-- <em:file>
 			<Description about="urn:mozilla:extension:file:changeHosts.jar">
