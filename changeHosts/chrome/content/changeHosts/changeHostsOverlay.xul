@@ -6,33 +6,12 @@
 	<!-- This imports our javascript. -->
 	<script type="application/x-javascript" src="chrome://changeHosts/content/changeHostsOverlay.js"></script>
 	<script type="application/x-javascript" src="chrome://changeHosts/content/changeHosts.js"></script>
-
+    <script type="application/x-javascript" src="chrome://changeHosts/content/preferenceUtils.js"/>	
+    <script type="application/x-javascript" src="chrome://changeHosts/content/utils.js"/>	
+	
 	<script type="text/javascript">
 	<![CDATA[
-		function openPreferences() {
-			var wm = Cc['@mozilla.org/appshell/window-mediator;1'].getService(Ci.nsIWindowMediator);
-			var topWindow = wm.getMostRecentWindow("changeHosts:settings");
-
-			if (topWindow) {
-				topWindow.focus();
-			} else {
-				topWindow = wm.getMostRecentWindow(null);
-				var win = topWindow.openDialog("chrome://changeHosts/content/options.xul", "_blank", "chrome,toolbar,centerscreen" , "changeHosts-options");
-			}
-		}
-		
-		function getOperationSystem() {
-			const Cc = Components.classes;
-			const Ci = Components.interfaces;
-			var sysInfo = Cc['@mozilla.org/system-info;1'].getService(Ci.nsIPropertyBag2);
-			var pratform = sysInfo.getProperty('name');
-			alert(pratform);
-		}
-		
-		function resetPreferences() {
-			var prefService = Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefService);
-			prefService.resetPrefs();
-		}
+		//Something		
 	]]>
 	</script>
 
@@ -82,7 +61,8 @@
 				<menuitem label="Gerar American Express" oncommand="mostraAmex();" />
 				<menuitem label="Gerar Diners Club" oncommand="mostraDiners();" />
 				<menuseparator />
-				<menuitem label="Opções" accesskey="O" oncommand="window.openDialog('chrome://changeHosts/content/options.xul', 'Preferences', 'chrome,titlebar,toolbar,centerscreen,modal');" />
+				<!--<menuitem label="Opções" accesskey="O" oncommand="window.openDialog('chrome://changeHosts/content/options.xul', 'Preferences', 'chrome,titlebar,toolbar,centerscreen,modal');" />-->
+				<menuitem label="Opções" accesskey="O" oncommand="Prefs.open();" />
 				<menuitem label="Sobre" accesskey="S" oncommand="window.openDialog('chrome://changeHosts/content/about.xul', 'changeHosts-about', 'centerscreen,chrome,modal');" />
 			</menupopup>
 		</statusbarpanel> 

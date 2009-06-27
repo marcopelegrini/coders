@@ -4,17 +4,22 @@
 
 <!DOCTYPE prefwindow SYSTEM "chrome://changeHosts/locale/changeHosts.dtd">
 
-<prefwindow xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" xmlns:html="http://www.w3.org/1999/xhtml" id="changeHosts-settings" title="#change"
- windowtype="changeHosts:settings" buttons="accept,cancel">
+<prefwindow 
+xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" 
+xmlns:html="http://www.w3.org/1999/xhtml" 
+windowtype="changeHosts:settings" 
+id="changeHosts-settings" 
+title="#change"
+buttons="accept,cancel"
+type="prefwindow">
     
+	<script type="application/x-javascript" src="chrome://changeHosts/content/utils.js"/>	
     <script type="application/x-javascript" src="chrome://changeHosts/content/optionsOverlay.js"/>
+    <script type="application/x-javascript" src="chrome://changeHosts/content/preferenceUtils.js"/>	
 	
 	<script type="text/javascript">
 	<![CDATA[
-		function resetPreferences() {
-			var prefService = Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefService);
-			prefService.resetPrefs();
-		}
+		//Something
 	]]>
 	</script>
     
@@ -224,7 +229,7 @@
                     <checkbox preference="show-icon-status-preference" label="#Mostrar icone do Change Hosts na barra de status"/>
                 </groupbox>
                 <hbox align="right">
-                    <button id="reset-preferences-button" label="#Redefinir preferências" oncommand="resetPreferences();"/>
+                    <button id="reset-preferences-button" label="#Redefinir preferências" oncommand="Prefs.reset();"/>
                 </hbox>
             </vbox>
         </hbox>
