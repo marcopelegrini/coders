@@ -4,24 +4,24 @@
 
 <!DOCTYPE prefwindow SYSTEM "chrome://changeHosts/locale/changeHosts.dtd">
 
-<prefwindow 
-xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" 
-xmlns:html="http://www.w3.org/1999/xhtml" 
-windowtype="changeHosts:settings" 
-id="changeHosts-settings" 
-title="#change"
-buttons="accept,cancel"
-type="prefwindow">
+<prefwindow
+ xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+ xmlns:html="http://www.w3.org/1999/xhtml"
+ windowtype="changeHosts:settings"
+ id="changeHosts-settings"
+ title="#change"
+ buttons="accept,cancel"
+ type="prefwindow">
     
-	<script type="application/x-javascript" src="chrome://changeHosts/content/utils.js"/>	
+    <script type="application/x-javascript" src="chrome://changeHosts/content/utils.js"/>
     <script type="application/x-javascript" src="chrome://changeHosts/content/optionsOverlay.js"/>
-    <script type="application/x-javascript" src="chrome://changeHosts/content/preferenceUtils.js"/>	
-	
-	<script type="text/javascript">
-	<![CDATA[
+    <script type="application/x-javascript" src="chrome://changeHosts/content/preferenceUtils.js"/>
+    
+    <script type="text/javascript">
+        <![CDATA[
 		//Something
 	]]>
-	</script>
+    </script>
     
     <prefpane id="prefpane_definitions" label="#Definições">
         <hbox>
@@ -207,7 +207,7 @@ type="prefwindow">
                                         <image id="testReadFile" class="testImgQuestion"/>
                                         <image id="testWriteFile" class="testImgQuestion"/>
                                     </row>
-									 <separator class="groove-thin borderUp5 borderDown5" />
+                                    <separator class="groove-thin borderUp5 borderDown5"/>
                                     <row>
                                         <label value="#Diretório de definições:"/>
                                         <image id="testReadDir" class="testImgQuestion"/>
@@ -224,7 +224,7 @@ type="prefwindow">
                     <caption label="#Outras configurações"/>
                     <checkbox preference="flush-dns-preference" label="#Recarregar tabela de DNS ao trocar a definição de hosts"/>
                     <checkbox preference="reload-page-preference" label="#Recarregar página ao trocar a definição de hosts"/>
-                    <separator class="groove-thin borderUp5 borderDown5" />
+                    <separator class="groove-thin borderUp5 borderDown5"/>
                     <checkbox preference="show-ip-status-preference" label="#Mostrar IP da página atual na barra de status"/>
                     <checkbox preference="show-icon-status-preference" label="#Mostrar icone do Change Hosts na barra de status"/>
                 </groupbox>

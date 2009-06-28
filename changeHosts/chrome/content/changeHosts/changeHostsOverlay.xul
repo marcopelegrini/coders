@@ -1,83 +1,62 @@
 <?xml version="1.0"?>
-<?xml-stylesheet href="chrome://changeHosts/skin/changeHosts.css" type="text/css" ?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet href="chrome://changeHosts/skin/" type="text/css"?>
 
 <overlay id="changeHostsOverlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
-
-	<!-- This imports our javascript. -->
-	<script type="application/x-javascript" src="chrome://changeHosts/content/databaseUtil.js"></script>
-	<script type="application/x-javascript" src="chrome://changeHosts/content/changeHostsOverlay.js"></script>
-	<script type="application/x-javascript" src="chrome://changeHosts/content/changeHosts.js"></script>
-    <script type="application/x-javascript" src="chrome://changeHosts/content/preferenceUtils.js"/>	
+    
+    <!-- This imports our javascript. -->
+    <script type="application/x-javascript" src="chrome://changeHosts/content/databaseUtil.js"/>
+    <script type="application/x-javascript" src="chrome://changeHosts/content/changeHostsOverlay.js"/>
+    <script type="application/x-javascript" src="chrome://changeHosts/content/changeHosts.js"/>
+    <script type="application/x-javascript" src="chrome://changeHosts/content/preferenceUtils.js"/>
     <script type="application/x-javascript" src="chrome://changeHosts/content/utils.js"/>
-	
-	<script type="text/javascript">
-	<![CDATA[
-		//Something		
-	]]>
-	</script>
-
-	<!-- This is for the right click menu. -->
-	<popup id="contentAreaContextMenu">
-		<menu label="Gerador de Cartões de Crédito" accesskey="C" id="changeHosts" insertafter="context-stop">
-			<menupopup>
-				<menuitem label="Gerar Cartão Visa" accesskey="V" oncommand="mostraVisa();" />
-				<menuitem label="Gerar MasterCard" accesskey="M" oncommand="mostraMaster();" />
-				<menuitem label="Gerar American Express" accesskey="A" oncommand="mostraAmex();" />
-				<menuitem label="Gerar Diners Club" accesskey="D" oncommand="mostraDiners();" />
-				<menuseparator />
-				<menuitem label="Opções" accesskey="O" oncommand="window.openDialog('chrome://changeHosts/content/options.xul', 'changeHosts-options', 'centerscreen,chrome,modal');" />
-				<menuitem label="Sobre" accesskey="S" oncommand="window.openDialog('chrome://changeHosts/content/about.xul', 'changeHosts-about', 'centerscreen,chrome,modal');" />
-			</menupopup>
-		</menu>
-	</popup>
-
-
-	<!-- This is for the Tools menu. -->
-	<menupopup id="menu_ToolsPopup">
-		<menu label="Gerador de Cartões de Crédito" accesskey="C" id="changeHosts" insertafter="devToolsSeparator">
-			<menupopup>
-				<menuitem label="Gerar Cartão Visa" accesskey="V" oncommand="mostraVisa();" />
-				<menuitem label="Gerar MasterCard" accesskey="M" oncommand="mostraMaster();" />
-				<menuitem label="Gerar American Express" accesskey="A" oncommand="mostraAmex();" />
-				<menuitem label="Gerar Diners Club" accesskey="D" oncommand="mostraDiners();" />
-				<menuseparator />
-				<menuitem label="Opções" accesskey="O" oncommand="window.openDialog('chrome://changeHosts/content/options.xul', 'changeHosts-options', 'centerscreen,chrome,modal');" />
-				<menuitem label="Sobre" accesskey="S" oncommand="window.openDialog('chrome://changeHosts/content/about.xul', 'changeHosts-about', 'centerscreen,chrome,modal');" />
-			</menupopup>
-		</menu>
-	</menupopup>
-
-	<!-- Status bar -->
-	<statusbar id="status-bar">
-		<statusbarpanel id="changeHosts_statusbar_panel" insertbefore="offline-status">
-
-		<image	id="changeHosts_statusbar_panel_img" 
-				context="changeHosts-statepopup" 
-				tooltip="changeHosts-toolbar-tooltip" 
-				onclick="if (event.button &lt; 2) { mostraDefault(); }" />
-
-			<menupopup id="changeHosts-statepopup">
-				<menuitem label="Gerar Cartão Visa" oncommand="getOperationSystem();" />
-				<menuitem label="Gerar MasterCard" oncommand="mostraMaster();" />
-				<menuitem label="Gerar American Express" oncommand="mostraAmex();" />
-				<menuitem label="Gerar Diners Club" oncommand="mostraDiners();" />
-				<menuseparator />
-				<menuitem label="Opções" accesskey="O" oncommand="Prefs.open();" />
-
-				<menuitem label="Create DB" oncommand="test_createDB();" />
-				<menuitem label="Simple Add Record" oncommand="test_addRecord();" />
-				<menuitem label="Parameterized Add Record" oncommand="test_addRecordParameterized();" />
-				<menuitem label="Simple Select" oncommand="test_Select();" />
-				<menuitem label="Parameterized Select" oncommand="test_SelectParameterized();" />
-			</menupopup>
-		</statusbarpanel> 
-
-		<tooltip id="changeHosts-toolbar-tooltip" noautohide="true" orient="vertical" position="before_start" style="padding:2px;">
-			<vbox>
-				<label value="Gerador de Cartões de Crédito" style="font-size: 12px; font-weight: bold;margin:2px;"/>
-				<label value="Botão esquerdo do mouse: Gera Cartão Padrão (Ver opções)" style="margin:2px;"/>
-				<label value="Botão direito do mouse: Mostra outras gerações / opções" style="margin:2px;"/>
-			</vbox>
-		</tooltip>
-	</statusbar>	
+    
+    <!-- This is for the Tools menu. -->
+    <menupopup id="menu_ToolsPopup">
+        <menu label="Gerador de Cartoes de Credito" accesskey="C" id="changeHosts" insertafter="devToolsSeparator">
+            <menupopup>
+                <menuitem label="Gerar Cartao Visa" accesskey="V" oncommand="mostraVisa();"/>
+                <menuitem label="Gerar MasterCard" accesskey="M" oncommand="mostraMaster();"/>
+                <menuitem label="Gerar American Express" accesskey="A" oncommand="mostraAmex();"/>
+                <menuitem label="Gerar Diners Club" accesskey="D" oncommand="mostraDiners();"/>
+                <menuseparator/>
+                <menuitem label="Opcoes" accesskey="O" oncommand="window.openDialog('chrome://changeHosts/content/options.xul', 'changeHosts-options', 'centerscreen,chrome,modal');"/>
+                <menuitem label="Sobre" accesskey="S" oncommand="window.openDialog('chrome://changeHosts/content/about.xul', 'changeHosts-about', 'centerscreen,chrome,modal');"/>
+            </menupopup>
+        </menu>
+    </menupopup>
+    
+    <!-- Status bar -->
+    <statusbar id="status-bar">
+        <statusbarpanel id="changeHosts_statusbar_panel" insertbefore="offline-status">
+            
+            <image id="changeHosts_statusbar_panel_img"
+             context="changeHosts-statepopup"
+             tooltip="changeHosts-toolbar-tooltip"
+             onclick="if (event.button &lt; 2) { mostraDefault(); }"/>
+            
+            <menupopup id="changeHosts-statepopup">
+                <menuitem label="Gerar sad Visa" oncommand="getOperationSystem();"/>
+                <menuitem label="Gerar MasterCard" oncommand="mostraMaster();"/>
+                <menuitem label="Gerar American Express" oncommand="mostraAmex();"/>
+                <menuitem label="Gerar Diners Club" oncommand="mostraDiners();"/>
+                <menuseparator/>
+                <menuitem label="asd" accesskey="O" oncommand="Prefs.open();"/>
+                
+                <menuitem label="Create DB" oncommand="test_createDB();"/>
+                <menuitem label="Simple Add Record" oncommand="test_addRecord();"/>
+                <menuitem label="Parameterized Add Record" oncommand="test_addRecordParameterized();"/>
+                <menuitem label="Simple Select" oncommand="test_Select();"/>
+                <menuitem label="Parameterized Select" oncommand="test_SelectParameterized();"/>
+            </menupopup>
+        </statusbarpanel>
+        
+        <tooltip id="changeHosts-toolbar-tooltip" noautohide="true" orient="vertical" position="before_start" style="padding:2px;">
+            <vbox>
+                <label value="Gerador de asd de asd" style="font-size: 12px; font-weight: bold;margin:2px;"/>
+                <label value="asd esquerdo do mouse: Gera asd asd (Ver asd)" style="margin:2px;"/>
+                <label value="asd direito do mouse: Mostra outras asd / asd" style="margin:2px;"/>
+            </vbox>
+        </tooltip>
+    </statusbar>
 </overlay>
