@@ -17,7 +17,7 @@ function test_createDB(){
 
 // simple add record:
 function test_addRecord(){
-    $sqlite.assync(myInsertQuery);
+    $sqlite.doSQL(myInsertQuery);
 }
 
 // parameterized add record, add parameters as much as you want:	
@@ -32,7 +32,7 @@ function test_addRecordParameterized(){
 
 // simple select:
 function test_Select(){
-    var myArray1 = $sqlite.select(mySelectQuery);
+    var myArray1 = $sqlite.doSQL(mySelectQuery);
     // Now you can loop through the array:
     for (var j = 0; j < myArray1.length; j++) {
         // change this as you wish:
@@ -42,7 +42,7 @@ function test_Select(){
 
 // select with bound parameters, add parameters as much as you want:
 function test_SelectParameterized(){
-    var myArray1 = $sqlite.select(mySelectQueryParameterized, '1', 'book title1');
+    var myArray1 = $sqlite.doSQL(mySelectQueryParameterized, '1', 'book title1');
     // Now you can loop through the array:
     for (var j = 0; j < myArray1.length; j++) {
         // change this as you wish:

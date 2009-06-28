@@ -6,7 +6,7 @@ const file = 'changeHosts.sqlite';
 var $sqlite = {
     mDBConn: null,
     
-    _initService: function(){
+    init: function(){
         var db = Cc["@mozilla.org/file/directory_service;1"].getService(Ci.nsIProperties).get("ProfD", Ci.nsIFile);
         db.append(file);
         this.mDBConn = Cc["@mozilla.org/storage/service;1"].getService(Ci.mozIStorageService).openDatabase(db);
@@ -14,43 +14,9 @@ var $sqlite = {
     
     getConnection: function(){
         if (this.mDBConn == null) {
-            this._initService();
+            this.init();
         }
         return this.mDBConn;
-    },
-    
-    select: function(sql, param){
-        var conn = this.getConnection();
-        var ourTransaction = false;
-        if (conn.transactionInProgress) {
-            ourTransaction = true;
-            conn.beginTransactionAs(conn.TRANSACTION_DEFERRED);
-        }
-        var statement = conn.createStatement(sql);
-        //Check if has more than one parameter (sql)
-        if (arguments.length > 1) {
-            //Starts at 1 because first param is sql by youself
-            for (var m = 1; m < arguments.length; m++) {
-                this.bind(statement, m - 1, arguments[m]);
-            }
-        }
-        try {
-            var dataset = [];
-            while (statement.executeStep()) {
-                var row = [];
-                for (var i = 0, k = statement.columnCount; i < k; i++) {
-                    row[statement.getColumnName(i)] = statement.getUTF8String(i);
-                }
-                dataset.push(row);
-            }
-        }
-        finally {
-            statement.reset();
-        }
-        if (ourTransaction) {
-            conn.commitTransaction();
-        }
-        return dataset;
     },
     
     assync: function(sql, param){
@@ -81,7 +47,7 @@ var $sqlite = {
         }
     },
     
-    execute: function(sql, param){
+    doSQL: function(sql, param){
         var conn = this.getConnection();
         var ourTransaction = false;
         if (conn.transactionInProgress) {
@@ -89,13 +55,23 @@ var $sqlite = {
             conn.beginTransactionAs(conn.TRANSACTION_DEFERRED);
         }
         var statement = conn.createStatement(sql);
-        if (param) {
-            for (var m = 1, arg = null; arg = arguments[m]; m++) {
-                this.bind(statement, m - 1, arg);
+        //Check if has more than one parameter (sql)
+        if (arguments.length > 1) {
+            //Starts at 1 because first param is sql by youself
+            for (var m = 1; m < arguments.length; m++) {
+                this.bind(statement, m - 1, arguments[m]);
             }
         }
         try {
-            statement.execute();
+            var dataset = [];
+            //Execute statement, if it is a UPDATE or something without a result, then nothing gonna happen with dataset
+            while (statement.executeStep()) {
+                var row = [];
+                for (var i = 0, k = statement.columnCount; i < k; i++) {
+                    row[statement.getColumnName(i)] = statement.getUTF8String(i);
+                }
+                dataset.push(row);
+            }
         }
         finally {
             statement.reset();
@@ -103,10 +79,11 @@ var $sqlite = {
         if (ourTransaction) {
             conn.commitTransaction();
         }
+        return dataset;
     },
     
     bind: function(statement, index, value){
-        Log.debug("Binding: " + value + " at index: " + index + " on statment: " + statement);
+        Log.debug("Binding: " + value + " at index: " + index);
         if (value === undefined) 
             throw "Attempted to bind undefined parameter '" + name + "'";
         else 
