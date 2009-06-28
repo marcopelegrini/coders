@@ -1,3 +1,5 @@
+pref("extensions.changeHosts.log", true);
+
 pref("extensions.changeHosts.hosts-location", "");
 pref("extensions.changeHosts.definitions-dir", "");
 pref("extensions.changeHosts.definitions-ext",".hosts");

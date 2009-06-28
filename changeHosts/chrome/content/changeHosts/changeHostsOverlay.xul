@@ -4,10 +4,11 @@
 <overlay id="changeHostsOverlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 
 	<!-- This imports our javascript. -->
+	<script type="application/x-javascript" src="chrome://changeHosts/content/databaseUtil.js"></script>
 	<script type="application/x-javascript" src="chrome://changeHosts/content/changeHostsOverlay.js"></script>
 	<script type="application/x-javascript" src="chrome://changeHosts/content/changeHosts.js"></script>
     <script type="application/x-javascript" src="chrome://changeHosts/content/preferenceUtils.js"/>	
-    <script type="application/x-javascript" src="chrome://changeHosts/content/utils.js"/>	
+    <script type="application/x-javascript" src="chrome://changeHosts/content/utils.js"/>
 	
 	<script type="text/javascript">
 	<![CDATA[
@@ -61,9 +62,13 @@
 				<menuitem label="Gerar American Express" oncommand="mostraAmex();" />
 				<menuitem label="Gerar Diners Club" oncommand="mostraDiners();" />
 				<menuseparator />
-				<!--<menuitem label="Opções" accesskey="O" oncommand="window.openDialog('chrome://changeHosts/content/options.xul', 'Preferences', 'chrome,titlebar,toolbar,centerscreen,modal');" />-->
 				<menuitem label="Opções" accesskey="O" oncommand="Prefs.open();" />
-				<menuitem label="Sobre" accesskey="S" oncommand="window.openDialog('chrome://changeHosts/content/about.xul', 'changeHosts-about', 'centerscreen,chrome,modal');" />
+
+				<menuitem label="Create DB" oncommand="test_createDB();" />
+				<menuitem label="Simple Add Record" oncommand="test_addRecord();" />
+				<menuitem label="Parameterized Add Record" oncommand="test_addRecordParameterized();" />
+				<menuitem label="Simple Select" oncommand="test_Select();" />
+				<menuitem label="Parameterized Select" oncommand="test_SelectParameterized();" />
 			</menupopup>
 		</statusbarpanel> 
 
@@ -75,5 +80,4 @@
 			</vbox>
 		</tooltip>
 	</statusbar>	
-	
 </overlay>

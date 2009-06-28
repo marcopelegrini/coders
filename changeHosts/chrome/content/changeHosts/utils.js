@@ -1,6 +1,32 @@
 /**
  * @author marcotulio
  */
+const console = Application.console;
+const logPreference = "log";
+
+var Log = {
+    debug: function(string){
+        if (Prefs.getBool(logPreference)) {
+            console.log("[DEBUG] - " + string);
+        }
+    },
+    info: function(string){
+        if (Prefs.getBool(logPreference)) {
+            console.log("[INFO] - " + string);
+        }
+    },
+    warn: function(string){
+        if (Prefs.getBool(logPreference)) {
+            console.log("[WARN] - " + string);
+        }
+    },
+    error: function(string){
+        if (Prefs.getBool(logPreference)) {
+            console.log("[ERROR] - " + string);
+        }
+    }
+}
+
 var Util = {
     getOperationSystem: function(){
         const Cc = Components.classes;
