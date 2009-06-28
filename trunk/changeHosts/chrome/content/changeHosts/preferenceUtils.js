@@ -1,55 +1,53 @@
 /**
  * @author marcotulio
  */
-const console = Application.console;
+// Preferences contants
+const branchName = "extensions.changeHosts.";
+const preferenceWindowType = "changeHosts:settings";
+const preferenceWindowURI = "chrome://changeHosts/content/options.xul";
+const preferenceWindowOptions = "chrome,toolbar,centerscreen";
 
-var Log = {
-    open: function(){
-        console.open();
-    },
-    info: function(string){
-        console.log("[INFO] - " + string);
-    },
-    warn: function(string){
-        console.log("[WARN] - " + string);
-    },
-    error: function(string){
-        console.log("[ERROR] - " + string);
-    }
-}
+var prefs = null;
 
 var Prefs = {
     load: function(){
     },
-    
+    getPrefs: function(){
+        if (prefs == null) {
+            var prefService = Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefService);
+            prefs = prefService.getBranch(branchName);
+        }
+        return prefs;
+    },
+    getBool: function(value){
+        return this.getPrefs().getBoolPref(value);
+    },
     open: function(){
         var wm = Cc['@mozilla.org/appshell/window-mediator;1'].getService(Ci.nsIWindowMediator);
-        var topWindow = wm.getMostRecentWindow("changeHosts:settings");
+        var topWindow = wm.getMostRecentWindow(preferenceWindowType);
         
         if (topWindow) {
             topWindow.focus();
         }
         else {
             topWindow = wm.getMostRecentWindow(null);
-            topWindow.openDialog("chrome://changeHosts/content/options.xul", "changeHosts:settings", "chrome,toolbar,centerscreen");
+            topWindow.openDialog(preferenceWindowURI, "", preferenceWindowOptions);
         }
     },
     reset: function(){
-        //var prefService = Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefService);
-        var branchName = "extensions.changeHosts.";
-        //var prefBranch = prefService.getBranch(branchName);
-        var prefBranch = Components.classes['@mozilla.org/preferences-service;1'].getService(Components.interfaces.nsIPrefBranch);
-        
-        Log.open();
-        
-        //alert("doing");
+        var prefBranch = Prefs.getPrefs();
         var c = {
             value: 0
         };
-        var prefs = prefBranch.getChildList(branchName, c);
+        var prefs = prefBranch.getChildList("", c);
         for (var i = 0; i < c.value; ++i) {
-            Log.info(prefs[i]);
-            //prefBranch.clearUserPref(prefs[i]);
+            if (prefBranch.prefHasUserValue(prefs[i])) {
+                Log.debug("Cleaning... " + prefs[i]);
+                prefBranch.clearUserPref(prefs[i]);
+            }
+            else {
+                Log.debug("User doesn't set this value: " + prefs[i]);
+            }
         }
     }
 }

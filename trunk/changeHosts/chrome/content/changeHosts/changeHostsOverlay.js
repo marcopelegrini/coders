@@ -1,107 +1,51 @@
-var gRFPrefsService = Components.classes["@mozilla.org/preferences-service;1"]
-		.getService(Components.interfaces.nsIPrefService);
-var gRFPrefs = gRFPrefsService.getBranch("creditCardGenerator."); // Get the "creditCardGenerator." branch
+//some variables :
+// some example SQL queries:
+var myCreateDBQuery = 'CREATE TABLE IF NOT EXISTS mybooks_tbl (id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT);';
 
-var pontuado = true;
-var mostraIconeBarraStatus = true;
+var myInsertQuery = 'INSERT INTO mybooks_tbl(title) VALUES("book title1");';
+var myInsertQueryParameterized = 'INSERT INTO mybooks_tbl(title) VALUES(?1);';
 
-window.addEventListener("load", function() {
-	carregaPrefs();
-}, true);
+var mySelectQuery = 'SELECT id,title FROM mybooks_tbl';
+var mySelectQueryParameterized = 'SELECT id,title FROM mybooks_tbl WHERE id = ?1 AND title = ?2';
 
-// Função para carregar as preferências
-function carregaPrefs() {
-	var prefsService = Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefService);
-	// Get the "creditCardGenerator." branch
-	var prefs = prefsService.getBranch("creditCardGenerator."); 
+// For anything other than SELECT statement, use $sqlite.cmd() :
 
-	try {
-		pontuado = prefs.getBoolPref('pontuacao');
-		mostraIconeBarraStatus = prefs.getBoolPref('mostraIconeBarraStatus');
-		document.getElementById('creditCardGenerator_statusbar_panel').style.visibility = mostraIconeBarraStatus ? "visible" : "collapse";
-		document.getElementById('creditCardGenerator_statusbar_panel').setAttribute("status", mostraIconeBarraStatus ? "1" : "0");
-	} catch (e) {
-		pontuado = false;
-		mostraIconeBarraStatus = false;
-	}
+// creating a DB:
+function test_createDB(){
+    $sqlite.assync(myCreateDBQuery);
 }
 
-function setClipboardContents(copytext){
-	try
-	{
-		var str = Components.classes["@mozilla.org/supports-string;1"].createInstance(Components.interfaces.nsISupportsString);
-		if (!str) {
-			return false;
-		}
-		str.data = copytext;
-		var trans = Components.classes["@mozilla.org/widget/transferable;1"].createInstance(Components.interfaces.nsITransferable);
-		if (!trans) {
-			return false;
-		}
-
-		trans.addDataFlavor("text/unicode");
-		trans.setTransferData("text/unicode",str,copytext.length * 2);
-
-		var clipid = Components.interfaces.nsIClipboard;
-		var clip = Components.classes["@mozilla.org/widget/clipboard;1"].getService(clipid);
-		if (!clip) {
-			return false;
-		}
-		clip.setData(trans,null,clipid.kGlobalClipboard);
-		return true;
-	}
-	catch(e)
-	{
-		return false;
-	}
+// simple add record:
+function test_addRecord(){
+    $sqlite.assync(myInsertQuery);
 }
 
-function mostraDefault() {
-	var prefsService = Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefService);
-	// Get the "creditCardGenerator." branch
-	var prefs = prefsService.getBranch("creditCardGenerator.");
-	var ndx = prefs.getIntPref("defaultCard");
-	switch(ndx)
-	{
-	case 1:
-	  mostraMaster();
-	  break;
-	case 2:
-	  mostraAmex();
-	  break;
-	case 3:
-	  mostraDiners();
-	  break;
-	default:
-	  mostraVisa();
-	}
+// parameterized add record, add parameters as much as you want:	
+function test_addRecordParameterized(){
+    // for example, adding 3 records:
+    for (var i = 1; i < 4; i++) {
+        $sqlite.assync(myInsertQueryParameterized, 'book title' + i + '');
+    }
 }
 
-function mostraVisa() {
-	generateCreditCard(visaPrefixList, "VISA");
+// for SELECT, use $sqlite.select() :
+
+// simple select:
+function test_Select(){
+    var myArray1 = $sqlite.select(mySelectQuery);
+    // Now you can loop through the array:
+    for (var j = 0; j < myArray1.length; j++) {
+        // change this as you wish:
+        Log.info(myArray1[j]['title']);
+    }
 }
 
-function mostraMaster() {
-	generateCreditCard(mastercardPrefixList, "Master Card");
-}
-
-function mostraAmex() {
-	generateCreditCard(amexPrefixList, "American Express");
-}
-
-function mostraDiners() {
-	generateCreditCard(dinersPrefixList, "Diners");
-}
-
-function generateCreditCard(prefixList, cardName) {
-	var sCC = credit_card_number(prefixList, 16, 1);
-	var theBox = document.commandDispatcher.focusedElement;
-	if (theBox) {
-		theBox.value = sCC[0];
-	}
-	else 
-	{
-		setClipboardContents(sCC[0]);
-		alert("Cartão de Crédito " + cardName + " gerado: " + sCC[0] + "\n\nAgora basta colar onde quiser.");
-	}
+// select with bound parameters, add parameters as much as you want:
+function test_SelectParameterized(){
+    var myArray1 = $sqlite.select(mySelectQueryParameterized, '1', 'book title1');
+    // Now you can loop through the array:
+    for (var j = 0; j < myArray1.length; j++) {
+        // change this as you wish:
+        Log.info(myArray1[j]['title']);
+    }
 }
