@@ -37,7 +37,7 @@
                         </hbox>
                         <spacer height="10"/>
                         <label value="#Selecione:" control="definition-name"/>
-                        <listbox seltype="multiple" style="min-height: 30.7em; ">
+                        <listbox id="definition-list" seltype="multiple" style="min-height: 30.7em;" onselect="alert(this.selectedItem.label);">
                             <listitem label="Butter Pecan"/>
                             <listitem label="Chocolate Chip"/>
                             <listitem label="Raspberry Ripple"/>
@@ -47,31 +47,8 @@
                             <listitem label="Raspberry Ripple"/>
                             <listitem label="Squash Swirl"/>
                             <listitem label="Butter Pecan"/>
-                            <listitem label="Chocolate Chip"/>
-                            <listitem label="Raspberry Ripple"/>
-                            <listitem label="Squash Swirl"/>
-                            <listitem label="Butter Pecan"/>
-                            <listitem label="Chocolate Chip"/>
-                            <listitem label="Raspberry Ripple"/>
-                            <listitem label="Squash Swirl"/>
-                            <listitem label="Butter Pecan"/>
-                            <listitem label="Chocolate Chip"/>
-                            <listitem label="Raspberry Ripple"/>
-                            <listitem label="Squash Swirl"/>
-                            <listitem label="Butter Pecan"/>
-                            <listitem label="Chocolate Chip"/>
-                            <listitem label="Raspberry Ripple"/>
-                            <listitem label="Squash Swirl"/>
-                            <listitem label="Butter Pecan"/>
-                            <listitem label="Chocolate Chip"/>
-                            <listitem label="Raspberry Ripple"/>
-                            <listitem label="Squash Swirl"/>
-                            <listitem label="Butter Pecan"/>
-                            <listitem label="Chocolate Chip"/>
-                            <listitem label="Raspberry Ripple"/>
-                            <listitem label="Squash Swirl"/>
                         </listbox>
-                        <button id="delete-definition-button" label="#Remover" oncommand="deleteDefinition();"/>
+                        <button id="delete-definition-button" label="#Remover" disabled="true"  oncommand="deleteDefinition();"/>
                     </vbox>
                 </groupbox>
             </vbox>
@@ -83,21 +60,22 @@
                     <hbox>
                         <vbox>
                             <hbox>
-                                <checkbox id="show-in-menu" label="&cH.showInMenu;" checked="false"/>
+                                <checkbox id="show-in-menu" label="&cH.showInMenu;" disabled="true" checked="false"/>
                             </hbox>
                             <hbox>
-                                <textbox id="definition-name" multiline="true" wrap="off" style="min-width: 35em; min-height: 35em;"/>
+                                <textbox id="definition-name" multiline="true" wrap="off" disabled="true" style="min-width: 35em; min-height: 35em;"/>
                             </hbox>
                             <hbox align="right">
-                                <button id="save-definition-button" label="#Salvar"/>
+                                <button id="save-definition-button" disabled="true" label="#Salvar"/>
                             </hbox>
                         </vbox>
                         <groupbox orient="horizontal">
                             <caption label="#Includes"/>
                             <vbox>
-                                <textbox class="plain" style="background-color: transparent; max-height:3em" multiline="true" readonly="true" onoverflow="this.height = this.inputField.scrollHeight;"
-                                 DOMAttrModified="if(event.attrName == 'value') this.value = event.newValue; return true;" value="#Selecione as definições que deseja incluir ao gerar o hosts:"/>
-                                <listbox seltype="multiple" style="min-height: 32.9em; max-width: 14em;">
+                                <!--<textbox class="plain" style="background-color: transparent; max-height:3em" multiline="true" readonly="true" onoverflow="this.height = this.inputField.scrollHeight;"
+                                DOMAttrModified="if(event.attrName == 'value') this.value = event.newValue; return true;" value="#Selecione as definições que deseja incluir ao gerar o hosts:"/>-->
+                                <description>Selecione as definições que deseja incluir ao gerar o hosts:</description>
+                                <listbox seltype="multiple" disabled="true" style="min-height: 33.1em; max-width: 15em;">
                                     <listitem label="Butter Pecan"/>
                                     <listitem label="Chocolate Chip"/>
                                     <listitem label="Raspberry Ripple"/>
@@ -105,31 +83,6 @@
                                     <listitem label="Butter Pecan"/>
                                     <listitem label="Chocolate Chip"/>
                                     <listitem label="Raspberry Ripple"/>
-                                    <listitem label="Squash Swirl"/>
-                                    <listitem label="Butter Pecan"/>
-                                    <listitem label="Chocolate Chip"/>
-                                    <listitem label="Raspberry Ripple"/>
-                                    <listitem label="Squash Swirl"/>
-                                    <listitem label="Butter Pecan"/>
-                                    <listitem label="Chocolate Chip"/>
-                                    <listitem label="Raspberry Ripple"/>
-                                    <listitem label="Squash Swirl"/>
-                                    <listitem label="Butter Pecan"/>
-                                    <listitem label="Chocolate Chip"/>
-                                    <listitem label="Raspberry Ripple"/>
-                                    <listitem label="Squash Swirl"/>
-                                    <listitem label="Butter Pecan"/>
-                                    <listitem label="Chocolate Chip"/>
-                                    <listitem label="Raspberry Ripple"/>
-                                    <listitem label="Squash Swirl"/>
-                                    <listitem label="Butter Pecan"/>
-                                    <listitem label="Chocolate Chip"/>
-                                    <listitem label="Raspberry Ripple"/>
-                                    <listitem label="Squash Swirl"/>
-                                    <listitem label="Butter Pecan"/>
-                                    <listitem label="Chocolate Chip"/>
-                                    <listitem label="Raspberry Ripple"/>
-                                    <listitem label="Squash Swirl"/>
                                 </listbox>
                             </vbox>
                         </groupbox>
