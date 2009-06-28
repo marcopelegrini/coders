@@ -45,27 +45,18 @@ function creditCardGeneratorAccept() {
 */
 
 function addDefinition() {
-    var tabName = document.getElementById("definition-name").value;
+	var tabNameTextBox = document.getElementById("definition-name");
+    var tabName = tabNameTextBox.value;
     tabName = trim(tabName);
     if (tabName == "") {
         alert("Preencha o nome da definição");
         return;
     }
-    var tabs = document.getElementById("changeHosts-preferences-tabs");
-    var tab = document.createElement("tab");
-    tab.setAttribute("label", tabName);
-    tab.setAttribute("id", "changeHosts-tab-geral" + tabName);
-    tab.setAttribute("tabIndex", "2");
-    tabs.appendChild(tab);
-
-    var tabpanels = document.getElementById("tabpanels");
-    var tabpanelTemplate = document.getElementById("definition-tab-template");
-    var tabpanel = tabpanelTemplate.cloneNode(true);
-    tabpanel.setAttribute("hidden", "false");
-
-    tabpanels.appendChild(tabpanel);
-
-    window.sizeToContent();
+    var list = document.getElementById("definition-list");
+	var item = list.appendItem(tabName, tabName+"id");
+	list.selectItem(item);
+	
+	tabNameTextBox.reset()
 }
 
 function trim(string) {
