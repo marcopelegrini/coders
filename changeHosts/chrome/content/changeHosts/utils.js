@@ -27,12 +27,23 @@ var Log = {
     }
 }
 
-var Util = {
+var Utils = {
     getOperationSystem: function(){
         const Cc = Components.classes;
         const Ci = Components.interfaces;
         var sysInfo = Cc['@mozilla.org/system-info;1'].getService(Ci.nsIPropertyBag2);
-        var pratform = sysInfo.getProperty('name');
-        alert(pratform);
+        var plataform = sysInfo.getProperty('name');
+        return plataform;
+    },
+    
+    trim: function(string){
+        if (string != null && string != undefined) {
+            return string.replace(/^\s*/, "").replace(/\s*$/, "");
+        }
+        return string;
+    },
+	
+    getElement: function(id){
+        return document.getElementById(id);
     }
 }

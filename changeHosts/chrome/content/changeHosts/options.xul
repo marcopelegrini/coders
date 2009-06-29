@@ -14,15 +14,16 @@
  type="prefwindow">
     
     <script type="application/x-javascript" src="chrome://changeHosts/content/utils.js"/>
-    <script type="application/x-javascript" src="chrome://changeHosts/content/optionsOverlay.js"/>
+    <script type="application/x-javascript" src="chrome://changeHosts/content/fileUtils.js"/>
     <script type="application/x-javascript" src="chrome://changeHosts/content/preferenceUtils.js"/>
+    <script type="application/x-javascript" src="chrome://changeHosts/content/optionsOverlay.js"/>
+    <script type="application/x-javascript" src="chrome://changeHosts/content/js/definitions.js"/>
     
     <script type="text/javascript">
         <![CDATA[
 		//Something
 	]]>
     </script>
-    
     <prefpane id="prefpane_definitions" label="#Definições">
         <hbox>
             <!-- First column -->
@@ -30,17 +31,20 @@
                 <groupbox orient="horizontal">
                     <caption label="#Definições"/>
                     <vbox>
-                        <label value="&ch.createDefinitions;:" control="definition-name"/>
-                        <hbox>
-                            <textbox id="definition-name"/>
-                            <button id="new-definition-button" label="&ch.doCreate;" oncommand="addDefinition();"/>
-                        </hbox>
-                        <spacer height="10"/>
-                        <label value="#Selecione:" control="definition-name"/>
-                        <listbox id="definition-list" seltype="multiple" style="min-height: 30.7em;" onselect="alert(this.selectedItem.label);">
+                        <listbox id="definition-list" seltype="multiple" style="min-height: 34.6em; max-width: 13em;" onselect="Definitions.selected(this.selectedItem);">
+                            <listitem label="Butter Pecan" value="butterPecan"/>
+                            <listitem label="Chocolate Chip" value="butterPecan"/>
+                            <listitem label="Raspberry Ripple"/>
+                            <listitem label="Squash Swirl"/>
                             <listitem label="Butter Pecan"/>
                             <listitem label="Chocolate Chip"/>
                             <listitem label="Raspberry Ripple"/>
+                            <listitem label="Squash Swirl"/>
+                            <listitem label="Squash Swirl"/>
+                            <listitem label="Butter Pecan"/>
+                            <listitem label="Chocolate Chip"/>
+                            <listitem label="Raspberry Ripple"/>
+                            <listitem label="Squash Swirl"/>
                             <listitem label="Squash Swirl"/>
                             <listitem label="Butter Pecan"/>
                             <listitem label="Chocolate Chip"/>
@@ -48,7 +52,9 @@
                             <listitem label="Squash Swirl"/>
                             <listitem label="Butter Pecan"/>
                         </listbox>
-                        <button id="delete-definition-button" label="#Remover" disabled="true"  oncommand="deleteDefinition();"/>
+                        <button id="new-definition-button" label="&ch.createDefinitions;" oncommand="Definitions.add();"/>
+                        <button id="edit-definition-button" label="#Editar" disabled="true" oncommand="Definitions.edit();"/>						
+                        <button id="delete-definition-button" label="#Remover" disabled="true" oncommand="Definitions.delete();"/>
                     </vbox>
                 </groupbox>
             </vbox>
@@ -56,17 +62,37 @@
             <!-- Second column -->
             <vbox>
                 <groupbox orient="vertical">
-                    <caption label="#Editar"/>
+                    <caption id="definition-label" label="#Editar"/>
                     <hbox>
                         <vbox>
+                            <grid>
+                                <columns>
+                                    <column width="190"/>
+                                    <column/>
+                                </columns>
+                                <rows>
+                                    <row>
+                                        <hbox>
+                                            <vbox>
+                                                <label id="definition-name-label" value="#Nome:" disabled="true" control="definition-name"/>
+                                                <textbox id="definition-name" disabled="true" style="max-width: 12em;"/>
+                                            </vbox>
+                                        </hbox>
+                                        <hbox align="right">
+                                            <vbox>
+                                                <checkbox id="show-in-menu" label="&cH.showInMenu;" disabled="true" checked="true"/>
+                                                <checkbox id="includable" label="#Pode ser incluida a outras definições" disabled="true" checked="true"/>
+                                            </vbox>
+                                        </hbox>
+                                    </row>
+                                </rows>
+                            </grid>
                             <hbox>
-                                <checkbox id="show-in-menu" label="&cH.showInMenu;" disabled="true" checked="false"/>
-                            </hbox>
-                            <hbox>
-                                <textbox id="definition-name" multiline="true" wrap="off" disabled="true" style="min-width: 35em; min-height: 35em;"/>
+                                <textbox id="content" multiline="true" wrap="off" disabled="true" style="min-width: 35em; min-height: 33.1em;"/>
                             </hbox>
                             <hbox align="right">
-                                <button id="save-definition-button" disabled="true" label="#Salvar"/>
+                                <button id="cancel-definition-button" disabled="true" label="#Cancelar" oncommand="Definitions.cancel();"/>
+                                <button id="save-definition-button" disabled="true" label="#Salvar" oncommand="Definitions.save();"/>
                             </hbox>
                         </vbox>
                         <groupbox orient="horizontal">
@@ -74,15 +100,19 @@
                             <vbox>
                                 <!--<textbox class="plain" style="background-color: transparent; max-height:3em" multiline="true" readonly="true" onoverflow="this.height = this.inputField.scrollHeight;"
                                 DOMAttrModified="if(event.attrName == 'value') this.value = event.newValue; return true;" value="#Selecione as definições que deseja incluir ao gerar o hosts:"/>-->
-                                <description>Selecione as definições que deseja incluir ao gerar o hosts:</description>
-                                <listbox seltype="multiple" disabled="true" style="min-height: 33.1em; max-width: 15em;">
-                                    <listitem label="Butter Pecan"/>
-                                    <listitem label="Chocolate Chip"/>
-                                    <listitem label="Raspberry Ripple"/>
-                                    <listitem label="Squash Swirl"/>
-                                    <listitem label="Butter Pecan"/>
-                                    <listitem label="Chocolate Chip"/>
-                                    <listitem label="Raspberry Ripple"/>
+                                <description>
+                                    Selecione as definições que deseja incluir ao gerar o hosts:
+                                </description>
+                                <listbox id="includes" disabled="true" style="min-height: 33em; max-width: 15em;">
+                                    <listitem label="Butter Pecan" type="checkbox"/>
+                                    <listitem label="Chocolate Chip" type="checkbox"/>
+                                    <listitem label="Raspberry Ripple" type="checkbox"/>
+                                    <listitem label="Squash Swirl" type="checkbox"/>
+                                    <listitem label="Butter Pecan" type="checkbox"/>
+                                    <listitem label="Chocolate Chip" type="checkbox"/>
+                                    <listitem label="Raspberry Ripple" type="checkbox"/>
+                                    <listitem label="Checkbox" type="checkbox"/>
+                                    <listitem label="Checked" type="checkbox" checked="true"/>
                                 </listbox>
                             </vbox>
                         </groupbox>
@@ -94,12 +124,11 @@
     <prefpane id="prefpane_general" label="#Geral">
         <preferences>
             <preference id="hosts-location-preference" name="extensions.changeHosts.hosts-location" type="unichar"/>
-            <preference id="definitions-dir-preference" name="extensions.changeHosts.definitions-dir" type="unichar"/>
-            <preference id="definitions-ext-preference" name="extensions.changeHosts.definitions-ext" type="unichar"/>
             <preference id="flush-dns-preference" name="extensions.changeHosts.flush-dns" type="bool"/>
             <preference id="reload-page-preference" name="extensions.changeHosts.reload-page" type="bool"/>
             <preference id="show-ip-status-preference" name="extensions.changeHosts.show-ip-status" type="bool"/>
             <preference id="show-icon-status-preference" name="extensions.changeHosts.show-icon-status" type="bool"/>
+            <preference id="last-backup-preference" name="extensions.changeHosts.last-backup" type="unichar"/>
         </preferences>
         <hbox>
             <vbox>
@@ -107,32 +136,12 @@
                     <caption label="&cH.hostsLocation;"/>
                     <vbox>
                         <hbox>
-                            <textbox id="hosts-location" preference="hosts-location-preference" style="min-width: 25em;"/>
+                            <textbox id="hosts-location" preference="hosts-location-preference" style="min-width: 27em;"/>
                         </hbox>
                         <hbox align="right">
-                            <button id="find-hosts-button" label="&cH.find;" oncommand="pickHostFile();"/>
-                            <button id="asdf" label="Ler" oncommand="read();"/>
-                            <button id="asdfasdf" label="Salvar" oncommand="save();"/>
-                        </hbox>
-                    </vbox>
-                </groupbox>
-                <groupbox orient="horizontal">
-                    <caption label="#Diretório onde salvar as definições:"/>
-                    <vbox>
-                        <hbox>
-                            <textbox id="definitions-dir" preference="definitions-dir-preference" style="min-width: 25em;"/>
-                        </hbox>
-                        <hbox align="right">
-                            <button id="find-definitions-dir-button" label="&cH.find;" oncommand="pickDefinitionsDir();"/>
-                        </hbox>
-                    </vbox>
-                </groupbox>
-                <groupbox orient="horizontal">
-                    <caption label="#Extensão dos arquivos de definição"/>
-                    <vbox>
-                        <hbox>
-                            <textbox id="definitions-ext" preference="definitions-ext-preference" style="max-width: 10em;"/>
-                            <label value="#(.host, .hosts, .txt, .file, etc)"/>
+                            <button id="find-hosts-button" label="&cH.find;" oncommand="Options.pickHostFile();"/>
+                            <button id="asdf" label="Ler" oncommand="Options.read();"/>
+                            <button id="asdfasdf" label="Salvar" oncommand="Options.save();"/>
                         </hbox>
                     </vbox>
                 </groupbox>
@@ -140,52 +149,73 @@
                     <caption label="&ch.permissionTest;"/>
                     <vbox>
                         <hbox>
-                            <button id="test-button" label="&ch.doTest;" oncommand="checkPermission();"/>
-                        </hbox>
-                        <hbox>
-                            <grid flex="1">
+                            <grid>
                                 <columns>
-                                    <column width="140"/>
-                                    <column width="70"/>
-                                    <column width="70"/>
+                                    <column width="110"/>
+                                    <column width="100"/>
+                                    <column width="20"/>
+                                    <column width="100"/>
+                                    <column width="20"/>
                                 </columns>
                                 <rows>
                                     <row>
-                                        <label/>
-                                        <label value="#Leitura"/>
-                                        <label value="#Gravação"/>
-                                    </row>
-                                    <row>
-                                        <label value="#Arquivo hosts:"/>
-                                        <image id="testReadFile" class="testImgQuestion"/>
-                                        <image id="testWriteFile" class="testImgQuestion"/>
-                                    </row>
-                                    <separator class="groove-thin borderUp5 borderDown5"/>
-                                    <row>
-                                        <label value="#Diretório de definições:"/>
-                                        <image id="testReadDir" class="testImgQuestion"/>
-                                        <image id="testWriteDir" class="testImgQuestion"/>
+                                        <hbox>
+                                            <button id="test-button" label="&ch.doTest;" oncommand="Options.checkPermission();"/>
+                                        </hbox>
+                                        <hbox align="right">
+                                            <label value="#Leitura:"/>
+                                        </hbox>
+                                        <hbox>
+                                            <image id="testReadFile" class="testImgQuestion" orient="horizontal"/>
+                                        </hbox>
+                                        <hbox align="right">
+                                            <label value="#Gravação:"/>
+                                        </hbox>
+                                        <hbox>
+                                            <image id="testWriteFile" class="testImgQuestion"/>
+                                        </hbox>
                                     </row>
                                 </rows>
                             </grid>
                         </hbox>
                     </vbox>
                 </groupbox>
-            </vbox>
-            <vbox>
                 <groupbox orient="vertical">
                     <caption label="#Outras configurações"/>
-                    <checkbox preference="flush-dns-preference" label="#Recarregar tabela de DNS ao trocar a definição de hosts"/>
+                    <checkbox preference="flush-dns-preference" label="#Recarregar DNS ao trocar a definição de hosts"/>
                     <checkbox preference="reload-page-preference" label="#Recarregar página ao trocar a definição de hosts"/>
-                    <separator class="groove-thin borderUp5 borderDown5"/>
+                    <spacer height="10"/>
                     <checkbox preference="show-ip-status-preference" label="#Mostrar IP da página atual na barra de status"/>
                     <checkbox preference="show-icon-status-preference" label="#Mostrar icone do Change Hosts na barra de status"/>
                 </groupbox>
-                <hbox align="right">
-                    <button id="reset-preferences-button" label="#Redefinir preferências" oncommand="Prefs.reset();"/>
-                </hbox>
+            </vbox>
+            <vbox>
+                <groupbox orient="vertical">
+                    <caption label="#Backup"/>
+                    <description style="max-width: 28em;">
+                        #As definições podem ser salvas como um arquivo e restauradas caso precise reinstalar o firefox.
+                    </description>
+                    <spacer height="10"/>
+                    <hbox>
+                        <button id="reset-preferences-button" label="#Efetuar" flex="1" oncommand="Options.reset();"/>
+                        <button id="reset-preferences-button" label="#Restaurar" flex="1" oncommand="Options.reset();"/>
+                    </hbox>
+                    <hbox align="right">
+                        <label value="#Ultimo backup: "/><label id="backup-date" preference-editable="true" preference="last-backup-preference"/>
+                    </hbox>
+                </groupbox>
+                <groupbox orient="vertical">
+                    <caption label="#Restaurar padrões"/>
+                    <description style="max-width: 28em;">
+                        #Você pode restaurar as preferencias para os valores padrões, e remover todas as definições.
+                    </description>
+                    <spacer height="10"/>
+                    <hbox>
+                        <button id="reset-preferences-button" flex="1" label="#Redefinir preferências" oncommand="Options.reset();"/>
+                        <button id="reset-preferences-button" flex="4" label="#Limpar definições" oncommand="Options.reset();"/>
+                    </hbox>
+                </groupbox>
             </vbox>
         </hbox>
     </prefpane>
-    
 </prefwindow>
