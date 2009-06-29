@@ -33,7 +33,7 @@
             <image id="changeHosts_statusbar_panel_img"
              context="changeHosts-statepopup"
              tooltip="changeHosts-toolbar-tooltip"
-             onclick="if (event.button &lt; 2) { mostraDefault(); }"/>
+             onclick="if (event.button &lt; 2) { Prefs.open(); }"/>
             
             <menupopup id="changeHosts-statepopup">
                 <menuitem label="Gerar sad Visa" oncommand="getOperationSystem();"/>
@@ -41,13 +41,13 @@
                 <menuitem label="Gerar American Express" oncommand="mostraAmex();"/>
                 <menuitem label="Gerar Diners Club" oncommand="mostraDiners();"/>
                 <menuseparator/>
-                <menuitem label="asd" accesskey="O" oncommand="Prefs.open();"/>
                 
                 <menuitem label="Create DB" oncommand="test_createDB();"/>
                 <menuitem label="Simple Add Record" oncommand="test_addRecord();"/>
                 <menuitem label="Parameterized Add Record" oncommand="test_addRecordParameterized();"/>
                 <menuitem label="Simple Select" oncommand="test_Select();"/>
                 <menuitem label="Parameterized Select" oncommand="test_SelectParameterized();"/>
+                <menuitem label="XOptions" accesskey="O" oncommand="Prefs.open();"/>
             </menupopup>
         </statusbarpanel>
         
