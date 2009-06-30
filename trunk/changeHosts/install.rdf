@@ -10,12 +10,6 @@
 		<em:iconURL>chrome://changeHosts/skin/icon32.png</em:iconURL>
 		<em:aboutURL>chrome://changeHosts/content/options.xul</em:aboutURL>
 		<em:optionsURL>chrome://changeHosts/content/options.xul</em:optionsURL>
-		<!-- <em:file>
-			<Description about="urn:mozilla:extension:file:changeHosts.jar">
-				<em:package>content/changeHosts/</em:package>
-				<em:skin>skin/classic/changeHosts/</em:skin>
-			</Description>
-		</em:file>-->
 		<em:targetApplication>
 			<Description>
 				<em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
