@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+
+<dialog id="gercpfcnpjOptions"
+	title="Gerador de CPF e CNPJ"
+	buttons="accept, cancel"
+	ondialogaccept="gercpfcnpjAccept()" onload="gercpfcnpjInit()"
+	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+	<script type="application/x-javascript" src="chrome://gercpfcnpj/content/gercpfcnpjOptions.js"/>
+	<vbox flex="1">
+        <groupbox>
+		<caption label="Opções"/>
+		<hbox>
+		<vbox>
+			<checkbox id="gercpfcnpjPontuation"
+				label="Gerar com pontuação"
+				prefstring="gercpfcnpj.pontuacao"
+				tooltip="gercpfcnpj-pontuacao-tooltip" />
+			<checkbox id="gercpfcnpjStatusBarIcon"
+				label="Mostrar na barra de status"
+				prefstring="gercpfcnpj.mostraIconeBarraStatus" />
+		</vbox>
+		</hbox>
+        </groupbox>
+	</vbox>
+
+	<tooltip id="gercpfcnpj-pontuacao-tooltip" noautohide="true" orient="vertical" position="before_start" style="padding:2px;">
+		<vbox>
+			<label value="Pontuação" style="font-size: 12px; font-weight: bold;margin:2px;"/>
+			<label value="Com: 999.999.999-99" style="margin:2px;"/>
+			<label value="Sem: 99999999999" style="margin:2px;"/>
+		</vbox>
+	</tooltip>
+
+</dialog>

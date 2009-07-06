@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://gercpfcnpj/skin/gercpfcnpj.css" type="text/css"?>
+
+<overlay id="gercpfcnpjOverlay"
+         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+// This imports our javascript.
+
+<script type="application/x-javascript" src="chrome://gercpfcnpj/content/gercpfcnpjOverlay.js">
+
+</script>
+
+
+// This is for the right click menu.
+
+<popup id="contentAreaContextMenu">
+	<menu label="Gerador de CPF e CNPJ" accesskey="G" id="gercpfcnpj" insertafter="context-stop">
+	      <menupopup>
+			<menuitem label="Gerar CPF" accesskey="F" oncommand="mostraCPF();" />
+			<menuitem label="Gerar CNPJ" accesskey="J" oncommand="mostraCNPJ();" />	
+			<menuseparator/>
+			<menuitem label="Opções" accesskey="O" oncommand="window.openDialog('chrome://gercpfcnpj/content/gercpfcnpjOptions.xul', 'gercpfcnpj-options', 'centerscreen,chrome,modal');" />	
+	      </menupopup>
+	</menu>
+</popup>
+
+
+// This is for the Tools menu.
+
+<menupopup id="menu_ToolsPopup">
+	<menu label="Gerador de CPF e CNPJ" accesskey="G" id="gercpfcnpj" insertafter="devToolsSeparator">
+	      <menupopup>
+			<menuitem label="Gerar CPF" accesskey="F" oncommand="mostraCPF();" />
+			<menuitem label="Gerar CNPJ" accesskey="J" oncommand="mostraCNPJ();" />		
+			<menuseparator/>
+			<menuitem label="Opções" accesskey="O" oncommand="window.openDialog('chrome://gercpfcnpj/content/gercpfcnpjOptions.xul', 'gercpfcnpj-options', 'centerscreen,chrome,modal');" />	
+		</menupopup>
+	</menu>
+</menupopup>
+
+// Adicionado por Bruno Caimar bruno.caimarATgmail.com em Fev 2006
+// - Exibe ícone no status bar e adiciona funcionalidades ao clique do mouse no mesmo
+// - Botão direito - Gerar CNPJ - Outros botões - Gera CPF 
+// - Botão Esquerdo - Mostra Menu com Opções e Sobre
+// -----------------------------------------------------------------------------
+// Modificado por Carlos Eugênio Torres em 22/02/2006
+// - Botão esquerdo: CPF
+// - Botão do meio : CNPJ
+// - Botão direito : Opções
+// -----------------------------------------------------------------------------
+// Modificaddo por Carlos Eugênio Torres em 26/07/2008
+// - Adaptação ao Firefox 3.0
+<statusbar id="status-bar">
+	<statusbarpanel id="cpfcnpj_statusbar_panel"
+			class="statusbarpanel-menu-iconic"  
+			tooltip="gercpfcnpj-toolbar-tooltip"
+			onclick="gerarCPFouCNPJ(event);"
+			insertbefore="offline-status">
+	</statusbarpanel> 
+
+	<tooltip id="gercpfcnpj-toolbar-tooltip" noautohide="true" orient="vertical" position="before_start" style="padding:2px;">
+		<vbox>
+			<label value="Gerador de CPF e CNPJ" style="font-size: 12px; font-weight: bold;margin:2px;"/>
+			<label value="Botão esquerdo do mouse: Gera CPF" style="margin:2px;"/>
+			<label value="Botão do meio do mouse: Gera CNPJ" style="margin:2px;"/>
+			<label value="Botão direito do mouse: Mostra opções" style="margin:2px;"/>
+		</vbox>
+	</tooltip>
+</statusbar>	
+</overlay>
