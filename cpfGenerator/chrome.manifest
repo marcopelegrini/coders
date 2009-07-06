@@ -1,0 +1,4 @@
+content	gercpfcnpj	chrome/content/
+skin	gercpfcnpj	skin chrome/skin/
+overlay	chrome://browser/content/browser.xul		chrome://gercpfcnpj/content/gercpfcnpjOverlay.xul
+overlay	chrome://navigator/content/navigator.xul	chrome://gercpfcnpj/content/gercpfcnpjOverlay.xul
