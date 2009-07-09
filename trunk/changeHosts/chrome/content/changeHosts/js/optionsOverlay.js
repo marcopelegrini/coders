@@ -1,8 +1,11 @@
-var Options = {
+/**
+ * @author marcotulio
+ */
+var CHOptions = {
     pickHostFile: function(){
-        //var hostsDir = FileUtils.getFile("c:\\windows\\system32\\drivers\\etc\\");
+        //var hostsDir = CTechFileUtils.getFile("c:\\windows\\system32\\drivers\\etc\\");
         
-        var fp = FileUtils.getFilePicker();
+        var fp = CTechFileUtils.getFilePicker();
         //fp.displayDirectory = hostsDir;
         const nsIFilePicker = Components.interfaces.nsIFilePicker;
         fp.appendFilters(nsIFilePicker.filterAll);
@@ -23,12 +26,12 @@ var Options = {
     checkFilePermission: function(){
         var filePath = document.getElementById("hosts-location").value;
         
-        if (Utils.trim(filePath) == "") {
+        if (CTechUtils.trim(filePath) == "") {
             alert("#Você deve selecionar um arquivo hosts.");
             return;
         }
         
-        var file = FileUtils.getFile(filePath);
+        var file = CTechFileCTechUtils.getFile(filePath);
         
         // Class names
         const imgOK = "testImgOK";
@@ -56,19 +59,19 @@ var Options = {
     },
     
     read: function(){
-        document.getElementById('definitions-dir').value = FileUtils.read(this.getFilePath());
+        document.getElementById('definitions-dir').value = CTechFileUtils.read(this.getFilePath());
     },
     
     save: function(){
-        FileUtils.save(this.getFilePath(), document.getElementById('definitions-dir').value);
+        CTechFileUtils.save(this.getFilePath(), document.getElementById('definitions-dir').value);
     },
     
     reset: function(){
         //Reset firefox managed preferences
-        Prefs.reset();
+        CTechPrefs.reset();
         //Set SO's defaults
-        var so = Utils.getOperationSystem();
-        Log.info("Writing defaults for system: " + so);
+        var so = CTechUtils.getOperationSystem();
+        CTechLog.info("Writing defaults for system: " + so);
 		var textbox = document.getElementById('hosts-location');
         switch (so) {
             case "Darwin":

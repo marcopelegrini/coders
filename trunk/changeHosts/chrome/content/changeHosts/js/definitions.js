@@ -1,7 +1,7 @@
 /**
  * @author marcotulio
  */
-var Definitions = {
+var CHDefinitions = {
     add: function(){
         this.uiEditable(true);
         this.uiClean();

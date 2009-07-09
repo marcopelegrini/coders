@@ -1,7 +1,7 @@
 /**
  * @author marcotulio
  */
-var FileUtils = {
+var CTechFileUtils = {
 
     getFile: function(filePath){
         var file = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsILocalFile);

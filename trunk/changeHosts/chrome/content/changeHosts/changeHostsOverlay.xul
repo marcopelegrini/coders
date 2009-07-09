@@ -5,26 +5,11 @@
 <overlay id="changeHostsOverlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
     
     <!-- This imports our javascript. -->
-    <script type="application/x-javascript" src="chrome://changeHosts/content/databaseUtil.js"/>
-    <script type="application/x-javascript" src="chrome://changeHosts/content/changeHostsOverlay.js"/>
-    <script type="application/x-javascript" src="chrome://changeHosts/content/changeHosts.js"/>
-    <script type="application/x-javascript" src="chrome://changeHosts/content/preferenceUtils.js"/>
-    <script type="application/x-javascript" src="chrome://changeHosts/content/utils.js"/>
-    
-    <!-- This is for the Tools menu. -->
-    <menupopup id="menu_ToolsPopup">
-        <menu label="Gerador de Cartoes de Credito" accesskey="C" id="changeHosts" insertafter="devToolsSeparator">
-            <menupopup>
-                <menuitem label="Gerar Cartao Visa" accesskey="V" oncommand="mostraVisa();"/>
-                <menuitem label="Gerar MasterCard" accesskey="M" oncommand="mostraMaster();"/>
-                <menuitem label="Gerar American Express" accesskey="A" oncommand="mostraAmex();"/>
-                <menuitem label="Gerar Diners Club" accesskey="D" oncommand="mostraDiners();"/>
-                <menuseparator/>
-                <menuitem label="Opcoes" accesskey="O" oncommand="window.openDialog('chrome://changeHosts/content/options.xul', 'changeHosts-options', 'centerscreen,chrome,modal');"/>
-                <menuitem label="Sobre" accesskey="S" oncommand="window.openDialog('chrome://changeHosts/content/about.xul', 'changeHosts-about', 'centerscreen,chrome,modal');"/>
-            </menupopup>
-        </menu>
-    </menupopup>
+    <script type="application/x-javascript" src="chrome://changeHosts/content/js/utils.js"/>
+    <script type="application/x-javascript" src="chrome://changeHosts/content/js/databaseUtil.js"/>
+    <script type="application/x-javascript" src="chrome://changeHosts/content/js/preferenceUtils.js"/>
+    <script type="application/x-javascript" src="chrome://changeHosts/content/js/changeHostsOverlay.js"/>
+    <script type="application/x-javascript" src="chrome://changeHosts/content/js/changeHosts.js"/>
     
     <!-- Status bar -->
     <statusbar id="status-bar">
@@ -33,21 +18,17 @@
             <image id="changeHosts_statusbar_panel_img"
              context="changeHosts-statepopup"
              tooltip="changeHosts-toolbar-tooltip"
-             onclick="if (event.button &lt; 2) { Prefs.open(); }"/>
+             onclick="if (event.button &lt; 2) { CHosts.openPreferences(); }"/>
             
             <menupopup id="changeHosts-statepopup">
-                <menuitem label="Gerar sad Visa" oncommand="getOperationSystem();"/>
-                <menuitem label="Gerar MasterCard" oncommand="mostraMaster();"/>
-                <menuitem label="Gerar American Express" oncommand="mostraAmex();"/>
-                <menuitem label="Gerar Diners Club" oncommand="mostraDiners();"/>
-                <menuseparator/>
-                
                 <menuitem label="Create DB" oncommand="test_createDB();"/>
                 <menuitem label="Simple Add Record" oncommand="test_addRecord();"/>
                 <menuitem label="Parameterized Add Record" oncommand="test_addRecordParameterized();"/>
                 <menuitem label="Simple Select" oncommand="test_Select();"/>
                 <menuitem label="Parameterized Select" oncommand="test_SelectParameterized();"/>
-                <menuitem label="XOptions" accesskey="O" oncommand="Prefs.open();"/>
+                <menuseparator/>
+                <menuitem label="Options" accesskey="O" oncommand="CHosts.openPreferences();"/>
+                <menuitem label="Gerar sad Visa" oncommand="CTechUtils.getOperationSystem();"/>
             </menupopup>
         </statusbarpanel>
         

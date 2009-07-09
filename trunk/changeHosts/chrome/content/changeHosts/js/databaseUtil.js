@@ -1,14 +1,14 @@
 /**
  * @author marcotulio
  */
-const file = 'changeHosts.sqlite';
-
-var $sqlite = {
+var CTechDatabaseUtil = {
+	file: 'changeHosts.sqlite',
+	
     mDBConn: null,
     
     init: function(){
         var db = Cc["@mozilla.org/file/directory_service;1"].getService(Ci.nsIProperties).get("ProfD", Ci.nsIFile);
-        db.append(file);
+        db.append(this.file);
         this.mDBConn = Cc["@mozilla.org/storage/service;1"].getService(Ci.mozIStorageService).openDatabase(db);
     },
     
@@ -30,14 +30,14 @@ var $sqlite = {
         try {
             statement.executeAsync({
                 handleResult: function(aResultSet){
-                    Log.info(aResultSet);
+                    CTechLog.info(aResultSet);
                 },
                 handleError: function(aError){
-                    Log.error("Error executing select: " + sql + ". Error: " + aError);
+                    CTechLog.error("Error executing select: " + sql + ". Error: " + aError);
                 },
                 handleCompletion: function(aReason){
                     if (aReason != Components.interfaces.mozIStorageStatementCallback.REASON_FINISHED) {
-                        Log.info("Query stopped unexpectedly: " + aReason);
+                        CTechLog.info("Query stopped unexpectedly: " + aReason);
                     }
                 }
             });
@@ -83,7 +83,7 @@ var $sqlite = {
     },
     
     bind: function(statement, index, value){
-        Log.debug("Binding: " + value + " at index: " + index);
+        CTechLog.debug("Binding: " + value + " at index: " + index);
         if (value === undefined) 
             throw "Attempted to bind undefined parameter '" + name + "'";
         else 
