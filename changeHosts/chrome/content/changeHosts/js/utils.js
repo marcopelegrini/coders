@@ -1,33 +1,34 @@
 /**
  * @author marcotulio
  */
-const console = Application.console;
-const logPreference = "log";
-
-var Log = {
+var CTechLog = {
+	logPreference: "log",
+	
+	console: Application.console,
+	
     debug: function(string){
-        if (Prefs.getBool(logPreference)) {
-            console.log("[DEBUG] - " + string);
+        if (CTechPrefs.getBool(this.logPreference)) {
+            this.console.log("[DEBUG] - " + string);
         }
     },
     info: function(string){
-        if (Prefs.getBool(logPreference)) {
-            console.log("[INFO] - " + string);
+        if (CTechPrefs.getBool(this.logPreference)) {
+            this.console.log("[INFO] - " + string);
         }
     },
     warn: function(string){
-        if (Prefs.getBool(logPreference)) {
-            console.log("[WARN] - " + string);
+        if (CTechPrefs.getBool(this.logPreference)) {
+            this.console.log("[WARN] - " + string);
         }
     },
     error: function(string){
-        if (Prefs.getBool(logPreference)) {
-            console.log("[ERROR] - " + string);
+        if (CTechPrefs.getBool(this.logPreference)) {
+            this.console.log("[ERROR] - " + string);
         }
     }
 }
 
-var Utils = {
+var CTechUtils = {
     getOperationSystem: function(){
         const Cc = Components.classes;
         const Ci = Components.interfaces;
@@ -42,8 +43,11 @@ var Utils = {
         }
         return string;
     },
-	
-    getElement: function(id){
+    
+    getElement: function(id, aDocument){
+        if (aDocument) {
+            return aDocument.getElementById(id);
+        }
         return document.getElementById(id);
     }
 }
