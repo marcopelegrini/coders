@@ -6,9 +6,12 @@
     
     <!-- This imports our javascript. -->
     <script type="application/x-javascript" src="chrome://changeHosts/content/js/utils.js"/>
+    <script type="application/x-javascript" src="chrome://changeHosts/content/js/fileUtils.js"/>
     <script type="application/x-javascript" src="chrome://changeHosts/content/js/databaseUtil.js"/>
     <script type="application/x-javascript" src="chrome://changeHosts/content/js/preferenceUtils.js"/>
     <script type="application/x-javascript" src="chrome://changeHosts/content/js/changeHostsOverlay.js"/>
+    <script type="application/x-javascript" src="chrome://changeHosts/content/js/optionsOverlay.js"/>
+    <script type="application/x-javascript" src="chrome://changeHosts/content/js/definitions.js"/>
     <script type="application/x-javascript" src="chrome://changeHosts/content/js/changeHosts.js"/>
     
     <!-- Status bar -->
@@ -18,7 +21,7 @@
             <image id="changeHosts_statusbar_panel_img"
              context="changeHosts-statepopup"
              tooltip="changeHosts-toolbar-tooltip"
-             onclick="if (event.button &lt; 2) { CHosts.openPreferences(); }"/>
+             onclick="if (event.button &lt; 2) { CHosts.preferences.open(); }"/>
             
             <menupopup id="changeHosts-statepopup">
                 <menuitem label="Create DB" oncommand="test_createDB();"/>
@@ -27,7 +30,7 @@
                 <menuitem label="Simple Select" oncommand="test_Select();"/>
                 <menuitem label="Parameterized Select" oncommand="test_SelectParameterized();"/>
                 <menuseparator/>
-                <menuitem label="Options" accesskey="O" oncommand="CHosts.openPreferences();"/>
+                <menuitem label="Options" accesskey="O" oncommand="CHosts.preferences.open();"/>
                 <menuitem label="Gerar sad Visa" oncommand="CTechUtils.getOperationSystem();"/>
             </menupopup>
         </statusbarpanel>

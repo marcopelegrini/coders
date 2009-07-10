@@ -1,24 +1,24 @@
 /**
  * @author marcotulio
  */
-var CTechFileUtils = {
+function CTechFileUtils(){
 
-    getFile: function(filePath){
+    this.getFile = function(filePath){
         var file = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsILocalFile);
         file.initWithPath(filePath);
         return file;
-    },
+    }
     
-    getFilePicker: function(){
+    this.getFilePicker = function(){
         var fp = Components.classes["@mozilla.org/filepicker;1"].createInstance(Components.interfaces.nsIFilePicker);
         return fp;
-    },
+    }
     
-    save: function(filePath, output){
-        this.enablePermission();
+    this.save = function(filePath, output){
+        enablePermission();
         var file = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsILocalFile);
         file.initWithPath(filePath);
-        if (file.exists() == false) {
+        if (!file.exists()) {
             alert("Creating file... ");
             file.create(Components.interfaces.nsIFile.NORMAL_FILE_TYPE, 420);
         }
@@ -50,15 +50,17 @@ var CTechFileUtils = {
          **   00001   Execute by others.
          **
          */
-        outputStream.init(file, 0x04 | 0x08 | 0x20, 420, 0);
+        //outputStream.init(file, 0x04 | 0x08 | 0x20, 420, 0);
+		outputStream.init(file, -1, -1, 0);
         var result = outputStream.write(output, output.length);
         outputStream.close();
-    },
-    read: function(filePath){
-        this.enablePermission();
+    }
+    
+    this.read = function(filePath){
+        enablePermission();
         var file = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsILocalFile);
         file.initWithPath(filePath);
-        if (file.exists() == false) {
+        if (!file.exists()) {
             //TODO - Try to throw a exception
             //throw new FileNotExistsException()
             alert("File does not exist");
@@ -69,9 +71,9 @@ var CTechFileUtils = {
         sis.init(is);
         var output = sis.read(sis.available());
         return output;
-    },
+    }
     
-    enablePermission: function(){
+    function enablePermission(){
         try {
             netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
         } 

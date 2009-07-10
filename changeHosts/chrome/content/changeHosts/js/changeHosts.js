@@ -3,19 +3,24 @@ var CHosts = {
     branchName: "extensions.changeHosts.",
     windowType: "changeHosts:settings",
     windowURI: "chrome://changeHosts/content/options.xul",
-    windowOptions: "chrome,toolbar,centerscreen",
+    //windowOptions: "chrome,toolbar,centerscreen",
+    windowOptions: "chrome,toolbar,dialog=no,resizable,all,dependent,centerscreen",
     
     preferences: null,
+	logger: null,
+	definitions: null,
+	options: null,
+	utils: null,
     
-    loadPreferences: function(){
-		CTechLog.info("Loading preferences...");
-        this.preferences = new CTechPrefs2(this.branchName, this.windowType, this.windowURI, this.windowOptions);
-    },
-    
-    openPreferences: function(){
-        if (!this.preferences) {
-            this.loadPreferences();
-        }
-        this.preferences.open();
+    init: function(){
+		this.preferences = new CTechPrefs2(this.branchName, this.windowType, this.windowURI, this.windowOptions);
+		this.logger = new CTechLog(this.preferences);
+		this.preferences.setLogger(this.logger);
+		this.utils = new CTechUtils();
+		this.fileUtils = new CTechFileUtils();
+		this.definitions = new CHDefinitions(this.utils);
+		this.options = new CHOptions(this.utils, this.fileUtils, this.logger, this.preferences);
     }
 }
+//Initializes
+CHosts.init();

@@ -1,49 +1,54 @@
 #changeHosts_statusbar_panel_img {
-  list-style-image: url("chrome://changeHosts/skin/icon20.png");
+    list-style-image: url("chrome://changeHosts/skin/icon20.png");
 }
 
-.definitionContent {
-	width: 200px;
+image.testImgQuestion {
+    list-style-image: url("chrome://changeHosts/skin/testIcons.png");
+    -moz-image-region: rect(0px, 20px, 20px, 0px);
+    max-width: 20px;
+    max-height: 20px;
 }
 
-.testImgQuestion {
-	list-style-image: url("chrome://changeHosts/skin/testIcons.png");
-	-moz-image-region: rect(0px, 20px, 20px, 0px);
-	max-width: 20px;
-	max-height: 20px;
+image.testImgOK {
+    list-style-image: url("chrome://changeHosts/skin/testIcons.png");
+    -moz-image-region: rect(0px, 40px, 20px, 20px);
+    max-width: 20px;
+    max-height: 20px;
 }
 
-.testImgOK {
-	list-style-image: url("chrome://changeHosts/skin/testIcons.png");
-	-moz-image-region: rect(0px, 40px, 20px, 20px); 
-	max-width: 20px;
-	max-height: 20px;
+image.testImgFail {
+    list-style-image: url("chrome://changeHosts/skin/testIcons.png");
+    -moz-image-region: rect(0px, 60px, 20px, 40px);
+    max-width: 20px;
+    max-height: 20px;
 }
 
-.testImgFail {
-	list-style-image: url("chrome://changeHosts/skin/testIcons.png");
-	-moz-image-region: rect(0px, 60px, 20px, 40px);
-	max-width: 20px;
-	max-height: 20px;
-}
-
-
-radio[pane=prefpane_general]
-{
+radio[pane = prefpane_general] {
     list-style-image: url("chrome://browser/skin/preferences/Options.png");
     -moz-image-region: rect(0px, 224px, 32px, 192px);
 }
 
-radio[pane=prefpane_definitions]
-{
+radio[pane = prefpane_definitions] {
     list-style-image: url("chrome://browser/skin/preferences/Options.png");
-    -moz-image-region: rect(0px, 64px,  32px, 32px);
+    -moz-image-region: rect(0px, 64px, 32px, 32px);
 }
 
-.borderUp5 {
-	margin-top: 5px;
+groupbox {
+    /*border: 1px solid;*/
 }
 
-.borderDown5 {
-	margin-bottom: 5px;
+caption {
+	font-weight: bold;
+}
+
+vbox.configVBox {
+    width: 34.3em;
+	/*border: 1px solid;*/
+}
+
+vbox.secondConfigVBox {
+    /*margin-left: 4em;*/
+	/*padding-left: 4.8em;*/
+	border-left: 1px #CCC solid;
+	border-left-style: dashed;
 }
