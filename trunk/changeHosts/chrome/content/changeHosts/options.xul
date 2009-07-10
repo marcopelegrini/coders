@@ -123,7 +123,7 @@
                             <button id="find-script-button" label="&cH.find;" oncommand="CHosts.options.pickScript();"/>
                         </hbox>
                     </vbox>
-                </groupbox>				
+                </groupbox>
                 <groupbox orient="vertical">
                     <caption label="#Funções do mouse"/>
                     <description>
@@ -182,13 +182,20 @@
             </vbox>
             <vbox class="configVBox secondConfigVBox">
                 <groupbox orient="vertical">
-                    <caption label="#Outras configurações"/>
+                    <caption label="#Integração com DNS Flusher"/>
                     <checkbox preference="flush-dns-preference" label="#Recarregar DNS ao trocar a definição de hosts"/>
                     <checkbox preference="reload-page-preference" label="#Recarregar página ao trocar a definição de hosts"/>
-                    <spacer height="10"/>
                     <checkbox preference="show-ip-status-preference" label="#Mostrar IP da página atual na barra de status"/>
+					<separator/>
+                    <hbox>
+                        <label value="#Cor do IP: "/>
+                        <colorpicker id="ip-color-picker" preference="label-color" type="button" onchange="CHosts.dnsFlusher.colorChanged();"/>
+                    </hbox>
+                </groupbox>
+                <groupbox orient="vertical">
+                    <caption label="#Outras configurações"/>
                     <checkbox preference="show-icon-status-preference" label="#Mostrar icone do Change Hosts na barra de status"/>
-                </groupbox>            	
+                </groupbox>
                 <groupbox orient="vertical">
                     <caption label="#Backup"/>
                     <description>
