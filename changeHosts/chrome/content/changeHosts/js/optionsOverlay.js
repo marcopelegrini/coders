@@ -70,7 +70,7 @@ function CHOptions(utils, fileUtils, logger, preferences){
             }
             // Check write
             var writeImg = document.getElementById("testWriteFile");
-            if (file.isExecutable()) {
+            if (file.isWritable()) {
                 writeImg.setAttribute("class", imgOK);
             }
             else {
