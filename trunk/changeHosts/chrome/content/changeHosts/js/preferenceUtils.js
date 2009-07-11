@@ -1,7 +1,7 @@
 /**
  * @author marcotulio
  */
-function CTechPrefs2(branchName, windowType, windowURI, windowOptions){
+function CTechPrefs(branchName, windowType, windowURI, windowOptions){
 
     // Preferences contants
     this.branchName = branchName;
@@ -37,7 +37,7 @@ function CTechPrefs2(branchName, windowType, windowURI, windowOptions){
 	
     //Use window mediator to open preferences (needed because add-ons manager window)
     this.open = function(){
-        var wm = Cc['@mozilla.org/appshell/window-mediator;1'].getService(Ci.nsIWindowMediator);
+        var wm = Components.classes['@mozilla.org/appshell/window-mediator;1'].getService(Components.interfaces.nsIWindowMediator);
         var topWindow = wm.getMostRecentWindow(this.windowType);
         
         if (topWindow) {
