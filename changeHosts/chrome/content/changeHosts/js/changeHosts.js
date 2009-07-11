@@ -13,7 +13,7 @@ var CHosts = {
 	utils: null,
     
     init: function(){
-		this.preferences = new CTechPrefs2(this.branchName, this.windowType, this.windowURI, this.windowOptions);
+		this.preferences = new CTechPrefs(this.branchName, this.windowType, this.windowURI, this.windowOptions);
 		this.logger = new CTechLog(this.preferences);
 		this.preferences.setLogger(this.logger);
 		this.utils = new CTechUtils();
