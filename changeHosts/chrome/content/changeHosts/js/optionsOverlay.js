@@ -9,6 +9,7 @@ var CHOptions = {
         this.preferences.setLogger(this.log);
         this.utils = new CTechUtils();
         this.fileUtils = new CTechFileUtils();
+		this.manager = new CHManager(this.utils, this.log);
     },
     
     pickHostFile: function(){
@@ -145,20 +146,8 @@ var CHOptions = {
         //Reset firefox managed preferences
         this.preferences.reset();
         var textbox = document.getElementById('hosts-location');
-        textbox.value = this.getDefaultHostPath();
+        textbox.value = this.manager.getDefaultHostPath();
         document.getElementById('prefpane_general').userChangedValue(textbox);
-    },
-    
-    getDefaultHostPath: function(){
-        var so = this.utils.getOperationSystem();
-        this.log.debug("Running on system: " + so);
-        switch (so) {
-            case "Darwin":
-                return "/etc/hosts";
-                break;
-            default:
-                return "c:\\windows\\system32\\drivers\\etc\\hosts";
-        }
     },
     
     colorChanged: function(){

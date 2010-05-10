@@ -17,7 +17,7 @@ var CHDefinitions = {
     
     populateList: function(){
         var hosts = this.dao.list();
-        for (i = 0; i < hosts.length; i++) {
+        for (var i = 0; i < hosts.length; i++) {
             var host = hosts[i];
             this.addItemToList(host.id, host.name);
         }
@@ -29,8 +29,8 @@ var CHDefinitions = {
     },
     
     add: function(){
-        uiEditable(true);
-        uiClean();
+        this.uiEditable(true);
+        this.uiClean();
         this.utils.getElement("definition-label").label = "#Nova";
         
         this.utils.getElement("new-definition-button").disabled = true;
@@ -54,9 +54,9 @@ var CHDefinitions = {
         var content = this.utils.getElement("content").value;
         var id = this.dao.saveNewHost(name, false, show, content);
         if (id) {
-            var item = addItemToList(id, name);
+            var item = this.addItemToList(id, name);
             
-            uiEditable(false);
+            this.uiEditable(false);
             this.utils.getElement("new-definition-button").disabled = false;
             
             var list = this.utils.getElement("definition-list");
@@ -82,7 +82,7 @@ var CHDefinitions = {
             if (item) {
                 list.selectItem(item);
             }
-            uiClean();
+            this.uiClean();
         }
         else {
             alert("#Erro ao excluir definição");
@@ -118,12 +118,12 @@ var CHDefinitions = {
         this.utils.getElement("delete-definition-button").disabled = true;
         this.utils.getElement("edit-definition-button").disabled = true;
         
-        uiEditable(true);
+        this.uiEditable(true);
     },
     
     cancel: function(){
-        uiEditable(false);
-        uiClean();
+        this.uiEditable(false);
+        this.uiClean();
         this.utils.getElement("definition-label").label = "#Selecione a definição na listagem";
         this.utils.getElement("new-definition-button").disabled = false;
         

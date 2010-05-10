@@ -13,6 +13,7 @@
 	<script type="application/x-javascript" src="chrome://changeHosts/content/js/dao.js" />
 
 	<script type="application/x-javascript" src="chrome://changeHosts/content/js/dnsFlusher.js" />
+	<script type="application/x-javascript" src="chrome://changeHosts/content/js/hostManager.js" />
 	<script type="application/x-javascript" src="chrome://changeHosts/content/js/main.js" />
 
 	<!-- Status bar -->
