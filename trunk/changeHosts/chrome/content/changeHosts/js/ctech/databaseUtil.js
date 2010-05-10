@@ -1,25 +1,25 @@
 /**
  * @author marcotulio
  */
-var CTechDatabaseUtil = {
-	file: 'changeHosts.sqlite',
-	
-    mDBConn: null,
+function CTechDatabaseUtil(logger) {
+    var file = "changeHosts.sqlite";
+    var mDBConn = null;
+	this.logger = logger;
     
-    init: function(){
-        var db = Cc["@mozilla.org/file/directory_service;1"].getService(Ci.nsIProperties).get("ProfD", Ci.nsIFile);
-        db.append(this.file);
-        this.mDBConn = Cc["@mozilla.org/storage/service;1"].getService(Ci.mozIStorageService).openDatabase(db);
-    },
+    this.init = function(){
+        var db = Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties).get("ProfD", Components.interfaces.nsIFile);
+        db.append("changeHosts.sqlite");
+        this.mDBConn = Components.classes["@mozilla.org/storage/service;1"].getService(Components.interfaces.mozIStorageService).openDatabase(db);
+    }
     
-    getConnection: function(){
+    this.getConnection = function(){
         if (this.mDBConn == null) {
             this.init();
         }
         return this.mDBConn;
-    },
+    }
     
-    assync: function(sql, param){
+    this.assync = function(sql, param){
         var conn = this.getConnection();
         var statement = conn.createStatement(sql);
         if (param) {
@@ -30,14 +30,14 @@ var CTechDatabaseUtil = {
         try {
             statement.executeAsync({
                 handleResult: function(aResultSet){
-                    CTechLog.info(aResultSet);
+                    this.logger.info(aResultSet);
                 },
                 handleError: function(aError){
-                    CTechLog.error("Error executing select: " + sql + ". Error: " + aError);
+                    this.logger.error("Error executing select: " + sql + ". Error: " + aError);
                 },
                 handleCompletion: function(aReason){
                     if (aReason != Components.interfaces.mozIStorageStatementCallback.REASON_FINISHED) {
-                        CTechLog.info("Query stopped unexpectedly: " + aReason);
+                        this.logger.info("Query stopped unexpectedly: " + aReason);
                     }
                 }
             });
@@ -45,9 +45,9 @@ var CTechDatabaseUtil = {
         finally {
             statement.reset();
         }
-    },
+    }
     
-    doSQL: function(sql, param){
+    this.doSQL = function(sql, param){
         var conn = this.getConnection();
         var ourTransaction = false;
         if (conn.transactionInProgress) {
@@ -80,15 +80,17 @@ var CTechDatabaseUtil = {
             conn.commitTransaction();
         }
         return dataset;
-    },
+    }
     
-    bind: function(statement, index, value){
-        CTechLog.debug("Binding: " + value + " at index: " + index);
-        if (value === undefined) 
+    this.bind = function(statement, index, value){
+        this.logger.debug("Binding: " + value + " at index: " + index);
+        if (value === undefined) {
             throw "Attempted to bind undefined parameter '" + name + "'";
-        else 
-            if (value === null) 
+        }
+        else {
+            if (value === null) {
                 statement.bindNullParameter(index);
+            }
             else {
                 switch (typeof value) {
                     case "string":
@@ -104,5 +106,8 @@ var CTechDatabaseUtil = {
                         throw "Unknown value type '" + typeof value + "' for value '" + value + "'";
                 }
             }
-    },
+        }
+    }
+	
+	this.init();
 }

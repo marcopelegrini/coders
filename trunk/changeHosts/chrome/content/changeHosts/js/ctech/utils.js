@@ -35,6 +35,10 @@ function CTechUtils(){
         var plataform = sysInfo.getProperty('name');
         return plataform;
     }
+	
+	this.isMacOS = function(){
+		return this.getOperationSystem() == "Darwin";
+	}
     
     this.trim = function(string){
         if (string != null && string != undefined) {
