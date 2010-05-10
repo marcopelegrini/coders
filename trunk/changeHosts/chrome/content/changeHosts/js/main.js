@@ -8,6 +8,7 @@ var CHMain = {
         this.utils = new CTechUtils();
         this.fileUtils = new CTechFileUtils();
         this.dao = new CHDao(this.preferences);
+		this.manager = new CHManager(this.utils, this.log);
     },
     
     configure: function(){
@@ -21,7 +22,7 @@ var CHMain = {
                 this.log.error("Error creating database" + e);
             }
             try {
-                var defaultHostPath = options.getDefaultHostPath();
+                var defaultHostPath = this.manager.getDefaultHostPath();
                 this.log.info("Loading default host file from: " + defaultHostPath);
                 var defaultHost = this.fileUtils.read(defaultHostPath);
                 if (defaultHost) {
@@ -46,7 +47,7 @@ var CHMain = {
         var host, item;
         
         var hosts = this.dao.listToShow();
-        for (i = 0; i < hosts.length; i++) {
+        for (var i = 0; i < hosts.length; i++) {
             host = hosts[i];
             item = this.genRow(host)
             menu.insertBefore(item, firstMenuItem);
