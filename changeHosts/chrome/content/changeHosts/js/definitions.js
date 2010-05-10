@@ -1,21 +1,48 @@
 /**
  * @author marcotulio
  */
-function CHDefinitions(utils){
-	
-	this.utils = utils;
-	
-    this.add = function(){
-        this.uiEditable(true);
-        this.uiClean();
+var CHDefinitions = {
+
+    init: function(){
+        this.preferences = new CTechPrefs(CHConstants.branchName, CHConstants.windowType, CHConstants.windowURI, CHConstants.windowOptions);
+        this.log = new CTechLog(this.preferences);
+        this.preferences.setLogger(this.log);
+        this.utils = new CTechUtils();
+        this.dao = new CHDao(this.preferences);
+    },
+    
+    onLoad: function(){
+        this.populateList();
+    },
+    
+    populateList: function(){
+        var hosts = this.dao.list();
+        for (i = 0; i < hosts.length; i++) {
+            var host = hosts[i];
+            this.addItemToList(host.id, host.name);
+        }
+    },
+    
+    addItemToList: function(id, name){
+        var list = this.utils.getElement("definition-list");
+        return list.appendItem(name, id);
+    },
+    
+    add: function(){
+        uiEditable(true);
+        uiClean();
         this.utils.getElement("definition-label").label = "#Nova";
-        this.utils.getElement("new-definition-button").disabled = true;
         
+        this.utils.getElement("new-definition-button").disabled = true;
         this.utils.getElement("delete-definition-button").disabled = true;
         this.utils.getElement("edit-definition-button").disabled = true;
-    }
+        
+        this.utils.getElement("show-in-menu").checked = true;
+        
+        this.utils.getElement("definition-list").disabled = true;
+    },
     
-    this.save = function(){
+    save: function(){
         var nameTextBox = this.utils.getElement("definition-name");
         var name = nameTextBox.value;
         name = this.utils.trim(name);
@@ -23,88 +50,103 @@ function CHDefinitions(utils){
             alert("Preencha o nome da definição");
             return;
         }
-        var list = this.utils.getElement("definition-list");
-        //TODO - obter ID antes de adicionar na lista
-        var itemID = name;
-        var itemLabel = name + "ID";
-        var item = list.appendItem(itemLabel, itemID);
-        
-        //Put definition(or not) in the includes list
-        var includeList = this.utils.getElement("includes");
-        var elements = includeList.getElementsByAttribute("value", itemID);
-        var includable = this.utils.getElement("includable").checked;
-        if (elements.length == 0 && includable) {
-            //Should include
-            var includeItem = includeList.appendItem(itemLabel, itemID);
-            includeItem.setAttribute("type", "checkbox");
+        var show = this.utils.getElement("show-in-menu").checked;
+        var content = this.utils.getElement("content").value;
+        var id = this.dao.saveNewHost(name, false, show, content);
+        if (id) {
+            var item = addItemToList(id, name);
+            
+            uiEditable(false);
+            this.utils.getElement("new-definition-button").disabled = false;
+            
+            var list = this.utils.getElement("definition-list");
+            list.selectItem(item);
+            list.ensureElementIsVisible(item);
+            list.disabled = false;
         }
-        else 
-            if (elements.length == 1 && !includable) {
-                //Should remove
-                includeList.removeChild(elements.item(0));
+        else {
+            alert("#Erro ao salvar definição.");
+        }
+    },
+    
+    del: function(){
+        this.utils.getElement("delete-definition-button").disabled = true;
+        this.utils.getElement("edit-definition-button").disabled = true;
+        
+        var list = this.utils.getElement("definition-list");
+        var item = list.getItemAtIndex(list.selectedIndex);
+        
+        if (item && this.dao.deleteHost(item.value)) {
+            list.removeItemAt(list.selectedIndex);
+            item = list.getItemAtIndex(0);
+            if (item) {
+                list.selectItem(item);
             }
+            uiClean();
+        }
+        else {
+            alert("#Erro ao excluir definição");
+        }
         
-        this.uiEditable(false);
-        this.utils.getElement("new-definition-button").disabled = false;
-        
-        list.selectItem(item);
-        list.ensureElementIsVisible(item);
-    }
+    },
     
-    this.selected = function(item){
-        var label = this.utils.trim(item.label);
-        var value = this.utils.trim(item.value);
+    selected: function(item){
+        if (!item) {
+            return;
+        }
+        var host = this.dao.findHost(this.utils.trim(item.value));
         
-        var showInMenu = true;
-        var includable = false;
-        
-        var content = "Content: " + label + " value: " + value;
-        
-        this.utils.getElement("content").value = content;
-        this.utils.getElement("show-in-menu").checked = showInMenu;
-        this.utils.getElement("includable").checked = includable;
-        this.utils.getElement("definition-label").label = "#Editar";
-        
-        this.utils.getElement("delete-definition-button").disabled = false;
-        this.utils.getElement("edit-definition-button").disabled = false;
-    }
+        if (host) {
+            this.utils.getElement("definition-label").label = "#Editar";
+            
+            this.utils.getElement("content").value = host.content;
+            this.utils.getElement("show-in-menu").checked = host.show;
+            this.utils.getElement("definition-name").value = host.name;
+            this.utils.getElement("definition-in-use").checked = host.selected;
+            this.utils.getElement("delete-definition-button").disabled = false;
+            this.utils.getElement("edit-definition-button").disabled = false;
+        }
+        else {
+            alert("#Registro não encontrado.")
+        }
+    },
     
-    this.edit = function(){
-        this.uiEditable(true);
-    }
+    edit: function(){
+        this.utils.getElement("definition-list").disabled = true;
+        
+        this.utils.getElement("new-definition-button").disabled = true;
+        this.utils.getElement("delete-definition-button").disabled = true;
+        this.utils.getElement("edit-definition-button").disabled = true;
+        
+        uiEditable(true);
+    },
     
-    this.cancel = function(){
-        this.uiEditable(false);
-        this.uiClean();
+    cancel: function(){
+        uiEditable(false);
+        uiClean();
         this.utils.getElement("definition-label").label = "#Selecione a definição na listagem";
         this.utils.getElement("new-definition-button").disabled = false;
-    }
+        
+        var list = this.utils.getElement("definition-list");
+        list.disabled = false;
+        list.selectItem(list.getSelectedItem());
+    },
     
-    this.uiClean = function(){
+    uiClean: function(){
         this.utils.getElement("definition-name").value = "";
+        this.utils.getElement("definition-in-use").checked = false;
         this.utils.getElement("content").value = "";
-        this.utils.getElement("show-in-menu").checked = true;
-        this.utils.getElement("includable").checked = true;
-        this.utils.getElement("includes").clearSelection();
-        var includes = this.utils.getElement("includes");
-        includes.clearSelection();
-        var nroElements = this.utils.getElement("includes").getRowCount();
-        for (var i = 0; i < nroElements; i++) {
-            var item = includes.getItemAtIndex(i);
-            item.checked = false;
-        }
-    }
+        this.utils.getElement("show-in-menu").checked = false;
+    },
     
-    this.uiEditable = function(bool){
+    uiEditable: function(bool){
         this.utils.getElement("definition-name").disabled = !bool;
         this.utils.getElement("definition-name-label").disabled = !bool;
         this.utils.getElement("content").disabled = !bool;
         this.utils.getElement("show-in-menu").disabled = !bool;
-        this.utils.getElement("includable").disabled = !bool;
-        this.utils.getElement("includes").disabled = !bool;
         this.utils.getElement("save-definition-button").disabled = !bool;
-        this.utils.getElement("edit-definition-button").disabled = !bool;
         this.utils.getElement("cancel-definition-button").disabled = !bool;
-        this.utils.getElement("delete-definition-button").disabled = !bool;
     }
-}
+};
+//Construct
+CHDefinitions.init();

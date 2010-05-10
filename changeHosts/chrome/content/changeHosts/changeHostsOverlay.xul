@@ -3,44 +3,34 @@
 <?xml-stylesheet href="chrome://changeHosts/skin/" type="text/css"?>
 
 <overlay id="changeHostsOverlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
-    
-    <!-- This imports our javascript. -->
-    <script type="application/x-javascript" src="chrome://changeHosts/content/js/utils.js"/>
-    <script type="application/x-javascript" src="chrome://changeHosts/content/js/fileUtils.js"/>
-    <script type="application/x-javascript" src="chrome://changeHosts/content/js/databaseUtil.js"/>
-    <script type="application/x-javascript" src="chrome://changeHosts/content/js/preferenceUtils.js"/>
-    <script type="application/x-javascript" src="chrome://changeHosts/content/js/changeHostsOverlay.js"/>
-    <script type="application/x-javascript" src="chrome://changeHosts/content/js/optionsOverlay.js"/>
-    <script type="application/x-javascript" src="chrome://changeHosts/content/js/definitions.js"/>
-    <script type="application/x-javascript" src="chrome://changeHosts/content/js/changeHosts.js"/>
-    
-    <!-- Status bar -->
-    <statusbar id="status-bar">
-        <statusbarpanel id="changeHosts_statusbar_panel" insertbefore="offline-status">
-            
-            <image id="changeHosts_statusbar_panel_img"
-             context="changeHosts-statepopup"
-             tooltip="changeHosts-toolbar-tooltip"
-             onclick="if (event.button &lt; 2) { CHosts.preferences.open(); }"/>
-            
-            <menupopup id="changeHosts-statepopup">
-                <menuitem label="Create DB" oncommand="test_createDB();"/>
-                <menuitem label="Simple Add Record" oncommand="test_addRecord();"/>
-                <menuitem label="Parameterized Add Record" oncommand="test_addRecordParameterized();"/>
-                <menuitem label="Simple Select" oncommand="test_Select();"/>
-                <menuitem label="Parameterized Select" oncommand="test_SelectParameterized();"/>
-                <menuseparator/>
-                <menuitem label="Options" accesskey="O" oncommand="CHosts.preferences.open();"/>
-                <menuitem label="Gerar sad Visa" oncommand="CTechUtils.getOperationSystem();"/>
-            </menupopup>
-        </statusbarpanel>
-        
-        <tooltip id="changeHosts-toolbar-tooltip" noautohide="true" orient="vertical" position="before_start" style="padding:2px;">
-            <vbox>
-                <label value="Gerador de asd de asd" style="font-size: 12px; font-weight: bold;margin:2px;"/>
-                <label value="asd esquerdo do mouse: Gera asd asd (Ver asd)" style="margin:2px;"/>
-                <label value="asd direito do mouse: Mostra outras asd / asd" style="margin:2px;"/>
-            </vbox>
-        </tooltip>
-    </statusbar>
+
+	<script type="application/x-javascript" src="chrome://changeHosts/content/js/ctech/preferenceUtils.js" />
+	<script type="application/x-javascript" src="chrome://changeHosts/content/js/ctech/utils.js" />
+	<script type="application/x-javascript" src="chrome://changeHosts/content/js/ctech/fileUtils.js" />
+	<script type="application/x-javascript" src="chrome://changeHosts/content/js/ctech/databaseUtil.js" />
+
+	<script type="application/x-javascript" src="chrome://changeHosts/content/js/objects.js" />
+	<script type="application/x-javascript" src="chrome://changeHosts/content/js/dao.js" />
+
+	<script type="application/x-javascript" src="chrome://changeHosts/content/js/dnsFlusher.js" />
+	<script type="application/x-javascript" src="chrome://changeHosts/content/js/main.js" />
+
+	<!-- Status bar -->
+	<statusbar id="status-bar">
+		<statusbarpanel id="changeHosts_statusbar_panel" status="none" tooltip="changeHosts-toolbar-tooltip" onclick="CHMain.dispatchStatusClick(this, event);"
+			insertbefore="offline-status">
+
+			<image id="changeHosts_statusbar_panel_img" />
+
+			<label value="Change Hosts" id="definition-name" />
+			<label value="" id="dnsflusher-label" />
+
+			<menupopup id="changeHosts-statepopup">
+				<menuseparator />
+				<menuitem label="Options" accesskey="O" oncommand="event.preventDefault(); CHMain.openPreferences();" />
+			</menupopup>
+		</statusbarpanel>
+
+		<tooltip id="dnsflusher-tooltip" noautohide="true" orient="vertical" position="before_start" style="padding:2px;"></tooltip>
+	</statusbar>
 </overlay>

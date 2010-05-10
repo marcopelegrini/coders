@@ -1,14 +1,17 @@
 /**
  * @author marcotulio
  */
-function CHOptions(utils, fileUtils, logger, preferences){
+var CHOptions = {
 
-    this.utils = utils;
-    this.logger = logger;
-    this.fileUtils = fileUtils;
-    this.preferences = preferences;
+    init: function(){
+        this.preferences = new CTechPrefs(CHConstants.branchName, CHConstants.windowType, CHConstants.windowURI, CHConstants.windowOptions);
+        this.log = new CTechLog(this.preferences);
+        this.preferences.setLogger(this.log);
+        this.utils = new CTechUtils();
+        this.fileUtils = new CTechFileUtils();
+    },
     
-    this.pickHostFile = function(){
+    pickHostFile: function(){
         //var hostsDir = this.fileUtils.getFile("c:\\windows\\system32\\drivers\\etc\\");
         
         var fp = this.fileUtils.getFilePicker();
@@ -24,9 +27,9 @@ function CHOptions(utils, fileUtils, logger, preferences){
             document.getElementById('prefpane_general').userChangedValue(textbox);
             this.checkPermission();
         }
-    }
+    },
     
-    this.pickScript = function(){
+    pickScript: function(){
         //var hostsDir = this.fileUtils.getFile("c:\\windows\\system32\\drivers\\etc\\");
         
         var fp = this.fileUtils.getFilePicker();
@@ -41,13 +44,13 @@ function CHOptions(utils, fileUtils, logger, preferences){
             textbox.value = fp.file.path;
             document.getElementById('prefpane_general').userChangedValue(textbox);
         }
-    }
+    },
     
-    this.checkPermission = function(){
+    checkPermission: function(){
         this.checkFilePermission();
-    }
+    },
     
-    this.checkFilePermission = function(){
+    checkFilePermission: function(){
         var filePath = document.getElementById("hosts-location").value;
         
         if (this.utils.trim(filePath) == "") {
@@ -76,14 +79,37 @@ function CHOptions(utils, fileUtils, logger, preferences){
             else {
                 writeImg.setAttribute("class", imgFail);
             }
+            // Check execution
+            if (document.getElementById("script-flag").checked) {
+                filePath = document.getElementById("script-location").value;
+                if (this.utils.trim(filePath) == "") {
+                    alert("#Você deve selecionar um script para ser executado.");
+                    return;
+                }
+                file = this.fileUtils.getFile(filePath);
+                
+                var execImg = document.getElementById("testRunFile");
+                if (file.exists()) {
+                    if (!this.utils.isMacOS()) {
+                        if (file.isExecutable()) {
+                            execImg.setAttribute("class", imgOK);
+                        }
+                        else {
+                            execImg.setAttribute("class", imgFail);
+                        }
+                    }
+                }
+                else {
+                    alert("#Você deve selecionar um script para ser executado.");
+                }
+            }
         }
         else {
             alert("#Arquivo não encontrado.")
         }
-    }
+    },
     
-    this.executeScript = function(){
-    
+    executeScript: function(){
         var executeScript = document.getElementById("script-flag").checked;
         
         if (executeScript) {
@@ -95,48 +121,56 @@ function CHOptions(utils, fileUtils, logger, preferences){
             }
             var file = this.fileUtils.getFile(filePath);
             if (file.exists()) {
-                var process = Components.classes["@mozilla.org/process/util;1"].createInstance(Components.interfaces.nsIProcess2);
+                var process = Components.classes["@mozilla.org/process/util;1"].createInstance(Components.interfaces.nsIProcess);
                 process.init(file);
                 // Run the process.
-                // If first param is true, calling thread will be blocked until
-                // called process terminates.
-                // Second and third params are used to pass command-line arguments
-                // to the process.
-                var args = ["argument1", "argument2"];
-                process.run(false, args, args.length);
-                //process.run(true, null, 0);
+                // If first param is true, calling thread will be blocked until called process terminates.
+                // Second and third params are used to pass command-line arguments to the process.
+                process.run(true, null, 0);
             }
-        }else{
-			alert("#A opção de executar o script precisa estar marcada !");
-		}
-    }
+            else {
+                alert("#O arquivo não existe !");
+            }
+        }
+        else {
+            alert("#A opção de executar o script precisa estar marcada !");
+        }
+    },
     
-    this.getFilePath = function(){
+    getFilePath: function(){
         return document.getElementById('hosts-location').value;
-    }
+    },
     
-    this.read = function(){
-        this.logger.info(this.fileUtils.read(this.getFilePath()));
-    }
-    
-    this.save = function(){
-        this.fileUtils.save(this.getFilePath(), prompt("text", "input"));
-    }
-    
-    this.reset = function(){
+    reset: function(){
         //Reset firefox managed preferences
         this.preferences.reset();
-        //Set SO's defaults
-        var so = this.utils.getOperationSystem();
-        this.logger.info("Writing defaults for system: " + so);
         var textbox = document.getElementById('hosts-location');
+        textbox.value = this.getDefaultHostPath();
+        document.getElementById('prefpane_general').userChangedValue(textbox);
+    },
+    
+    getDefaultHostPath: function(){
+        var so = this.utils.getOperationSystem();
+        this.log.debug("Running on system: " + so);
         switch (so) {
             case "Darwin":
-                textbox.value = "/etc/hosts";
+                return "/etc/hosts";
                 break;
             default:
-                textbox.value = "c:\\windows\\system32\\drivers\\etc\\hosts";
+                return "c:\\windows\\system32\\drivers\\etc\\hosts";
         }
-        document.getElementById('prefpane_general').userChangedValue(textbox);
+    },
+    
+    colorChanged: function(){
+        var wm = Components.classes["@mozilla.org/appshell/window-mediator;1"].getService(Components.interfaces.nsIWindowMediator);
+        var browserWindow = wm.getMostRecentWindow("navigator:browser");
+        
+        var color = this.utils.getElement("ip-color-picker").color;
+        this.utils.getElement("dnsflusher-label", browserWindow.document).setAttribute("style", "color:" + color + ";");
+		
+        color = this.utils.getElement("definition-color-picker").color;
+        this.utils.getElement("definition-name", browserWindow.document).setAttribute("style", "color:" + color + ";");
     }
-}
+};
+// Construct
+CHOptions.init();
