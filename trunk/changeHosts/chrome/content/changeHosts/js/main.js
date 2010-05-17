@@ -31,6 +31,7 @@ var CHMain = {
                     var seleceted = true;
                     this.dao.saveNewHost("Default Host", seleceted, show, defaultHost);
                 }
+                this.preferences.setString(CHConstants.hostLocationPref, defaultHostPath);
             } 
             catch (e) {
                 this.log.error("Error creating default hosts: " + e);
@@ -87,5 +88,5 @@ window.addEventListener("load", function(){
     CHMain.configure();
     //setupUI
     CHMain.uiManager.setupUI();
-	CHMain.loadPrefs();
+    CHMain.loadPrefs();
 }, false);
