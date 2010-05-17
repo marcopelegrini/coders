@@ -9,6 +9,8 @@ var CHDefinitions = {
         this.preferences.setLogger(this.log);
         this.utils = new CTechUtils();
         this.dao = new CHDao(this.preferences);
+        this.manager = new CHManager(this.utils, this.log, this.dao, this.preferences, new CTechFileUtils());
+        this.uiManager = new CHUiManager(this.preferences, this.utils, this.dao);
     },
     
     onLoad: function(){
@@ -39,10 +41,25 @@ var CHDefinitions = {
         
         this.utils.getElement("show-in-menu").checked = true;
         
+        this.utils.getElement("definition-list").clearSelection();
         this.utils.getElement("definition-list").disabled = true;
     },
     
     save: function(){
+        if (this.saveHost()) {
+            this.uiManager.setupUI();
+        }
+    },
+    
+    saveAndUse: function(){
+        var id = this.saveHost();
+        if (id) {
+            this.manager.select(id);
+            this.uiManager.setupUI();
+        }
+    },
+    
+    saveHost: function(){
         var nameTextBox = this.utils.getElement("definition-name");
         var name = nameTextBox.value;
         name = this.utils.trim(name);
@@ -52,10 +69,24 @@ var CHDefinitions = {
         }
         var show = this.utils.getElement("show-in-menu").checked;
         var content = this.utils.getElement("content").value;
-        var id = this.dao.saveNewHost(name, false, show, content);
-        if (id) {
-            var item = this.addItemToList(id, name);
-            
+        
+        var id;
+        var saved = false;
+        var item = this.utils.getElement("definition-list").selectedItem;
+        if (item) {
+            this.log.debug("Updating definition: " + item.value);
+            id = item.value;
+            saved = this.updateExistentHost(id, name, show, content);
+            item.label = name;
+        }
+        else {
+            this.log.debug("Saving new definition...");
+            id = this.saveNewHost(name, show, content);
+            item = this.addItemToList(id, name);
+            saved = true;
+            this.log.debug("Saved: " + item.value);
+        }
+        if (saved) {
             this.uiEditable(false);
             this.utils.getElement("new-definition-button").disabled = false;
             
@@ -63,18 +94,45 @@ var CHDefinitions = {
             list.selectItem(item);
             list.ensureElementIsVisible(item);
             list.disabled = false;
+            
+            return id;
+        }
+        else {
+            alert("Não foi possível salvar a definição.");
+            return null;
+        }
+    },
+    
+    saveNewHost: function(name, show, content){
+        var id = this.dao.saveNewHost(name, false, show, content);
+        if (id) {
+            return id;
         }
         else {
             alert("#Erro ao salvar definição.");
         }
     },
     
+    updateExistentHost: function(id, name, show, content){
+        if (this.dao.updateHost(id, name, show, content)) {
+            return true;
+        }
+        else {
+            alert("#Erro ao atualizar definição.");
+        }
+    },
+    
     del: function(){
-        this.utils.getElement("delete-definition-button").disabled = true;
-        this.utils.getElement("edit-definition-button").disabled = true;
-        
         var list = this.utils.getElement("definition-list");
         var item = list.getItemAtIndex(list.selectedIndex);
+        if (this.utils.getElement("definition-in-use").checked) {
+            if (!confirm("#Esta definição está em uso. Deseja realmente apagá-la ?")) {
+                return;
+            }
+        }
+        
+        this.utils.getElement("delete-definition-button").disabled = true;
+        this.utils.getElement("edit-definition-button").disabled = true;
         
         if (item && this.dao.deleteHost(item.value)) {
             list.removeItemAt(list.selectedIndex);
@@ -83,11 +141,13 @@ var CHDefinitions = {
                 list.selectItem(item);
             }
             this.uiClean();
+            
+            //Setup UI
+            this.uiManager.setupUI();
         }
         else {
             alert("#Erro ao excluir definição");
         }
-        
     },
     
     selected: function(item){
@@ -145,6 +205,7 @@ var CHDefinitions = {
         this.utils.getElement("content").disabled = !bool;
         this.utils.getElement("show-in-menu").disabled = !bool;
         this.utils.getElement("save-definition-button").disabled = !bool;
+        this.utils.getElement("save-and-use-definition-button").disabled = !bool;
         this.utils.getElement("cancel-definition-button").disabled = !bool;
     }
 };

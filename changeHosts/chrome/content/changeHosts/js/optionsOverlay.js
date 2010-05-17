@@ -9,7 +9,7 @@ var CHOptions = {
         this.preferences.setLogger(this.log);
         this.utils = new CTechUtils();
         this.fileUtils = new CTechFileUtils();
-		this.manager = new CHManager(this.utils, this.log);
+		this.manager = new CHManager(this.utils, this.log, this.dao, this.preferences, this.fileUtils);
     },
     
     pickHostFile: function(){
@@ -120,18 +120,7 @@ var CHOptions = {
                 alert("#Você deve selecionar um script ou programa para ser executado.");
                 return;
             }
-            var file = this.fileUtils.getFile(filePath);
-            if (file.exists()) {
-                var process = Components.classes["@mozilla.org/process/util;1"].createInstance(Components.interfaces.nsIProcess);
-                process.init(file);
-                // Run the process.
-                // If first param is true, calling thread will be blocked until called process terminates.
-                // Second and third params are used to pass command-line arguments to the process.
-                process.run(true, null, 0);
-            }
-            else {
-                alert("#O arquivo não existe !");
-            }
+			this.fileUtils.execute(filePath);
         }
         else {
             alert("#A opção de executar o script precisa estar marcada !");
@@ -158,7 +147,7 @@ var CHOptions = {
         this.utils.getElement("dnsflusher-label", browserWindow.document).setAttribute("style", "color:" + color + ";");
 		
         color = this.utils.getElement("definition-color-picker").color;
-        this.utils.getElement("definition-name", browserWindow.document).setAttribute("style", "color:" + color + ";");
+        this.utils.getElement("definition-status-label", browserWindow.document).setAttribute("style", "color:" + color + ";");
     }
 };
 // Construct

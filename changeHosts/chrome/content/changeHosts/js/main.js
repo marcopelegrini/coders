@@ -8,7 +8,8 @@ var CHMain = {
         this.utils = new CTechUtils();
         this.fileUtils = new CTechFileUtils();
         this.dao = new CHDao(this.preferences);
-		this.manager = new CHManager(this.utils, this.log);
+        this.manager = new CHManager(this.utils, this.log, this.dao, this.preferences, this.fileUtils);
+        this.uiManager = new CHUiManager(this.preferences, this.utils, this.dao);
     },
     
     configure: function(){
@@ -39,72 +40,29 @@ var CHMain = {
         }
     },
     
-    setupUI: function(){
-        var menu = this.utils.getElement("changeHosts-statepopup");
-        this.cleanHostsItens(menu);
-        
-        var firstMenuItem = menu.firstChild;
-        var host, item;
-        
-        var hosts = this.dao.listToShow();
-        for (var i = 0; i < hosts.length; i++) {
-            host = hosts[i];
-            item = this.genRow(host)
-            menu.insertBefore(item, firstMenuItem);
-            if (host.selected) {
-    			this.utils.getElement("definition-name").value = host.name;        
-            }
-        }
-		
-		this.loadPrefs();
-    },
-	
-    loadPrefs: function(){
-        var color = this.preferences.getString("definition-color");
-        this.utils.getElement("definition-name").setAttribute("style", "color:" + color + ";");
-    },
-    
-    cleanHostsItens: function(menu){
-        var itens = menu.getElementsByClassName('host-item');
-        while (itens.length > 0) {
-            menu.removeChild(itens[0]);
-        }
-    },
-    
-    genRow: function(host){
-        var menuitem = document.createElement('menuitem');
-        
-        menuitem.setAttribute('class', 'host-item');
-        menuitem.setAttribute('type', 'checkbox');
-        menuitem.setAttribute('label', host.name);
-        menuitem.setAttribute('value', host.id);
-        menuitem.setAttribute('checked', host.selected);
-        menuitem.setAttribute('oncommand', "CHMain.selectHost(this.getAttribute('value'));");
-        
-        return menuitem;
-    },
-    
     selectHost: function(id, event){
-        this.log.info("Changing hosts to: " + id);
-        if (!this.dao.selectHost(id)) {
-            alert("#Impossivel selecionar o hosts.");
-        }
-        this.setupUI();
+        this.manager.select(id);
+        this.uiManager.setupUI();
     },
     
     dispatchStatusClick: function(anchor, event){
+        /*
+         if (event.button == 0) {
+         var menu = this.utils.getElement("changeHosts-statepopup");
+         menu.openPopup(anchor, 'before_end', -1, -1, false, false);
+         }
+         else
+         if (event.button == 2) {
+         event.preventDefault();
+         }
+         */
         if (event.button == 0) {
-            var menu = this.utils.getElement("changeHosts-statepopup");
-            menu.openPopup(anchor, 'before_end', -1, -1, false, false);
+            dnsFlusher.refreshdns();
         }
-        else 
-            if (event.button == 2) {
-                event.preventDefault();
-            }
     },
     
-    //Use window mediator to open preferences (needed because add-ons manager window)
     openPreferences: function(){
+        //Use window mediator to open preferences (needed because add-ons manager window)
         var wm = Components.classes['@mozilla.org/appshell/window-mediator;1'].getService(Components.interfaces.nsIWindowMediator);
         var topWindow = wm.getMostRecentWindow(CHConstants.windowType);
         if (topWindow) {
@@ -114,6 +72,11 @@ var CHMain = {
             topWindow = wm.getMostRecentWindow(null);
             topWindow.openDialog(CHConstants.windowURI, "", CHConstants.windowOptions);
         }
+    },
+    
+    loadPrefs: function(){
+        var color = this.preferences.getString("definition-color");
+        this.utils.getElement("definition-status-label").setAttribute("style", "color:" + color + ";");
     }
 };
 //Contruct
@@ -123,8 +86,6 @@ window.addEventListener("load", function(){
     //Configure if its necessary
     CHMain.configure();
     //setupUI
-    CHMain.setupUI();
+    CHMain.uiManager.setupUI();
+	CHMain.loadPrefs();
 }, false);
-//window.addEventListener("unload", function(){
-//    dnsFlusher.destroy();
-//}, false);

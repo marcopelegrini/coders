@@ -14,21 +14,27 @@
 
 	<script type="application/x-javascript" src="chrome://changeHosts/content/js/dnsFlusher.js" />
 	<script type="application/x-javascript" src="chrome://changeHosts/content/js/hostManager.js" />
+	<script type="application/x-javascript" src="chrome://changeHosts/content/js/uiManager.js" />
 	<script type="application/x-javascript" src="chrome://changeHosts/content/js/main.js" />
 
 	<!-- Status bar -->
 	<statusbar id="status-bar">
-		<statusbarpanel id="changeHosts_statusbar_panel" status="none" tooltip="changeHosts-toolbar-tooltip" onclick="CHMain.dispatchStatusClick(this, event);"
+		<statusbarpanel id="changeHosts_statusbar_panel" 
+			status="none" 
+			tooltip="changeHosts-toolbar-tooltip"
+			onclick="CHMain.dispatchStatusClick(this, event);"
+			context="changeHosts-statepopup" 
 			insertbefore="offline-status">
 
 			<image id="changeHosts_statusbar_panel_img" />
 
-			<label value="Change Hosts" id="definition-name" />
+			<label value="Change Hosts" id="definition-status-label" />
 			<label value="" id="dnsflusher-label" />
 
 			<menupopup id="changeHosts-statepopup">
 				<menuseparator />
-				<menuitem label="Options" accesskey="O" oncommand="event.preventDefault(); CHMain.openPreferences();" />
+				<menuitem label="Recarregar DNS" accesskey="R" oncommand="event.preventDefault(); dnsFlusher.refreshdns();" />
+				<menuitem label="Opções" accesskey="O" oncommand="event.preventDefault(); CHMain.openPreferences();" />
 			</menupopup>
 		</statusbarpanel>
 

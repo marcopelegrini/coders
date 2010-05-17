@@ -2,6 +2,7 @@ pref("extensions.changeHosts.log", true);
 
 pref("extensions.changeHosts.hosts-location", "");
 pref("extensions.changeHosts.reload-page", true);
+pref("extensions.changeHosts.reload-on-change", true);
 pref("extensions.changeHosts.label-color", "#000000");
 pref("extensions.changeHosts.definition-color", "#000000");
 pref("extensions.changeHosts.show-ip-status", true);

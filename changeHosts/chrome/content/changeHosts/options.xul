@@ -17,6 +17,8 @@
 	<script type="application/x-javascript" src="chrome://changeHosts/content/js/objects.js" />
 	<script type="application/x-javascript" src="chrome://changeHosts/content/js/dao.js" />
 	
+	<script type="application/x-javascript" src="chrome://changeHosts/content/js/uiManager.js" />
+	<script type="application/x-javascript" src="chrome://changeHosts/content/js/hostManager.js" />
 	<script type="application/x-javascript" src="chrome://changeHosts/content/js/definitions.js" />
 	<script type="application/x-javascript" src="chrome://changeHosts/content/js/hostManager.js" />
 	<script type="application/x-javascript" src="chrome://changeHosts/content/js/optionsOverlay.js" />
@@ -24,6 +26,7 @@
 	<prefpane id="prefpane_general" label="#Geral">
 		<preferences>
 			<preference id="hosts-location-preference" name="extensions.changeHosts.hosts-location" type="unichar" />
+			<preference id="reload-on-change-preference" name="extensions.changeHosts.reload-on-change" type="bool" />
 			<preference id="reload-page-preference" name="extensions.changeHosts.reload-page" type="bool" />
 			<preference id="show-ip-status-preference" name="extensions.changeHosts.show-ip-status" type="bool" />
 			<preference id="label-color-preference" name="extensions.changeHosts.label-color" type="unichar" />
@@ -148,7 +151,8 @@
 			<vbox class="configVBox secondConfigVBox">
 				<groupbox orient="vertical">
 					<caption label="#Integração com DNS Flusher" />
-					<checkbox preference="reload-page-preference" label="#Recarregar página ao trocar a definição de hosts" />
+					<checkbox preference="reload-page-preference" label="#Recarregar página ao recarregar DNS" />
+					<checkbox preference="reload-on-change-preference" label="#Recarregar página ao trocar a definição de hosts" />
 					<checkbox preference="show-ip-status-preference" label="#Mostrar IP da página atual na barra de status" />
 					<separator />
 					<hbox>
@@ -232,6 +236,7 @@
 							<hbox align="right">
 								<button id="cancel-definition-button" disabled="true" label="#Cancelar" oncommand="CHDefinitions.cancel();" />
 								<button id="save-definition-button" disabled="true" label="#Salvar" oncommand="CHDefinitions.save();" />
+								<button id="save-and-use-definition-button" disabled="true" label="#Salvar e escolher" oncommand="CHDefinitions.saveAndUse();" />
 							</hbox>
 						</vbox>
 					</hbox>
