@@ -34,6 +34,10 @@ function CTechPrefs(branchName, windowType, windowURI, windowOptions){
     this.getString = function(value){
         return this.getPrefs().getCharPref(value);
     }
+	
+    this.setString = function(name, value){
+        this.getPrefs().setCharPref(name, value);
+    }
     
 	this.setLogger = function(logger){
 		this.logger = logger;
