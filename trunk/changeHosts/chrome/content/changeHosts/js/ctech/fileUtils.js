@@ -51,7 +51,7 @@ function CTechFileUtils(){
          **
          */
         //outputStream.init(file, 0x04 | 0x08 | 0x20, 420, 0);
-		outputStream.init(file, -1, -1, 0);
+        outputStream.init(file, -1, -1, 0);
         var result = outputStream.write(output, output.length);
         outputStream.close();
     }
@@ -71,6 +71,21 @@ function CTechFileUtils(){
         sis.init(is);
         var output = sis.read(sis.available());
         return output;
+    }
+    
+    this.execute = function(filePath){
+        var file = this.getFile(filePath);
+        if (file.exists()) {
+            var process = Components.classes["@mozilla.org/process/util;1"].createInstance(Components.interfaces.nsIProcess);
+            process.init(file);
+            // Run the process.
+            // If first param is true, calling thread will be blocked until called process terminates.
+            // Second and third params are used to pass command-line arguments to the process.
+            process.run(true, null, 0);
+        }
+        else {
+            alert("#O arquivo não existe !");
+        }
     }
     
     function enablePermission(){

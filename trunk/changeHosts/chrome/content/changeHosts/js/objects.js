@@ -11,6 +11,8 @@ const CHConstants = {
     branchName: "extensions.changeHosts.",
     windowType: "changeHosts:settings",
     windowURI: "chrome://changeHosts/content/options.xul",
-    //const windowOptions= "chrome,toolbar,centerscreen",
     windowOptions: "chrome,toolbar,dialog=no,resizable,all,dependent,centerscreen",
+    hostLocationPref: "hosts-location",
+    executePostScriptPref: "script-flag",
+    postScriptLocationPref: "script-location"
 }

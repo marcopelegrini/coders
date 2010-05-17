@@ -6,12 +6,14 @@ function CHDao(preferences){
     var dropDBQuery = 'DROP TABLE IF EXISTS definitions;';
     var createDBQuery = 'CREATE TABLE IF NOT EXISTS definitions (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL, selected INTEGER NOT NULL, show INTEGER NOT NULL, content TEXT);';
     var insertHostQuery = 'INSERT INTO definitions(name, selected, show, content) VALUES(?1, ?2, ?3, ?4);';
+    var updateHostQuery = 'UPDATE definitions SET name = ?2, show = ?3, content = ?4 WHERE id = ?1';
     var listHostsQuery = 'SELECT id, name, selected, show, content FROM definitions';
     var listHostsToShowQuery = 'SELECT id, name, selected, show, content FROM definitions WHERE show = 1';
     var findHostQuery = 'SELECT id, name, selected, show, content FROM definitions WHERE id = ?1';
     var deleteHostQuery = 'DELETE FROM definitions WHERE id = ?1';
-	var cleanHostSelectionQuery = 'UPDATE definitions SET selected = 0 WHERE id != ?1';
+    var cleanHostSelectionQuery = 'UPDATE definitions SET selected = 0 WHERE id != ?1';
     var selectHostQuery = 'UPDATE definitions SET selected = 1 WHERE id = ?1';
+    var getHostContentQuery = 'SELECT content FROM definitions WHERE id = ?1';
     
     // creating a DB:
     this.createDB = function(){
@@ -23,6 +25,12 @@ function CHDao(preferences){
         this.log.debug("Saving new host: " + name + " Selected: " + selected + " Show: " + show + " Content: \n" + content);
         this.sqlite.doSQL(insertHostQuery, name, selected, show, content);
         return this.sqlite.getConnection().lastInsertRowID;
+    }
+    
+    this.updateHost = function(id, name, show, content){
+        this.log.debug("Updating host: " + id + " Name:" + name + " Show: " + show + " Content: \n" + content);
+        this.sqlite.doSQL(updateHostQuery, id, name, show, content);
+        return true;
     }
     
     this.list = function(){
@@ -56,51 +64,26 @@ function CHDao(preferences){
     }
     
     this.deleteHost = function(id){
-		this.log.debug("Deleting host: " + id);
+        this.log.debug("Deleting host: " + id);
         this.sqlite.doSQL(deleteHostQuery, id);
         return true;
     }
     
     this.selectHost = function(id){
-    	this.log.debug("Selecting host: " + id);
-		this.sqlite.assync(cleanHostSelectionQuery, id);
-		this.sqlite.assync(selectHostQuery, id);
-		
+        this.log.debug("Selecting host: " + id);
+        this.sqlite.doSQL(cleanHostSelectionQuery, id);
+        this.sqlite.doSQL(selectHostQuery, id);
+        
         return true;
     }
     
-    // simple add record:
-    function test_addRecord(){
-        this.sqlite.doSQL(myInsertQuery);
-    }
-    
-    // parameterized add record, add parameters as much as you want:	
-    function test_addRecordParameterized(){
-        // for example, adding 3 records:
-        for (var i = 1; i < 4; i++) {
-            this.sqlite.assync(myInsertQueryParameterized, 'book title' + i + '');
+    this.getHostContent = function(id){
+        this.log.debug("Getting host content: " + id);
+        var contents = this.sqlite.doSQL(getHostContentQuery, id);
+        var content = contents.length > 0 ? contents[0] : null;
+        if (content) {
+            return content['content'];
         }
-    }
-    
-    // for SELECT, use this.sqlite.select() :
-    
-    // simple select:
-    function test_Select(){
-        var myArray1 = this.sqlite.doSQL(mySelectQuery);
-        // Now you can loop through the array:
-        for (var j = 0; j < myArray1.length; j++) {
-            // change this as you wish:
-            Log.info(myArray1[j]['title']);
-        }
-    }
-    
-    // select with bound parameters, add parameters as much as you want:
-    function test_SelectParameterized(){
-        var myArray1 = this.sqlite.doSQL(mySelectQueryParameterized, '1', 'book title1');
-        // Now you can loop through the array:
-        for (var j = 0; j < myArray1.length; j++) {
-            // change this as you wish:
-            Log.info(myArray1[j]['title']);
-        }
+        return null;
     }
 }
