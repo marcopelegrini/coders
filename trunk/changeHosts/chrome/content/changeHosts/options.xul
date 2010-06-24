@@ -231,7 +231,7 @@
 								</rows>
 							</grid>
 							<hbox>
-								<textbox id="content" multiline="true" wrap="off" disabled="true" style="min-width: 50em; min-height: 33.1em;" />
+								<textbox id="content" multiline="true" wrap="off" disabled="true" focusable="false" style="min-width: 50em; min-height: 33.1em;" />
 							</hbox>
 							<hbox align="right">
 								<button id="cancel-definition-button" disabled="true" label="#Cancelar" oncommand="CHDefinitions.cancel();" />
