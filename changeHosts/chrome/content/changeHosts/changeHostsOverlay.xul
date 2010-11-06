@@ -30,13 +30,13 @@
 
 			<label value="Change Hosts" id="definition-status-label" />
 			<label value="" id="dnsflusher-label" />
-
-			<menupopup id="changeHosts-statepopup">
-				<menuseparator />
-				<menuitem label="Recarregar DNS" accesskey="R" oncommand="event.preventDefault(); dnsFlusher.refreshdns();" />
-				<menuitem label="Opções" accesskey="O" oncommand="event.preventDefault(); CHMain.openPreferences();" />
-			</menupopup>
 		</statusbarpanel>
+		
+		<menupopup id="changeHosts-statepopup">
+			<menuseparator />
+			<menuitem label="Recarregar DNS" accesskey="R" oncommand="event.preventDefault(); event.stopPropagation(); dnsFlusher.refreshdns();" />
+			<menuitem label="Opções" accesskey="O" oncommand="event.preventDefault(); event.stopPropagation(); CHMain.openPreferences();" />
+		</menupopup>
 
 		<tooltip id="dnsflusher-tooltip" noautohide="true" orient="vertical" position="before_start" style="padding:2px;"></tooltip>
 	</statusbar>

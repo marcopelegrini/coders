@@ -44,6 +44,9 @@ var CHMain = {
     selectHost: function(id, event){
         this.manager.select(id);
         this.uiManager.setupUI();
+		if (this.preferences.getBool("reload-on-change")) {
+			dnsFlusher.refreshdns();
+		}
     },
     
     dispatchStatusClick: function(anchor, event){
