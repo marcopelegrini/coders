@@ -1,21 +1,35 @@
 /**
+ * File utilities
+ * 
  * @author marcotulio
  */
 function CTechFileUtils(){
 
+	/**
+	 * Get a file instance from filePath
+	 * 
+	 * @param {Object} filePath
+	 */
     this.getFile = function(filePath){
         var file = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsILocalFile);
         file.initWithPath(filePath);
         return file;
     }
     
+	/**
+	 * Get FilePicker Interface
+	 */
     this.getFilePicker = function(){
         var fp = Components.classes["@mozilla.org/filepicker;1"].createInstance(Components.interfaces.nsIFilePicker);
         return fp;
     }
     
+	/**
+	 * Save a content to a file. If the file does not exists, create one
+	 * 
+	 * @param {Object} filePath
+	 */
     this.save = function(filePath, output){
-        enablePermission();
         var file = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsILocalFile);
         file.initWithPath(filePath);
         if (!file.exists()) {
@@ -56,8 +70,12 @@ function CTechFileUtils(){
         outputStream.close();
     }
     
+	/**
+	 * Read a file from filePath
+	 * 
+	 * @param {Object} filePath
+	 */
     this.read = function(filePath){
-        enablePermission();
         var file = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsILocalFile);
         file.initWithPath(filePath);
         if (!file.exists()) {
@@ -73,6 +91,11 @@ function CTechFileUtils(){
         return output;
     }
     
+	/**
+	 * Execute a file from filePath
+	 * 
+	 * @param {Object} filePath
+	 */
     this.execute = function(filePath){
         var file = this.getFile(filePath);
         if (file.exists()) {
@@ -84,16 +107,7 @@ function CTechFileUtils(){
             process.run(true, null, 0);
         }
         else {
-            alert("#O arquivo não existe !");
-        }
-    }
-    
-    function enablePermission(){
-        try {
-            netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
-        } 
-        catch (e) {
-            alert("Permission to read file was denied.");
+            alert("#O arquivo '" + filePath + "' não existe !");
         }
     }
 }

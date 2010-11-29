@@ -1,3 +1,10 @@
+/**
+ * Class to manage the UI behavior
+ * 
+ * @param {Object} preferences
+ * @param {Object} utils
+ * @param {Object} dao
+ */
 function CHUiManager(preferences, utils, dao){
 
     this.preferences = preferences;
@@ -5,11 +12,9 @@ function CHUiManager(preferences, utils, dao){
     this.dao = dao;
     
     this.setupUI = function(document){
-        var wm = Components.classes["@mozilla.org/appshell/window-mediator;1"].getService(Components.interfaces.nsIWindowMediator);
-        var browserWindow = wm.getMostRecentWindow("navigator:browser");
+        var browserWindow = this.utils.getBrowserWindow();
 		var aDocument = browserWindow.document;
-        var menu = this.utils.getElement("changeHosts-statepopup", aDocument);
-        
+        var menu = this.utils.getElement("CH-statepopup", aDocument);
         this.cleanHostsItens(menu);
         
         var firstMenuItem = menu.firstChild;
@@ -21,7 +26,7 @@ function CHUiManager(preferences, utils, dao){
             item = this.genRow(host, aDocument);
             menu.insertBefore(item, firstMenuItem);
             if (host.selected) {
-                this.utils.getElement("definition-status-label", aDocument).value = host.name;
+                this.utils.getElement("CH_status_definition_name", aDocument).value = host.name;
             }
         }
     }

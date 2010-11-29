@@ -1,3 +1,12 @@
+/**
+ * Definitions selector manager (just to decouple each part of plugin)
+ * 
+ * @param {Object} utils
+ * @param {Object} log
+ * @param {Object} dao
+ * @param {Object} preferences
+ * @param {Object} fileUtils
+ */
 function CHManager(utils, log, dao, preferences, fileUtils){
 
     this.utils = utils;
@@ -13,6 +22,7 @@ function CHManager(utils, log, dao, preferences, fileUtils){
             case "Darwin":
                 return "/etc/hosts";
                 break;
+			//Linux missing
             default:
                 return "c:\\windows\\system32\\drivers\\etc\\hosts";
         }

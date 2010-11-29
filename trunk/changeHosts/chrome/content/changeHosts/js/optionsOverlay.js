@@ -1,4 +1,6 @@
 /**
+ * Options overlay functions
+ * 
  * @author marcotulio
  */
 var CHOptions = {
@@ -9,14 +11,11 @@ var CHOptions = {
         this.preferences.setLogger(this.log);
         this.utils = new CTechUtils();
         this.fileUtils = new CTechFileUtils();
-		this.manager = new CHManager(this.utils, this.log, this.dao, this.preferences, this.fileUtils);
+        this.manager = new CHManager(this.utils, this.log, this.dao, this.preferences, this.fileUtils);
     },
     
     pickHostFile: function(){
-        //var hostsDir = this.fileUtils.getFile("c:\\windows\\system32\\drivers\\etc\\");
-        
         var fp = this.fileUtils.getFilePicker();
-        //fp.displayDirectory = hostsDir;
         const nsIFilePicker = Components.interfaces.nsIFilePicker;
         fp.appendFilters(nsIFilePicker.filterAll);
         
@@ -31,10 +30,7 @@ var CHOptions = {
     },
     
     pickScript: function(){
-        //var hostsDir = this.fileUtils.getFile("c:\\windows\\system32\\drivers\\etc\\");
-        
         var fp = this.fileUtils.getFilePicker();
-        //fp.displayDirectory = hostsDir;
         const nsIFilePicker = Components.interfaces.nsIFilePicker;
         fp.appendFilters(nsIFilePicker.filterAll);
         
@@ -120,7 +116,7 @@ var CHOptions = {
                 alert("#Você deve selecionar um script ou programa para ser executado.");
                 return;
             }
-			this.fileUtils.execute(filePath);
+            this.fileUtils.execute(filePath);
         }
         else {
             alert("#A opção de executar o script precisa estar marcada !");
@@ -140,14 +136,38 @@ var CHOptions = {
     },
     
     colorChanged: function(){
-        var wm = Components.classes["@mozilla.org/appshell/window-mediator;1"].getService(Components.interfaces.nsIWindowMediator);
-        var browserWindow = wm.getMostRecentWindow("navigator:browser");
+        var browserWindow = this.utils.getBrowserWindow();
         
         var color = this.utils.getElement("ip-color-picker").color;
-        this.utils.getElement("dnsflusher-label", browserWindow.document).setAttribute("style", "color:" + color + ";");
-		
+        this.utils.getElement("CH_status_ip", browserWindow.document).setAttribute("style", "color:" + color + ";");
+        
         color = this.utils.getElement("definition-color-picker").color;
-        this.utils.getElement("definition-status-label", browserWindow.document).setAttribute("style", "color:" + color + ";");
+        this.utils.getElement("CH_status_definition_name", browserWindow.document).setAttribute("style", "color:" + color + ";");
+    },
+    
+    showHideViewElements: function(element, show){
+        var browserWindow = this.utils.getBrowserWindow();
+        this.utils.getElement(element, browserWindow.document).hidden = !show;
+    },
+    
+    simulateTab: function(event){
+        // Insert real tab (9) on textbox
+        if (event.keyCode == 9) {
+            event.preventDefault();
+            event.stopPropagation();
+            var aText = text = "\t";
+            var element = event.originalTarget;
+            
+            var command = "cmd_insertText";
+            var controller = element.controllers.getControllerForCommand(command);
+            if (controller && controller.isCommandEnabled(command)) {
+                controller = controller.QueryInterface(Components.interfaces.nsICommandController);
+                var params = Components.classes["@mozilla.org/embedcomp/command-params;1"];
+                params = params.createInstance(Components.interfaces.nsICommandParams);
+                params.setStringValue("state_data", aText);
+                controller.doCommandWithParams(command, params);
+            }
+        }
     }
 };
 // Construct

@@ -1,3 +1,12 @@
+/**
+ * Definition declaration
+ *
+ * @param {Object} id
+ * @param {Object} name
+ * @param {Object} show
+ * @param {Object} selected
+ * @param {Object} content
+ */
 function Definition(id, name, show, selected, content){
     this.id = id;
     this.name = name;
@@ -6,7 +15,9 @@ function Definition(id, name, show, selected, content){
     this.content = content;
 };
 
-// Preferences contants
+/**
+ *  Change Hosts constants
+ */
 const CHConstants = {
     branchName: "extensions.changeHosts.",
     windowType: "changeHosts:settings",
