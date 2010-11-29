@@ -1,4 +1,6 @@
 /**
+ * Class to manage host definitions
+ * 
  * @author marcotulio
  */
 var CHDefinitions = {
@@ -56,6 +58,10 @@ var CHDefinitions = {
         if (id) {
             this.manager.select(id);
             this.uiManager.setupUI();
+			if (this.preferences.getBool("reload-on-change")) {
+				var browser = this.utils.getBrowserWindow();
+				browser.gBrowser.reload();
+			}
         }
     },
     

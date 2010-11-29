@@ -1,8 +1,11 @@
+/**
+ * Everything starts here. This class controls the configuration (first execution) and main commands fired by user
+ */
 var CHMain = {
 
     init: function(){
         Application.console.log("[INFO] - Starting Change Hosts");
-        this.preferences = new CTechPrefs(CHConstants.branchName, CHConstants.windowType, CHConstants.windowURI, CHConstants.windowOptions);
+        this.preferences = new CTechPrefs(CHConstants.branchName);
         this.log = new CTechLog(this.preferences);
         this.preferences.setLogger(this.log);
         this.utils = new CTechUtils();
@@ -44,24 +47,14 @@ var CHMain = {
     selectHost: function(id, event){
         this.manager.select(id);
         this.uiManager.setupUI();
-		if (this.preferences.getBool("reload-on-change")) {
-			dnsFlusher.refreshdns();
-		}
+        if (this.preferences.getBool("reload-on-change")) {
+            CHDnsFlusher.refreshdns();
+        }
     },
     
     dispatchStatusClick: function(anchor, event){
-        /*
-         if (event.button == 0) {
-         var menu = this.utils.getElement("changeHosts-statepopup");
-         menu.openPopup(anchor, 'before_end', -1, -1, false, false);
-         }
-         else
-         if (event.button == 2) {
-         event.preventDefault();
-         }
-         */
         if (event.button == 0) {
-            dnsFlusher.refreshdns();
+            CHDnsFlusher.refreshdns();
         }
     },
     
@@ -80,7 +73,15 @@ var CHMain = {
     
     loadPrefs: function(){
         var color = this.preferences.getString("definition-color");
-        this.utils.getElement("definition-status-label").setAttribute("style", "color:" + color + ";");
+        this.utils.getElement("CH_status_definition_name").setAttribute("style", "color:" + color + ";");
+        
+        var showIcon = this.preferences.getBool("show-icon-status");
+        var showDefinitionName = this.preferences.getBool("show-definition-name");
+        var showIP = this.preferences.getBool("show-ip-status");
+        
+        this.utils.getElement("CH_status_img").hidden = !showIcon;
+        this.utils.getElement("CH_status_definition_name").hidden = !showDefinitionName;
+        this.utils.getElement("CH_status_ip").hidden = !showIP;
     }
 };
 //Contruct

@@ -19,25 +19,25 @@
 
 	<!-- Status bar -->
 	<statusbar id="status-bar">
-		<statusbarpanel id="changeHosts_statusbar_panel" 
+		<statusbarpanel id="CH_statusbar_panel" 
 			status="none" 
-			tooltip="changeHosts-toolbar-tooltip"
-			onclick="CHMain.dispatchStatusClick(this, event);"
-			context="changeHosts-statepopup" 
+			tooltip="CH_status_tooltip" 
+			onclick="CHMain.dispatchStatusClick(this, event);" 
+			context="CH-statepopup" 
 			insertbefore="offline-status">
 
-			<image id="changeHosts_statusbar_panel_img" />
+			<image id="CH_status_img" />
 
-			<label value="Change Hosts" id="definition-status-label" />
-			<label value="" id="dnsflusher-label" />
+			<label id="CH_status_definition_name" value="Change Hosts"  />
+			<label id="CH_status_ip" value=""  />
 		</statusbarpanel>
 		
-		<menupopup id="changeHosts-statepopup">
+		<menupopup id="CH-statepopup">
 			<menuseparator />
-			<menuitem label="Recarregar DNS" accesskey="R" oncommand="event.preventDefault(); event.stopPropagation(); dnsFlusher.refreshdns();" />
+			<menuitem label="Recarregar DNS" accesskey="R" oncommand="event.preventDefault(); event.stopPropagation(); CHDnsFlusher.refreshdns();" />
 			<menuitem label="Opções" accesskey="O" oncommand="event.preventDefault(); event.stopPropagation(); CHMain.openPreferences();" />
 		</menupopup>
 
-		<tooltip id="dnsflusher-tooltip" noautohide="true" orient="vertical" position="before_start" style="padding:2px;"></tooltip>
+		<tooltip id="CH_status_tooltip" noautohide="true" orient="vertical" position="before_start" style="padding:2px;"></tooltip>
 	</statusbar>
 </overlay>

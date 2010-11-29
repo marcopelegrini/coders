@@ -1,4 +1,6 @@
 /**
+ * General utility for log purpose
+ * 
  * @author marcotulio
  */
 function CTechLog(preferences){
@@ -29,6 +31,9 @@ function CTechLog(preferences){
     }
 }
 
+/**
+ * General utilities
+ */
 function CTechUtils(){
     this.getOperationSystem = function(){
         var sysInfo = Components.classes['@mozilla.org/system-info;1'].getService(Components.interfaces.nsIPropertyBag2);
@@ -53,4 +58,9 @@ function CTechUtils(){
         }
         return document.getElementById(id);
     }
+
+	this.getBrowserWindow = function(){
+		var wm = Components.classes["@mozilla.org/appshell/window-mediator;1"].getService(Components.interfaces.nsIWindowMediator);
+		return wm.getMostRecentWindow("navigator:browser");
+	}
 }

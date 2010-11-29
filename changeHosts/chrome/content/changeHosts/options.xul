@@ -5,9 +5,17 @@
 
 <!DOCTYPE prefwindow SYSTEM "chrome://changeHosts/locale/changeHosts.dtd">
 
-<prefwindow xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" xmlns:html="http://www.w3.org/1999/xhtml" windowtype="changeHosts:settings"
-	id="changeHosts-settings" title="#change" buttons="accept,cancel" persist="lastSelected screenX screenY" autostretch="always"
-	onload="sizeToContent();window.sizeToContent();" type="prefwindow">
+<prefwindow 
+	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" 
+	xmlns:html="http://www.w3.org/1999/xhtml" 
+	windowtype="changeHosts:settings"
+	id="changeHosts-settings" 
+	title="#change" 
+	buttons="accept,cancel" 
+	persist="lastSelected screenX screenY" 
+	autostretch="always"
+	onload="sizeToContent(); window.sizeToContent();"
+	type="prefwindow">
 
 	<script type="application/x-javascript" src="chrome://changeHosts/content/js/ctech/utils.js" />
 	<script type="application/x-javascript" src="chrome://changeHosts/content/js/ctech/fileUtils.js" />
@@ -153,7 +161,7 @@
 					<caption label="#Integração com DNS Flusher" />
 					<checkbox preference="reload-page-preference" label="#Recarregar página ao recarregar DNS" />
 					<checkbox preference="reload-on-change-preference" label="#Recarregar página ao trocar a definição de hosts" />
-					<checkbox preference="show-ip-status-preference" label="#Mostrar IP da página atual na barra de status" />
+					<checkbox preference="show-ip-status-preference" label="#Mostrar IP da página atual na barra de status" oncommand="CHOptions.showHideViewElements('CH_status_ip', this.checked);" />
 					<separator />
 					<hbox>
 						<label value="#Cor do IP: " />
@@ -164,8 +172,8 @@
 				</groupbox>
 				<groupbox orient="vertical">
 					<caption label="#Outras configurações" />
-					<checkbox preference="show-icon-status-preference" label="#Mostrar icone do Change Hosts na barra de status" />
-					<checkbox preference="show-definition-name-preference" label="#Mostrar nome da definição na barra de status" />
+					<checkbox preference="show-icon-status-preference" label="#Mostrar icone do Change Hosts na barra de status" oncommand="CHOptions.showHideViewElements('CH_status_img', this.checked);" />
+					<checkbox preference="show-definition-name-preference" label="#Mostrar nome da definição na barra de status" oncommand="CHOptions.showHideViewElements('CH_status_definition_name', this.checked);" />
 				</groupbox>
 				<!--
 					TODO - Version 2.0 <groupbox orient="vertical"> <caption label="#Backup" /> <description> #As definições podem ser salvas como um arquivo e
@@ -231,7 +239,7 @@
 								</rows>
 							</grid>
 							<hbox>
-								<textbox id="content" multiline="true" wrap="off" disabled="true" focusable="false" style="min-width: 50em; min-height: 33.1em;" />
+								<textbox id="content" multiline="true" wrap="off" disabled="true" focusable="false" style="min-width: 50em; min-height: 33.1em;" onkeypress="CHOptions.simulateTab(event);" />
 							</hbox>
 							<hbox align="right">
 								<button id="cancel-definition-button" disabled="true" label="#Cancelar" oncommand="CHDefinitions.cancel();" />

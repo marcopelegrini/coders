@@ -1,4 +1,6 @@
 /**
+ * Database utilities
+ * 
  * @author marcotulio
  */
 function CTechDatabaseUtil(logger) {

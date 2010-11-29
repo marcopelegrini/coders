@@ -1,21 +1,16 @@
 /**
+ * DNS Flusher integration. To get only DNS Flusher functionality search for DNS Flusher on Firefox Add-ons page
+ * 
  * @author marcotulio
  */
-window.addEventListener("load", function(){
-    dnsFlusher.init();
-    dnsFlusher.loadPrefs();
-}, false);
-window.addEventListener("unload", function(){
-    dnsFlusher.destroy();
-}, false);
-
-var dnsFlusher = {
+var CHDnsFlusher = {
 
     notifyStateDocument: Components.interfaces.nsIWebProgress.NOTIFY_STATE_DOCUMENT,
     notifyLocation: Components.interfaces.nsIWebProgress.NOTIFY_LOCATION,
     options: null,
     
     init: function(){
+		Application.console.log("[INFO] - Starting Change Hosts DNS Flusher");
         this.downloadManager = Components.classes["@mozilla.org/download-manager;1"].getService(Components.interfaces.nsIDownloadManager);
         this.utils = new CTechUtils();
         this.prefs = new CTechPrefs(CHConstants.branchName, CHConstants.windowType, CHConstants.windowURI, CHConstants.windowOptions);
@@ -116,7 +111,7 @@ var dnsFlusher = {
     
     updateLabel: function(host, ips, byUser){
         this.logger.debug("Updating label: " + ips + " byUser: " + byUser);
-        var ipLabel = this.utils.getElement('dnsflusher-label');
+        var ipLabel = this.utils.getElement('CH_status_ip');
         this.cleanTooltip();
         //Status bar label
         if (host && ips && ips.length) {
@@ -130,12 +125,12 @@ var dnsFlusher = {
     },
     
     changeLabel: function(value){
-        document.getElementById('dnsflusher-label').value = value;
+        document.getElementById('CH_status_ip').value = value;
     },
     
     cleanTooltip: function(){
         //Remove old tooltips
-        var tooltip = this.utils.getElement('dnsflusher-tooltip');
+        var tooltip = this.utils.getElement('CH_status_tooltip');
         while (tooltip.childElementCount) {
             tooltip.removeChild(tooltip.children[0]);
         }
@@ -148,7 +143,7 @@ var dnsFlusher = {
         tooltipTitle.setAttribute("value", "IP(s) for host: " + host);
         tooltipTitle.setAttribute("style", "font-weight:bold;");
         //Children
-        var tooltip = this.utils.getElement('dnsflusher-tooltip');
+        var tooltip = this.utils.getElement('CH_status_tooltip');
         tooltip.appendChild(tooltipTitle);
         tooltip.setAttribute("style", "padding:2px;");
         for (var i = 0; i < ips.length; i++) {
@@ -186,8 +181,8 @@ var dnsFlusher = {
             backToOnline = true;
             
             if (this.prefs.getBool("reload-page")) {
-                var mainWindow = window.QueryInterface(Components.interfaces.nsIInterfaceRequestor).getInterface(Components.interfaces.nsIWebNavigation).QueryInterface(Components.interfaces.nsIDocShellTreeItem).rootTreeItem.QueryInterface(Components.interfaces.nsIInterfaceRequestor).getInterface(Components.interfaces.nsIDOMWindow);
-                mainWindow.getBrowser().reload();
+				var browser = this.utils.getBrowserWindow();
+				browser.gBrowser.reload();
             }
             else {
                 this.updatestatus(this.actualHost, true);
@@ -204,7 +199,7 @@ var dnsFlusher = {
     
     eventDispatcher: function(event){
         if (event.button < 2) {
-            dnsFlusher.refreshdns();
+            CHDnsFlusher.refreshdns();
         }
         else {
             this.prefs.open();
@@ -213,6 +208,14 @@ var dnsFlusher = {
     
     loadPrefs: function(){
         var color = this.prefs.getString("label-color");
-        this.utils.getElement("dnsflusher-label").setAttribute("style", "color:" + color + ";");
+        this.utils.getElement("CH_status_ip").setAttribute("style", "color:" + color + ";");
     }
 };
+
+window.addEventListener("load", function(){
+    CHDnsFlusher.init();
+    CHDnsFlusher.loadPrefs();
+}, false);
+window.addEventListener("unload", function(){
+    CHDnsFlusher.destroy();
+}, false);

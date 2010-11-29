@@ -1,3 +1,8 @@
+/**
+ * DAO for Change Hosts`s tables 
+ * 
+ * @param {Object} preferences
+ */
 function CHDao(preferences){
     this.log = new CTechLog(preferences);
     this.sqlite = new CTechDatabaseUtil(this.log);

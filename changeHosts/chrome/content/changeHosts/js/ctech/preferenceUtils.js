@@ -1,13 +1,12 @@
 /**
+ * General preference utilities
+ * 
  * @author marcotulio
  */
-function CTechPrefs(branchName, windowType, windowURI, windowOptions){
+function CTechPrefs(branchName){
 
     // Preferences contants
     this.branchName = branchName;
-    this.windowType = windowType;
-    this.windowURI = windowURI;
-    this.windowOptions = windowOptions;
     
     //Singleton instance
     this.prefs = null;
