@@ -24,13 +24,11 @@ image.testImgFail {
 }
 
 radio[pane = prefpane_general] {
-    list-style-image: url("chrome://browser/skin/preferences/Options.png");
-    -moz-image-region: rect(0px, 224px, 32px, 192px);
+    list-style-image: url("chrome://changeHosts/skin/settings32.png");
 }
 
 radio[pane = prefpane_definitions] {
-    list-style-image: url("chrome://browser/skin/preferences/Options.png");
-    -moz-image-region: rect(0px, 64px, 32px, 32px);
+	list-style-image: url("chrome://changeHosts/skin/icon32.png");
 }
 
 groupbox {
