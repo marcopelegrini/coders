@@ -3,7 +3,7 @@ overlay	chrome://navigator/content/navigator.xul	chrome://changeHosts/content/ch
 
 content	changeHosts									chrome/content/changeHosts/
 
-skin	changeHosts		classic/1.0					chrome/skin/classic/changeHosts/
+skin	changeHosts		modern						chrome/skin/modern/
 
 locale	changeHosts		en-US						chrome/locale/en-US/
 locale	changeHosts		pt-BR						chrome/locale/pt-BR/
