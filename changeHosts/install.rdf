@@ -3,7 +3,7 @@
 	<Description about="urn:mozilla:install-manifest">
 		<em:id>{de1c70de-0466-4913-90e9-562e2efd555d}</em:id>
 		<em:name>Change Hosts</em:name>
-		<em:version>1.0.0</em:version>
+		<em:version>1.0.1</em:version>
 		<em:description>Change Operation System Hosts File</em:description>
 		<em:creator/>
 		<em:homepageURL/>
