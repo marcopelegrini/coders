@@ -31,6 +31,10 @@ radio[pane = prefpane_definitions] {
 	list-style-image: url("chrome://changeHosts/skin/icon32.png");
 }
 
+radio[pane = prefpane_about] {
+	list-style-image: url("chrome://changeHosts/skin/question32.png");
+}
+
 groupbox {
     /*border: 1px solid;*/
 }

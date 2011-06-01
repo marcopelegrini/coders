@@ -31,7 +31,7 @@
 	<script type="application/x-javascript" src="chrome://changeHosts/content/js/hostManager.js" />
 	<script type="application/x-javascript" src="chrome://changeHosts/content/js/optionsOverlay.js" />
 
-	<prefpane id="prefpane_general" label="#Geral">
+	<prefpane id="prefpane_general" label="&cH.tabGeneral;">
 		<preferences>
 			<preference id="hosts-location-preference" name="extensions.changeHosts.hosts-location" type="unichar" />
 			<preference id="reload-on-change-preference" name="extensions.changeHosts.reload-on-change" type="bool" />
@@ -48,7 +48,7 @@
 		<hbox style="min-height: 47em;">
 			<vbox class="configVBox">
 				<groupbox orient="horizontal">
-					<caption label="#Arquivo hosts destino" />
+					<caption label="&cH.hostFileDestination;" />
 					<vbox>
 						<hbox>
 							<vbox>
@@ -62,7 +62,7 @@
 					</vbox>
 				</groupbox>
 				<groupbox orient="horizontal">
-					<caption label="#Pós processamento" />
+					<caption label="&cH.postProcessing;" />
 					<vbox>
 						<hbox>
 							<vbox>
@@ -75,7 +75,7 @@
 										<rows>
 											<row>
 												<hbox>
-													<checkbox id="script-flag" preference="script-flag-preference" label="#Executar script apos troca de definição" />
+													<checkbox id="script-flag" preference="script-flag-preference" label="&cH.executeScriptPostProcessing;" />
 												</hbox>
 												<hbox>
 													<image id="scriptHelp" class="testImgQuestion" orient="horizontal" />
@@ -84,14 +84,14 @@
 										</rows>
 									</grid>
 								</hbox>
-								<label value="#Caminho:" />
+								<label value="&cH.path;" />
 							</vbox>
 						</hbox>
 						<hbox>
 							<textbox id="script-location" preference="script-location-preference" style="min-width: 33em;" />
 						</hbox>
 						<hbox align="right">
-							<button id="execute-script-button" label="#Executar" oncommand="CHOptions.executeScript();" />
+							<button id="execute-script-button" label="&cH.run;" oncommand="CHOptions.executeScript();" />
 							<button id="find-script-button" label="&cH.find;" oncommand="CHOptions.pickScript();" />
 						</hbox>
 					</vbox>
@@ -112,7 +112,7 @@
 									<row>
 										<hbox style="width: 115px;">
 											<vbox align="right">
-												<label value="#Leitura:" />
+												<label value="&cH.read;" />
 											</vbox>
 											<vbox>
 												<image id="testReadFile" class="testImgQuestion" />
@@ -120,7 +120,7 @@
 										</hbox>
 										<hbox style="width: 115px;">
 											<vbox align="right">
-												<label value="#Gravação:" />
+												<label value="&cH.write;" />
 											</vbox>
 											<vbox>
 												<image id="testWriteFile" class="testImgQuestion" />
@@ -128,7 +128,7 @@
 										</hbox>
 										<hbox style="width: 115px;">
 											<vbox align="right">
-												<label value="#Execução:" />
+												<label value="&cH.run2;" />
 											</vbox>
 											<vbox>
 												<image id="testRunFile" class="testImgQuestion" />
@@ -158,22 +158,22 @@
 			</vbox>
 			<vbox class="configVBox secondConfigVBox">
 				<groupbox orient="vertical">
-					<caption label="#Integração com DNS Flusher" />
-					<checkbox preference="reload-page-preference" label="#Recarregar página ao recarregar DNS" />
-					<checkbox preference="reload-on-change-preference" label="#Recarregar página ao trocar a definição de hosts" />
-					<checkbox preference="show-ip-status-preference" label="#Mostrar IP da página atual na barra de status" oncommand="CHOptions.showHideViewElements('CH_status_ip', this.checked);" />
+					<caption label="&cH.dnsFlusherIntegration;" />
+					<checkbox preference="reload-page-preference" label="&cH.reloadPageOnDNSFlushing;" />
+					<checkbox preference="reload-on-change-preference" label="&cH.reloadPageOnHostChanging;" />
+					<checkbox preference="show-ip-status-preference" label="&cH.showIPOnStatusBar;" oncommand="CHOptions.showHideViewElements('CH_status_ip', this.checked);" />
 					<separator />
 					<hbox>
-						<label value="#Cor do IP: " />
+						<label value="&cH.IPColor;" />
 						<colorpicker id="ip-color-picker" preference="label-color-preference" type="button" onchange="CHOptions.colorChanged();" />
-						<label value="#Cor da definição: " />
+						<label value="&cH.definitionNameColor;" />
 						<colorpicker id="definition-color-picker" preference="definition-color-preference" type="button" onchange="CHOptions.colorChanged();" />
 					</hbox>
 				</groupbox>
 				<groupbox orient="vertical">
-					<caption label="#Outras configurações" />
-					<checkbox preference="show-icon-status-preference" label="#Mostrar icone do Change Hosts na barra de status" oncommand="CHOptions.showHideViewElements('CH_status_img', this.checked);" />
-					<checkbox preference="show-definition-name-preference" label="#Mostrar nome da definição na barra de status" oncommand="CHOptions.showHideViewElements('CH_status_definition_name', this.checked);" />
+					<caption label="&cH.otherConfigs;" />
+					<checkbox preference="show-icon-status-preference" label="&cH.showChangeHostsIconOnStatusBar;" oncommand="CHOptions.showHideViewElements('CH_status_img', this.checked);" />
+					<checkbox preference="show-definition-name-preference" label="&cH.showDefinitionNameOnStatusBar;" oncommand="CHOptions.showHideViewElements('CH_status_definition_name', this.checked);" />
 				</groupbox>
 				<!--
 					TODO - Version 2.0 <groupbox orient="vertical"> <caption label="#Backup" /> <description> #As definições podem ser salvas como um arquivo e
@@ -183,31 +183,31 @@
 					preference-editable="true" preference="last-backup-preference" /> </hbox> </groupbox>
 				-->
 				<groupbox orient="vertical">
-					<caption label="#Restaurar padrões" />
+					<caption label="&cH.restoreDefaults;" />
 					<description>
-						#Você pode restaurar as preferencias para os valores padrões, e remover todas as definições.
+						&cH.restoreInstructions;
                     </description>
 					<spacer height="10" />
 					<hbox>
-						<button id="reset-preferences-button" label="#Redefinir preferências" oncommand="CHOptions.reset();" />
-						<button id="reset-preferences-button" label="#Limpar definições" oncommand="CHOptions.reset();" />
+						<button id="reset-preferences-button" label="&cH.restorePreferences;" oncommand="CHOptions.reset();" />
+						<button id="reset-preferences-button" label="&cH.cleanDefinitions;" oncommand="CHOptions.reset();" />
 					</hbox>
 				</groupbox>
 			</vbox>
 		</hbox>
 	</prefpane>
-	<prefpane id="prefpane_definitions" label="#Definições" onpaneload="CHDefinitions.onLoad();">
+	<prefpane id="prefpane_definitions" label="&cH.tabDefinitions;" onpaneload="CHDefinitions.onLoad();">
 		<hbox style="min-height: 47em;">
 			<!-- First column -->
 			<vbox>
 				<groupbox orient="horizontal">
-					<caption label="#Definições" />
+					<caption label="&cH.definitions;" />
 					<vbox>
 						<listbox id="definition-list" seltype="simple" style="min-height: 34.6em; max-width: 13em;" onselect="CHDefinitions.selected(this.selectedItem);">
 						</listbox>
 						<button id="new-definition-button" label="&ch.createDefinitions;" oncommand="CHDefinitions.add();" />
-						<button id="edit-definition-button" label="#Editar" disabled="true" oncommand="CHDefinitions.edit();" />
-						<button id="delete-definition-button" label="#Remover" disabled="true" oncommand="CHDefinitions.del();" />
+						<button id="edit-definition-button" label="&cH.edit;" disabled="true" oncommand="CHDefinitions.edit();" />
+						<button id="delete-definition-button" label="&cH.remove;" disabled="true" oncommand="CHDefinitions.del();" />
 					</vbox>
 				</groupbox>
 			</vbox>
@@ -215,7 +215,7 @@
 			<!-- Second column -->
 			<vbox>
 				<groupbox orient="vertical">
-					<caption id="definition-label" label="#Editar" />
+					<caption id="definition-label" label="&cH.edit;" />
 					<hbox>
 						<vbox>
 							<grid>
@@ -227,11 +227,11 @@
 									<row>
 										<hbox>
 											<vbox>
-												<label id="definition-name-label" value="#Nome:" disabled="true" control="definition-name" />
+												<label id="definition-name-label" value="&ch.definitionName;" disabled="true" control="definition-name" />
 												<hbox>
 													<textbox id="definition-name" disabled="true" style="width: 200px;" />
 													<checkbox id="show-in-menu" label="&cH.showInMenu;" disabled="true" checked="false" style="width: 150px;" />
-													<checkbox id="definition-in-use" label="#Em uso" disabled="true" checked="false" />
+													<checkbox id="definition-in-use" label="&ch.inUse;" disabled="true" checked="false" />
 												</hbox>
 											</vbox>
 										</hbox>
@@ -242,9 +242,9 @@
 								<textbox id="content" multiline="true" wrap="off" disabled="true" focusable="false" style="min-width: 50em; min-height: 33.1em;" onkeypress="CHOptions.simulateTab(event);" />
 							</hbox>
 							<hbox align="right">
-								<button id="cancel-definition-button" disabled="true" label="#Cancelar" oncommand="CHDefinitions.cancel();" />
-								<button id="save-definition-button" disabled="true" label="#Salvar" oncommand="CHDefinitions.save();" />
-								<button id="save-and-use-definition-button" disabled="true" label="#Salvar e escolher" oncommand="CHDefinitions.saveAndUse();" />
+								<button id="cancel-definition-button" disabled="true" label="&ch.doCancel;" oncommand="CHDefinitions.cancel();" />
+								<button id="save-definition-button" disabled="true" label="&ch.save;" oncommand="CHDefinitions.save();" />
+								<button id="save-and-use-definition-button" disabled="true" label="&ch.saveAndChoose;" oncommand="CHDefinitions.saveAndUse();" />
 							</hbox>
 						</vbox>
 					</hbox>
@@ -252,5 +252,13 @@
 			</vbox>
 		</hbox>
 	</prefpane>
-
+	<prefpane id="prefpane_about" label="&ch.tabAbout;" >
+		<hbox>
+			<vbox>
+				<textbox id="about" multiline="true" wrap="off" disabled="true" focusable="false" style="min-width: 50em; min-height: 33.1em;" >
+					sdfsfdgsdfgsdfg
+				</textbox>
+			</vbox>
+		</hbox>
+	</prefpane>
 </prefwindow>
