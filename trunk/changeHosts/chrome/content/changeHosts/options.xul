@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
-<?xml-stylesheet type="text/css" href="chrome://global/skin/"?>
-<?xml-stylesheet type="text/css" href="chrome://changeHosts/skin/"?>
-<?xml-stylesheet type="text/css" href="chrome://browser/skin/preferences/preferences.css"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet href="chrome://changeHosts/skin/changeHosts.css" type="text/css"?>
+<?xml-stylesheet href="chrome://browser/skin/preferences/preferences.css" type="text/css"?>
 
 <!DOCTYPE prefwindow SYSTEM "chrome://changeHosts/locale/changeHosts.dtd">
 
