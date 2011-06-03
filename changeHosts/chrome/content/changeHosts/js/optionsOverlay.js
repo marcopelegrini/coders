@@ -25,7 +25,7 @@ var CHOptions = {
             var textbox = document.getElementById("hosts-location");
             textbox.value = fp.file.path;
             document.getElementById('prefpane_general').userChangedValue(textbox);
-            this.checkPermission();
+            this.checkHostPermission();
         }
     },
     
@@ -40,87 +40,75 @@ var CHOptions = {
             var textbox = document.getElementById("script-location");
             textbox.value = fp.file.path;
             document.getElementById('prefpane_general').userChangedValue(textbox);
+			this.checkScriptPermission();
         }
     },
+	
+	checkPermissions: function(){
+		this.checkHostPermission();
+		this.checkScriptPermission(true);
+	},
     
-    checkPermission: function(){
-        this.checkFilePermission();
+    checkHostPermission: function(){
+		var filePath = document.getElementById("hosts-location").value;
+        this.checkFilePermission("read", filePath, "testReadFile", "testImgOK", "testImgFail", "testImgQuestion");
+		this.checkFilePermission("write", filePath, "testWriteFile", "testImgOK", "testImgFail", "testImgQuestion");		
     },
     
-    checkFilePermission: function(){
-        var filePath = document.getElementById("hosts-location").value;
+	checkScriptPermission: function(checkValue){
+		var filePath = document.getElementById("script-location").value;
+		if (this.utils.trim(filePath) == "" && checkValue) {
+			return;
+		}
+		this.checkFilePermission("run", filePath, "testRunFile", "testImgOK", "testImgFail", "testImgQuestion");
+    },
+	    
+    checkFilePermission: function(permission, filePath, elementId, classOk, classFail, classQuestion){
         
+        var element = document.getElementById(elementId);
+		
         if (this.utils.trim(filePath) == "") {
-            alert("#Você deve selecionar um arquivo hosts.");
+			element.setAttribute("class", classQuestion);			
             return;
         }
         
         var file = this.fileUtils.getFile(filePath);
         if (file.exists()) {
-            // Class names
-            const imgOK = "testImgOK";
-            const imgFail = "testImgFail";
-            // Check read
-            var readImg = document.getElementById("testReadFile");
-            if (file.isReadable()) {
-                readImg.setAttribute("class", imgOK);
+			var check = false; 
+			switch(permission)
+			{
+				case "read":
+				check = file.isReadable();
+				break;
+				case "write":
+				check = file.isWritable();
+				break;
+				case "run":
+				if (!this.utils.isMacOS()) {
+					check = file.isExecutable();
+				}		
+			  	break;			  
+			}
+			if (check) {
+                element.setAttribute("class", classOk);
             }
             else {
-                readImg.setAttribute("class", imgFail);
-            }
-            // Check write
-            var writeImg = document.getElementById("testWriteFile");
-            if (file.isWritable()) {
-                writeImg.setAttribute("class", imgOK);
-            }
-            else {
-                writeImg.setAttribute("class", imgFail);
-            }
-            // Check execution
-            if (document.getElementById("script-flag").checked) {
-                filePath = document.getElementById("script-location").value;
-                if (this.utils.trim(filePath) == "") {
-                    alert("#Você deve selecionar um script para ser executado.");
-                    return;
-                }
-                file = this.fileUtils.getFile(filePath);
-                
-                var execImg = document.getElementById("testRunFile");
-                if (file.exists()) {
-                    if (!this.utils.isMacOS()) {
-                        if (file.isExecutable()) {
-                            execImg.setAttribute("class", imgOK);
-                        }
-                        else {
-                            execImg.setAttribute("class", imgFail);
-                        }
-                    }
-                }
-                else {
-                    alert("#Você deve selecionar um script para ser executado.");
-                }
-            }
+                element.setAttribute("class", classFail);
+            }			
         }
         else {
-            alert("#Arquivo não encontrado.")
+            element.setAttribute("class", classFail);
         }
     },
-    
+	
     executeScript: function(){
-        var executeScript = document.getElementById("script-flag").checked;
+        var filePath = document.getElementById("script-location").value;
         
-        if (executeScript) {
-            var filePath = document.getElementById("script-location").value;
-            
-            if (this.utils.trim(filePath) == "") {
-                alert("#Você deve selecionar um script ou programa para ser executado.");
-                return;
-            }
-            this.fileUtils.execute(filePath);
+        if (this.utils.trim(filePath) == "") {
+            alert("#Você deve selecionar um script ou programa para ser executado.");
+            return;
         }
-        else {
-            alert("#A opção de executar o script precisa estar marcada !");
-        }
+        this.fileUtils.execute(filePath);
     },
     
     getFilePath: function(){
@@ -168,7 +156,17 @@ var CHOptions = {
                 controller.doCommandWithParams(command, params);
             }
         }
-    }
+    },
+	
+	scriptPermissionToggleCheck: function(){
+		this.scriptPermissionToggle(this.utils.getElement("script-flag").checked);
+	},
+	
+	scriptPermissionToggle: function(value){
+		document.getElementById("script-location").disabled = !value;
+		document.getElementById("execute-script-button").disabled = !value;
+		document.getElementById("find-script-button").disabled = !value;
+	}
 };
 // Construct
 CHOptions.init();

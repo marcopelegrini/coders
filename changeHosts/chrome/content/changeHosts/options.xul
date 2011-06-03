@@ -10,11 +10,11 @@
 	xmlns:html="http://www.w3.org/1999/xhtml" 
 	windowtype="changeHosts:settings"
 	id="changeHosts-settings" 
-	title="#change" 
+	title="&cH.name;" 
 	buttons="accept,cancel" 
 	persist="lastSelected screenX screenY" 
 	autostretch="always"
-	onload="sizeToContent(); window.sizeToContent();"
+	
 	type="prefwindow">
 
 	<script type="application/x-javascript" src="chrome://changeHosts/content/js/ctech/utils.js" />
@@ -31,7 +31,7 @@
 	<script type="application/x-javascript" src="chrome://changeHosts/content/js/hostManager.js" />
 	<script type="application/x-javascript" src="chrome://changeHosts/content/js/optionsOverlay.js" />
 
-	<prefpane id="prefpane_general" label="&cH.tabGeneral;">
+	<prefpane id="prefpane_general" label="&cH.tabGeneral;" onpaneload="CHOptions.checkPermissions(); CHOptions.scriptPermissionToggleCheck();">
 		<preferences>
 			<preference id="hosts-location-preference" name="extensions.changeHosts.hosts-location" type="unichar" />
 			<preference id="reload-on-change-preference" name="extensions.changeHosts.reload-on-change" type="bool" />
@@ -45,104 +45,71 @@
 			<preference id="script-flag-preference" name="extensions.changeHosts.script-flag" type="bool" />
 			<preference id="script-location-preference" name="extensions.changeHosts.script-location" type="unichar" />
 		</preferences>
-		<hbox style="min-height: 47em;">
+		<hbox>
 			<vbox class="configVBox">
 				<groupbox orient="horizontal">
 					<caption label="&cH.hostFileDestination;" />
 					<vbox>
-						<hbox>
-							<vbox>
-								<label value="&cH.hostsLocation;" />
-								<textbox id="hosts-location" preference="hosts-location-preference" style="min-width: 33em;" />
-							</vbox>
-						</hbox>
-						<hbox align="right">
-							<button id="find-hosts-button" label="&cH.find;" oncommand="CHOptions.pickHostFile();" />
-						</hbox>
+						<vbox>
+							<label value="&cH.hostsLocation;" />
+							<textbox id="hosts-location" onblur="CHOptions.checkHostPermission();" preference="hosts-location-preference"  />
+						</vbox>
+						<grid>
+							<columns>
+								<column flex="1" />
+								<column />
+							</columns>
+							<rows>
+								<row>
+									<vbox align="start">
+										<hbox class="imgBox">
+											<image id="testReadFile" class="testImgQuestion" />
+											<label value="&cH.read;" />
+										</hbox>
+										<hbox class="imgBox">
+											<image id="testWriteFile" class="testImgQuestion" />
+											<label value="&cH.write;" />
+										</hbox>
+									</vbox>
+									<vbox>
+										<button id="find-hosts-button" label="&cH.find;"
+											oncommand="CHOptions.pickHostFile();" />
+									</vbox>
+								</row>
+							</rows>
+						</grid>
 					</vbox>
 				</groupbox>
 				<groupbox orient="horizontal">
 					<caption label="&cH.postProcessing;" />
 					<vbox>
 						<hbox>
-							<vbox>
-								<hbox>
-									<grid>
-										<columns>
-											<column width="410" />
-											<column />
-										</columns>
-										<rows>
-											<row>
-												<hbox>
-													<checkbox id="script-flag" preference="script-flag-preference" label="&cH.executeScriptPostProcessing;" />
-												</hbox>
-												<hbox>
-													<image id="scriptHelp" class="testImgQuestion" orient="horizontal" />
-												</hbox>
-											</row>
-										</rows>
-									</grid>
-								</hbox>
-								<label value="&cH.path;" />
-							</vbox>
-						</hbox>
-						<hbox>
-							<textbox id="script-location" preference="script-location-preference" style="min-width: 33em;" />
-						</hbox>
-						<hbox align="right">
-							<button id="execute-script-button" label="&cH.run;" oncommand="CHOptions.executeScript();" />
-							<button id="find-script-button" label="&cH.find;" oncommand="CHOptions.pickScript();" />
-						</hbox>
-					</vbox>
-				</groupbox>
-				<groupbox orient="horizontal">
-					<caption label="&ch.permissionTest;" />
-					<vbox>
-						<hbox>
-							<grid>
-								<columns>
-									<column />
-									<column />
-									<column />
-									<column />
-									<column />
-								</columns>
-								<rows>
-									<row>
-										<hbox style="width: 115px;">
-											<vbox align="right">
-												<label value="&cH.read;" />
-											</vbox>
-											<vbox>
-												<image id="testReadFile" class="testImgQuestion" />
-											</vbox>
-										</hbox>
-										<hbox style="width: 115px;">
-											<vbox align="right">
-												<label value="&cH.write;" />
-											</vbox>
-											<vbox>
-												<image id="testWriteFile" class="testImgQuestion" />
-											</vbox>
-										</hbox>
-										<hbox style="width: 115px;">
-											<vbox align="right">
-												<label value="&cH.run2;" />
-											</vbox>
-											<vbox>
-												<image id="testRunFile" class="testImgQuestion" />
-											</vbox>
-										</hbox>
-										<vbox>
-											<hbox align="right">
-												<button id="test-button" label="&ch.doTest;" oncommand="CHOptions.checkPermission();" />
-											</hbox>
-										</vbox>
-									</row>
-								</rows>
-							</grid>
-						</hbox>
+							<checkbox id="script-flag" oncommand="CHOptions.scriptPermissionToggle(this.checked);" preference="script-flag-preference" label="&cH.executeScriptPostProcessing;" />
+						</hbox>						
+						<vbox>
+							<label value="&cH.scriptLocation;" />
+							<textbox id="script-location" onblur="CHOptions.checkScriptPermission();" preference="script-location-preference"  />
+						</vbox>
+						<grid>
+							<columns>
+								<column flex="1"/>
+								<column/>
+							</columns>
+							<rows>
+								<row>
+									<vbox align="start" >
+										<hbox class="imgBox">
+											<image id="testRunFile" class="testImgQuestion" />
+											<label value="&cH.run2;" />
+										</hbox>								
+									</vbox>								
+									<hbox>
+										<button id="execute-script-button" label="&cH.run;" oncommand="CHOptions.executeScript();" />
+										<button id="find-script-button" label="&cH.find;" oncommand="CHOptions.pickScript();" />
+									</hbox>
+								</row>
+							</rows>
+						</grid>						
 					</vbox>
 				</groupbox>
 				<!--
@@ -156,7 +123,7 @@
 					</menulist> </hbox> </row> </rows> </grid> </hbox> </groupbox>
 				-->
 			</vbox>
-			<vbox class="configVBox secondConfigVBox">
+			<vbox class="secondConfigVBox">
 				<groupbox orient="vertical">
 					<caption label="&cH.dnsFlusherIntegration;" />
 					<checkbox preference="reload-page-preference" label="&cH.reloadPageOnDNSFlushing;" />
@@ -188,7 +155,7 @@
 						&cH.restoreInstructions;
                     </description>
 					<spacer height="10" />
-					<hbox>
+					<hbox align="right">
 						<button id="reset-preferences-button" label="&cH.restorePreferences;" oncommand="CHOptions.reset();" />
 						<button id="reset-preferences-button" label="&cH.cleanDefinitions;" oncommand="CHOptions.reset();" />
 					</hbox>
@@ -197,14 +164,13 @@
 		</hbox>
 	</prefpane>
 	<prefpane id="prefpane_definitions" label="&cH.tabDefinitions;" onpaneload="CHDefinitions.onLoad();">
-		<hbox style="min-height: 47em;">
+		<hbox>
 			<!-- First column -->
 			<vbox>
 				<groupbox orient="horizontal">
 					<caption label="&cH.definitions;" />
 					<vbox>
-						<listbox id="definition-list" seltype="simple" style="min-height: 34.6em; max-width: 13em;" onselect="CHDefinitions.selected(this.selectedItem);">
-						</listbox>
+						<listbox id="definition-list" seltype="simple" onselect="CHDefinitions.selected(this.selectedItem);"></listbox>
 						<button id="new-definition-button" label="&ch.createDefinitions;" oncommand="CHDefinitions.add();" />
 						<button id="edit-definition-button" label="&cH.edit;" disabled="true" oncommand="CHDefinitions.edit();" />
 						<button id="delete-definition-button" label="&cH.remove;" disabled="true" oncommand="CHDefinitions.del();" />
@@ -251,14 +217,19 @@
 				</groupbox>
 			</vbox>
 		</hbox>
-	</prefpane>
+	</prefpane>	
+	<!-- 
 	<prefpane id="prefpane_about" label="&ch.tabAbout;" >
+		<groupbox id="codersLogo" class="codersLogo">
+			<image id="codersLogo" class="codersLogo" />
+		</groupbox>
 		<hbox>
 			<vbox>
-				<textbox id="about" multiline="true" wrap="off" disabled="true" focusable="false" style="min-width: 50em; min-height: 33.1em;" >
+				<textbox id="about" multiline="true" wrap="off" disabled="true" focusable="false" >
 					sdfsfdgsdfgsdfg
 				</textbox>
 			</vbox>
 		</hbox>
 	</prefpane>
+	 -->
 </prefwindow>
