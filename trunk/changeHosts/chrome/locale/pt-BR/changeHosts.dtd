@@ -24,12 +24,13 @@
 <!ENTITY  cH.showInMenu							"Mostrar no menu">
 
 <!ENTITY  cH.postProcessing						"Pós processamento">
-<!ENTITY  cH.executeScriptPostProcessing		"Executar script após troca de hosts">
+<!ENTITY  cH.scriptLocation						"Caminho do arquivo">
+<!ENTITY  cH.executeScriptPostProcessing		"Executar arquivo após troca de hosts">
 <!ENTITY  cH.path								"Caminho">
 <!ENTITY  cH.run  								"Executar">
-<!ENTITY  cH.run2 								"Execução">
-<!ENTITY  cH.read								"Leitura">
-<!ENTITY  cH.write								"Escrita">
+<!ENTITY  cH.run2 								"» execução">
+<!ENTITY  cH.read								"» leitura">
+<!ENTITY  cH.write								"» escrita">
 <!ENTITY  cH.dnsFlusherIntegration				"Funcionalidades do DNS Flusher">
 <!ENTITY  cH.reloadPageOnDNSFlushing			"Recarregar página ao recarregar DNS">
 <!ENTITY  cH.reloadPageOnHostChanging			"Recarregar página ao trocar hosts">

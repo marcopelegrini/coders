@@ -97,14 +97,14 @@ var CHDefinitions = {
             this.utils.getElement("new-definition-button").disabled = false;
             
             var list = this.utils.getElement("definition-list");
-            list.selectItem(item);
+            list.timedSelect(item, 5);
             list.ensureElementIsVisible(item);
             list.disabled = false;
             
             return id;
         }
         else {
-            alert("Não foi possível salvar a definição.");
+            alert("#Não foi possível salvar a definição.");
             return null;
         }
     },
@@ -195,7 +195,7 @@ var CHDefinitions = {
         
         var list = this.utils.getElement("definition-list");
         list.disabled = false;
-        list.selectItem(list.getSelectedItem());
+        list.timedSelect(list.getSelectedItem(), 5);
     },
     
     uiClean: function(){
