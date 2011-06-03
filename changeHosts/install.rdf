@@ -3,11 +3,11 @@
 	<Description about="urn:mozilla:install-manifest">
 		<em:id>{de1c70de-0466-4913-90e9-562e2efd555d}</em:id>
 		<em:name>Change Hosts</em:name>
-		<em:version>1.0.2</em:version>
+		<em:version>1.0.3</em:version>
 		<em:description>Change Operation System Hosts File</em:description>
 		<em:creator/>
 		<em:homepageURL/>
-		<em:iconURL>chrome://changeHosts/skin/icon32.png</em:iconURL>
+		<em:iconURL>chrome://changeHosts/skin/images/icon32.png</em:iconURL>
 		<em:aboutURL>chrome://changeHosts/content/options.xul</em:aboutURL>
 		<em:optionsURL>chrome://changeHosts/content/options.xul</em:optionsURL>
 		<em:targetApplication>
