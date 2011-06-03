@@ -5,6 +5,7 @@
 		<em:name>Change Hosts</em:name>
 		<em:version>1.0.3</em:version>
 		<em:description>Change Operation System Hosts File</em:description>
+		<em:type>2</em:type>
 		<em:creator/>
 		<em:homepageURL/>
 		<em:iconURL>chrome://changeHosts/skin/images/icon32.png</em:iconURL>
