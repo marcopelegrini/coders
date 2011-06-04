@@ -58,4 +58,8 @@ function CTechPrefs(branchName){
             }
         }
     }
+	
+	this.getSBundle = function(){
+		return document.getElementById("string-bundle");
+	}
 }
