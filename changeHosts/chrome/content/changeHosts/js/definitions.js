@@ -35,7 +35,8 @@ var CHDefinitions = {
     add: function(){
         this.uiEditable(true);
         this.uiClean();
-        this.utils.getElement("definition-label").label = "#Nova";
+		
+        this.utils.getElement("definition-label").label = this.preferences.getSBundle().getString("cH.new");
         
         this.utils.getElement("new-definition-button").disabled = true;
         this.utils.getElement("delete-definition-button").disabled = true;
@@ -70,7 +71,7 @@ var CHDefinitions = {
         var name = nameTextBox.value;
         name = this.utils.trim(name);
         if (name == "") {
-            alert("Preencha o nome da definição");
+            alert(this.preferences.getSBundle().getString("cH.fillDefinitionName"));
             return;
         }
         var show = this.utils.getElement("show-in-menu").checked;
@@ -104,7 +105,7 @@ var CHDefinitions = {
             return id;
         }
         else {
-            alert("#Não foi possível salvar a definição.");
+            alert(this.preferences.getSBundle().getString("cH.unableToSaveDefinition"));
             return null;
         }
     },
@@ -115,7 +116,7 @@ var CHDefinitions = {
             return id;
         }
         else {
-            alert("#Erro ao salvar definição.");
+            alert(this.preferences.getSBundle().getString("cH.errorSavingDefinition"));
         }
     },
     
@@ -124,7 +125,7 @@ var CHDefinitions = {
             return true;
         }
         else {
-            alert("#Erro ao atualizar definição.");
+            alert(this.preferences.getSBundle().getString("cH.errorUpdatingDefinition"));
         }
     },
     
@@ -132,7 +133,7 @@ var CHDefinitions = {
         var list = this.utils.getElement("definition-list");
         var item = list.getItemAtIndex(list.selectedIndex);
         if (this.utils.getElement("definition-in-use").checked) {
-            if (!confirm("#Esta definição está em uso. Deseja realmente apagá-la ?")) {
+            if (!confirm(this.preferences.getSBundle().getString("cH.confirmInUseRemoving"))) {
                 return;
             }
         }
@@ -152,7 +153,7 @@ var CHDefinitions = {
             this.uiManager.setupUI();
         }
         else {
-            alert("#Erro ao excluir definição");
+            alert(this.preferences.getSBundle().getString("cH.errorRemovingDefinition"));
         }
     },
     
@@ -163,7 +164,7 @@ var CHDefinitions = {
         var host = this.dao.findHost(this.utils.trim(item.value));
         
         if (host) {
-            this.utils.getElement("definition-label").label = "#Editar";
+            this.utils.getElement("definition-label").label = this.preferences.getSBundle().getString("cH.edit");
             
             this.utils.getElement("content").value = host.content;
             this.utils.getElement("show-in-menu").checked = host.show;
@@ -173,7 +174,7 @@ var CHDefinitions = {
             this.utils.getElement("edit-definition-button").disabled = false;
         }
         else {
-            alert("#Registro não encontrado.")
+            alert(this.preferences.getSBundle().getString("cH.registerNotFound"));
         }
     },
     
@@ -190,7 +191,7 @@ var CHDefinitions = {
     cancel: function(){
         this.uiEditable(false);
         this.uiClean();
-        this.utils.getElement("definition-label").label = "#Selecione a definição na listagem";
+        this.utils.getElement("definition-label").label = this.preferences.getSBundle().getString("cH.selectDefinition");
         this.utils.getElement("new-definition-button").disabled = false;
         
         var list = this.utils.getElement("definition-list");
