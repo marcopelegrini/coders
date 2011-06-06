@@ -11,7 +11,7 @@ var CHDefinitions = {
         this.preferences.setLogger(this.log);
         this.utils = new CTechUtils();
         this.dao = new CHDao(this.preferences);
-        this.manager = new CHManager(this.utils, this.log, this.dao, this.preferences, new CTechFileUtils());
+        this.manager = new CHManager(this.utils, this.log, this.dao, this.preferences, new CTechFileUtils(this.utils));
         this.uiManager = new CHUiManager(this.preferences, this.utils, this.dao);
     },
     

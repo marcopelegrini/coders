@@ -9,7 +9,7 @@ var CHMain = {
         this.log = new CTechLog(this.preferences);
         this.preferences.setLogger(this.log);
         this.utils = new CTechUtils();
-        this.fileUtils = new CTechFileUtils();
+        this.fileUtils = new CTechFileUtils(this.utils);
         this.dao = new CHDao(this.preferences);
         this.manager = new CHManager(this.utils, this.log, this.dao, this.preferences, this.fileUtils);
         this.uiManager = new CHUiManager(this.preferences, this.utils, this.dao);

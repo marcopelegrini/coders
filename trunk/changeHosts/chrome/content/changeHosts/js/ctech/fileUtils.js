@@ -3,17 +3,22 @@
  *
  * @author marcotulio
  */
-function CTechFileUtils(){
+function CTechFileUtils(utils){
 
+	this.utils = utils;
+	
     /**
      * Get a file instance from filePath
      *
      * @param {Object} filePath
      */
     this.getFile = function(filePath){
+		if (!filePath || filePath.trim() == "" ){
+			return;
+		}
         var file = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsILocalFile);
         file.initWithPath(filePath);
-        return file;
+		return file;
     }
     
     /**
@@ -118,6 +123,14 @@ function CTechFileUtils(){
             throw (new FileManipulationException(null, "File '" + filePath + "' does not exists."));
         }
     }
+	
+	this.getFileSeparator = function(){
+		var so = this.utils.getOperationSystem();
+		if (so.indexOf("Windows") != -1) {
+			return "\\";
+		}
+		return "/";
+	}
 }
 
 function FileManipulationException(cause, message){

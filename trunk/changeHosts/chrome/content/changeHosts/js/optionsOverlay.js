@@ -10,7 +10,7 @@ var CHOptions = {
         this.log = new CTechLog(this.preferences);
         this.preferences.setLogger(this.log);
         this.utils = new CTechUtils();
-        this.fileUtils = new CTechFileUtils();
+        this.fileUtils = new CTechFileUtils(this.utils);
         this.manager = new CHManager(this.utils, this.log, this.dao, this.preferences, this.fileUtils);
     },
     
@@ -73,7 +73,7 @@ var CHOptions = {
         }
         
         var file = this.fileUtils.getFile(filePath);
-        if (file.exists()) {
+        if (file && file.exists()) {
 			if (file.isFile()) {
 				var check = false;
 				switch (permission) {
@@ -101,11 +101,11 @@ var CHOptions = {
         }
         else {
 			this.log.info("File " + filePath + " is not a file, testing if directoy is writable...")
-			var io = filePath.lastIndexOf("/");
+			var io = filePath.lastIndexOf(this.fileUtils.getFileSeparator());
 			var dirPath = filePath.substring(0, io + 1);
 			this.log.info("Testing directory: " + dirPath);
 			file = this.fileUtils.getFile(dirPath);
-			if (file.exists()) {
+			if (file && file.exists()) {
 				var check = false;
 				switch (permission) {
 					case "read":
