@@ -1,6 +1,6 @@
 /**
  * Options overlay functions
- * 
+ *
  * @author marcotulio
  */
 var CHOptions = {
@@ -19,7 +19,7 @@ var CHOptions = {
         const nsIFilePicker = Components.interfaces.nsIFilePicker;
         fp.appendFilters(nsIFilePicker.filterAll);
         
-        fp.init(window, "#Teste", nsIFilePicker.modeOpen);
+        fp.init(window, this.preferences.getSBundle().getString("cH.pickHostFile"), nsIFilePicker.modeOpen);
         var value = fp.show();
         if (value == nsIFilePicker.returnOK) {
             var textbox = document.getElementById("hosts-location");
@@ -34,7 +34,7 @@ var CHOptions = {
         const nsIFilePicker = Components.interfaces.nsIFilePicker;
         fp.appendFilters(nsIFilePicker.filterAll);
         
-        fp.init(window, "#Teste", nsIFilePicker.modeOpen);
+        fp.init(window, this.preferences.getSBundle().getString("cH.pickScriptFile"), nsIFilePicker.modeOpen);
         var value = fp.show();
         if (value == nsIFilePicker.returnOK) {
             var textbox = document.getElementById("script-location");
@@ -74,29 +74,55 @@ var CHOptions = {
         
         var file = this.fileUtils.getFile(filePath);
         if (file.exists()) {
-			var check = false; 
-			switch(permission)
-			{
-				case "read":
-				check = file.isReadable();
-				break;
-				case "write":
-				check = file.isWritable();
-				break;
-				case "run":
-				if (!this.utils.isMacOS()) {
-					check = file.isExecutable();
-				}		
-			  	break;			  
+			if (file.isFile()) {
+				var check = false;
+				switch (permission) {
+					case "read":
+						check = file.isReadable();
+						break;
+					case "write":
+						check = file.isWritable();
+						break;
+					case "run":
+						if (!this.utils.isMacOS()) {
+							check = file.isExecutable();
+						}
+						break;
+				}
+				if (check) {
+					element.setAttribute("class", classOk);
+				}
+				else {
+					element.setAttribute("class", classFail);
+				}
+			}else{
+				element.setAttribute("class", classFail);
 			}
-			if (check) {
-                element.setAttribute("class", classOk);
-            }
-            else {
-                element.setAttribute("class", classFail);
-            }			
         }
         else {
+			this.log.info("File " + filePath + " is not a file, testing if directoy is writable...")
+			var io = filePath.lastIndexOf("/");
+			var dirPath = filePath.substring(0, io + 1);
+			this.log.info("Testing directory: " + dirPath);
+			file = this.fileUtils.getFile(dirPath);
+			if (file.exists()) {
+				var check = false;
+				switch (permission) {
+					case "read":
+						check = file.isReadable();
+						break;
+					case "write":
+						check = file.isWritable();
+						break;
+				}
+				if (check) {
+					element.setAttribute("class", classOk);
+				}
+				else {
+					element.setAttribute("class", classFail);
+				}
+				return;
+			}
             element.setAttribute("class", classFail);
         }
     },
@@ -104,11 +130,17 @@ var CHOptions = {
     executeScript: function(){
         var filePath = document.getElementById("script-location").value;
         
-        if (this.utils.trim(filePath) == "") {
-            alert("#Você deve selecionar um script ou programa para ser executado.");
-            return;
-        }
-        this.fileUtils.execute(filePath);
+            if (this.utils.trim(filePath) == "") {
+                alert(this.preferences.getSBundle().getString("cH.youShouldSelectAScriptToExecute"));
+                return;
+            }
+            try {
+                this.fileUtils.execute(filePath);
+            } 
+            catch (ex) {
+                this.log.error("Error running file: " + filePath + " Stack: " + ex);
+                alert(this.preferences.getSBundle().getString("cH.errorRunningFile"));
+            }
     },
     
     getFilePath: function(){

@@ -39,7 +39,7 @@ function CTechDatabaseUtil(logger) {
                 },
                 handleCompletion: function(aReason){
                     if (aReason != Components.interfaces.mozIStorageStatementCallback.REASON_FINISHED) {
-                        this.logger.info("Query stopped unexpectedly: " + aReason);
+                        this.logger.error("Query stopped unexpectedly: " + aReason);
                     }
                 }
             });

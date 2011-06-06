@@ -45,9 +45,16 @@ var CHMain = {
     },
     
     selectHost: function(id, event){
-        this.manager.select(id);
+		var selected = false;
+        try {
+            selected = this.manager.select(id);
+        } 
+        catch (ex) {
+   			alert(this.preferences.getSBundle().getString("cH.errorSelectingDefinition"));
+			this.log.error(ex.getCause());     
+        }
         this.uiManager.setupUI();
-        if (this.preferences.getBool("reload-on-change")) {
+        if (selected && this.preferences.getBool("reload-on-change")) {
             CHDnsFlusher.refreshdns();
         }
     },

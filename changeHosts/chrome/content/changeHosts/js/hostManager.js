@@ -1,6 +1,6 @@
 /**
  * Definitions selector manager (just to decouple each part of plugin)
- * 
+ *
  * @param {Object} utils
  * @param {Object} log
  * @param {Object} dao
@@ -11,9 +11,9 @@ function CHManager(utils, log, dao, preferences, fileUtils){
 
     this.utils = utils;
     this.log = log;
-	this.dao = dao;
-	this.preferences = preferences;
- 	this.fileUtils = fileUtils;
+    this.dao = dao;
+    this.preferences = preferences;
+    this.fileUtils = fileUtils;
     
     this.getDefaultHostPath = function(){
         var so = this.utils.getOperationSystem();
@@ -22,7 +22,7 @@ function CHManager(utils, log, dao, preferences, fileUtils){
             case "Darwin":
                 return "/etc/hosts";
                 break;
-			//Linux missing
+            //Linux missing
             default:
                 return "c:\\windows\\system32\\drivers\\etc\\hosts";
         }
@@ -34,8 +34,9 @@ function CHManager(utils, log, dao, preferences, fileUtils){
             //Host mark as selected on database, write file on disk
             var hostLocation = this.preferences.getString(CHConstants.hostLocationPref);
             var hostContent = this.dao.getHostContent(id)
-			
+            
             this.log.debug("Writing new hosts to: " + hostLocation);
+            // Write definition's content to file
             this.fileUtils.save(hostLocation, hostContent);
             
             //Execute post-script if its necessary
@@ -46,9 +47,10 @@ function CHManager(utils, log, dao, preferences, fileUtils){
                 this.fileUtils.execute(postScript);
             }
             this.log.debug("Done changing hosts.")
+			return true;
         }
         else {
-            alert("#Impossivel selecionar o hosts.");
+            throw "Host's ID is null";
         }
     }
 }

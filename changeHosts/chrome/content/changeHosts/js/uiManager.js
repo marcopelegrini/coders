@@ -14,7 +14,7 @@ function CHUiManager(preferences, utils, dao){
     this.setupUI = function(document){
         var browserWindow = this.utils.getBrowserWindow();
 		var aDocument = browserWindow.document;
-        var menu = this.utils.getElement("CH-statepopup", aDocument);
+        var menu = this.utils.getElement("CH_statepopup", aDocument);
         this.cleanHostsItens(menu);
         
         var firstMenuItem = menu.firstChild;

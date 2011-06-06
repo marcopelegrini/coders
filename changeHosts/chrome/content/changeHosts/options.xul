@@ -14,6 +14,7 @@
 	buttons="accept,cancel" 
 	persist="lastSelected screenX screenY" 
 	autostretch="always"
+	onload="sizeToContent();window.sizeToContent();" 
 	type="prefwindow">
 
 	<stringbundleset id="stringbundleset">
@@ -48,14 +49,14 @@
 			<preference id="script-flag-preference" name="extensions.changeHosts.script-flag" type="bool" />
 			<preference id="script-location-preference" name="extensions.changeHosts.script-location" type="unichar" />
 		</preferences>
-		<hbox>
+		<hbox class="prefBox">
 			<vbox class="configVBox">
 				<groupbox orient="horizontal">
 					<caption label="&cH.hostFileDestination;" />
 					<vbox>
 						<vbox>
 							<label value="&cH.hostsLocation;" />
-							<textbox id="hosts-location" onblur="CHOptions.checkHostPermission();" preference="hosts-location-preference"  />
+							<textbox id="hosts-location" onkeyup="CHOptions.checkHostPermission();" preference="hosts-location-preference"  />
 						</vbox>
 						<grid>
 							<columns>
@@ -101,7 +102,7 @@
 							<rows>
 								<row>
 									<vbox align="start" >
-										<hbox class="imgBox">
+										<hbox class="imgBox runTest">
 											<image id="testRunFile" class="testImgQuestion" />
 											<label value="&cH.run2;" />
 										</hbox>								
@@ -167,7 +168,7 @@
 		</hbox>
 	</prefpane>
 	<prefpane id="prefpane_definitions" label="&cH.tabDefinitions;" onpaneload="CHDefinitions.onLoad();">
-		<hbox>
+		<hbox class="prefBox">
 			<!-- First column -->
 			<vbox>
 				<groupbox orient="horizontal">

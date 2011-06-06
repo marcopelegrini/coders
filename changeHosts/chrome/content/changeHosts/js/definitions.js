@@ -1,6 +1,6 @@
 /**
  * Class to manage host definitions
- * 
+ *
  * @author marcotulio
  */
 var CHDefinitions = {
@@ -55,14 +55,26 @@ var CHDefinitions = {
     },
     
     saveAndUse: function(){
-        var id = this.saveHost();
+        try {
+            var id = this.saveHost();
+        } 
+        catch (ex) {
+            alert(this.preferences.getSBundle().getString("cH.unableToSaveDefinition"));
+            this.log.error(ex.getCause());
+        }
         if (id) {
-            this.manager.select(id);
-            this.uiManager.setupUI();
-			if (this.preferences.getBool("reload-on-change")) {
-				var browser = this.utils.getBrowserWindow();
-				browser.gBrowser.reload();
-			}
+            try {
+                this.manager.select(id);
+                this.uiManager.setupUI();
+            } 
+            catch (ex) {
+                alert(this.preferences.getSBundle().getString("cH.unableToSaveDefinition"));
+                this.log.error(ex.getCause());
+            }
+            if (this.preferences.getBool("reload-on-change")) {
+                var browser = this.utils.getBrowserWindow();
+                browser.gBrowser.reload();
+            }
         }
     },
     
