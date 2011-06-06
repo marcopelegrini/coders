@@ -19,22 +19,26 @@
 	<script type="application/x-javascript" src="chrome://changeHosts/content/js/uiManager.js" />
 	<script type="application/x-javascript" src="chrome://changeHosts/content/js/main.js" />
 
+	<stringbundleset id="stringbundleset">
+		<stringbundle id="string-bundle" src="chrome://changeHosts/locale/localization.properties"/>
+	</stringbundleset>
+	
 	<!-- Status bar -->
 	<statusbar id="status-bar">
 		<statusbarpanel id="CH_statusbar_panel" 
 			status="none" 
 			tooltip="CH_status_tooltip" 
 			onclick="CHMain.dispatchStatusClick(this, event);" 
-			context="CH-statepopup" 
+			context="CH_statepopup" 
 			insertbefore="offline-status">
 
 			<image id="CH_status_img" />
 
-			<label id="CH_status_definition_name" value="Change Hosts"  />
+			<label id="CH_status_definition_name" value="&cH.name;"  />
 			<label id="CH_status_ip" value=""  />
 		</statusbarpanel>
 		
-		<menupopup id="CH-statepopup">
+		<menupopup id="CH_statepopup">
 			<menuseparator />
 			<menuitem label="&cH.flushDNS;" accesskey="&cH.flushDNSKey;" oncommand="event.preventDefault(); event.stopPropagation(); CHDnsFlusher.refreshdns();" />
 			<menuitem label="&cH.preferences;" accesskey="&cH.preferencesKey;" oncommand="event.preventDefault(); event.stopPropagation(); CHMain.openPreferences();" />

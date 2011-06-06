@@ -2,6 +2,10 @@ hbox {
 	/*border: 1px solid;*/
 }
 
+hbox.prefBox {
+	height: 570px;
+}
+
 vbox {
 	/*border: 1px red solid;*/
 }
@@ -78,4 +82,8 @@ image.codersLogo {
 	list-style-image: url("chrome://changeHosts/skin/images/codersLogo.gif");
 	max-width: 215px;
     max-height: 52px;
+}
+
+hbox.runTest {
+    
 }
