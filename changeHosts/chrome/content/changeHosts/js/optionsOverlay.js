@@ -100,10 +100,10 @@ var CHOptions = {
 			}
         }
         else {
-			this.log.info("File " + filePath + " is not a file, testing if directoy is writable...")
+			this.log.debug("File " + filePath + " is not a file, testing if directoy is writable...")
 			var io = filePath.lastIndexOf(this.fileUtils.getFileSeparator());
 			var dirPath = filePath.substring(0, io + 1);
-			this.log.info("Testing directory: " + dirPath);
+			this.log.debug("Testing directory: " + dirPath);
 			file = this.fileUtils.getFile(dirPath);
 			if (file && file.exists()) {
 				var check = false;
