@@ -7,5 +7,6 @@ content	changeHosts									chrome/content/changeHosts/
 
 skin	changeHosts		modern						chrome/skin/modern/
 
-locale	changeHosts		en-US						chrome/locale/en-US/
-locale	changeHosts		pt-BR						chrome/locale/pt-BR/
+#locale	changeHosts		en-US						chrome/locale/en-US/
+#locale	changeHosts		pt-BR						chrome/locale/pt-BR/
+locale	changeHosts		sv-SE						chrome/locale/sv-SE/
