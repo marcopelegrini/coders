@@ -7,7 +7,14 @@
  * @param {Object} selected
  * @param {Object} content
  */
-function Definition(id, name, show, selected, content){
+if (!com) 
+    var com = {};
+if (!com.coders) 
+    com.coders = {};
+if (!com.coders.changeHosts) 
+    com.coders.changeHosts = {};
+
+com.coders.changeHosts.Definition =  function(id, name, show, selected, content){
     this.id = id;
     this.name = name;
     this.show = new Boolean(parseInt(show)).valueOf();
@@ -18,7 +25,7 @@ function Definition(id, name, show, selected, content){
 /**
  *  Change Hosts constants
  */
-const CHConstants = {
+com.coders.changeHosts.constants = {
     branchName: "extensions.changeHosts.",
     windowType: "changeHosts:settings",
     windowURI: "chrome://changeHosts/content/options.xul",
