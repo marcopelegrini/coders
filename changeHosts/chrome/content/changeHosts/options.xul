@@ -17,8 +17,8 @@
 	onload="sizeToContent();window.sizeToContent();" 
 	type="prefwindow">
 
-	<stringbundleset id="com.coders.changeHosts.stringbundleset">
-		<stringbundle id="com.coders.changeHosts.string-bundle" src="chrome://changeHosts/locale/localization.properties"/>
+	<stringbundleset id="coders.changeHosts.stringbundleset">
+		<stringbundle id="coders.changeHosts.string-bundle" src="chrome://changeHosts/locale/localization.properties"/>
 	</stringbundleset>
 
 	<script type="application/x-javascript" src="chrome://changeHosts/content/js/ctech/utils.js" />
@@ -35,7 +35,7 @@
 	<script type="application/x-javascript" src="chrome://changeHosts/content/js/hostManager.js" />
 	<script type="application/x-javascript" src="chrome://changeHosts/content/js/optionsOverlay.js" />
 
-	<prefpane id="prefpane_general" label="&cH.tabGeneral;" onpaneload="com.coders.changeHosts.options.checkPermissions(); com.coders.changeHosts.options.scriptPermissionToggleCheck();">
+	<prefpane id="prefpane_general" label="&cH.tabGeneral;" onpaneload="coders.changeHosts.options.checkPermissions(); coders.changeHosts.options.scriptPermissionToggleCheck();">
 		<preferences>
 			<preference id="hosts-location-preference" name="extensions.changeHosts.hosts-location" type="unichar" />
 			<preference id="reload-on-change-preference" name="extensions.changeHosts.reload-on-change" type="bool" />
@@ -56,7 +56,7 @@
 					<vbox>
 						<vbox>
 							<label value="&cH.hostsLocation;" />
-							<textbox id="hosts-location" onkeyup="com.coders.changeHosts.options.checkHostPermission();" preference="hosts-location-preference"  />
+							<textbox id="hosts-location" onkeyup="coders.changeHosts.options.checkHostPermission();" preference="hosts-location-preference"  />
 						</vbox>
 						<grid>
 							<columns>
@@ -77,7 +77,7 @@
 									</vbox>
 									<vbox>
 										<button id="find-hosts-button" label="&cH.find;"
-											oncommand="com.coders.changeHosts.options.pickHostFile();" />
+											oncommand="coders.changeHosts.options.pickHostFile();" />
 									</vbox>
 								</row>
 							</rows>
@@ -88,11 +88,11 @@
 					<caption label="&cH.postProcessing;" />
 					<vbox>
 						<hbox>
-							<checkbox id="script-flag" oncommand="com.coders.changeHosts.options.scriptPermissionToggle(this.checked);" preference="script-flag-preference" label="&cH.executeScriptPostProcessing;" />
+							<checkbox id="script-flag" oncommand="coders.changeHosts.options.scriptPermissionToggle(this.checked);" preference="script-flag-preference" label="&cH.executeScriptPostProcessing;" />
 						</hbox>						
 						<vbox>
 							<label value="&cH.scriptLocation;" />
-							<textbox id="script-location" onblur="com.coders.changeHosts.options.checkScriptPermission();" preference="script-location-preference"  />
+							<textbox id="script-location" onblur="coders.changeHosts.options.checkScriptPermission();" preference="script-location-preference"  />
 						</vbox>
 						<grid>
 							<columns>
@@ -108,8 +108,8 @@
 										</hbox>								
 									</vbox>								
 									<hbox>
-										<button id="execute-script-button" label="&cH.run;" oncommand="com.coders.changeHosts.options.executeScript();" />
-										<button id="find-script-button" label="&cH.find;" oncommand="com.coders.changeHosts.options.pickScript();" />
+										<button id="execute-script-button" label="&cH.run;" oncommand="coders.changeHosts.options.executeScript();" />
+										<button id="find-script-button" label="&cH.find;" oncommand="coders.changeHosts.options.pickScript();" />
 									</hbox>
 								</row>
 							</rows>
@@ -132,25 +132,25 @@
 					<caption label="&cH.dnsFlusherIntegration;" />
 					<checkbox preference="reload-page-preference" label="&cH.reloadPageOnDNSFlushing;" />
 					<checkbox preference="reload-on-change-preference" label="&cH.reloadPageOnHostChanging;" />
-					<checkbox preference="show-ip-status-preference" label="&cH.showIPOnStatusBar;" oncommand="com.coders.changeHosts.options.showHideViewElements('CH_status_ip', this.checked);" />
+					<checkbox preference="show-ip-status-preference" label="&cH.showIPOnStatusBar;" oncommand="coders.changeHosts.options.showHideViewElements('CH_status_ip', this.checked);" />
 					<separator />
 					<hbox>
 						<label value="&cH.IPColor;" />
-						<colorpicker id="ip-color-picker" preference="label-color-preference" type="button" onchange="com.coders.changeHosts.options.colorChanged();" />
+						<colorpicker id="ip-color-picker" preference="label-color-preference" type="button" onchange="coders.changeHosts.options.colorChanged();" />
 						<label value="&cH.definitionNameColor;" />
-						<colorpicker id="definition-color-picker" preference="definition-color-preference" type="button" onchange="com.coders.changeHosts.options.colorChanged();" />
+						<colorpicker id="definition-color-picker" preference="definition-color-preference" type="button" onchange="coders.changeHosts.options.colorChanged();" />
 					</hbox>
 				</groupbox>
 				<groupbox orient="vertical">
 					<caption label="&cH.otherConfigs;" />
-					<checkbox preference="show-icon-status-preference" label="&cH.showChangeHostsIconOnStatusBar;" oncommand="com.coders.changeHosts.options.showHideViewElements('CH_status_img', this.checked);" />
-					<checkbox preference="show-definition-name-preference" label="&cH.showDefinitionNameOnStatusBar;" oncommand="com.coders.changeHosts.options.showHideViewElements('CH_status_definition_name', this.checked);" />
+					<checkbox preference="show-icon-status-preference" label="&cH.showChangeHostsIconOnStatusBar;" oncommand="coders.changeHosts.options.showHideViewElements('CH_status_img', this.checked);" />
+					<checkbox preference="show-definition-name-preference" label="&cH.showDefinitionNameOnStatusBar;" oncommand="coders.changeHosts.options.showHideViewElements('CH_status_definition_name', this.checked);" />
 				</groupbox>
 				<!--
 					TODO - Version 2.0 <groupbox orient="vertical"> <caption label="#Backup" /> <description> #As definições podem ser salvas como um arquivo e
 					restauradas caso precise reinstalar o firefox. </description> <spacer height="10" /> <hbox> <button id="reset-preferences-button"
-					label="#Efetuar" oncommand="com.coders.changeHosts.options.reset();" /> <button id="reset-preferences-button" label="#Restaurar"
-					oncommand="com.coders.changeHosts.options.reset();" /> </hbox> <hbox align="right"> <label value="#Ultimo backup: " /> <label id="backup-date"
+					label="#Efetuar" oncommand="coders.changeHosts.options.reset();" /> <button id="reset-preferences-button" label="#Restaurar"
+					oncommand="coders.changeHosts.options.reset();" /> </hbox> <hbox align="right"> <label value="#Ultimo backup: " /> <label id="backup-date"
 					preference-editable="true" preference="last-backup-preference" /> </hbox> </groupbox>
 				-->
 				<groupbox orient="vertical">
@@ -160,24 +160,29 @@
                     </description>
 					<spacer height="10" />
 					<hbox align="right">
-						<button id="reset-preferences-button" label="&cH.restorePreferences;" oncommand="com.coders.changeHosts.options.reset();" />
-						<button id="reset-preferences-button" label="&cH.cleanDefinitions;" oncommand="if(confirm('Erase all definitions?'))com.coders.changeHosts.definitions.eraseAll();" />
+						<button id="reset-preferences-button" label="&cH.restorePreferences;" oncommand="coders.changeHosts.options.reset();" />
+						<button id="reset-preferences-button" label="&cH.cleanDefinitions;" oncommand="if(confirm('Erase all definitions?'))coders.changeHosts.definitions.eraseAll();" />
 					</hbox>
 				</groupbox>
 			</vbox>
 		</hbox>
 	</prefpane>
-	<prefpane id="prefpane_definitions" label="&cH.tabDefinitions;" onpaneload="com.coders.changeHosts.definitions.onLoad();">
+	<prefpane id="prefpane_definitions" label="&cH.tabDefinitions;" onpaneload="coders.changeHosts.definitions.onLoad();">
 		<hbox class="prefBox">
 			<!-- First column -->
 			<vbox>
 				<groupbox orient="horizontal">
 					<caption label="&cH.definitions;" />
 					<vbox>
-						<listbox id="definition-list" seltype="simple" onselect="com.coders.changeHosts.definitions.selected(this.selectedItem);"></listbox>
-						<button id="new-definition-button" label="&ch.createDefinitions;" oncommand="com.coders.changeHosts.definitions.add();" />
-						<button id="edit-definition-button" label="&cH.edit;" disabled="true" oncommand="com.coders.changeHosts.definitions.edit();" />
-						<button id="delete-definition-button" label="&cH.remove;" disabled="true" oncommand="com.coders.changeHosts.definitions.del();" />
+						<listbox id="definition-list" seltype="simple" onselect="coders.changeHosts.definitions.selected(this.selectedItem);"></listbox>
+						<hbox align="left">
+							<caption label="Order:" />
+							<button id="up-button" width="20" disabled="true" label="" oncommand="coders.changeHosts.definitions.up();" class="up-button"/>
+							<button id="down-button" disabled="true" label="" oncommand="coders.changeHosts.definitions.down();" class="down-button"/>
+						</hbox>
+						<button id="new-definition-button" label="&ch.createDefinitions;" oncommand="coders.changeHosts.definitions.add();" />
+						<button id="edit-definition-button" label="&cH.edit;" disabled="true" oncommand="coders.changeHosts.definitions.edit();" />
+						<button id="delete-definition-button" label="&cH.remove;" disabled="true" oncommand="coders.changeHosts.definitions.del();" />
 					</vbox>
 				</groupbox>
 			</vbox>
@@ -198,10 +203,12 @@
 										<hbox>
 											<vbox>
 												<label id="definition-name-label" value="&ch.definitionName;" disabled="true" control="definition-name" />
-												<hbox>
+												<hbox valign="bottom">
 													<textbox id="definition-name" disabled="true" style="width: 200px;" />
-													<checkbox id="show-in-menu" label="&cH.showInMenu;" disabled="true" checked="false" style="width: 150px;" />
-													<checkbox id="definition-in-use" label="&ch.inUse;" disabled="true" checked="false" />
+                                                    <checkbox id="show-in-menu" label="&cH.showInMenu;" disabled="true" checked="false" style="width: 120px;" />
+                                                    <checkbox id="definition-in-use" label="&ch.inUse;" disabled="true" checked="false" style="width: 80px;" />
+                                                    <checkbox id="color-by-definition" label="#Specific color:" disabled="true" checked="false" style="width: 110px;" oncommand="coders.changeHosts.definitions.toggleSpecificColorPicker(this.checked);" />
+                                                    <colorpicker id="by-definition-color-picker" disabled="true" type="button" />
 												</hbox>
 											</vbox>
 										</hbox>
@@ -209,12 +216,12 @@
 								</rows>
 							</grid>
 							<hbox>
-								<textbox id="content" multiline="true" wrap="off" disabled="true" focusable="false" style="min-width: 50em; min-height: 33.1em;" onkeypress="com.coders.changeHosts.options.simulateTab(event);" />
+								<textbox id="content" multiline="true" wrap="off" disabled="true" focusable="false" style="min-width: 50em; min-height: 33.1em;" onkeypress="coders.changeHosts.options.simulateTab(event);" />
 							</hbox>
 							<hbox align="right">
-								<button id="cancel-definition-button" disabled="true" label="&ch.doCancel;" oncommand="com.coders.changeHosts.definitions.cancel();" />
-								<button id="save-definition-button" disabled="true" label="&ch.save;" oncommand="com.coders.changeHosts.definitions.save();" />
-								<button id="save-and-use-definition-button" disabled="true" label="&ch.saveAndChoose;" oncommand="com.coders.changeHosts.definitions.saveAndUse();" />
+								<button id="cancel-definition-button" disabled="true" label="&ch.doCancel;" oncommand="coders.changeHosts.definitions.cancel();" />
+								<button id="save-definition-button" disabled="true" label="&ch.save;" oncommand="coders.changeHosts.definitions.save();" />
+								<button id="save-and-use-definition-button" disabled="true" label="&ch.saveAndChoose;" oncommand="coders.changeHosts.definitions.saveAndUse();" />
 							</hbox>
 						</vbox>
 					</hbox>

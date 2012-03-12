@@ -20,7 +20,7 @@
 	<script type="application/x-javascript" src="chrome://changeHosts/content/js/main.js" />
 
 	<stringbundleset id="stringbundleset">
-		<stringbundle id="com.coders.changeHosts.string-bundle" src="chrome://changeHosts/locale/localization.properties"/>
+		<stringbundle id="coders.changeHosts.string-bundle" src="chrome://changeHosts/locale/localization.properties"/>
 	</stringbundleset>
 	
 	<!-- Status bar -->
@@ -28,7 +28,7 @@
 		<statusbarpanel id="CH_statusbar_panel" 
 			status="none" 
 			tooltip="CH_status_tooltip" 
-			onclick="com.coders.changeHosts.main.dispatchStatusClick(this, event);" 
+			onclick="coders.changeHosts.main.dispatchStatusClick(this, event);" 
 			context="CH_statepopup" 
 			insertbefore="offline-status">
 
@@ -40,8 +40,8 @@
 		
 		<menupopup id="CH_statepopup">
 			<menuseparator />
-			<menuitem label="&cH.flushDNS;" accesskey="&cH.flushDNSKey;" oncommand="event.preventDefault(); event.stopPropagation(); com.coders.changeHosts.dnsFlusher.refreshdns();" />
-			<menuitem label="&cH.preferences;" accesskey="&cH.preferencesKey;" oncommand="event.preventDefault(); event.stopPropagation(); com.coders.changeHosts.main.openPreferences();" />
+			<menuitem label="&cH.flushDNS;" accesskey="&cH.flushDNSKey;" oncommand="event.preventDefault(); event.stopPropagation(); coders.changeHosts.dnsFlusher.refreshdns();" />
+			<menuitem label="&cH.preferences;" accesskey="&cH.preferencesKey;" oncommand="event.preventDefault(); event.stopPropagation(); coders.changeHosts.main.openPreferences();" />
 		</menupopup>
 
 		<tooltip id="CH_status_tooltip" noautohide="true" orient="vertical" position="before_start" style="padding:2px;"></tooltip>

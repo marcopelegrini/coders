@@ -35,6 +35,22 @@ image.testImgFail {
     max-height: 20px;
 }
 
+button.up-button {
+	list-style-image: url("chrome://changeHosts/skin/images/arrows.gif");
+    -moz-image-region: rect(0px, 16px, 16px, 0px);
+    width: 45px;
+    min-width: 45px;
+    max-width: 45px;    
+}
+
+button.down-button {
+	list-style-image: url("chrome://changeHosts/skin/images/arrows.gif");
+	-moz-image-region: rect(0px, 32px, 16px, 16px);
+    width: 45px;
+    min-width: 45px;
+    max-width: 45px;    
+}
+
 radio[pane = prefpane_general] {
     list-style-image: url("chrome://changeHosts/skin/images/settings32.png");
 }
@@ -60,8 +76,8 @@ textbox {
 	width: 380px;
 }
 
-listbox {
-	height: 382px;
+listbox#definition-list {
+	height: 350px;
 	width: 160px; 
 }
 

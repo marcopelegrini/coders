@@ -7,25 +7,25 @@
  * @param {Object} selected
  * @param {Object} content
  */
-if (!com) 
-    var com = {};
-if (!com.coders) 
-    com.coders = {};
-if (!com.coders.changeHosts) 
-    com.coders.changeHosts = {};
+if (!coders) 
+    var coders = {};
+if (!coders.changeHosts) 
+    coders.changeHosts = {};
 
-com.coders.changeHosts.Definition =  function(id, name, show, selected, content){
+coders.changeHosts.Definition =  function(id, name, show, selected, content, color, order){
     this.id = id;
     this.name = name;
     this.show = new Boolean(parseInt(show)).valueOf();
     this.selected = new Boolean(parseInt(selected)).valueOf();
     this.content = content;
+    this.order = order;
+    this.color = color;
 };
 
 /**
  *  Change Hosts constants
  */
-com.coders.changeHosts.constants = {
+coders.changeHosts.constants = {
     branchName: "extensions.changeHosts.",
     windowType: "changeHosts:settings",
     windowURI: "chrome://changeHosts/content/options.xul",

@@ -1,22 +1,19 @@
-
 /**
  * Class to manage host definitions
  *
  * @author marcotulio
  */
-if (!com) 
-    var com = {};
-if (!com.coders) 
-    com.coders = {};
-if (!com.coders.changeHosts) 
-    com.coders.changeHosts = {};
+if (!coders) 
+    var coders = {};
+if (!coders.changeHosts) 
+    coders.changeHosts = {};
 
 (function(){
 
-    com.coders.changeHosts.definitions = {
+    coders.changeHosts.definitions = {
     
-        ch: com.coders.changeHosts,
-        utils: com.coders.utils,
+        ch: coders.changeHosts,
+        utils: coders.utils,
         
         init: function(){
             this.preferences = new this.utils.prefs(this.ch.constants.branchName, this.ch.constants.windowType, this.ch.constants.windowURI, this.ch.constants.windowOptions);
@@ -52,6 +49,8 @@ if (!com.coders.changeHosts)
             this.utils.util.getElement("new-definition-button").disabled = true;
             this.utils.util.getElement("delete-definition-button").disabled = true;
             this.utils.util.getElement("edit-definition-button").disabled = true;
+            this.utils.util.getElement("up-button").disabled = true;
+            this.utils.util.getElement("down-button").disabled = true;               
             
             this.utils.util.getElement("show-in-menu").checked = true;
             
@@ -98,18 +97,24 @@ if (!com.coders.changeHosts)
             var show = this.utils.util.getElement("show-in-menu").checked;
             var content = this.utils.util.getElement("content").value;
             
+            var specificColor = this.utils.util.getElement("color-by-definition").checked;
+            var color = null;
+            if (specificColor){
+            	color = this.utils.util.getElement("by-definition-color-picker").color;
+            }
+            
             var id;
             var saved = false;
             var item = this.utils.util.getElement("definition-list").selectedItem;
             if (item) {
                 this.log.debug("Updating definition: " + item.value);
                 id = item.value;
-                saved = this.updateExistentHost(id, name, show, content);
+                saved = this.updateExistentHost(id, name, show, content, color);
                 item.label = name;
             }
             else {
                 this.log.debug("Saving new definition...");
-                id = this.saveNewHost(name, show, content);
+                id = this.saveNewHost(name, show, content, color);
                 item = this.addItemToList(id, name);
                 saved = true;
                 this.log.debug("Saved: " + item.value);
@@ -131,8 +136,8 @@ if (!com.coders.changeHosts)
             }
         },
         
-        saveNewHost: function(name, show, content){
-            var id = this.dao.saveNewHost(name, false, show, content);
+        saveNewHost: function(name, show, content, color){
+            var id = this.dao.saveNewHost(name, false, show, content, color);
             if (id) {
                 return id;
             }
@@ -141,8 +146,8 @@ if (!com.coders.changeHosts)
             }
         },
         
-        updateExistentHost: function(id, name, show, content){
-            if (this.dao.updateHost(id, name, show, content)) {
+        updateExistentHost: function(id, name, show, content, color){
+            if (this.dao.updateHost(id, name, show, content, color)) {
                 return true;
             }
             else {
@@ -161,6 +166,8 @@ if (!com.coders.changeHosts)
             
             this.utils.util.getElement("delete-definition-button").disabled = true;
             this.utils.util.getElement("edit-definition-button").disabled = true;
+            this.utils.util.getElement("up-button").disabled = true;
+            this.utils.util.getElement("down-button").disabled = true;               
             
             if (item && this.dao.deleteHost(item.value)) {
                 list.removeItemAt(list.selectedIndex);
@@ -199,6 +206,17 @@ if (!com.coders.changeHosts)
                 this.utils.util.getElement("definition-in-use").checked = host.selected;
                 this.utils.util.getElement("delete-definition-button").disabled = false;
                 this.utils.util.getElement("edit-definition-button").disabled = false;
+                this.utils.util.getElement("up-button").disabled = false;
+                this.utils.util.getElement("down-button").disabled = false;                
+
+                var color = null;
+                if (host.color != null && host.color != "" ){
+                	color = host.color;
+                	this.utils.util.getElement("color-by-definition").checked = true;
+                }else{
+                	this.utils.util.getElement("color-by-definition").checked = false;
+                }
+                this.utils.util.getElement("by-definition-color-picker").color = color;            
             }
             else {
                 alert(this.preferences.getSBundle().getString("cH.registerNotFound"));
@@ -211,9 +229,61 @@ if (!com.coders.changeHosts)
             this.utils.util.getElement("new-definition-button").disabled = true;
             this.utils.util.getElement("delete-definition-button").disabled = true;
             this.utils.util.getElement("edit-definition-button").disabled = true;
+            this.utils.util.getElement("up-button").disabled = true;
+            this.utils.util.getElement("down-button").disabled = true;               
+            
+            if(this.utils.util.getElement("color-by-definition").checked){
+            	this.utils.util.getElement("by-definition-color-picker").disabled = false;
+            }
             
             this.uiEditable(true);
         },
+        
+        up: function(){
+            var list = this.utils.util.getElement("definition-list");
+            var index = list.selectedIndex;
+            if(index>0){
+            	try {
+		            // Item data
+            		var item = list.getItemAtIndex(index);
+		            var value = item.value;
+		            var label = item.label;
+		            // Move Up on database
+		            this.dao.orderUp(value);
+		            // Move Up on interface
+		            list.removeItemAt(index);
+		            var newItem = list.insertItemAt(index-1, label, value);
+		            list.selectItem(newItem);
+		            // Setup UI
+		            this.uiManager.setupUI();
+            	}catch (e) {
+            		this.log.error("Unable to reorder definition" + e);
+				}
+            }
+        },
+        
+        down : function() {
+			var list = this.utils.util.getElement("definition-list");
+			var index = list.selectedIndex;
+			if (index < list.getRowCount() - 1) {
+				try {
+					// Item data
+					var item = list.getItemAtIndex(index);
+					var value = item.value;
+					var label = item.label;
+		            // Move Down on database
+					this.dao.orderDown(value);
+		            // Move Down on interface					
+					list.removeItemAt(index);
+					var newItem = list.insertItemAt(index + 1, label, value);
+					list.selectItem(newItem);
+		            // Setup UI
+		            this.uiManager.setupUI();					
+				} catch (e) {
+					this.log.error("Unable to reorder definition" + e);
+				}
+			}
+		},
         
         cancel: function(){
             this.uiEditable(false);
@@ -226,11 +296,17 @@ if (!com.coders.changeHosts)
             list.timedSelect(list.getSelectedItem(), 5);
         },
         
+        toggleSpecificColorPicker: function(bool){
+        	this.utils.util.getElement("by-definition-color-picker").disabled = !bool;
+        },
+        
         uiClean: function(){
             this.utils.util.getElement("definition-name").value = "";
             this.utils.util.getElement("definition-in-use").checked = false;
             this.utils.util.getElement("content").value = "";
             this.utils.util.getElement("show-in-menu").checked = false;
+            this.utils.util.getElement("by-definition-color-picker").color = null;
+            this.utils.util.getElement("color-by-definition").checked = false;
         },
         
         uiEditable: function(bool){
@@ -241,8 +317,9 @@ if (!com.coders.changeHosts)
             this.utils.util.getElement("save-definition-button").disabled = !bool;
             this.utils.util.getElement("save-and-use-definition-button").disabled = !bool;
             this.utils.util.getElement("cancel-definition-button").disabled = !bool;
+            this.utils.util.getElement("color-by-definition").disabled = !bool;
         }
     };
     //Construct
-    com.coders.changeHosts.definitions.init();
+    coders.changeHosts.definitions.init();
 })();

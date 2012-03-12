@@ -4,16 +4,14 @@
  *
  * @author marcotulio
  */
-if (!com) 
-    var com = {};
-if (!com.coders) 
-    com.coders = {};
-if (!com.coders.utils) 
-    com.coders.utils = {};
+if (!coders) 
+    var coders = {};
+if (!coders.utils) 
+    coders.utils = {};
 
 (function(){
 
-    com.coders.utils.fileUtils = {
+    coders.utils.fileUtils = {
         /**
          * Get a file instance from filePath
          *
@@ -132,7 +130,7 @@ if (!com.coders.utils)
         },
         
         getFileSeparator: function(){
-            var so = com.coders.utils.util.getOperationSystem();
+            var so = coders.utils.util.getOperationSystem();
             if (so.indexOf("Windows") != -1) {
                 return "\\";
             }

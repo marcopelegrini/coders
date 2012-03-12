@@ -1,22 +1,19 @@
-
 /**
  * DNS Flusher integration. To get only DNS Flusher functionality search for DNS Flusher on Firefox Add-ons page
  *
  * @author marcotulio
  */
-if (!com) 
-    var com = {};
-if (!com.coders) 
-    com.coders = {};
-if (!com.coders.changeHosts) 
-    com.coders.changeHosts = {};
+if (!coders) 
+    var coders = {};
+if (!coders.changeHosts) 
+    coders.changeHosts = {};
 
 (function(){
     
-    com.coders.changeHosts.dnsFlusher = {
+    coders.changeHosts.dnsFlusher = {
 
-		ch: com.coders.changeHosts,    
-		utils: com.coders.utils,
+		ch: coders.changeHosts,    
+		utils: coders.utils,
 		
         notifyStateDocument: Components.interfaces.nsIWebProgress.NOTIFY_STATE_DOCUMENT,
         notifyLocation: Components.interfaces.nsIWebProgress.NOTIFY_LOCATION,
@@ -205,19 +202,13 @@ if (!com.coders.changeHosts)
                 this.prefs.open();
             }
         },
-        
-        loadPrefs: function(){
-            var color = this.prefs.getString("label-color");
-            this.utils.util.getElement("CH_status_ip").setAttribute("style", "color:" + color + ";");
-        }
     };
     
     window.addEventListener("load", function(){
-        com.coders.changeHosts.dnsFlusher.init();
-        com.coders.changeHosts.dnsFlusher.loadPrefs();
+        coders.changeHosts.dnsFlusher.init();
     }, false);
     window.addEventListener("unload", function(){
-        com.coders.changeHosts.dnsFlusher.destroy();
+        coders.changeHosts.dnsFlusher.destroy();
     }, false);
     
 })();

@@ -4,16 +4,14 @@
  *
  * @author marcotulio
  */
-if (!com) 
-    var com = {};
-if (!com.coders) 
-    com.coders = {};
-if (!com.coders.utils) 
-    com.coders.utils = {};
+if (!coders) 
+    var coders = {};
+if (!coders.utils) 
+    coders.utils = {};
 
 (function(){
 
-    com.coders.utils.log = function(preferences){
+    coders.utils.log = function(preferences){
     
         this.logPreference = "log";
         this.enabled = preferences.getBool(this.logPreference);
@@ -41,7 +39,7 @@ if (!com.coders.utils)
         }
     }
     
-    com.coders.utils.util = {
+    coders.utils.util = {
     
         /**
          * General utilities

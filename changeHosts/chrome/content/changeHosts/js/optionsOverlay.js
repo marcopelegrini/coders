@@ -1,22 +1,19 @@
-
 /**
  * Options overlay functions
  *
  * @author marcotulio
  */
-if (!com) 
-    var com = {};
-if (!com.coders) 
-    com.coders = {};
-if (!com.coders.changeHosts) 
-    com.coders.changeHosts = {};
+if (!coders) 
+    var coders = {};
+if (!coders.changeHosts) 
+    coders.changeHosts = {};
 
 (function(){
-    com.coders.changeHosts.options = {
+    coders.changeHosts.options = {
 		
-		ch: com.coders.changeHosts,
-		utils: com.coders.utils,
-		fileUtils: com.coders.utils.fileUtils,
+		ch: coders.changeHosts,
+		utils: coders.utils,
+		fileUtils: coders.utils.fileUtils,
     
         init: function(){
 			this.preferences = new this.utils.prefs(this.ch.constants.branchName, this.ch.constants.windowType, this.ch.constants.windowURI, this.ch.constants.windowOptions);
@@ -213,5 +210,5 @@ if (!com.coders.changeHosts)
         }
     };
     // Construct
-    com.coders.changeHosts.options.init();
+    coders.changeHosts.options.init();
 })();

@@ -1,4 +1,3 @@
-
 /**
  * Class to manage the UI behavior
  *
@@ -6,17 +5,15 @@
  * @param {Object} utils
  * @param {Object} dao
  */
-if (!com) 
-    var com = {};
-if (!com.coders) 
-    com.coders = {};
-if (!com.coders.changeHosts) 
-    com.coders.changeHosts = {};
+if (!coders) 
+    var coders = {};
+if (!coders.changeHosts) 
+    coders.changeHosts = {};
 
 (function(){
-    com.coders.changeHosts.uiManager = function(preferences, dao){
+    coders.changeHosts.uiManager = function(preferences, dao){
     
-        this.utils = com.coders.utils.util;
+        this.utils = coders.utils.util;
         
         this.preferences = preferences;
         this.dao = dao;
@@ -36,7 +33,19 @@ if (!com.coders.changeHosts)
                 item = this.genRow(host, aDocument);
                 menu.insertBefore(item, firstMenuItem);
                 if (host.selected) {
-                    this.utils.getElement("CH_status_definition_name", aDocument).value = host.name;
+                	// IP color
+                	var color = this.preferences.getString("label-color");
+                	this.utils.getElement("CH_status_ip", aDocument).setAttribute("style", "color:" + color + ";");
+                	
+                	// Definition
+                	var definitionStatus = this.utils.getElement("CH_status_definition_name", aDocument);
+                	definitionStatus.value = host.name;
+                	// color
+                	color = this.preferences.getString("definition-color");
+                    if(host.color != null && host.color != ""){
+                    	color = host.color;
+                    }
+                    definitionStatus.setAttribute("style", "color:" + color + ";");
                 }
             }
         }
@@ -50,7 +59,7 @@ if (!com.coders.changeHosts)
             menuitem.setAttribute('value', host.id);
             menuitem.setAttribute('checked', host.selected);
             menuitem.addEventListener('command', function(){
-				com.coders.changeHosts.main.selectHost(this.getAttribute('value'));
+				coders.changeHosts.main.selectHost(this.getAttribute('value'));
             }, false);
             
             return menuitem;
