@@ -12,3 +12,4 @@ pref("extensions.changeHosts.show-icon-status", true);
 pref("extensions.changeHosts.show-definition-name", true);
 pref("extensions.changeHosts.last-backup", "-");
 pref("extensions.changeHosts.configured", false);
+pref("extensions.changeHosts.version", 3);

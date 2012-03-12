@@ -4,17 +4,15 @@
  *
  * @author marcotulio
  */
-if (!com) 
-    var com = {};
-if (!com.coders) 
-    com.coders = {};
-if (!com.coders.utils) 
-    com.coders.utils = {};
+if (!coders) 
+    var coders = {};
+if (!coders.utils) 
+    coders.utils = {};
 
 (function(){
     var file = "changeHosts.sqlite";
     var mDBConn = null;
-    var utils = com.coders.utils;
+    var utils = coders.utils;
     
     utils.db = {
         init: function(){
@@ -32,7 +30,11 @@ if (!com.coders.utils)
         
         assync: function(sql, param){
             var conn = this.getConnection();
-            var statement = conn.createStatement(sql);
+            try {
+            	var statement = conn.createStatement(sql);
+            } catch (e) {
+            	throw "Unable to create statement for query: " + sql + " and parameters: " + param + e;
+			}
             if (param) {
                 for (var m = 1, arg = null; arg = arguments[m]; m++) {
                     this.bind(statement, m - 1, arg);
@@ -63,7 +65,19 @@ if (!com.coders.utils)
                 ourTransaction = true;
                 conn.beginTransactionAs(conn.TRANSACTION_DEFERRED);
             }
-            var statement = conn.createStatement(sql);
+            try {
+            	Application.console.log(sql);
+            	var statement = conn.createStatement(sql);
+            } catch (e) {
+            	var params = "";
+                if (arguments.length > 1) {
+                    //Starts at 1 because first param is sql by youself
+                    for (var m = 1; m < arguments.length; m++) {
+                        params = params + " : " + arguments[m];
+                    }
+                }
+            	throw "Unable to create statement for query: " + sql + " and parameters: " + params + e;
+			}
             //Check if has more than one parameter (sql)
             if (arguments.length > 1) {
                 //Starts at 1 because first param is sql by youself

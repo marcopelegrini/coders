@@ -4,16 +4,14 @@
  *
  * @author marcotulio
  */
-if (!com) 
-    var com = {};
-if (!com.coders) 
-    com.coders = {};
-if (!com.coders.utils) 
-    com.coders.utils = {};
+if (!coders) 
+    var coders = {};
+if (!coders.utils) 
+    coders.utils = {};
 
 (function(){
 
-    com.coders.utils.prefs = function(branchName){
+    coders.utils.prefs = function(branchName){
     
         this.branchName = branchName;
         this.prefs = null;
@@ -28,20 +26,32 @@ if (!com.coders.utils)
             return this.prefs;
         }
         
-        this.getBool = function(value){
-            return this.getPrefs().getBoolPref(value);
+        this.getBool = function(name){
+            return this.getPrefs().getBoolPref(name);
         }
         
         this.setBool = function(name, value){
             this.getPrefs().setBoolPref(name, value);
         }
         
-        this.getString = function(value){
-            return this.getPrefs().getCharPref(value);
+        this.getString = function(name){
+            return this.getPrefs().getCharPref(name);
         }
         
         this.setString = function(name, value){
             this.getPrefs().setCharPref(name, value);
+        }
+        
+        this.getInt = function(name){
+        	try {
+        		return this.getPrefs().getIntPref(name);
+        	}catch(e){
+        		return null;
+        	}
+        }
+        
+        this.setInt = function(name, value){
+            this.getPrefs().setIntPref(name, value);
         }
         
         this.reset = function(){
@@ -62,7 +72,7 @@ if (!com.coders.utils)
         }
         
         this.getSBundle = function(){
-            return document.getElementById("com.coders.changeHosts.string-bundle");
+            return document.getElementById("coders.changeHosts.string-bundle");
         }
     }
 })();

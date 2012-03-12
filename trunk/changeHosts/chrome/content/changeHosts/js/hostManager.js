@@ -1,4 +1,3 @@
-
 /**
  * Definitions selector manager (just to decouple each part of plugin)
  *
@@ -8,24 +7,22 @@
  * @param {Object} preferences
  * @param {Object} fileUtils
  */
-if (!com) 
-    var com = {};
-if (!com.coders) 
-    com.coders = {};
-if (!com.coders.changeHosts) 
-    com.coders.changeHosts = {};
+if (!coders) 
+    var coders = {};
+if (!coders.changeHosts) 
+    coders.changeHosts = {};
 	
 (function(){
 	
-    com.coders.changeHosts.manager = function(log, dao, preferences){
+    coders.changeHosts.manager = function(log, dao, preferences){
     
-        this.utils = com.coders.utils.util;
-        this.fileUtils = com.coders.utils.fileUtils;
-		this.constants = com.coders.changeHosts.constants;
+        this.utils = coders.utils.util;
+        this.fileUtils = coders.utils.fileUtils;
+		this.constants = coders.changeHosts.constants;
 		
         this.log = log;
         this.dao = dao;
-        this.preferences = preferences;
+        this.prefs = preferences;
         
         this.getDefaultHostPath = function(){
             var so = this.utils.getOperationSystem();
@@ -44,23 +41,32 @@ if (!com.coders.changeHosts)
             this.log.info("Changing hosts to: " + id);
             if (this.dao.selectHost(id)) {
                 //Host mark as selected on database, write file on disk
-                var hostLocation = this.preferences.getString(this.constants.hostLocationPref);
+                var hostLocation = this.prefs.getString(this.constants.hostLocationPref);
 				if(this.utils.isBlank(hostLocation)){
 					throw "#Host file destination is not defined.";
 				}
-                var hostContent = this.dao.getHostContent(id)
+				var host = this.dao.findHost(id);
                 
                 this.log.debug("Writing new hosts to: " + hostLocation);
                 // Write definition's content to file
-                this.fileUtils.save(hostLocation, hostContent);
+                this.fileUtils.save(hostLocation, host.content);
                 
                 //Execute post-script if its necessary
-                var executePostScript = this.preferences.getBool(this.constants.executePostScriptPref);
+                var executePostScript = this.prefs.getBool(this.constants.executePostScriptPref);
                 if (executePostScript) {
                     this.log.debug("Running post-script file...");
-                    var postScript = this.preferences.getString(this.constants.postScriptLocationPref);
+                    var postScript = this.prefs.getString(this.constants.postScriptLocationPref);
                     this.fileUtils.execute(postScript);
                 }
+                
+                //Update interface
+            	var color = this.prefs.getString("definition-color");
+                if(host.color != null && host.color != ""){
+                	color = host.color;
+                }
+                var browserWindow = this.utils.getBrowserWindow();
+                this.utils.getElement("CH_status_definition_name", browserWindow.document).setAttribute("style", "color:" + color + ";");
+                
                 this.log.debug("Done changing hosts.")
                 return true;
             }

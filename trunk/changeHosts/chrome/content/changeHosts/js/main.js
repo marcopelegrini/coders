@@ -1,31 +1,29 @@
-
 /**
  * Everything starts here. This class controls the configuration (first execution) and main commands fired by user
  */
-if (!com) 
-    var com = {};
-if (!com.coders) 
-    com.coders = {};
-if (!com.coders.changeHosts) 
-    com.coders.changeHosts = {};
+if (!coders) 
+    var coders = {};
+if (!coders.changeHosts) 
+    coders.changeHosts = {};
 
 (function(){
 
-    com.coders.changeHosts.main = {
+    coders.changeHosts.main = {
     
-        utils: com.coders.utils,
-        ch: com.coders.changeHosts,
-        dnsFlusher: com.coders.changeHosts.dnsFlusher,
+        utils: coders.utils,
+        ch: coders.changeHosts,
+        dnsFlusher: coders.changeHosts.dnsFlusher,
 		
         init: function(){
-            Application.console.log("[INFO] - Starting Change Hosts");
-            
             this.preferences = new this.utils.prefs(this.ch.constants.branchName);
             this.log = new this.utils.log(this.preferences);
             this.dao = new this.ch.dao(this.preferences);
             
             this.manager = new this.ch.manager(this.log, this.dao, this.preferences);
             this.uiManager = new this.ch.uiManager(this.preferences, this.dao);
+            
+            this.appVersion = this.preferences.getInt("version");
+            Application.console.log("[INFO] - Starting Change Hosts version: " + this.appVersion);
         },
         
         configure: function(){
@@ -33,7 +31,7 @@ if (!com.coders.changeHosts)
             if (!this.preferences.getBool("configured")) {
                 this.log.info("Change hosts first execution. Configuring...");
                 try {
-                    this.dao.createDB();
+                    this.dao.createDB(this.appVersion);
                 } 
                 catch (e) {
                     this.log.error("Error creating database" + e);
@@ -56,6 +54,16 @@ if (!com.coders.changeHosts)
                 }
                 this.preferences.setBool("configured", true);
                 this.log.info("Change hosts configured.");
+            }else{
+				var dbVersion;
+				try {
+					dbVersion = this.dao.getVersion();
+				} catch (e) {
+					//Nothing to do, version structure probably not created
+				}
+				if(this.dao.migrateVersion(dbVersion, this.appVersion)){
+					this.log.info("Change hosts updated from version: " + dbVersion + " to " + this.appVersion);
+				}
             }
         },
         
@@ -94,9 +102,6 @@ if (!com.coders.changeHosts)
         },
         
         loadPrefs: function(){
-            var color = this.preferences.getString("definition-color");
-            this.utils.util.getElement("CH_status_definition_name").setAttribute("style", "color:" + color + ";");
-            
             var showIcon = this.preferences.getBool("show-icon-status");
             var showDefinitionName = this.preferences.getBool("show-definition-name");
             var showIP = this.preferences.getBool("show-ip-status");
@@ -106,14 +111,15 @@ if (!com.coders.changeHosts)
             this.utils.util.getElement("CH_status_ip").hidden = !showIP;
         }
     };
-    //Contruct
-    com.coders.changeHosts.main.init();
     
     window.addEventListener("load", function(){
+        //Contruct
+        coders.changeHosts.main.init();
+        
         //Configure if its necessary
-        com.coders.changeHosts.main.configure();
+        coders.changeHosts.main.configure();
         //setupUI
-        com.coders.changeHosts.main.uiManager.setupUI();
-        com.coders.changeHosts.main.loadPrefs();
+        coders.changeHosts.main.uiManager.setupUI();
+        coders.changeHosts.main.loadPrefs();
     }, false);
 })();
