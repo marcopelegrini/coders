@@ -18,7 +18,7 @@ if (!coders.changeHosts)
         //Named queries:
         this.dropDBQuery = 				"DROP TABLE IF EXISTS definitions;";
         this.createDBQuery = 			"CREATE TABLE IF NOT EXISTS definitions (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL, selected INTEGER NOT NULL, show INTEGER NOT NULL, content TEXT, color TEXT, ordering INTEGER NOT NULL);";
-        this.insertHostQuery = 			"INSERT INTO definitions(name, selected, show, content, color, ordering) VALUES(?1, ?2, ?3, ?4, ?5);";
+        this.insertHostQuery = 			"INSERT INTO definitions(name, selected, show, content, color, ordering) VALUES(?1, ?2, ?3, ?4, ?5, ?6);";
         this.updateHostQuery = 			"UPDATE definitions SET name = ?2, show = ?3, content = ?4, color = ?5 WHERE id = ?1";
         this.listHostsQuery = 			"SELECT id, name, selected, show, content, color, ordering FROM definitions ORDER BY ordering";
         this.listHostsToShowQuery = 	"SELECT id, name, selected, show, content, color, ordering FROM definitions WHERE show = 1 ORDER BY ordering";
