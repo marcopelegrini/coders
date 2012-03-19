@@ -65,17 +65,18 @@ if (!coders.utils)
                 ourTransaction = true;
                 conn.beginTransactionAs(conn.TRANSACTION_DEFERRED);
             }
+            var params = "";
+            if (arguments.length > 1) {
+                //Starts at 1 because first param is sql by youself
+                for (var m = 1; m < arguments.length; m++) {
+                    params = params + "[" + arguments[m] + "] ";
+                }
+            }
             try {
             	Application.console.log(sql);
+            	Application.console.log("Parameters: " + params);
             	var statement = conn.createStatement(sql);
             } catch (e) {
-            	var params = "";
-                if (arguments.length > 1) {
-                    //Starts at 1 because first param is sql by youself
-                    for (var m = 1; m < arguments.length; m++) {
-                        params = params + " : " + arguments[m];
-                    }
-                }
             	throw "Unable to create statement for query: " + sql + " and parameters: " + params + e;
 			}
             //Check if has more than one parameter (sql)
