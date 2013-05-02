@@ -48,6 +48,7 @@
 			<preference id="last-backup-preference" name="extensions.changeHosts.last-backup" type="unichar" />
 			<preference id="script-flag-preference" name="extensions.changeHosts.script-flag" type="bool" />
 			<preference id="script-location-preference" name="extensions.changeHosts.script-location" type="unichar" />
+			<preference id="close-after-choose-preference" name="extensions.changeHosts.close-after-choose" type="bool" />
 		</preferences>
 		<hbox class="prefBox">
 			<vbox class="configVBox">
@@ -145,6 +146,7 @@
 					<caption label="&cH.otherConfigs;" />
 					<checkbox preference="show-icon-status-preference" label="&cH.showChangeHostsIconOnStatusBar;" oncommand="coders.changeHosts.options.showHideViewElements('CH_status_img', this.checked);" />
 					<checkbox preference="show-definition-name-preference" label="&cH.showDefinitionNameOnStatusBar;" oncommand="coders.changeHosts.options.showHideViewElements('CH_status_definition_name', this.checked);" />
+                    <checkbox preference="close-after-choose-preference" label="Close options after choose a definition?" />					
 				</groupbox>
 				<!--
 					TODO - Version 2.0 <groupbox orient="vertical"> <caption label="#Backup" /> <description> #As definições podem ser salvas como um arquivo e
@@ -219,6 +221,7 @@
 								<textbox id="content" multiline="true" wrap="off" disabled="true" focusable="false" style="min-width: 50em; min-height: 33.1em;" onkeypress="coders.changeHosts.options.simulateTab(event);" />
 							</hbox>
 							<hbox align="right">
+                                <button id="choose-definition-button" disabled="true" label="&ch.choose;" oncommand="var close = coders.changeHosts.definitions.use(); if(close){window.close();}" />
 								<button id="cancel-definition-button" disabled="true" label="&ch.doCancel;" oncommand="coders.changeHosts.definitions.cancel();" />
 								<button id="save-definition-button" disabled="true" label="&ch.save;" oncommand="coders.changeHosts.definitions.save();" />
 								<button id="save-and-use-definition-button" disabled="true" label="&ch.saveAndChoose;" oncommand="coders.changeHosts.definitions.saveAndUse();" />

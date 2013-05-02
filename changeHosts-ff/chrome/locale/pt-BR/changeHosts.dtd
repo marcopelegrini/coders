@@ -22,6 +22,7 @@
 <!ENTITY  ch.doCreate							"Criar">
 <!ENTITY  ch.doCancel							"Cancelar">
 <!ENTITY  cH.showInMenu							"Mostrar no menu">
+<!ENTITY  ch.choose								"Escolher">
 
 <!ENTITY  cH.postProcessing						"Pós processamento">
 <!ENTITY  cH.scriptLocation						"Caminho do arquivo">
