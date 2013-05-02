@@ -1,0 +1,12 @@
+overlay	chrome://browser/content/browser.xul		chrome://changeHosts/content/changeHostsOverlay.xul
+style	chrome://changeHosts/content/options.xul	chrome://changeHosts/skin/mac.css os=Darwin
+
+#overlay	chrome://navigator/content/navigator.xul	chrome://changeHosts/content/changeHostsOverlay.xul
+
+content	changeHosts									chrome/content/changeHosts/
+
+skin	changeHosts		modern						chrome/skin/modern/
+
+locale	changeHosts		en-US						chrome/locale/en-US/
+locale	changeHosts		pt-BR						chrome/locale/pt-BR/
+locale	changeHosts		sv-SE						chrome/locale/sv-SE/
