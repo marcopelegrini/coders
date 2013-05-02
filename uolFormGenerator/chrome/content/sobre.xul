@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet href="chrome://uolform/content/estilo.css" type="text/css"?>
+
+
+<window class="caixa-master-window"
+	title="UOL-Form Generator v0.1"
+	orient="vertical"
+	autostretch="always"
+	onload="sizeToContent()"
+	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+<groupbox align="start" orient="horizontal" class="caixa-master-group">
+  <vbox>
+    <text value="UOL-Form Generator" class="titulo"/>
+    <text value="versão 0.16"/>
+
+    <separator class="thin"/>
+    <text value="Criado por" class="sub-titulo"/>
+    <text value="Marcelo Linhares" class="" onclick="window.opener.open('http://www.marcelolinhares.com/');"/>  
+
+    
+	<separator class="thin"/>
+    <text value="Sobre" class="sub-titulo"/>
+    <text value="O Objetivo deste plugin é preencher os 'chatos' cadastros da plataforma do UOL, oferencendo CPF/CNPJ, cartões, etc..." class=""/>  
+
+    
+  </vbox>
+  <spring flex="1"/>
+  <image src="chrome://uolform/content/ico32.png"/>
+</groupbox>
+
+<hbox>
+  <spacer flex="1"/>
+  <button label="Fechar" oncommand="window.close();"/>
+</hbox>
+
+</window>

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0"?>
+<overlay id="sample" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+<script type="application/x-javascript" src="chrome://uolform/content/comportamento.js"/>
+ <statusbar id="status-bar">
+	<statusbarpanel id="my-panel" label="UOL Form Complete"  insertafter="statusbar-progresspanel">
+	<image id="smushit-statusicon" style="cursor:pointer;"
+                src="chrome://uolform/content/ico16.png"
+                tooltiptext="Prencher formulário do UOL"
+                onclick="if(!event.button) { cadastro.run() }"
+                />
+	</statusbarpanel>
+ </statusbar> 
+ 
+	
+<popup id="contentAreaContextMenu">
+	<menuseparator id="transSep" />
+	<menuitem label="UOL Form Cadastro" oncommand="cadastro.run()"/>  
+</popup>
+	
+</overlay>  
