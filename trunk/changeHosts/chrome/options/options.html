@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Change Hosts - Options</title>
+  <link href="/options/options.css" rel="stylesheet"> 
+</head>
+<body>
+  <div class="contentBox">
+   <div id="header">
+     <h1 id="optionTitle">Options</h1>
+   </div>
+
+   <div class="definitions">
+    <h4>Definitions</h4>
+    <select id="definition-list" size="20" /></select>
+    <button class="medium">Down</button>
+    <button class="medium">Up</button>
+    <button class="big">Create new definition</button>
+    <button class="big">Edit</button>
+    <button class="big">Remove</button>
+  </div>   
+  <div class="content">
+    <h4>View</h4>
+    <div class="definition-editor">
+      <label>Name</label>
+      <input id="definition-name" type="text" placeholder="Definition name" />
+      <input id="definition-in-use" type="checkbox" >In use</input>
+      <input id="definition-show-in-menu" type="checkbox" >Show in menu</input>
+      <input id="definition-color" class="color" />
+      <textarea id="definition-content" multiline="true" wrap="off" ></textarea>
+    </div>
+    <div class="definition-editor-actions">
+      <button class="medium">Cancel</button>
+      <button class="medium">Save</button>
+      <button class="big">Save and Choose</button>
+    </div>
+  </div>
+
+</div>
+<div id="footer">&copy;2010 Google</div>
+
+    <ul id="todoItems"></ul>
+    <form id="todoForm">
+      <input id="todo" type="text" name="todo" placeholder="What do you need to do?" style="width: 200px;" />
+      <input id="add" type="submit" value="Add Todo Item" />
+    </form>
+
+<script type="text/javascript" src="/lib/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="/lib/utils.js"></script>
+<script type="text/javascript" src="/options/options.js"></script>
+<script type="text/javascript" src="/lib/jscolor/jscolor.js"></script>
+
+</body>
+</html>​

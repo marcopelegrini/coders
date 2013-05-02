@@ -1,0 +1,54 @@
+<!ENTITY  cH.name								"Change Hosts">
+<!ENTITY  cH.description						"Host File Changer.">
+<!ENTITY  cH.about								"About Change Hosts.">
+
+<!ENTITY  cH.flushDNS							"Flush DNS">
+<!ENTITY  cH.flushDNSKey						"F">
+
+<!ENTITY  cH.preferences						"Preferences">
+<!ENTITY  cH.preferencesKey						"P">
+
+<!ENTITY  cH.tabGeneral							"General">
+<!ENTITY  cH.tabDefinitions						"Definitions">
+<!ENTITY  ch.tabAbout							"About">
+
+<!ENTITY  cH.hostFileDestination 				"Host file destination">
+<!ENTITY  cH.hostsLocation						"Hosts file path">
+<!ENTITY  cH.find								"Select">
+<!ENTITY  ch.permissionTest						"Check permissions">
+<!ENTITY  ch.doTest								"Check">
+<!ENTITY  ch.createDefinitions					"Create new definition">
+<!ENTITY  ch.definitionName						"Name">
+<!ENTITY  ch.doCreate							"Create">
+<!ENTITY  ch.doCancel							"Cancel">
+<!ENTITY  cH.showInMenu							"Show on menu">
+<!ENTITY  ch.choose								"Choose">
+
+<!ENTITY  cH.postProcessing						"Post processing">
+<!ENTITY  cH.scriptLocation						"File path">
+<!ENTITY  cH.executeScriptPostProcessing		"Execute file after change hosts">
+<!ENTITY  cH.path								"Path">
+<!ENTITY  cH.run  								"Run">
+<!ENTITY  cH.run2 								"» run">
+<!ENTITY  cH.read								"» read">
+<!ENTITY  cH.write								"» write">
+<!ENTITY  cH.dnsFlusherIntegration				"DNF Flusher functionalities">
+<!ENTITY  cH.reloadPageOnDNSFlushing			"Reload page on DNS Flushing">
+<!ENTITY  cH.reloadPageOnHostChanging			"Reload page on Host changing">
+<!ENTITY  cH.showIPOnStatusBar					"Show IP on Status bar">
+<!ENTITY  cH.IPColor							"IP Color">
+<!ENTITY  cH.definitionNameColor				"Definition name">
+<!ENTITY  cH.otherConfigs						"Other configs">
+<!ENTITY  cH.showChangeHostsIconOnStatusBar		"Show Change Hosts icon on Status Bar">
+<!ENTITY  cH.showDefinitionNameOnStatusBar		"Show definitions name on Status Bar">
+<!ENTITY  cH.restoreDefaults					"Restore default">
+<!ENTITY  cH.restorePreferences					"Restore default preferences">
+<!ENTITY  cH.cleanDefinitions					"Erase all definitions">
+<!ENTITY  cH.definitions						"Definitions">
+<!ENTITY  cH.edit								"Edit">
+<!ENTITY  cH.remove								"Remove">
+<!ENTITY  ch.inUse								"In use">
+<!ENTITY  ch.save								"Save">
+<!ENTITY  ch.saveAndChoose						"Save and choose">
+
+<!ENTITY  cH.restoreInstructions				"You can restore the preferences to default values or erase all created definitions.">
