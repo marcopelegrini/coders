@@ -73,6 +73,11 @@ if (!coders.utils)
             return wm.getMostRecentWindow("navigator:browser");
         },
         
+        getOptionsWindow: function(){
+            var wm = Components.classes["@mozilla.org/appshell/window-mediator;1"].getService(Components.interfaces.nsIWindowMediator);
+            return wm.getMostRecentWindow("changeHosts:settings");
+        },
+        
         isBlank: function(string){
             if (string && string != null && string != undefined) {
                 var newString = this.trim(string);
