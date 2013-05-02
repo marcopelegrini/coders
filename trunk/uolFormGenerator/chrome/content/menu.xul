@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE overlay SYSTEM "chrome://intranslate/locale/intrans.dtd">
+<overlay id="intranslate"
+         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+  <script src="intranslate.js"/>
+
+<popup id="contentAreaContextMenu">
+<menuseparator id="transSep" />
+<menu label="Preencher cadastro UOL" id="lang">
+<menupopup id="new-popup">
+	<menuitem label="AutoDetect" oncommand="changehomelang('auto');"/>
+	<menuitem label="English" oncommand="changehomelang('en');"/>
+	<menuitem label="Spanish" oncommand="changehomelang('es');"/>
+	<menuitem label="French" oncommand="changehomelang('fr');"/>
+	<menuitem label="Spanish" oncommand="changehomelang('es');"/>
+	<menuitem label="German" oncommand="changehomelang('de');"/>
+	<menuitem label="Italian" oncommand="changehomelang('it');"/>
+	<menuitem label="Portuguese" oncommand="changehomelang('pt');"/>
+</menupopup>
+</menu>
+</popup>
+</overlay>
+
+
