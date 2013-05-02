@@ -64,14 +64,14 @@ if (!coders.changeHosts)
             }
         },
         
-        saveAndUse: function(){
-            try {
-                var id = this.saveHost();
-            } 
-            catch (ex) {
-                alert(this.preferences.getSBundle().getString("cH.unableToSaveDefinition") + " " + ex);
-            }
-            if (id) {
+        use: function(id){
+        	if (!id){
+        		var item = this.utils.util.getElement("definition-list").selectedItem;
+                if (item) {
+                    var id = item.value;
+                }
+        	}
+        	if (id) {
                 try {
                     this.manager.select(id);
                     this.uiManager.setupUI();
@@ -83,7 +83,21 @@ if (!coders.changeHosts)
                     var browser = this.utils.util.getBrowserWindow();
                     browser.gBrowser.reload();
                 }
+                if(this.preferences.getBool("close-after-choose")){
+                	return true;
+                }
             }
+        	return false;
+        },
+        
+        saveAndUse: function(){
+            try {
+                var id = this.saveHost();
+            } 
+            catch (ex) {
+                alert(this.preferences.getSBundle().getString("cH.unableToSaveDefinition") + " " + ex);
+            }
+            this.use(id);
         },
         
         saveHost: function(){
@@ -207,7 +221,8 @@ if (!coders.changeHosts)
                 this.utils.util.getElement("delete-definition-button").disabled = false;
                 this.utils.util.getElement("edit-definition-button").disabled = false;
                 this.utils.util.getElement("up-button").disabled = false;
-                this.utils.util.getElement("down-button").disabled = false;                
+                this.utils.util.getElement("down-button").disabled = false;
+                this.utils.util.getElement("choose-definition-button").disabled = false;
 
                 var color = null;
                 if (host.color != null && host.color != "" ){
@@ -295,6 +310,8 @@ if (!coders.changeHosts)
             list.disabled = false;
             list.timedSelect(list.getSelectedItem(), 5);
         },
+        
+        
         
         toggleSpecificColorPicker: function(bool){
         	this.utils.util.getElement("by-definition-color-picker").disabled = !bool;
