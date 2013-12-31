@@ -59,6 +59,7 @@ if (!coders.changeHosts)
             this.ctx.browserUtils.getElement("cancel-definition-button").disabled = !enabled;
             this.ctx.browserUtils.getElement("save-definition-button").disabled = !enabled;
             this.ctx.browserUtils.getElement("save-and-use-definition-button").disabled = !enabled;
+            this.ctx.browserUtils.getElement("choose-definition-button").disabled = enabled;
             this.ctx.browserUtils.getElement("view-parsed-hosts").disabled = enabled;
         },
 
