@@ -1,0 +1,54 @@
+<!ENTITY  cH.name								"Change Hosts">
+<!ENTITY  cH.description						"Byter ut värdfilen.">
+<!ENTITY  cH.about								"Om Change Hosts.">
+
+<!ENTITY  cH.flushDNS							"Töm DNS">
+<!ENTITY  cH.flushDNSKey						"ö">
+
+<!ENTITY  cH.preferences						"Inställningar">
+<!ENTITY  cH.preferencesKey						"I">
+
+<!ENTITY  cH.tabGeneral							"Allmänt">
+<!ENTITY  cH.tabDefinitions						"Definitioner">
+<!ENTITY  ch.tabAbout							"Om">
+
+<!ENTITY  cH.hostFileDestination 				"Plats för värdfil">
+<!ENTITY  cH.hostsLocation						"Sökväg för värdfil">
+<!ENTITY  cH.find								"Bläddra…">
+<!ENTITY  ch.permissionTest						"Kontrollera behörigheter">
+<!ENTITY  ch.doTest								"Kontrollera">
+<!ENTITY  ch.createDefinitions					"Skapa ny definition">
+<!ENTITY  ch.definitionName						"Namn">
+<!ENTITY  ch.doCreate							"Skapa">
+<!ENTITY  ch.doCancel							"Avbryt">
+<!ENTITY  cH.showInMenu							"Visa i menyn">
+<!ENTITY  ch.choose								"Choose">
+
+<!ENTITY  cH.postProcessing						"Efterbearbetning">
+<!ENTITY  cH.scriptLocation						"Filsökväg">
+<!ENTITY  cH.executeScriptPostProcessing		"Kör fil efter värdbyte">
+<!ENTITY  cH.path								"Sökväg">
+<!ENTITY  cH.run  								"Kör">
+<!ENTITY  cH.run2 								"» kör">
+<!ENTITY  cH.read								"» läs">
+<!ENTITY  cH.write								"» skriv">
+<!ENTITY  cH.dnsFlusherIntegration				"DNS Flusher-integrering">
+<!ENTITY  cH.reloadPageOnDNSFlushing			"Uppdatera sida vid DNS-tömning">
+<!ENTITY  cH.reloadPageOnHostChanging			"Uppdatera sida vid värdbyte">
+<!ENTITY  cH.showIPOnStatusBar					"Visa IP i status-/tilläggsfältet">
+<!ENTITY  cH.IPColor							"IP-färg">
+<!ENTITY  cH.definitionNameColor				"Definitionsnamn">
+<!ENTITY  cH.otherConfigs						"Övriga inställningar">
+<!ENTITY  cH.showChangeHostsIconOnStatusBar		"Visa en Change Hosts-ikon i status-/tilläggsfältet">
+<!ENTITY  cH.showDefinitionNameOnStatusBar		"Visa definitionsnamn i status-/tilläggsfältet">
+<!ENTITY  cH.restoreDefaults					"Återställ standard">
+<!ENTITY  cH.restorePreferences					"Återställ standardinställningar">
+<!ENTITY  cH.cleanDefinitions					"Radera alla definitioner">
+<!ENTITY  cH.definitions						"Definitioner">
+<!ENTITY  cH.edit								"Redigera">
+<!ENTITY  cH.remove								"Ta bort">
+<!ENTITY  ch.inUse								"Används">
+<!ENTITY  ch.save								"Spara">
+<!ENTITY  ch.saveAndChoose						"Spara och använd">
+
+<!ENTITY  cH.restoreInstructions				"Du kan återställa inställningarna till standardvärdena eller radera alla skapade definitioner.">

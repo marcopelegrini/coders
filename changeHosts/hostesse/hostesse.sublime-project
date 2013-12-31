@@ -1,0 +1,25 @@
+{
+	"folders":
+	[
+		{
+			"follow_symlinks": true,
+			"path": "C:\\projetos\\coderstech\\changeHosts\\hostesse"
+		},
+		{
+			"follow_symlinks": true,
+			"path": "C:\\projetos\\coderstech\\inventor"
+		},
+		{
+			"follow_symlinks": true,
+			"path": "C:\\projetos\\coderstech\\dnsFlusher"
+		},
+		{
+			"follow_symlinks": true,
+			"path": "C:\\projetos\\coderstech\\changeHosts\\firefox"
+		},
+		{
+			"follow_symlinks": true,
+			"path": "C:\\projetos\\coderstech\\sqlmanager"
+		}
+	]
+}

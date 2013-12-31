@@ -1,0 +1,1394 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"txt",
+				"textbox	{}"
+			],
+			[
+				"text",
+				"textbox	{}"
+			],
+			[
+				"tex",
+				"textbox	{}"
+			],
+			[
+				"file",
+				"filePath	(?)"
+			],
+			[
+				"getF",
+				"getFilePath"
+			],
+			[
+				"get",
+				"getFileSeparator()"
+			],
+			[
+				"save",
+				"save(filePath, output)"
+			],
+			[
+				"log",
+				"logUtils"
+			],
+			[
+				"set",
+				"setCurrentColor()"
+			],
+			[
+				"hosts",
+				"hostsConfig	{}"
+			],
+			[
+				"rege",
+				"regex	{}"
+			],
+			[
+				"hos",
+				"hostsPath	{}"
+			],
+			[
+				"co",
+				"color	(?)"
+			],
+			[
+				"setc",
+				"setCurrentColor"
+			],
+			[
+				"subs",
+				"substr(from, length?)"
+			],
+			[
+				"curre",
+				"currentHostsPath	{}"
+			],
+			[
+				"getFile",
+				"getFileSeparator()"
+			],
+			[
+				"last",
+				"lastIndexOf(elt, from?)"
+			],
+			[
+				"curr",
+				"currentHostsPath	(?)"
+			],
+			[
+				"read",
+				"readDir"
+			],
+			[
+				"colo",
+				"color"
+			],
+			[
+				"exist",
+				"existingRegex"
+			],
+			[
+				"remove",
+				"removeRegexConfigQuery"
+			],
+			[
+				"regex",
+				"regex"
+			],
+			[
+				"color",
+				"color"
+			],
+			[
+				"regexCon",
+				"regexConfig"
+			],
+			[
+				"more",
+				"moretip"
+			],
+			[
+				"setTr",
+				"setTreeSelection"
+			],
+			[
+				"colorce",
+				"colorCell"
+			],
+			[
+				"list",
+				"listbox"
+			],
+			[
+				"style",
+				"styleSheet"
+			],
+			[
+				"tree",
+				"treeStyleSheetHREF"
+			],
+			[
+				"setTree",
+				"setTreeStyleSheet"
+			],
+			[
+				"hostco",
+				"hostsConfig"
+			],
+			[
+				"da",
+				"databaseUtils"
+			],
+			[
+				"de",
+				"definitionsRootDir"
+			],
+			[
+				"Inclu",
+				"includePath"
+			],
+			[
+				"inclu",
+				"includePath"
+			],
+			[
+				"st",
+				"stopPropagation"
+			],
+			[
+				"direc",
+				"directory"
+			],
+			[
+				"on",
+				"onLoad"
+			],
+			[
+				"cre",
+				"createTreeChildren"
+			],
+			[
+				"crea",
+				"createTreeChildrenItem"
+			],
+			[
+				"files",
+				"filesOnRootFound"
+			],
+			[
+				"fil",
+				"fileName"
+			],
+			[
+				"hostFile",
+				"hostFileToSelect"
+			],
+			[
+				"selected",
+				"selectedIndex"
+			],
+			[
+				"selectedHostI",
+				"selectedHostIndex"
+			],
+			[
+				"host",
+				"hosts"
+			],
+			[
+				"fi",
+				"file"
+			],
+			[
+				"fo",
+				"for	for (…) {…}"
+			],
+			[
+				"le",
+				"lenght"
+			],
+			[
+				"ca",
+				"catch"
+			],
+			[
+				"optio",
+				"optionsDefinitions"
+			],
+			[
+				"def",
+				"definitionStatus"
+			],
+			[
+				"ch",
+				"checkIntegration"
+			],
+			[
+				"fon",
+				"font-style"
+			],
+			[
+				"b",
+				"button"
+			],
+			[
+				"add",
+				"addListener"
+			],
+			[
+				"con",
+				"consoleService"
+			],
+			[
+				"relo",
+				"reload"
+			],
+			[
+				"pref",
+				"prefs"
+			],
+			[
+				"dns",
+				"dnsFlusherService"
+			],
+			[
+				"flushe",
+				"dnsFlusher"
+			],
+			[
+				"pr",
+				"prefs"
+			],
+			[
+				"getPre",
+				"getPrefService"
+			],
+			[
+				"pre",
+				"prefName"
+			],
+			[
+				"selec",
+				"selectedHostIndex"
+			],
+			[
+				"pare",
+				"rangeParent"
+			],
+			[
+				"chi",
+				"childElement"
+			],
+			[
+				"hostdir",
+				"hostDirToSelect"
+			],
+			[
+				"setSe",
+				"setTreeSelection"
+			],
+			[
+				"inde",
+				"indexOf"
+			],
+			[
+				"not",
+				"notExpandableDir"
+			],
+			[
+				"getStrin",
+				"getStringList"
+			],
+			[
+				"va",
+				"value"
+			],
+			[
+				"html",
+				"htmlSelection"
+			],
+			[
+				"Enco",
+				"Encoder"
+			],
+			[
+				"getH",
+				"getHostList"
+			],
+			[
+				"delete",
+				"deleteHostFile"
+			],
+			[
+				"conte",
+				"context"
+			],
+			[
+				"getD",
+				"getHostDirFromFilePath"
+			],
+			[
+				"getHost",
+				"getHostDirFromFilePath"
+			],
+			[
+				"getHo",
+				"getHostNameFromFilePath"
+			],
+			[
+				"hostName",
+				"hostNameToSelect"
+			],
+			[
+				"roo",
+				"rootDir"
+			],
+			[
+				"getHos",
+				"getHostNameFromFileName"
+			],
+			[
+				"can",
+				"cancelEdition"
+			],
+			[
+				"sho",
+				"showHosts"
+			],
+			[
+				"chang",
+				"changeHosts"
+			],
+			[
+				"brwo",
+				"browserUtils"
+			],
+			[
+				"is",
+				"isDirectory"
+			],
+			[
+				"ex",
+				"exists"
+			],
+			[
+				"show",
+				"showParsed"
+			],
+			[
+				"prefe",
+				"preferenceUtils"
+			],
+			[
+				"elem",
+				"elementId"
+			],
+			[
+				"trow",
+				"throw"
+			],
+			[
+				"hostnam",
+				"hostNameToSelect"
+			],
+			[
+				"hostfile",
+				"hostFilePathToSelect"
+			],
+			[
+				"hostNam",
+				"hostFileNameToSelect"
+			],
+			[
+				"pa",
+				"path"
+			],
+			[
+				"las",
+				"lastDirSeparator"
+			],
+			[
+				"win",
+				"windowName"
+			],
+			[
+				"fn",
+				"function"
+			],
+			[
+				"load",
+				"loadTree"
+			],
+			[
+				"dire",
+				"directoryEntries"
+			],
+			[
+				"sele",
+				"selectedHostName"
+			],
+			[
+				"pars",
+				"parsed"
+			],
+			[
+				"sel",
+				"selectedHostDir"
+			],
+			[
+				"lin",
+				"lineValue"
+			],
+			[
+				"li",
+				"lineValue"
+			],
+			[
+				"in",
+				"includePath"
+			],
+			[
+				"prefre",
+				"preference"
+			],
+			[
+				"c",
+				"ctx"
+			],
+			[
+				"tro",
+				"throw"
+			],
+			[
+				"loa",
+				"loadPrefs"
+			],
+			[
+				"brows",
+				"browserUtils"
+			],
+			[
+				"ba",
+				"branchName"
+			],
+			[
+				"bran",
+				"branchName"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"margin",
+				"margin-top"
+			],
+			[
+				"fa",
+				"false"
+			],
+			[
+				"tre",
+				"treeitem"
+			],
+			[
+				"leaf",
+				"leafName"
+			],
+			[
+				"util",
+				"utils"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"contents": "/**\n * @author marcotulio\n */\nwindow.addEventListener(\"load\", function(){\n    dnsFlusher.init();\n    dnsFlusher.loadPrefs();\n    dnsFlusher.addListener();\n}, false);\nwindow.addEventListener(\"unload\", function(){\n    dnsFlusher.destroy();\n}, false);\n\nvar dnsFlusher = {\n    dnsFlusherName: \"DNS Flusher\",\n    branchName: \"extensions.dnsFlusher.\",\n    preferenceWindowType: \"dnsFlusher:settings\",\n    preferenceWindowURI: \"chrome://dnsFlusher/content/options.xul\",\n    preferenceWindowOptions: \"chrome,toolbar,centerscreen\",\n    \n    init: function(){\n\n        this.reloadByUser = false;\n        this.utils = new CTechUtils();\n        this.prefs = new CTechPrefs(this.branchName);\n        this.logger = new CTechLog(this.prefs);\n		this.prefs.setLogger(this.logger);\n		//Firefox Services\n		Components.utils.import(\"resource://gre/modules/Downloads.jsm\");\n		this.dnsService = Components.classes[\"@mozilla.org/network/dns-service;1\"].getService(Components.interfaces.nsIDNSService);		\n	    this.networkIoService = Components.classes[\"@mozilla.org/network/io-service;1\"].getService(Components.interfaces.nsIIOService);\n	    this.cacheService = Components.classes[\"@mozilla.org/network/cache-service;1\"].getService(Components.interfaces.nsICacheService);\n	    this.threadManager = Components.classes[\"@mozilla.org/thread-manager;1\"].getService();\n\n        this.logger.info(\"Starting DNS Flusher...\");\n\n        this.Listener = {\n            onLocationChange: function(aProgress, aRequest, aLocation){\n                try {\n                    if (aLocation && aLocation.host && (aLocation.scheme != 'chrome') && (aLocation.scheme != 'file')) {\n                        this.parent.updatestatus(aLocation.host);\n                    }\n                    else {\n                        this.parent.updatestatus();\n                    }\n                } \n                catch (e) {\n                    this.parent.updatestatus();\n                }\n            },\n            onStateChange: function(a, b, c, d){\n            },\n            onProgressChange: function(a, b, c, d, e, f){\n            },\n            onStatusChange: function(a, b, c, d){\n            },\n            onSecurityChange: function(a, b, c){\n            },\n            onLinkIconAvailable: function(a){\n            }\n            \n        };\n        this.Listener.parent = this;\n        \n        window.getBrowser().addProgressListener(this.Listener);\n    },\n\n    addListener: function(){\n        var mainWindow = this.utils.getMainWindow();\n        mainWindow.document.addEventListener(\"DNSFlusherEvent\", function(e) { \n            dnsFlusher.flushListener(e); \n        }, false);\n    },\n    \n    destroy: function(){\n        window.getBrowser().removeProgressListener(this.Listener);\n    },\n    \n    resolveIp: function(host, byUser){\n        this.logger.debug(\"Resolving Host: \" + host);\n        try {\n            //DNS Data Listener\n            var dataListener = {\n                data: [],\n                QueryInterface: function(aIID){\n                    if (aIID.equals(Components.interfaces.nsIDNSListener) ||\n                    aIID.equals(Components.interfaces.nsISupports)) {\n                        return this;\n                    }\n                    throw Components.results.NS_NOINTERFACE;\n                },\n                onLookupComplete: function(aRequest, aRecord, aStatus){\n                    while (aRecord && aRecord.hasMore()) {\n                        this.data.push(aRecord.getNextAddrAsString());\n                    }\n                    this.parent.logger.debug(\"Resolved: \" + this.data);\n                    this.parent.updateLabel(host, this.data, byUser);\n                }\n            };\n            dataListener.parent = this;\n            dataListener.host = host;\n            \n            this.logger.debug(\"Getting current thread\");\n            //Current Thread\n            var target = this.threadManager.currentThread;\n            \n            try {\n                this.logger.debug(\"Invoking assync resolver...\");\n                this.dnsService.asyncResolve(host, 0, dataListener, target);\n            } \n            catch (e) {\n                //Expected for unknown hosts\n                this.logger.debug(\"Async Resolve error: \" + e)\n            }\n        } \n        catch (e) {\n            this.logger.error(e);\n        }\n    },\n    \n    // update the statusbar panel\n    updatestatus: function(host, byUser){\n        this.logger.debug(\"Updating status for host: \" + host + \" by user: \" + byUser);\n        if (!host) {\n            this.updateLabel();\n            return;\n        }\n        //Check host\n        this.actualHost = host;\n        this.resolveIp(host, byUser);\n    },\n    \n    updateLabel: function(host, ips, byUser){\n		this.logger.debug(\"Updating label: \" + ips + \" byUser: \" + byUser);\n        var ipLabel = this.utils.getElement('dnsflusher-label');\n        this.cleanTooltip();\n        //Status bar label\n        if (host && ips && ips.length) {\n            var j = 0;\n            var text = ips[j];\n            //Update label\n            if ((byUser || this.reloadByUser) && this.prefs.getBool(\"label-efect\")) {\n                text = \"Flushed: \" + text;\n                ipLabel.value = text;\n                var x = 0;\n                for (var i = 0; i < 10; i++) {\n                    setTimeout(this.changeLabel, 1000 - x, text);\n                    var text = text.substring(1);\n                    x -= 150;\n                }\n            }\n            else {\n                ipLabel.value = text;\n            }\n            this.updateTooltip(host, ips);\n        }\n        else {\n            ipLabel.value = this.dnsFlusherName;\n        }\n        this.reloadByUser = false;\n    },\n	\n	changeLabel: function(value){\n		document.getElementById('dnsflusher-label').value = value;\n	},\n	\n    cleanTooltip: function(){\n        //Remove old tooltips\n        var tooltip = this.utils.getElement('dnsflusher-tooltip');\n        while (tooltip.childElementCount) {\n            tooltip.removeChild(tooltip.children[0]);\n        }\n        tooltip.setAttribute(\"style\", \"display:none;\");\n    },\n    \n    updateTooltip: function(host, ips){\n        //Tooltip title    \n        var tooltipTitle = document.createElement(\"label\");\n        tooltipTitle.setAttribute(\"value\", \"IP(s) for host: \" + host);\n        tooltipTitle.setAttribute(\"style\", \"font-weight:bold;\");\n        //Children\n        var tooltip = this.utils.getElement('dnsflusher-tooltip');\n        tooltip.appendChild(tooltipTitle);\n        tooltip.setAttribute(\"style\", \"padding:2px;\");\n        for (var i = 0; i < ips.length; i++) {\n            this.logger.debug(\"Creating tooltip label for ip: \" + ips[i]);\n            var label = document.createElement(\"label\");\n            label.setAttribute(\"value\", ips[i]);\n            tooltip.appendChild(label);\n        }\n    },\n    \n    refreshdns: function(){\n        //Check for active downloads\n        var activeDownloads = this.downloadManager.activeDownloadCount;\n        var downloads = Downloads.getList(Downloads.ALL);\n        \n        var strMsg = \"There are downloads currently in progress.\\nIf you flush the DNS now your downloads will be lost!\\nDo you want to continue?\\n\";\n        \n        if (activeDownloads > 0 && !confirm(strMsg)) {\n            return false;\n        }\n        try {\n		    this.networkIoService.offline = true;\n\n            var prefService = this.prefs.getService();\n            var prefNameExpiration = \"network.dnsCacheExpiration\";\n            var prefNameEntries = \"network.dnsCacheEntries\";\n            var vExp = null;\n            var vEntries = null;\n            if (prefService.prefHasUserValue(prefNameExpiration)){\n                vExp = prefService.getIntPref(prefNameExpiration);\n            }\n            if (prefService.prefHasUserValue(prefNameEntries)){\n                vEntries = prefService.getIntPref(prefNameEntries);\n            }\n\n            prefService.setIntPref(prefNameExpiration, \"0\");\n            prefService.setIntPref(prefNameEntries, \"0\");\n\n            if (vExp != null){\n                prefService.setIntPref(prefNameExpiration, vExp);\n            }else{\n                prefService.clearUserPref(prefNameExpiration);\n            }\n\n            if (vEntries != null){\n                prefService.setIntPref(prefNameEntries, vEntries);\n            }else{\n                prefService.clearUserPref(prefNameEntries);\n            }\n\n		    this.cacheService.evictEntries(Components.interfaces.nsICache.STORE_ANYWHERE);\n		    this.networkIoService.offline = false;      \n\n            if (this.prefs.getBool(\"reload-page\")) {\n                var mainWindow = this.utils.getMainWindow();\n                mainWindow.getBrowser().reload();\n                this.reloadByUser = true;\n            }\n            else {\n                this.updatestatus(this.actualHost, true);\n            }\n        }catch(e){\n            this.logger.error(\"Error flushing DNS: \" + e);\n        }\n    },\n\n    flushListener: function() {\n        dnsFlusher.refreshdns();\n    },   \n    \n    eventDispatcher: function(event){\n        // Fire on left and middle button\n		if (event.button < 2 || event.button == undefined) {\n            dnsFlusher.refreshdns();\n        }\n    },\n	\n    openPreferences: function(){\n        //Use window mediator to open preferences (needed because add-ons manager window)\n        var wm = Components.classes['@mozilla.org/appshell/window-mediator;1'].getService(Components.interfaces.nsIWindowMediator);\n        var topWindow = wm.getMostRecentWindow(this.preferenceWindowType);\n        if (topWindow) {\n            topWindow.focus();\n        }\n        else {\n            topWindow = wm.getMostRecentWindow(null);\n            topWindow.openDialog(this.preferenceWindowURI, \"\", this.preferenceWindowOptions);\n        }\n    },\n    \n    loadPrefs: function(){\n        var color = this.prefs.getString(\"label-color\");\n        this.utils.getElement(\"dnsflusher-label\").setAttribute(\"style\", \"color:\" + color + \";\");\n\n        var showIcon = this.prefs.getBool(\"show-icon\");\n        this.utils.getElement(\"dnsflusher_status_img\").hidden = !showIcon;        \n    }\n};",
+			"file": "/C/projetos/coderstech/dnsFlusher/chrome/content/dnsFlusher/js/dnsFlusher.js",
+			"file_size": 10491,
+			"file_write_time": 130329306611895912,
+			"settings":
+			{
+				"buffer_size": 10145,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/projetos/coderstech/dnsFlusher/chrome/content/dnsFlusher/js/preferenceUtils.js",
+			"settings":
+			{
+				"buffer_size": 1921,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "Searching 79 files for \"refreshdns\"\n\n0 matches across 0 files\n\n\nSearching 22 files for \"notifyStateDocument\"\n\nC:\\projetos\\coderstech\\dnsFlusher\\chrome\\content\\dnsFlusher\\js\\dnsFlusher.js:\n   18      preferenceWindowOptions: \"chrome,toolbar,centerscreen\",\n   19      \n   20:     notifyStateDocument: Components.interfaces.nsIWebProgress.NOTIFY_STATE_DOCUMENT,\n   21      notifyLocation: Components.interfaces.nsIWebProgress.NOTIFY_LOCATION,\n   22      options: null,\n\n1 match in 1 file\n\n\nSearching 22 files for \"notifyLocation\"\n\nC:\\projetos\\coderstech\\dnsFlusher\\chrome\\content\\dnsFlusher\\js\\dnsFlusher.js:\n   18      preferenceWindowOptions: \"chrome,toolbar,centerscreen\",\n   19      \n   20:     notifyLocation: Components.interfaces.nsIWebProgress.NOTIFY_LOCATION,\n   21      options: null,\n   22      \n\n1 match in 1 file\n",
+			"settings":
+			{
+				"buffer_size": 823,
+				"line_ending": "Windows",
+				"name": "Find Results",
+				"scratch": true
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"tn",
+				"TernJS: Rename variable"
+			],
+			[
+				"isntal",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: insta",
+				"Package Control: Install Package"
+			],
+			[
+				"pacak",
+				"Package Control: Install Package"
+			],
+			[
+				"tern",
+				"TernJS: Jump to definition"
+			],
+			[
+				"rena",
+				"TernJS: Rename variable"
+			],
+			[
+				"sidebar",
+				"Side Bar: Disable Syncing"
+			],
+			[
+				"Package Control: isnta",
+				"Package Control: Install Package"
+			],
+			[
+				"jum",
+				"TernJS: Jump to definition"
+			],
+			[
+				"",
+				"About"
+			],
+			[
+				"jump",
+				"TernJS: Jump to definition"
+			],
+			[
+				"Instal",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: Insta",
+				"Package Control: Install Package"
+			],
+			[
+				"Packa",
+				"Preferences: Browse Packages"
+			]
+		],
+		"width": 536.0
+	},
+	"console":
+	{
+		"height": 218.0,
+		"history":
+		[
+			"ternjs_rename_variable",
+			"ternjs_jump_to_definition",
+			"ternjs_jump_to_definition readDir",
+			"ternjs_jump_to_definition",
+			"import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())",
+			"sublime.log_input(True)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/projetos/coderstech/changeHosts/hostesse/chrome/content/changeHosts/options.xul",
+		"/C/projetos/coderstech/changeHosts/hostesse/chrome/content/changeHosts/js/main.js",
+		"/C/projetos/coderstech/changeHosts/hostesse/chrome/content/changeHosts/js/uiManager.js",
+		"/C/projetos/coderstech/changeHosts/hostesse/chrome/locale/en-US/localization.properties",
+		"/C/projetos/coderstech/changeHosts/hostesse/chrome/content/changeHosts/js/optionsGeneral.js",
+		"/C/projetos/coderstech/changeHosts/hostesse/chrome/content/changeHosts/js/old_dao.js",
+		"/C/projetos/coderstech/changeHosts/hostesse/chrome/locale/en-US/changeHosts.dtd",
+		"/C/projetos/coderstech/changeHosts/hostesse/chrome/content/changeHosts/js/optionsDefinitions.js",
+		"/C/Users/mpelegrini/AppData/Roaming/Sublime Text 3/Packages/User/Default (Windows).sublime-keymap",
+		"/C/Users/mpelegrini/AppData/Roaming/Sublime Text 3/Packages/Default/Default (Windows).sublime-keymap",
+		"/C/projetos/coderstech/changeHosts/hostesse/chrome/content/changeHosts/js/migrationDialog.js",
+		"/C/projetos/coderstech/changeHosts/hostesse/chrome/content/changeHosts/migrationDialog.xul",
+		"/C/projetos/coderstech/changeHosts/hostesse/defaults/preferences/changeHosts.js",
+		"/C/projetos/coderstech/changeHosts/hostesse/chrome/content/changeHosts/changeHostsOverlay.xul",
+		"/C/projetos/coderstech/changeHosts/hostesse/chrome/content/changeHosts/js/hostsManager.js",
+		"/C/projetos/coderstech/changeHosts/hostesse/install.rdf",
+		"/C/projetos/coderstech/changeHosts/hostesse/chrome/content/changeHosts/deleteDialog.xul",
+		"/C/projetos/coderstech/changeHosts/hostesse/chrome/content/changeHosts/js/regexDialog.js",
+		"/C/projetos/coderstech/changeHosts/hostesse/chrome/content/changeHosts/regexDialog.xul",
+		"/C/projetos/coderstech/changeHosts/hostesse/chrome/skin/modern/changeHosts.css",
+		"/C/projetos/coderstech/changeHosts/hostesse/chrome/content/changeHosts/js/ctech/browserUtils.js",
+		"/C/projetos/coderstech/changeHosts/hostesse/chrome/content/changeHosts/js/applicationContext.js",
+		"/C/projetos/coderstech/changeHosts/hostesse/chrome/content/changeHosts/js/ctech/preferenceUtils.js",
+		"/C/projetos/coderstech/changeHosts/hostesse/chrome/content/changeHosts/js/objects.js",
+		"/C/projetos/coderstech/changeHosts/hostesse/chrome/content/changeHosts/js/dao.js",
+		"/C/Users/mpelegrini/AppData/Roaming/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/C/projetos/coderstech/changeHosts/hostesse/chrome/content/changeHosts/colorDialog.xul",
+		"/C/projetos/coderstech/changeHosts/hostesse/chrome/content/changeHosts/js/ctech/logUtils.js",
+		"/C/projetos/coderstech/changeHosts/hostesse/chrome/content/changeHosts/js/hostesseTemplateManager.js",
+		"/C/projetos/coderstech/changeHosts/hostesse/chrome/content/changeHosts/js/optionsCommons.js",
+		"/C/projetos/coderstech/changeHosts/hostesse/chrome/content/changeHosts/js/ctech/fileUtils.js",
+		"/C/projetos/coderstech/changeHosts/hostesse/chrome/content/changeHosts/js/ctech/databaseUtils.js",
+		"/C/Users/mpelegrini/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/C/projetos/coderstech/changeHosts/hostesse/chrome/skin/modern/treeStyles.css",
+		"/C/projetos/coderstech/sqlmanager/chrome/content/sqlitemanager.js",
+		"/C/Users/mpelegrini/Desktop/prospect - fixed.js",
+		"/C/projetos/coderstech/dnsFlusher/chrome/content/dnsFlusher/dnsFlusher.xul",
+		"/C/projetos/coderstech/dnsFlusher/chrome/content/dnsFlusher/options.xul",
+		"/C/projetos/coderstech/dnsFlusher/chrome/content/dnsFlusher/js/utils.js",
+		"/C/projetos/coderstech/dnsFlusher/chrome/content/dnsFlusher/js/options.js",
+		"/C/projetos/coderstech/dnsFlusher/chrome/content/dnsFlusher/js/dnsFlusher.js",
+		"/C/projetos/coderstech/dnsFlusher/chrome/skin/classic/dnsFlusher/style.css",
+		"/C/projetos/coderstech/dnsFlusher/install.rdf",
+		"/C/projetos/coderstech/changeHosts/hostesse/chrome/skin/modern/toolbar.css",
+		"/C/projetos/coderstech/dnsFlusher/defaults/preferences/dnsFlusher.js",
+		"/C/projetos/coderstech/dnsFlusher/chrome.manifest",
+		"/C/projetos/coderstech/dnsFlusher/chrome/skin/classic/dnsFlusher/icon16.png",
+		"/C/projetos/coderstech/changeHosts/hostesse/chrome.manifest",
+		"/C/projetos/coderstech/dnsFlusher/chrome/skin/classic/dnsFlusher/toolbar.css",
+		"/C/projetos/coderstech/hidebookmark/chrome.manifest",
+		"/C/projetos/coderstech/hidebookmark/chrome/content/browser-overlay.xul",
+		"/C/projetos/coderstech/hidebookmark/chrome/skin/browser-overlay.css",
+		"/C/projetos/coderstech/restclient/content/css/overlay.css",
+		"/C/projetos/coderstech/restclient/content/overlay.xul",
+		"/C/projetos/coderstech/changeHosts/hostesse/chrome/content/changeHosts/toolbarOverlay.xul",
+		"/C/projetos/coderstech/dnsFlusher/chrome/content/dnsFlusher/js/preferenceUtils.js",
+		"/C/projetos/coderstech/changeHosts/hostesse/chrome/content/changeHosts/js/dnsFlusherIntegration.js",
+		"/C/projetos/coderstech/dnsFlusher/components/dnsFlusherService.js",
+		"/C/Windows/System32/drivers/etc/hosts",
+		"/C/projetos/coderstech/changeHosts/hostesse/chrome/content/changeHosts/js/dnsFlusherIntegration",
+		"/C/projetos/coderstech/dnsFlusher/chrome/content/dnsFlusher/js/dnsFlusherService.js",
+		"/C/projetos/encoder-decoder-chrome-extension/EncoderDecoder/src/browser_action/browser_action.html",
+		"/C/projetos/encoder-decoder-chrome-extension/EncoderDecoder/src/browser_action/encoder_functions.js",
+		"/C/projetos/encoder-decoder-chrome-extension/EncoderDecoder/src/browser_action/html_encoder.js",
+		"/C/projetos/coderstech/changeHosts/hostesse/chrome/locale/pt-BR/changeHosts.dtd",
+		"/C/projetos/coderstech/changeHosts/hostesse/chrome/content/changeHosts/js/ctech/databaseUtil.js",
+		"/C/Users/mpelegrini/AppData/Roaming/Sublime Text 3/Packages/Package Control/Package Control.sublime-settings",
+		"/C/projetos/coderstech/changeHosts/hostesse/chrome/content/changeHosts/js/definitions.js",
+		"/C/projetos/coderstech/changeHosts/hostesse/chrome/content/changeHosts/js/optionsOverlay.js",
+		"/C/projetos/coderstech/changeHosts/hostesse/chrome/content/changeHosts/js/x_old_hostesse.js",
+		"/C/Users/mpelegrini/AppData/Roaming/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
+		"/C/Users/mpelegrini/AppData/Roaming/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/C/projetos/coderstech/changeHosts/hostesse/chrome/content/changeHosts/js/hostManager.js",
+		"/C/projetos/coderstech/tamper/content/tamperOptions.xul",
+		"/C/projetos/coderstech/uaswitcher/chrome/content/useragentswitcher/options/options.js",
+		"/C/projetos/coderstech/changeHosts/hostesse/chrome/content/changeHosts/js/old_hostManager.js",
+		"/C/projetos/coderstech/changeHosts/hostesse/chrome/content/changeHosts/js/hostesse.js",
+		"/C/projetos/coderstech/uaswitcher/chrome/content/useragentswitcher/options/options.xul",
+		"/C/projetos/coderstech/changeHosts/firefox/chrome/content/changeHosts/js/definitions.js",
+		"/C/projetos/coderstech/changeHosts/firefox/chrome/content/changeHosts/js/dnsFlusher.js",
+		"/C/projetos/coderstech/changeHosts/firefox/chrome/content/changeHosts/js/hostManager.js",
+		"/C/projetos/coderstech/changeHosts/firefox/chrome/content/changeHosts/js/main.js",
+		"/C/projetos/coderstech/changeHosts/firefox/chrome/content/changeHosts/js/uiManager.js",
+		"/C/projetos/coderstech/bookmarks2pane-master/content/bookmarks2pane/bookmarksPanelOverlay.js",
+		"/C/projetos/coderstech/bookmarks2pane-master/content/bookmarks2pane/bookmarksPanelOverlay.xul",
+		"/C/projetos/coderstech/web-developer/options/options.xul",
+		"/C/projetos/coderstech/web-developer/options/javascript/options.js",
+		"/C/projetos/coderstech/regexptester/options.xul",
+		"/C/projetos/coderstech/bookmarks/chrome/content/options.xul",
+		"/C/projetos/coderstech/bookmarks/chrome/content/options.js",
+		"/C/projetos/coderstech/bookmarks/chrome/content/module.jsm",
+		"/C/opt/changehosts/Data/profile/extensions/{de1c70de-0466-4913-90e9-562e2efd555d}",
+		"/C/projetos/coderstech/changeHosts/hostesse/chrome/content/changeHosts/js/dnsFlusher.js",
+		"/C/projetos/coderstech/changeHosts/hostesse/chrome/content/changeHosts/js/ctech/utils.js",
+		"/C/projetos/coderstech/bookmarks2pane-master/content/bookmarks2pane/bookmarksPanelTreeOverlay.xul",
+		"/C/projetos/coderstech/changeHosts/hostesse/chrome/skin/modern/mac.css",
+		"/C/projetos/coderstech/changeHosts/hostesse/chrome/skin/modern/contents.rdf",
+		"/C/Users/mpelegrini/AppData/Roaming/Sublime Text 2/Packages/XML/XML.sublime-settings",
+		"/C/Users/mpelegrini/AppData/Roaming/Sublime Text 2/Packages/Default/Default (Windows).sublime-keymap",
+		"/C/Users/mpelegrini/AppData/Roaming/Sublime Text 2/Packages/User/Default (Windows).sublime-keymap",
+		"/C/Users/mpelegrini/Downloads/bookmarksPanel.js",
+		"/C/data/revelacao"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+			"C:\\projetos\\coderstech\\dnsFlusher,-*.dtd,-*.properties",
+			"C:\\projetos\\coderstech\\changeHosts\\hostesse,-*.dtd,-*.properties",
+			"C:\\projetos\\coderstech\\changeHosts\\hostesse",
+			"<open folders>",
+			"C:\\projetos\\coderstech\\changeHosts\\hostesse",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"downloadManager",
+			"options",
+			"notifyLocation",
+			"notifyStateDocument",
+			"notifyLocation",
+			"notifyStateDocument",
+			"this.Listener",
+			"efec",
+			"NOTIFY_LOCATION",
+			"NOTIFY_STATE_DOCUMENT",
+			"]",
+			"notifyLocation",
+			"notifyStateDocument",
+			"dnsService",
+			"refreshdns",
+			"prefName",
+			"definition",
+			"defini",
+			"select",
+			"cH.expand",
+			"cH.errorRunningPostScript",
+			"cH.rootDirName",
+			"cH.migrationComplete",
+			"cH.replaceContent",
+			"cH.setFolderColorDisclaimer",
+			"cH.removeFolderConfirmation",
+			"cH.removeFileConfirmation",
+			"cH.removeRegex",
+			"cH.viewParsedModeAlert",
+			"cH.setFileColorDisclaimer",
+			"cH.createNewHostsFile",
+			"cH.hostFileNotFound",
+			"cH.confirmInUseRemoving",
+			"cH.selectDefinition",
+			"cH.registerNotFound",
+			"cH.pickHostFile",
+			"cH.errorSelectingDefinition",
+			"selectHost",
+			"cH.errorSelectingDefinition",
+			"selectHost",
+			"cH.errorSelectingDefinition",
+			"genRow",
+			"selectHost",
+			"cH.errorSelectingDefinition",
+			"cH.errorRemovingDefinition",
+			"cH.errorUpdatingDefinition",
+			"cH.errorSavingDefinition",
+			"cH.unableToSaveDefinition",
+			"cH.fillDefinitionName",
+			"cH.pickHostFile",
+			"cH.errorRunningFile",
+			"cH.youShouldSelectAScriptToExecute",
+			"cH.pickScriptFile",
+			"cH.new",
+			"cH.edit",
+			"cH.new",
+			"cH.removeHosts",
+			"cH.regex",
+			"cH.color",
+			"cH.setHostsColor",
+			"cH.saveAndChange",
+			"cH.closeAfterChange",
+			"cH.viewParsed",
+			"cH.saveAndChoose",
+			"cH.change",
+			"cH.save",
+			"cH.clear",
+			"cH.current",
+			"cH.inUse",
+			"cH.remove",
+			"cH.edit",
+			"cH.new",
+			"cH.folders",
+			"cH.hostSelection",
+			"cH.restorePreferences",
+			"cH.restoreDefaults",
+			"cH.showDefinitionNameOnStatusBar",
+			"cH.showChangeHostsIconOnStatusBar",
+			"cH.statusBarConfigs",
+			"cH.definitionNameColor",
+			"cH.flushDNSAfterHostChange",
+			"cH.dnsFlusherIntegration",
+			"cH.run",
+			"cH.read",
+			"cH.run",
+			"cH.run2",
+			"cH.run",
+			"cH.path",
+			"cH.executeScriptPostProcessing",
+			"cH.scriptLocation",
+			"cH.postProcessing",
+			"cH.choose",
+			"cH.showInMenu",
+			"cH.doCancel",
+			"cH.doCreate",
+			"cH.definitionName",
+			"cH.createDefinitions",
+			"cH.doTest",
+			"cH.permissionTest",
+			"cH.find",
+			"cH.hostsLocation",
+			"cH.definitionsRootDirectory",
+			"cH.locations",
+			"cH.tabAbout",
+			"cH.tabGeneral",
+			"cH.preferencesKey",
+			"cH.preferences",
+			"cH.about",
+			"cH.description",
+			"cH.new",
+			"ctrl+shift+f",
+			"cH.definitions",
+			"cH.cleanDefinitions",
+			"cH.expand",
+			"dirSelectionMenu",
+			"createTreeChildren",
+			"dirSelectionMenu",
+			"handleHostDirPopup",
+			"expand",
+			"last-backup",
+			"reload",
+			"flush-dns-on-chang",
+			"definitions-root-dir",
+			"hosts-location",
+			"last-backup",
+			"reload-on-change",
+			"reload-page",
+			"reload"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"prefNameExpiration",
+			"",
+			" function()",
+			": function()",
+			" function()",
+			"",
+			"this.getFilePath()",
+			"",
+			"<!ENTITY  cH.",
+			"c",
+			"RegexConfig",
+			"this.fileSeparatorRegexConfig",
+			"RegexConfig",
+			"this.fileSeparator",
+			"hideCell",
+			"colorCell",
+			"dirCell",
+			"hostName",
+			"hostNameCell",
+			"hostName",
+			"PROSPECT",
+			"hostName",
+			"PROSPECT",
+			"PROSPCT_",
+			"entry",
+			"entries",
+			"internalLabel",
+			"hostPathToSelect",
+			"cH.",
+			"statusBarConfigs",
+			"askdhakdh",
+			"preference",
+			"preferences",
+			"setTreeSelection",
+			"this.ctx.browserUtils.getElement",
+			"definitionsRootDir",
+			"coders.changeHosts.options.definitions",
+			"coders.changeHosts.options.general",
+			"this.ctx.logUtils",
+			"Definitions",
+			"this.ctx.hostsManager",
+			"this.ctx.hostManager",
+			"hostNameToSelect",
+			"hostFileNamePattern",
+			":",
+			"",
+			"hostDirIndexToSelect",
+			"hostIndexToSelect",
+			"this.ctx.preferenceUtils.",
+			"this.ctx.browserUtils.",
+			"this.ctx.logUtils",
+			"this.ctx.browserUtils.",
+			"this.ctx.logUtils",
+			"this.ctx.browserUtils.",
+			"this.ctx.preferenceUtils.",
+			"this.ctx.fileUtils",
+			"this.ctx.preferenceUtils",
+			"this.ctx.preferenceUtils.",
+			"this.ctx.logUtils",
+			"this.log",
+			"this.pref",
+			" = function",
+			"",
+			"tree",
+			"hostesseRootDir"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/C/projetos/coderstech/dnsFlusher/chrome/content/dnsFlusher/js/dnsFlusher.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 10145,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								7060,
+								7060
+							]
+						],
+						"settings":
+						{
+							"codeintel": true,
+							"codeintel_config":
+							{
+								"JavaScript":
+								{
+									"codeintel_max_recursive_dir_depth": 2,
+									"codeintel_scan_files_in_project": false,
+									"javascriptExtraPaths":
+									[
+									]
+								},
+								"PHP":
+								{
+									"codeintel_max_recursive_dir_depth": 5,
+									"codeintel_scan_files_in_project": false,
+									"phpExtraPaths":
+									[
+									]
+								},
+								"Python":
+								{
+									"env":
+									{
+									}
+								}
+							},
+							"codeintel_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_live": true,
+							"codeintel_live_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_max_recursive_dir_depth": 10,
+							"codeintel_scan_exclude_dir":
+							{
+								"JavaScript":
+								[
+									"/build/",
+									"/min/"
+								]
+							},
+							"codeintel_scan_files_in_project": true,
+							"codeintel_selected_catalogs":
+							[
+								"PyWin32",
+								"jQuery",
+								"Rails"
+							],
+							"codeintel_snippets": true,
+							"codeintel_syntax_map":
+							{
+								"Python Django": "Python"
+							},
+							"codeintel_tooltips": "popup",
+							"sublime_auto_complete": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 2597.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/C/projetos/coderstech/dnsFlusher/chrome/content/dnsFlusher/js/preferenceUtils.js",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 1921,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": -0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 823,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										278,
+										297
+									],
+									[
+										696,
+										710
+									]
+								],
+								"scope": ""
+							}
+						},
+						"selection":
+						[
+							[
+								487,
+								487
+							]
+						],
+						"settings":
+						{
+							"codeintel": true,
+							"codeintel_config":
+							{
+								"JavaScript":
+								{
+									"codeintel_max_recursive_dir_depth": 2,
+									"codeintel_scan_files_in_project": false,
+									"javascriptExtraPaths":
+									[
+									]
+								},
+								"PHP":
+								{
+									"codeintel_max_recursive_dir_depth": 5,
+									"codeintel_scan_files_in_project": false,
+									"phpExtraPaths":
+									[
+									]
+								},
+								"Python":
+								{
+									"env":
+									{
+									}
+								}
+							},
+							"codeintel_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_live": true,
+							"codeintel_live_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_max_recursive_dir_depth": 10,
+							"codeintel_scan_exclude_dir":
+							{
+								"JavaScript":
+								[
+									"/build/",
+									"/min/"
+								]
+							},
+							"codeintel_scan_files_in_project": true,
+							"codeintel_selected_catalogs":
+							[
+								"PyWin32",
+								"jQuery",
+								"Rails"
+							],
+							"codeintel_snippets": true,
+							"codeintel_syntax_map":
+							{
+								"Python Django": "Python"
+							},
+							"codeintel_tooltips": "popup",
+							"detect_indentation": false,
+							"line_numbers": false,
+							"output_tag": 3,
+							"result_base_dir": "",
+							"result_file_regex": "^([A-Za-z\\\\/<].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"sublime_auto_complete": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 240.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "hostesse.sublime-project",
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"fileu",
+				"hostesse\\chrome\\content\\changeHosts\\js\\ctech\\fileUtils.js"
+			],
+			[
+				"file",
+				"hostesse\\chrome\\content\\changeHosts\\js\\ctech\\fileUtils.js"
+			],
+			[
+				"hostess",
+				"hostesse\\chrome\\content\\changeHosts\\js\\hostesseTemplateManager.js"
+			],
+			[
+				"hostma",
+				"hostesse\\chrome\\content\\changeHosts\\js\\hostsManager.js"
+			],
+			[
+				"opt",
+				"hostesse\\chrome\\content\\changeHosts\\js\\optionsOverlay.js"
+			],
+			[
+				"uima",
+				"hostesse\\chrome\\content\\changeHosts\\js\\uiManager.js"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
+		"last_automatic_layout":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		]
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 277.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

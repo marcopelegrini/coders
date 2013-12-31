@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet href="chrome://changeHosts/skin/changeHosts.css" type="text/css"?>
+<?xml-stylesheet href="chrome://changeHosts/skin/toolbar.css" type="text/css"?>
+
+<!DOCTYPE prefwindow SYSTEM "chrome://changeHosts/locale/changeHosts.dtd">
+
+<overlay id="changeHostsOverlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+	<!-- Utils -->
+	<script type="application/x-javascript" src="chrome://changeHosts/content/js/ctech/preferenceUtils.js" />
+	<script type="application/x-javascript" src="chrome://changeHosts/content/js/ctech/fileUtils.js" />
+	<script type="application/x-javascript" src="chrome://changeHosts/content/js/ctech/logUtils.js" />
+	<script type="application/x-javascript" src="chrome://changeHosts/content/js/ctech/browserUtils.js" />
+	<script type="application/x-javascript" src="chrome://changeHosts/content/js/ctech/databaseUtils.js" />
+
+	<script type="application/x-javascript" src="chrome://changeHosts/content/js/hostesseTemplateManager.js" />	
+	<script type="application/x-javascript" src="chrome://changeHosts/content/js/hostsManager.js" />
+	<script type="application/x-javascript" src="chrome://changeHosts/content/js/uiManager.js" />
+	<script type="application/x-javascript" src="chrome://changeHosts/content/js/dao.js" />
+	<script type="application/x-javascript" src="chrome://changeHosts/content/js/dnsFlusherIntegration.js" />
+	<script type="application/x-javascript" src="chrome://changeHosts/content/js/objects.js" />
+
+	<!-- App ctx -->
+	<script type="application/x-javascript" src="chrome://changeHosts/content/js/applicationContext.js" />
+	<script type="application/x-javascript" src="chrome://changeHosts/content/js/main.js" />
+
+	<stringbundleset id="stringbundleset">
+		<stringbundle id="coders.changeHosts.string-bundle" src="chrome://changeHosts/locale/localization.properties"/>
+	</stringbundleset>
+	
+	<!-- Status bar -->
+	<statusbar id="status-bar">
+		<statusbarpanel 
+			id="CH_statusbar_panel" 
+			onclick="coders.changeHosts.main.dispatchStatusClick(this, event);"
+			context=""
+			insertafter="dnsflusher_panel">
+
+			<label id="CH_status_definition_name" value="&cH.name;"  />
+			<image id="CH_status_img" />
+		</statusbarpanel>
+	</statusbar>
+
+	<toolbarpalette id="BrowserToolbarPalette">
+		<toolbarbutton 
+				id="CH_toolbar_button" 
+		        class="toolbarbutton-1 chromeclass-toolbar-additional"
+		        label="Change Hosts"
+		        tooltiptext="Open Change Hosts"
+		        oncommand="coders.changeHosts.main.dispatchStatusClick(this, event);">
+		</toolbarbutton>
+	</toolbarpalette>	
+</overlay>

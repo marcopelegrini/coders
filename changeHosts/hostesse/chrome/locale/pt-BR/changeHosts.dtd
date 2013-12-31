@@ -1,0 +1,54 @@
+<!ENTITY  cH.name								"Change Hosts">
+<!ENTITY  cH.description						"Extensão para alterar o arquivo hosts do sistema operacional.">
+<!ENTITY  cH.about								"Sobre o Change Hosts.">
+
+<!ENTITY  cH.flushDNS							"Limpar cache DNS">
+<!ENTITY  cH.flushDNSKey						"L">
+
+<!ENTITY  cH.preferences						"Preferências">
+<!ENTITY  cH.preferencesKey						"P">
+
+<!ENTITY  cH.tabGeneral							"Geral">
+<!ENTITY  cH.tabDefinitions						"Hosts">
+<!ENTITY  ch.tabAbout							"Sobre">
+
+<!ENTITY  cH.hostFileDestination 				"Arquivo host destino">
+<!ENTITY  cH.hostsLocation						"Caminho do arquivo hosts">
+<!ENTITY  cH.find								"Procurar">
+<!ENTITY  ch.permissionTest						"Teste de permissionamento">
+<!ENTITY  ch.doTest								"Testar">
+<!ENTITY  ch.createDefinitions					"Criar nova definição">
+<!ENTITY  ch.definitionName						"Nome">
+<!ENTITY  ch.doCreate							"Criar">
+<!ENTITY  ch.doCancel							"Cancelar">
+<!ENTITY  cH.showInMenu							"Mostrar no menu">
+<!ENTITY  ch.choose								"Escolher">
+
+<!ENTITY  cH.postProcessing						"Pós processamento">
+<!ENTITY  cH.scriptLocation						"Caminho do arquivo">
+<!ENTITY  cH.executeScriptPostProcessing		"Executar arquivo após troca de hosts">
+<!ENTITY  cH.path								"Caminho">
+<!ENTITY  cH.run  								"Executar">
+<!ENTITY  cH.run2 								"» execução">
+<!ENTITY  cH.read								"» leitura">
+<!ENTITY  cH.write								"» escrita">
+<!ENTITY  cH.dnsFlusherIntegration				"Funcionalidades do DNS Flusher">
+<!ENTITY  cH.reloadPageOnDNSFlushing			"Recarregar página ao recarregar DNS">
+<!ENTITY  cH.reloadPageOnHostChanging			"Recarregar página ao trocar hosts">
+<!ENTITY  cH.showIPOnStatusBar					"Mostrar IP na barra de status">
+<!ENTITY  cH.IPColor							"Cor do IP">
+<!ENTITY  cH.definitionNameColor				"Nome da definição">
+<!ENTITY  cH.otherConfigs						"Outras configurações">
+<!ENTITY  cH.showChangeHostsIconOnStatusBar		"Mostrar icone na barra de status">
+<!ENTITY  cH.showDefinitionNameOnStatusBar		"Mostrar nome das definições na barra de status">
+<!ENTITY  cH.restoreDefaults					"Restaurar padrões">
+<!ENTITY  cH.restorePreferences					"Restaurar preferências padrões">
+<!ENTITY  cH.cleanDefinitions					"Apagar todas as definições">
+<!ENTITY  cH.definitions						"Definições">
+<!ENTITY  cH.edit								"Editar">
+<!ENTITY  cH.remove								"Remover">
+<!ENTITY  ch.inUse								"Em uso">
+<!ENTITY  ch.save								"Salvar">
+<!ENTITY  ch.saveAndChoose						"Salvar e escolher">
+
+<!ENTITY  cH.restoreInstructions				"Você pode restaurar as preferencias para os valores padrões, e remover todas as definições.">
