@@ -69,7 +69,7 @@
 					<vbox flex="1">
 						<vbox>
 							<label value="&cH.definitionsRootDirectory;" />
-							<description id="definitionsRootDirectoryDisclaimer">&cH.definitionsRootDirectoryDisclaimer; <html:a href="http://www.coders.com.br/change-hosts/docs/#hostesse" target="_blank">more</html:a></description>
+							<description id="definitionsRootDirectoryDisclaimer">&cH.definitionsRootDirectoryDisclaimer; <html:a href="http://www.coders.com.br/change-hosts" style="text-decoration: underline; color: blue;"  target="_blank">more</html:a></description>
 							<textbox id="definitions-root-dir" onkeyup="coders.changeHosts.options.general.rootDirSelected();" preference="definitions-root-dir-preference"  />
 						</vbox>
 						<grid>
@@ -160,8 +160,8 @@
 				<groupbox orient="vertical">
 					<caption label="&cH.dnsFlusherIntegration;" />
 					<checkbox id="flushDNSOnChangeCheckbox" preference="flush-dns-on-change" label="&cH.flushDNSAfterHostChange;" disabled="true" />
-					<description id="dnsFlusherIntegrationDisclaimerMiss">&cH.DNSFlusherIntegrationMiss; <html:a href="http://www.coders.com.br/change-hosts/docs/#dns-flusher" target="_blank">more</html:a></description>
-					<description id="dnsFlusherIntegrationDisclaimerFound" style="display:none">&cH.DNSFlusherIntegrationFound; <html:a href="http://www.coders.com.br/change-hosts/docs/#dns-flusher" target="_blank">more</html:a></description>
+					<description id="dnsFlusherIntegrationDisclaimerMiss">&cH.DNSFlusherIntegrationMiss; <html:a href="http://www.coders.com.br/change-hosts" style="text-decoration: underline; color: blue;" target="_blank">more</html:a></description>
+					<description id="dnsFlusherIntegrationDisclaimerFound" style="display:none">&cH.DNSFlusherIntegrationFound; <html:a href="http://www.coders.com.br/change-hosts" style="text-decoration: underline; color: blue;"  target="_blank">more</html:a></description>
 				</groupbox>
 				<groupbox orient="vertical">
 					<caption label="&cH.statusBarConfigs;" />

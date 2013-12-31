@@ -30,6 +30,8 @@ if (!coders.changeHosts)
                 this.ctx.preferenceUtils.setBool("configured", true);
 				this.ctx.preferenceUtils.setInt("version", this.currentVersion);
 
+				this.installButton();
+
                 this.ctx.logUtils.info("Change hosts configured.");
             }else{
                 this.handleUpgrade();
@@ -71,7 +73,14 @@ if (!coders.changeHosts)
             this.ctx.browserUtils.getElement("CH_status_definition_name").hidden = !showDefinitionName;
 
             this.ctx.dnsFlusher.checkIntegration();
-        }
+        },
+
+		installButton: function() {
+			var toolbar = this.ctx.browserUtils.getElement("nav-bar");
+	        toolbar.insertItem("CH_toolbar_button");
+	        toolbar.setAttribute("currentset", toolbar.currentSet);
+	        document.persist(toolbar.id, "currentset");
+		}        
     };
     
     window.addEventListener("load", function(){
