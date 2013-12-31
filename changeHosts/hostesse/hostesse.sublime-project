@@ -3,7 +3,7 @@
 	[
 		{
 			"follow_symlinks": true,
-			"path": "C:\\projetos\\coderstech\\changeHosts\\hostesse"
+			"path": "."
 		},
 		{
 			"follow_symlinks": true,
@@ -20,6 +20,14 @@
 		{
 			"follow_symlinks": true,
 			"path": "C:\\projetos\\coderstech\\sqlmanager"
+		},
+		{
+			"follow_symlinks": true,
+			"path": "C:\\projetos\\coderstech\\vosao\\default theme"
+		},
+		{
+			"follow_symlinks": true,
+			"path": "C:\\opt\\workspaces\\gae\\vosaocms"
 		}
 	]
 }

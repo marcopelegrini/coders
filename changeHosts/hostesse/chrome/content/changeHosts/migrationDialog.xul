@@ -30,7 +30,7 @@
 	<script type="application/x-javascript" src="chrome://changeHosts/content/js/migrationDialog.js" />
 
   	<vbox id="migration-dialog-content">
-		<description id="description" style="white-space: pre-wrap;">&cH.migrationDisclaimer1;<html:a href="http://www.coders.com.br/change-hosts/docs/#version-4" style="text-decoration: underline; color: blue;" target="_blank">here.</html:a>&cH.migrationDisclaimer2;</description>
+		<description id="description" style="white-space: pre-wrap;">&cH.migrationDisclaimer1;<html:a href="http://www.coders.com.br/change-hosts/migrating" style="text-decoration: underline; color: blue;" target="_blank">here.</html:a>&cH.migrationDisclaimer2;</description>
 	</vbox>
 	<vbox>
 		<label value="&cH.definitionsRootDirectory;" />
