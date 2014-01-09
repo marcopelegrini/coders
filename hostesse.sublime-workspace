@@ -520,43 +520,50 @@
 	"buffers":
 	[
 		{
-			"file": "/C/projetos/coderstech/dnsFlusher/chrome/content/dnsFlusher/dnsFlusher.xul",
+			"file": "dnsFlusher/chrome/content/dnsFlusher/dnsFlusher.xul",
 			"settings":
 			{
-				"buffer_size": 2576,
+				"buffer_size": 2146,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "chrome/locale/en-US/localization.properties",
+			"file": "dnsFlusher/install.rdf",
 			"settings":
 			{
-				"buffer_size": 1310,
+				"buffer_size": 814,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "/C/projetos/coderstech/dnsFlusher/chrome/content/dnsFlusher/options.xul",
+			"file": "dnsFlusher/chrome/content/dnsFlusher/js/dnsFlusher.js",
 			"settings":
 			{
-				"buffer_size": 2003,
+				"buffer_size": 10723,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "/C/projetos/coderstech/dnsFlusher/locale/en-US/dnsFlusher.dtd",
+			"file": "changeHosts/hostesse/chrome/content/changeHosts/js/main.js",
 			"settings":
 			{
-				"buffer_size": 132,
-				"line_ending": "Windows",
-				"name": "<!ENTITY  cH.name								\"DNS Fluser\">"
+				"buffer_size": 3735,
+				"line_ending": "Windows"
 			}
 		},
 		{
-			"contents": "Searching 187 files for \"dtd\"\n\nC:\\projetos\\coderstech\\changeHosts\\firefox\\chrome\\content\\changeHosts\\changeHostsOverlay.xul:\n    3  <?xml-stylesheet href=\"chrome://changeHosts/skin/changeHosts.css\" type=\"text/css\"?>\n    4  \n    5: <!DOCTYPE prefwindow SYSTEM \"chrome://changeHosts/locale/changeHosts.dtd\">\n    6  \n    7  <overlay id=\"changeHostsOverlay\" xmlns=\"http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul\">\n\nC:\\projetos\\coderstech\\changeHosts\\firefox\\chrome\\content\\changeHosts\\options.xul:\n    4  <?xml-stylesheet href=\"chrome://browser/skin/preferences/preferences.css\" type=\"text/css\"?>\n    5  \n    6: <!DOCTYPE prefwindow SYSTEM \"chrome://changeHosts/locale/changeHosts.dtd\">\n    7  \n    8  <prefwindow \n\nC:\\projetos\\coderstech\\changeHosts\\hostesse\\chrome\\content\\changeHosts\\changeHostsOverlay.xul:\n    4  <?xml-stylesheet href=\"chrome://changeHosts/skin/toolbar.css\" type=\"text/css\"?>\n    5  \n    6: <!DOCTYPE prefwindow SYSTEM \"chrome://changeHosts/locale/changeHosts.dtd\">\n    7  \n    8  <overlay id=\"changeHostsOverlay\" xmlns=\"http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul\">\n\nC:\\projetos\\coderstech\\changeHosts\\hostesse\\chrome\\content\\changeHosts\\colorDialog.xul:\n    3  <?xml-stylesheet href=\"chrome://changeHosts/skin/changeHosts.css\" type=\"text/css\"?>\n    4  \n    5: <!DOCTYPE prefwindow SYSTEM \"chrome://changeHosts/locale/changeHosts.dtd\">\n    6  \n    7  <dialog id=\"setColor\" title=\"&cH.setHostsColor;\"\n\nC:\\projetos\\coderstech\\changeHosts\\hostesse\\chrome\\content\\changeHosts\\deleteDialog.xul:\n    3  <?xml-stylesheet href=\"chrome://changeHosts/skin/changeHosts.css\" type=\"text/css\"?>\n    4  \n    5: <!DOCTYPE prefwindow SYSTEM \"chrome://changeHosts/locale/changeHosts.dtd\">\n    6  \n    7  <dialog id=\"deleteFile\" title=\"&cH.removeHosts;\"\n\nC:\\projetos\\coderstech\\changeHosts\\hostesse\\chrome\\content\\changeHosts\\migrationDialog.xul:\n    4  <?xml-stylesheet href=\"chrome://browser/skin/preferences/preferences.css\" type=\"text/css\"?>\n    5  \n    6: <!DOCTYPE prefwindow SYSTEM \"chrome://changeHosts/locale/changeHosts.dtd\">\n    7  \n    8  <dialog id=\"deleteFile\" title=\"&cH.migrationDialog;\"\n\nC:\\projetos\\coderstech\\changeHosts\\hostesse\\chrome\\content\\changeHosts\\options.xul:\n    5  <?xml-stylesheet href=\"chrome://changehosts/skin/treeStyles.css\" type=\"text/css\"?>\n    6  \n    7: <!DOCTYPE prefwindow SYSTEM \"chrome://changeHosts/locale/changeHosts.dtd\">\n    8  \n    9  <prefwindow \n\nC:\\projetos\\coderstech\\changeHosts\\hostesse\\chrome\\content\\changeHosts\\regexDialog.xul:\n    3  <?xml-stylesheet href=\"chrome://changeHosts/skin/changeHosts.css\" type=\"text/css\"?>\n    4  \n    5: <!DOCTYPE prefwindow SYSTEM \"chrome://changeHosts/locale/changeHosts.dtd\">\n    6  \n    7  <dialog id=\"setColor\" title=\"&cH.setHostsColor;\"\n\nC:\\projetos\\coderstech\\changeHosts\\target\\change hosts.xpi:\n    <binary>\n\nC:\\projetos\\coderstech\\changeHosts\\target\\chrome\\content\\changeHosts\\changeHostsOverlay.xul:\n    4  <?xml-stylesheet href=\"chrome://changeHosts/skin/toolbar.css\" type=\"text/css\"?>\n    5  \n    6: <!DOCTYPE prefwindow SYSTEM \"chrome://changeHosts/locale/changeHosts.dtd\">\n    7  \n    8  <overlay id=\"changeHostsOverlay\" xmlns=\"http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul\">\n\nC:\\projetos\\coderstech\\changeHosts\\target\\chrome\\content\\changeHosts\\colorDialog.xul:\n    3  <?xml-stylesheet href=\"chrome://changeHosts/skin/changeHosts.css\" type=\"text/css\"?>\n    4  \n    5: <!DOCTYPE prefwindow SYSTEM \"chrome://changeHosts/locale/changeHosts.dtd\">\n    6  \n    7  <dialog id=\"setColor\" title=\"&cH.setHostsColor;\"\n\nC:\\projetos\\coderstech\\changeHosts\\target\\chrome\\content\\changeHosts\\deleteDialog.xul:\n    3  <?xml-stylesheet href=\"chrome://changeHosts/skin/changeHosts.css\" type=\"text/css\"?>\n    4  \n    5: <!DOCTYPE prefwindow SYSTEM \"chrome://changeHosts/locale/changeHosts.dtd\">\n    6  \n    7  <dialog id=\"deleteFile\" title=\"&cH.removeHosts;\"\n\nC:\\projetos\\coderstech\\changeHosts\\target\\chrome\\content\\changeHosts\\migrationDialog.xul:\n    4  <?xml-stylesheet href=\"chrome://browser/skin/preferences/preferences.css\" type=\"text/css\"?>\n    5  \n    6: <!DOCTYPE prefwindow SYSTEM \"chrome://changeHosts/locale/changeHosts.dtd\">\n    7  \n    8  <dialog id=\"deleteFile\" title=\"&cH.migrationDialog;\"\n\nC:\\projetos\\coderstech\\changeHosts\\target\\chrome\\content\\changeHosts\\options.xul:\n    5  <?xml-stylesheet href=\"chrome://changehosts/skin/treeStyles.css\" type=\"text/css\"?>\n    6  \n    7: <!DOCTYPE prefwindow SYSTEM \"chrome://changeHosts/locale/changeHosts.dtd\">\n    8  \n    9  <prefwindow \n\nC:\\projetos\\coderstech\\changeHosts\\target\\chrome\\content\\changeHosts\\regexDialog.xul:\n    3  <?xml-stylesheet href=\"chrome://changeHosts/skin/changeHosts.css\" type=\"text/css\"?>\n    4  \n    5: <!DOCTYPE prefwindow SYSTEM \"chrome://changeHosts/locale/changeHosts.dtd\">\n    6  \n    7  <dialog id=\"setColor\" title=\"&cH.setHostsColor;\"\n\n16 matches across 15 files\n\n\nSearching 20 files for \"dnsFlusher.dtd\"\n\nC:\\projetos\\coderstech\\dnsFlusher\\chrome\\content\\dnsFlusher\\dnsFlusher.xul:\n    2  <?xml-stylesheet href=\"chrome://dnsFlusher/skin/style.css\" type=\"text/css\"?>\n    3  \n    4: <!DOCTYPE prefwindow SYSTEM \"chrome://dnsFlusher/locale/dnsFlusher.dtd\">\n    5  \n    6  <overlay id=\"dnsflusher\" xmlns=\"http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul\">\n\nC:\\projetos\\coderstech\\dnsFlusher\\chrome\\content\\dnsFlusher\\options.xul:\n    2  <?xml-stylesheet href=\"chrome://global/skin/\" type=\"text/css\"?>\n    3  \n    4: <!DOCTYPE prefwindow SYSTEM \"chrome://dnsFlusher/locale/dnsFlusher.dtd\">\n    5  \n    6  <prefwindow\n\n2 matches across 2 files\n",
+			"file": "dnsFlusher/chrome/content/dnsFlusher/options.xul",
 			"settings":
 			{
-				"buffer_size": 5580,
+				"buffer_size": 2021,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "Searching 187 files for \"dtd\"\n\nC:\\projetos\\coderstech\\changeHosts\\firefox\\chrome\\content\\changeHosts\\changeHostsOverlay.xul:\n    3  <?xml-stylesheet href=\"chrome://changeHosts/skin/changeHosts.css\" type=\"text/css\"?>\n    4  \n    5: <!DOCTYPE prefwindow SYSTEM \"chrome://changeHosts/locale/changeHosts.dtd\">\n    6  \n    7  <overlay id=\"changeHostsOverlay\" xmlns=\"http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul\">\n\nC:\\projetos\\coderstech\\changeHosts\\firefox\\chrome\\content\\changeHosts\\options.xul:\n    4  <?xml-stylesheet href=\"chrome://browser/skin/preferences/preferences.css\" type=\"text/css\"?>\n    5  \n    6: <!DOCTYPE prefwindow SYSTEM \"chrome://changeHosts/locale/changeHosts.dtd\">\n    7  \n    8  <prefwindow \n\nC:\\projetos\\coderstech\\changeHosts\\hostesse\\chrome\\content\\changeHosts\\changeHostsOverlay.xul:\n    4  <?xml-stylesheet href=\"chrome://changeHosts/skin/toolbar.css\" type=\"text/css\"?>\n    5  \n    6: <!DOCTYPE prefwindow SYSTEM \"chrome://changeHosts/locale/changeHosts.dtd\">\n    7  \n    8  <overlay id=\"changeHostsOverlay\" xmlns=\"http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul\">\n\nC:\\projetos\\coderstech\\changeHosts\\hostesse\\chrome\\content\\changeHosts\\colorDialog.xul:\n    3  <?xml-stylesheet href=\"chrome://changeHosts/skin/changeHosts.css\" type=\"text/css\"?>\n    4  \n    5: <!DOCTYPE prefwindow SYSTEM \"chrome://changeHosts/locale/changeHosts.dtd\">\n    6  \n    7  <dialog id=\"setColor\" title=\"&cH.setHostsColor;\"\n\nC:\\projetos\\coderstech\\changeHosts\\hostesse\\chrome\\content\\changeHosts\\deleteDialog.xul:\n    3  <?xml-stylesheet href=\"chrome://changeHosts/skin/changeHosts.css\" type=\"text/css\"?>\n    4  \n    5: <!DOCTYPE prefwindow SYSTEM \"chrome://changeHosts/locale/changeHosts.dtd\">\n    6  \n    7  <dialog id=\"deleteFile\" title=\"&cH.removeHosts;\"\n\nC:\\projetos\\coderstech\\changeHosts\\hostesse\\chrome\\content\\changeHosts\\migrationDialog.xul:\n    4  <?xml-stylesheet href=\"chrome://browser/skin/preferences/preferences.css\" type=\"text/css\"?>\n    5  \n    6: <!DOCTYPE prefwindow SYSTEM \"chrome://changeHosts/locale/changeHosts.dtd\">\n    7  \n    8  <dialog id=\"deleteFile\" title=\"&cH.migrationDialog;\"\n\nC:\\projetos\\coderstech\\changeHosts\\hostesse\\chrome\\content\\changeHosts\\options.xul:\n    5  <?xml-stylesheet href=\"chrome://changehosts/skin/treeStyles.css\" type=\"text/css\"?>\n    6  \n    7: <!DOCTYPE prefwindow SYSTEM \"chrome://changeHosts/locale/changeHosts.dtd\">\n    8  \n    9  <prefwindow \n\nC:\\projetos\\coderstech\\changeHosts\\hostesse\\chrome\\content\\changeHosts\\regexDialog.xul:\n    3  <?xml-stylesheet href=\"chrome://changeHosts/skin/changeHosts.css\" type=\"text/css\"?>\n    4  \n    5: <!DOCTYPE prefwindow SYSTEM \"chrome://changeHosts/locale/changeHosts.dtd\">\n    6  \n    7  <dialog id=\"setColor\" title=\"&cH.setHostsColor;\"\n\nC:\\projetos\\coderstech\\changeHosts\\target\\change hosts.xpi:\n    <binary>\n\nC:\\projetos\\coderstech\\changeHosts\\target\\chrome\\content\\changeHosts\\changeHostsOverlay.xul:\n    4  <?xml-stylesheet href=\"chrome://changeHosts/skin/toolbar.css\" type=\"text/css\"?>\n    5  \n    6: <!DOCTYPE prefwindow SYSTEM \"chrome://changeHosts/locale/changeHosts.dtd\">\n    7  \n    8  <overlay id=\"changeHostsOverlay\" xmlns=\"http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul\">\n\nC:\\projetos\\coderstech\\changeHosts\\target\\chrome\\content\\changeHosts\\colorDialog.xul:\n    3  <?xml-stylesheet href=\"chrome://changeHosts/skin/changeHosts.css\" type=\"text/css\"?>\n    4  \n    5: <!DOCTYPE prefwindow SYSTEM \"chrome://changeHosts/locale/changeHosts.dtd\">\n    6  \n    7  <dialog id=\"setColor\" title=\"&cH.setHostsColor;\"\n\nC:\\projetos\\coderstech\\changeHosts\\target\\chrome\\content\\changeHosts\\deleteDialog.xul:\n    3  <?xml-stylesheet href=\"chrome://changeHosts/skin/changeHosts.css\" type=\"text/css\"?>\n    4  \n    5: <!DOCTYPE prefwindow SYSTEM \"chrome://changeHosts/locale/changeHosts.dtd\">\n    6  \n    7  <dialog id=\"deleteFile\" title=\"&cH.removeHosts;\"\n\nC:\\projetos\\coderstech\\changeHosts\\target\\chrome\\content\\changeHosts\\migrationDialog.xul:\n    4  <?xml-stylesheet href=\"chrome://browser/skin/preferences/preferences.css\" type=\"text/css\"?>\n    5  \n    6: <!DOCTYPE prefwindow SYSTEM \"chrome://changeHosts/locale/changeHosts.dtd\">\n    7  \n    8  <dialog id=\"deleteFile\" title=\"&cH.migrationDialog;\"\n\nC:\\projetos\\coderstech\\changeHosts\\target\\chrome\\content\\changeHosts\\options.xul:\n    5  <?xml-stylesheet href=\"chrome://changehosts/skin/treeStyles.css\" type=\"text/css\"?>\n    6  \n    7: <!DOCTYPE prefwindow SYSTEM \"chrome://changeHosts/locale/changeHosts.dtd\">\n    8  \n    9  <prefwindow \n\nC:\\projetos\\coderstech\\changeHosts\\target\\chrome\\content\\changeHosts\\regexDialog.xul:\n    3  <?xml-stylesheet href=\"chrome://changeHosts/skin/changeHosts.css\" type=\"text/css\"?>\n    4  \n    5: <!DOCTYPE prefwindow SYSTEM \"chrome://changeHosts/locale/changeHosts.dtd\">\n    6  \n    7  <dialog id=\"setColor\" title=\"&cH.setHostsColor;\"\n\n16 matches across 15 files\n\n\nSearching 20 files for \"dnsFlusher.dtd\"\n\nC:\\projetos\\coderstech\\dnsFlusher\\chrome\\content\\dnsFlusher\\dnsFlusher.xul:\n    2  <?xml-stylesheet href=\"chrome://dnsFlusher/skin/style.css\" type=\"text/css\"?>\n    3  \n    4: <!DOCTYPE prefwindow SYSTEM \"chrome://dnsFlusher/locale/dnsFlusher.dtd\">\n    5  \n    6  <overlay id=\"dnsflusher\" xmlns=\"http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul\">\n\nC:\\projetos\\coderstech\\dnsFlusher\\chrome\\content\\dnsFlusher\\options.xul:\n    2  <?xml-stylesheet href=\"chrome://global/skin/\" type=\"text/css\"?>\n    3  \n    4: <!DOCTYPE prefwindow SYSTEM \"chrome://dnsFlusher/locale/dnsFlusher.dtd\">\n    5  \n    6  <prefwindow\n\n2 matches across 2 files\n\n\nSearching 20 files for \"changeLabel\"\n\nC:\\projetos\\coderstech\\dnsFlusher\\chrome\\content\\dnsFlusher\\js\\dnsFlusher.js:\n  174      },\n  175  	\n  176: 	changeLabel: function(value){\n  177  		document.getElementById('dnsflusher-label').value = value;\n  178  	},\n\n1 match in 1 file\n",
+			"settings":
+			{
+				"buffer_size": 5857,
 				"line_ending": "Windows",
 				"name": "Find Results",
 				"scratch": true
@@ -668,6 +675,7 @@
 	},
 	"file_history":
 	[
+		"/C/projetos/coderstech/dnsFlusher/locale/en-US/dnsFlusher.dtd",
 		"/C/Users/mpelegrini/Desktop/teste/UOL Lote Cupom.htm",
 		"/C/projetos/coderstech/dnsFlusher/chrome/skin/classic/dnsFlusher/style.css",
 		"/C/projetos/coderstech/changeHosts/hostesse/chrome/locale/en-US/changeHosts.dtd",
@@ -812,6 +820,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"changeLabel",
+			"settime",
+			"setitme",
 			"dnsFlusher.dtd",
 			"dtd",
 			"dnsFlusher.dtd",
@@ -936,10 +947,7 @@
 			"cH.hostsLocation",
 			"cH.definitionsRootDirectory",
 			"cH.locations",
-			"cH.tabAbout",
-			"cH.tabGeneral",
-			"cH.preferencesKey",
-			"cH.preferences"
+			"cH.tabAbout"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1024,148 +1032,16 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 2,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "/C/projetos/coderstech/dnsFlusher/chrome/content/dnsFlusher/dnsFlusher.xul",
+					"file": "dnsFlusher/chrome/content/dnsFlusher/dnsFlusher.xul",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2576,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								167,
-								126
-							]
-						],
-						"settings":
-						{
-							"codeintel": true,
-							"codeintel_config":
-							{
-								"JavaScript":
-								{
-									"codeintel_max_recursive_dir_depth": 2,
-									"codeintel_scan_files_in_project": false,
-									"javascriptExtraPaths":
-									[
-									]
-								},
-								"PHP":
-								{
-									"codeintel_max_recursive_dir_depth": 5,
-									"codeintel_scan_files_in_project": false,
-									"phpExtraPaths":
-									[
-									]
-								},
-								"Python":
-								{
-									"env":
-									{
-									}
-								}
-							},
-							"codeintel_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_live": true,
-							"codeintel_live_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_max_recursive_dir_depth": 10,
-							"codeintel_scan_exclude_dir":
-							{
-								"JavaScript":
-								[
-									"/build/",
-									"/min/"
-								]
-							},
-							"codeintel_scan_files_in_project": true,
-							"codeintel_selected_catalogs":
-							[
-								"PyWin32",
-								"jQuery",
-								"Rails"
-							],
-							"codeintel_snippets": true,
-							"codeintel_syntax_map":
-							{
-								"Python Django": "Python"
-							},
-							"codeintel_tooltips": "popup",
-							"sublime_auto_complete": true,
-							"syntax": "Packages/XML/XML.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "chrome/locale/en-US/localization.properties",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 1310,
+						"buffer_size": 2146,
 						"regions":
 						{
 						},
@@ -1174,34 +1050,6 @@
 							[
 								0,
 								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Java/JavaProperties.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "/C/projetos/coderstech/dnsFlusher/chrome/content/dnsFlusher/options.xul",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2003,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								101,
-								101
 							]
 						],
 						"settings":
@@ -1320,25 +1168,24 @@
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "/C/projetos/coderstech/dnsFlusher/locale/en-US/dnsFlusher.dtd",
+					"buffer": 1,
+					"file": "dnsFlusher/install.rdf",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 132,
+						"buffer_size": 814,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								128,
-								132
+								296,
+								296
 							]
 						],
 						"settings":
 						{
-							"auto_name": "<!ENTITY  cH.name								\"DNS Fluser\">",
 							"codeintel": true,
 							"codeintel_config":
 							{
@@ -1443,7 +1290,7 @@
 							},
 							"codeintel_tooltips": "popup",
 							"sublime_auto_complete": true,
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+							"syntax": "Packages/XML/XML.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1453,11 +1300,303 @@
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 2,
+					"file": "dnsFlusher/chrome/content/dnsFlusher/js/dnsFlusher.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5580,
+						"buffer_size": 10723,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								499,
+								499
+							]
+						],
+						"settings":
+						{
+							"codeintel": true,
+							"codeintel_config":
+							{
+								"JavaScript":
+								{
+									"codeintel_max_recursive_dir_depth": 2,
+									"codeintel_scan_files_in_project": false,
+									"javascriptExtraPaths":
+									[
+									]
+								},
+								"PHP":
+								{
+									"codeintel_max_recursive_dir_depth": 5,
+									"codeintel_scan_files_in_project": false,
+									"phpExtraPaths":
+									[
+									]
+								},
+								"Python":
+								{
+									"env":
+									{
+									}
+								}
+							},
+							"codeintel_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_live": true,
+							"codeintel_live_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_max_recursive_dir_depth": 10,
+							"codeintel_scan_exclude_dir":
+							{
+								"JavaScript":
+								[
+									"/build/",
+									"/min/"
+								]
+							},
+							"codeintel_scan_files_in_project": true,
+							"codeintel_selected_catalogs":
+							[
+								"PyWin32",
+								"jQuery",
+								"Rails"
+							],
+							"codeintel_snippets": true,
+							"codeintel_syntax_map":
+							{
+								"Python Django": "Python"
+							},
+							"codeintel_tooltips": "popup",
+							"sublime_auto_complete": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 197.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "changeHosts/hostesse/chrome/content/changeHosts/js/main.js",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 3735,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": -0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "dnsFlusher/chrome/content/dnsFlusher/options.xul",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2021,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"codeintel": true,
+							"codeintel_config":
+							{
+								"JavaScript":
+								{
+									"codeintel_max_recursive_dir_depth": 2,
+									"codeintel_scan_files_in_project": false,
+									"javascriptExtraPaths":
+									[
+									]
+								},
+								"PHP":
+								{
+									"codeintel_max_recursive_dir_depth": 5,
+									"codeintel_scan_files_in_project": false,
+									"phpExtraPaths":
+									[
+									]
+								},
+								"Python":
+								{
+									"env":
+									{
+									}
+								}
+							},
+							"codeintel_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_live": true,
+							"codeintel_live_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_max_recursive_dir_depth": 10,
+							"codeintel_scan_exclude_dir":
+							{
+								"JavaScript":
+								[
+									"/build/",
+									"/min/"
+								]
+							},
+							"codeintel_scan_files_in_project": true,
+							"codeintel_selected_catalogs":
+							[
+								"PyWin32",
+								"jQuery",
+								"Rails"
+							],
+							"codeintel_snippets": true,
+							"codeintel_syntax_map":
+							{
+								"Python Django": "Python"
+							},
+							"codeintel_tooltips": "popup",
+							"sublime_auto_complete": true,
+							"syntax": "Packages/XML/XML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5857,
 						"regions":
 						{
 							"match":
@@ -1528,6 +1667,10 @@
 									[
 										5510,
 										5524
+									],
+									[
+										5729,
+										5740
 									]
 								],
 								"scope": ""
@@ -1536,8 +1679,8 @@
 						"selection":
 						[
 							[
-								5172,
-								5172
+								5741,
+								5741
 							]
 						],
 						"settings":
@@ -1647,7 +1790,7 @@
 							"codeintel_tooltips": "popup",
 							"detect_indentation": false,
 							"line_numbers": false,
-							"output_tag": 2,
+							"output_tag": 3,
 							"result_base_dir": "",
 							"result_file_regex": "^([A-Za-z\\\\/<].*):$",
 							"result_line_regex": "^ +([0-9]+):",
@@ -1656,7 +1799,7 @@
 							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 1575.0,
+						"translation.y": 1875.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 3,
