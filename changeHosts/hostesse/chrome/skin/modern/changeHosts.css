@@ -6,7 +6,7 @@ vbox#set-color-content{
     width: 340px;
 }
 
-#CH_status_img {
+#change_hosts_status_img {
     list-style-image: url("chrome://changeHosts/skin/images/new-icon16.png");
 }
 
@@ -48,7 +48,7 @@ button.down-button {
 }
 
 button#choose-definition-button {
-    min-width: 200px;
+    min-width: 110px;
 }
 
 description#current-label {

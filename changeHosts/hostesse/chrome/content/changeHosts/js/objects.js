@@ -26,23 +26,26 @@ coders.changeHosts.HostsConfig = function(path, color, hideFromStatus){
   this.path = path;
   this.color = color;
   this.hideFromStatus = hideFromStatus;
-}
+};
 
 coders.changeHosts.RegexConfig = function(regex, color){
   this.regex = regex;
   this.color = color;
-}
+};
 
-function DefinitionRootNotConfiguredException(message){
-  this.name = "DefinitionRootNotConfiguredException";
+coders.changeHosts.FileNotFoundException = function(message) {
+  this.name = "coders.changeHosts.FileNotFoundException";
   this.message = (message || "");
-}
-DefinitionRootNotConfiguredException.prototype = new Error();
-DefinitionRootNotConfiguredException.constructor = DefinitionRootNotConfiguredException;
+};
+coders.changeHosts.FileNotFoundException.prototype = new Error();
+coders.changeHosts.FileNotFoundException.prototype.constructor = coders.changeHosts.FileNotFoundException;
 
-function FileNotFoundException(message) {
-  this.name = "FileNotFoundException";
+
+coders.changeHosts.DefinitionRootNotConfiguredException = function(message){
+  this.name = "coders.changeHosts.DefinitionRootNotConfiguredException";
   this.message = (message || "");
-}
-FileNotFoundException.prototype = new Error();
-FileNotFoundException.prototype.constructor = FileNotFoundException;
+};
+
+coders.changeHosts.DefinitionRootNotConfiguredException.prototype = new Error();
+coders.changeHosts.DefinitionRootNotConfiguredException.constructor = coders.changeHosts.DefinitionRootNotConfiguredException;
+

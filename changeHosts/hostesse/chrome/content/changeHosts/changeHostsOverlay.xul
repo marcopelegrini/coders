@@ -32,22 +32,27 @@
 	<!-- Status bar -->
 	<statusbar id="status-bar">
 		<statusbarpanel 
-			id="CH_statusbar_panel" 
+			id="change_hosts_statusbar_panel" 
 			onclick="coders.changeHosts.main.dispatchStatusClick(this, event);"
-			context=""
+			context="change_hosts_statepopup"
 			insertafter="dnsflusher_panel">
 
-			<label id="CH_status_definition_name" value="&cH.name;"  />
-			<image id="CH_status_img" />
+			<label id="change_hosts_status_definition_name" value="&cH.name;"  />
+			<image id="change_hosts_status_img" />
 		</statusbarpanel>
+
+        
+        <menupopup id="change_hosts_statepopup">
+			<menuitem label="&cH.openChangeHosts;" oncommand="event.preventDefault(); event.stopPropagation(); coders.changeHosts.main.openChangeHosts();" />
+		</menupopup>		
 	</statusbar>
 
 	<toolbarpalette id="BrowserToolbarPalette">
 		<toolbarbutton 
-				id="CH_toolbar_button" 
+				id="change_hosts_toolbar_button" 
 		        class="toolbarbutton-1 chromeclass-toolbar-additional"
-		        label="Change Hosts"
-		        tooltiptext="Open Change Hosts"
+		        label="&cH.name;"
+		        tooltiptext="&cH.openChangeHosts;"
 		        oncommand="coders.changeHosts.main.dispatchStatusClick(this, event);">
 		</toolbarbutton>
 	</toolbarpalette>	

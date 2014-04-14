@@ -165,10 +165,10 @@
 				</groupbox>
 				<groupbox orient="vertical">
 					<caption label="&cH.statusBarConfigs;" />
-					<checkbox preference="show-icon-status-preference" label="&cH.showChangeHostsIconOnStatusBar;" oncommand="coders.changeHosts.options.general.showHideViewElements('CH_status_img', this.checked);" />
+					<checkbox preference="show-icon-status-preference" label="&cH.showChangeHostsIconOnStatusBar;" oncommand="coders.changeHosts.options.general.showHideViewElements('change_hosts_status_img', this.checked);" />
 					<vbox>
 						<hbox>
-							<checkbox preference="show-definition-name-preference" label="&cH.showDefinitionNameOnStatusBar;" oncommand="coders.changeHosts.options.general.showHideViewElements('CH_status_definition_name', this.checked);" />
+							<checkbox preference="show-definition-name-preference" label="&cH.showDefinitionNameOnStatusBar;" oncommand="coders.changeHosts.options.general.showHideViewElements('change_hosts_status_definition_name', this.checked);" />
 						</hbox>
 						<separator class="groove grooveFix"></separator>
 						<hbox>
@@ -276,6 +276,10 @@
 							</listcols>
 						</listbox>
 						<hbox>
+							<button 
+								id="new-definition-button" 
+                            	label="&cH.new;" 
+                            	oncommand="coders.changeHosts.options.definitions.newHostFile();" />							
 							<button 
 								id="choose-definition-button" 
                             	label="&cH.change;" 

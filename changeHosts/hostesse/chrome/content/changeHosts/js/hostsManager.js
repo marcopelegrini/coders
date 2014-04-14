@@ -21,7 +21,7 @@ if (!coders.changeHosts)
         changeHosts: function(content){
             var hostLocation = this.ctx.preferenceUtils.getString(this.ctx.hostLocationPref);
 			if(this.ctx.browserUtils.isBlank(hostLocation)){
-				throw new FileNotFoundException();
+				throw new coders.changeHosts.FileNotFoundException();
 			}
                 
             this.ctx.logUtils.debug("Writing new hosts to: " + hostLocation);
@@ -64,21 +64,21 @@ if (!coders.changeHosts)
 			}else{
 				var hostsPath = this.ctx.preferenceUtils.getString("current-host");
 			}
-			this.ctx.logUtils.info("Looking from a color to path: " + hostsPath);
+			this.ctx.logUtils.debug("Looking from a color to path: " + hostsPath);
 			if(hostsPath){
 				var hostsConfig = this.ctx.dao.findHostsConfig(hostsPath);
 				if (hostsConfig && hostsConfig.color){
 					//Found a specific color for this hosts
-					this.ctx.logUtils.info("Found hosts specific color " + hostsConfig.color + " for path: " + hostsPath);
+					this.ctx.logUtils.debug("Found hosts specific color " + hostsConfig.color + " for path: " + hostsPath);
 					return hostsConfig.color;
 				}else{
 					var lio = hostsPath.lastIndexOf(this.ctx.fileUtils.getFileSeparator());
 					var hostsFolder = hostsPath.substr(0, lio);
-					this.ctx.logUtils.info("Looking form hosts folder color for path: " + hostsFolder);
+					this.ctx.logUtils.debug("Looking for a hosts folder color for path: " + hostsFolder);
 					var folderHostsConfig = this.ctx.dao.findHostsConfig(hostsFolder);
 					if (folderHostsConfig && folderHostsConfig.color){
 						// Found a specific color for this hosts' folder
-						this.ctx.logUtils.info("Found folder specific color " + folderHostsConfig.color + " for path: " + hostsPath);
+						this.ctx.logUtils.debug("Found folder specific color " + folderHostsConfig.color + " for path: " + hostsPath);
 						return folderHostsConfig.color;	
 					}else{
 						var regexConfigs = this.ctx.dao.findAllRegexConfig();
@@ -88,7 +88,7 @@ if (!coders.changeHosts)
 
 			                if (hostsPath.match(regex)){
 			               		// Found a regex that matches this hosts path
-			               		this.ctx.logUtils.info("Found regex that matches: Hostspath: " + hostsPath + " Regex: " + regex);
+			               		this.ctx.logUtils.debug("Found regex that matches: Hostspath: " + hostsPath + " Regex: " + regex);
 			               		return regexConfig.color;	
 			                }
 			            }

@@ -44,8 +44,9 @@ if (!coders.changeHosts.options)
                 // Pre select
                 this.setTreeSelection(tree);
             }catch(ex){
-                if (ex instanceof DefinitionRootNotConfiguredException){
-                    this.ctx.browserUtils.showAlert("Change Hosts", "Definitions root dir not configured.");
+                if (ex instanceof coders.changeHosts.DefinitionRootNotConfiguredException){
+                	var msg = this.ctx.preferenceUtils.getSBundle().getString("cH.rootDirNotConfigured");
+                    this.ctx.browserUtils.showAlert("Change Hosts", msg);
                 }else{
                     this.ctx.logUtils.error(ex);    
                 }
@@ -54,20 +55,24 @@ if (!coders.changeHosts.options)
     
         newHostFile: function(event){
             var tree = this.ctx.uiManager.getHostDirTree();
-            var currentIndex = tree.view.selection.currentIndex;
-            var treeItem = tree.contentView.getItemAtIndex(currentIndex);
-
-            var displayDirPath = treeItem.getAttribute('value');
-
-            var fp = this.ctx.fileUtils.getFilePicker();
-            const nsIFilePicker = Components.interfaces.nsIFilePicker;
-            fp.appendFilter('Host file', '*' + this.defaultHostFileExtension);
+	        var displayDirPath = null;
+            
+            if(tree && tree.view){
+            	var currentIndex = tree.view.selection.currentIndex;
+	            if(currentIndex && currentIndex >= 0){
+	            	var treeItem = tree.contentView.getItemAtIndex(currentIndex);
+	            	displayDirPath = treeItem.getAttribute('value');
+	            }
+            }
 
             if(!displayDirPath){
                 displayDirPath = this.ctx.preferenceUtils.getString('definitions-root-dir');
             }
             var displayDir = this.ctx.fileUtils.getFile(displayDirPath);
 
+            var fp = this.ctx.fileUtils.getFilePicker();
+            const nsIFilePicker = Components.interfaces.nsIFilePicker;
+            fp.appendFilter('Host file', '*' + this.defaultHostFileExtension);
             fp.displayDirectory = displayDir;
             fp.defaultExtension = this.defaultHostFileExtension;
 
@@ -78,7 +83,6 @@ if (!coders.changeHosts.options)
                 this.ctx.fileUtils.saveFile(fp.file, "");
                 this.setSelections(fp.file.path);
             }
-            var tree = this.ctx.uiManager.getHostDirTree();
             this.reloadTree(tree);
             this.setTreeSelection(tree);
         },
@@ -321,12 +325,13 @@ if (!coders.changeHosts.options)
         },
 
         loadTree: function(tree){
-            this.ctx.logUtils.info('Loading host directories and files');
             try{
                 var definitionsRootDirPath = this.ctx.preferenceUtils.getString('definitions-root-dir');
 
+				this.ctx.logUtils.info('Loading host directories and files from: ' + definitionsRootDirPath);
+
                 if (!definitionsRootDirPath){
-                    throw new DefinitionRootNotConfiguredException();
+                    throw new coders.changeHosts.DefinitionRootNotConfiguredException();
                 }
                 // this.hostMap = [];
                 this.hostMap = new Map();
@@ -345,7 +350,8 @@ if (!coders.changeHosts.options)
                 tree.removeAttribute("disabled");
                 this.ctx.logUtils.info('Done loading host directories and files');
             }catch(ex){
-                this.ctx.logUtils.error('Error loading host directories and files ' + ex, ex);
+                this.ctx.logUtils.error('Error loading host directories and files: ' + ex, ex);
+                throw ex;
             }
         },
 
@@ -465,7 +471,6 @@ if (!coders.changeHosts.options)
             var dirCell = this.ctx.browserUtils.createElement('treecell');
             dirCell.setAttribute('label', label);
             dirCell.setAttribute('value', path);
-
             var color = this.ctx.hostsManager.findHostsColor(path);
             var colorCell = this.ctx.browserUtils.createElement('treecell');
             colorCell.setAttribute('label', '\u25A0');
@@ -647,7 +652,7 @@ if (!coders.changeHosts.options)
                     alert("Nothing on the file: " + parsed);
                 }
             }catch(e){
-            	if (e instanceof FileNotFoundException){
+            	if (e instanceof coders.changeHosts.FileNotFoundException){
             		var msg = this.ctx.preferenceUtils.getSBundle().getString("cH.hostFileNotFound");
             		alert(msg)
             	}
@@ -753,7 +758,7 @@ if (!coders.changeHosts.options)
         normalizePath: function(path){
             var separator = this.ctx.fileUtils.getFileSeparator();
             var pathNormalized = path.replace(new RegExp(this.escapeRegExp(separator), 'g'), '-');
-            return pathNormalized.replace(':', '-');
+            return pathNormalized.replace(new RegExp('[^a-zA-Z]', 'g'), '-');
         },
 
         escapeRegExp: function(str) {

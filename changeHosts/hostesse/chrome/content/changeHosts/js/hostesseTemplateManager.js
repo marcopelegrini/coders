@@ -34,7 +34,7 @@ if (!coders.changeHosts)
     		try{
     			var content = this.ctx.fileUtils.read(fileName);
     		}catch(e){
-                if (e instanceof FileNotFoundException){
+                if (e instanceof coders.changeHosts.FileNotFoundException){
                     if (includePath){
                         var lio = rootDir.lastIndexOf(this.fileSeparator);
                         if (lio > 0){

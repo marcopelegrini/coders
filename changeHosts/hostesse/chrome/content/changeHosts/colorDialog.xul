@@ -15,7 +15,7 @@
   <script type="text/javascript">
     function onLoad() {
       document.getElementById("definition-color-picker").color = window.arguments[0].inn.color;
-      document.getElementById("set-color-description").innerHTML = window.arguments[0].inn.description;
+      document.getElementById("set-color-description").textContent = window.arguments[0].inn.description;
       sizeToContent();
       window.sizeToContent();
     }
