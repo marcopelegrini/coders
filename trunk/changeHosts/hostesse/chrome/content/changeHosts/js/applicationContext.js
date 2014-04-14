@@ -87,12 +87,12 @@ if (!coders.changeHosts)
                 }
 
                 if(this.logUtils){
-                	this.logUtils.info('ApplicationContext configured');
+                	this.logUtils.info('Change Hosts ApplicationContext configured');
                 }
         },
 
         destroy: function(){
-            this.logUtils.info('ApplicationContext destroied');
+            this.logUtils.info('Change Hosts ApplicationContext destroied');
         }
     };
     //Construct as soon as file loads

@@ -43,7 +43,7 @@ if (!coders.changeHosts)
         },
     
         setupUI: function(document){
-            var definitionStatus = this.ctx.browserUtils.getElement("CH_status_definition_name");
+            var definitionStatus = this.ctx.browserUtils.getElement("change_hosts_status_definition_name");
             var current = this.ctx.preferenceUtils.getString('current-host');
             if (current){
                 var root = this.ctx.preferenceUtils.getString('definitions-root-dir');
@@ -87,16 +87,16 @@ if (!coders.changeHosts)
                 statusLabel = internalLabel;
             }
             this.ctx.browserUtils.getElement('current-host').value = internalLabel;
-            this.ctx.browserUtils.getElement("CH_status_definition_name", this.ctx.browserUtils.getBrowserWindow().document)
+            this.ctx.browserUtils.getElement("change_hosts_status_definition_name", this.ctx.browserUtils.getBrowserWindow().document)
             .value = statusLabel;                
             this.setCurrentColor();
         },
 
 		setCurrentColor: function(){
-			this.ctx.logUtils.info("Setting hosts color...");
+			this.ctx.logUtils.debug("Setting hosts color...");
 			var browserWindow = this.ctx.browserUtils.getBrowserWindow();
 			var color = this.ctx.hostsManager.findHostsColor();
-			this.ctx.browserUtils.getElement("CH_status_definition_name", browserWindow.document).setAttribute("style", "color:" + color + ";");
+			this.ctx.browserUtils.getElement("change_hosts_status_definition_name", browserWindow.document).setAttribute("style", "color:" + color + ";");
 		},
         
         cleanHostsItens: function(menu){

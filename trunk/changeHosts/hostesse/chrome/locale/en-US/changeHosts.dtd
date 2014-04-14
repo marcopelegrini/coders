@@ -73,3 +73,5 @@ Choose below a folder to store the files. Make sure it's writable.">
 <!ENTITY  cH.iDontWantToMigrate					"I don't want to migrate">
 <!ENTITY  cH.iWantToMigrateLater				"I want to migrate later">
 <!ENTITY  cH.invalidRootDir						"Invalid root folder. Please select a writable folder.">
+
+<!ENTITY  cH.openChangeHosts					"Open Change Hosts">

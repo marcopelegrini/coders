@@ -1,0 +1,10 @@
+Performing a replace request
+SOURCE DIRECTORY C:\Users\mpelegrini\AppData\Local\Mozilla\updates\2BC80F654DDCB77C\updates\0
+DESTINATION DIRECTORY C:\opt\changehosts\App\firefox\updated
+Begin moving sourceDir (C:\opt\changehosts\App\Firefox) to tmpDir (C:\opt\changehosts\App\Firefox.bak)
+rename_file: proceeding to rename the directory
+Begin moving newDir (C:\opt\changehosts\App\firefox.bak/updated) to sourceDir (C:\opt\changehosts\App\Firefox)
+rename_file: proceeding to rename the directory
+Now, remove the tmpDir
+succeeded
+calling QuitProgressUI

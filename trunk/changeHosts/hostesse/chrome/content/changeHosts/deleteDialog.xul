@@ -16,8 +16,8 @@
 
 	<script type="text/javascript">
 	    function onLoad() {
-			document.getElementById("description").innerHTML = window.arguments[0].inn.message;
-			document.getElementById("hostPath").innerHTML = window.arguments[0].inn.pathToRemove;
+			document.getElementById("description").textContent = window.arguments[0].inn.message;
+			document.getElementById("hostPath").textContent = window.arguments[0].inn.pathToRemove;
 	    }
 
 	    function ok() {
