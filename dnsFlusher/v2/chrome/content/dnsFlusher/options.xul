@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+
+<!DOCTYPE prefwindow SYSTEM "chrome://dnsFlusher/locale/dnsFlusher.dtd">
+
+<prefwindow
+ xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+ xmlns:html="http://www.w3.org/1999/xhtml"
+ windowtype="dnsFlusher:settings"
+ id="dnsFlusher-settings"
+ title="&dnsFlusher.settings;"
+ buttons="accept,cancel"
+ type="prefwindow">
+
+	<!-- Utils -->
+	<script type="application/x-javascript" src="chrome://dnsFlusher/content/js/ctech/nsLoader.js" />
+	<script type="application/x-javascript" src="chrome://dnsFlusher/content/js/ctech/browserUtils.js" />
+
+	<!-- Options -->
+	<script type="application/x-javascript" src="chrome://dnsFlusher/content/js/applicationContext.js"/>
+    <script type="application/x-javascript" src="chrome://dnsFlusher/content/js/options.js"/>
+
+    <prefpane id="prefpane_general" label="&dnsFlusher.general;">
+        <preferences>
+            <preference id="label-color" name="extensions.dnsFlusher.label-color" type="unichar"/>
+            <preference id="reload-page" name="extensions.dnsFlusher.reload-page" type="bool"/>
+            <preference id="label-efect" name="extensions.dnsFlusher.label-efect" type="bool"/>
+            <preference id="show-icon" name="extensions.dnsFlusher.show-icon" type="bool"/>
+        </preferences>
+        <groupbox orient="vertical">
+            <caption label="&dnsFlusher.general;"/>
+            <checkbox label="&dnsFlusher.reloadPage;" preference="reload-page"/>
+            <checkbox label="&dnsFlusher.useStatusBarEffect;" preference="label-efect"/>
+            <checkbox label="&dnsFlusher.showIcon;" preference="show-icon" oncommand="coders.dnsFlusher.options.showHideViewElements('dnsflusher_status_img', this.checked);" />
+            <spacer height="10"/>
+            <hbox>
+                <label value="&dnsFlusher.statusBarIPColor;"/>
+                <colorpicker id="dF-color-picker" preference="label-color" type="button" onchange="coders.dnsFlusher.options.colorChanged();"/>
+            </hbox>
+        </groupbox>
+    </prefpane>
+</prefwindow>

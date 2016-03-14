@@ -1,0 +1,7 @@
+#change_hosts_toolbar_button {
+    list-style-image: url("chrome://changeHosts/skin/images/new-icon24.png");
+}
+
+[iconsize="small"] #change_hosts_toolbar_button {
+    list-style-image: url("chrome://changeHosts/skin/images/new-icon16.png");
+}

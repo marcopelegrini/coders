@@ -1,0 +1,346 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet href="chrome://changeHosts/skin/changeHosts.css" type="text/css"?>
+<?xml-stylesheet href="chrome://browser/skin/preferences/preferences.css" type="text/css"?>
+<?xml-stylesheet href="chrome://changehosts/skin/treeStyles.css" type="text/css"?>
+
+<!DOCTYPE prefwindow SYSTEM "chrome://changeHosts/locale/changeHosts.dtd">
+
+<prefwindow
+	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+	xmlns:html="http://www.w3.org/1999/xhtml"
+	windowtype="changeHosts:settings"
+	id="changeHosts-settings"
+	title="&cH.name;"
+	buttons="accept,cancel"
+	persist="lastSelected screenX screenY"
+	autostretch="always"
+	onload="sizeToContent();window.sizeToContent();"
+	onunload="coders.changeHosts.options.general.onUnload();"
+	type="prefwindow">
+
+	<stringbundleset id="coders.changeHosts.stringbundleset">
+		<stringbundle id="coders.changeHosts.string-bundle" src="chrome://changeHosts/locale/localization.properties"/>
+	</stringbundleset>
+
+
+	<!-- Utils -->
+	<script type="application/x-javascript" src="chrome://changeHosts/content/js/ctech/nsLoader.js" />
+	<script type="application/x-javascript" src="chrome://changeHosts/content/js/ctech/preferenceUtils.js" />
+	<script type="application/x-javascript" src="chrome://changeHosts/content/js/ctech/browserUtils.js" />
+	<script type="application/x-javascript" src="chrome://changeHosts/content/js/ctech/fileUtils.js" />
+	<script type="application/x-javascript" src="chrome://changeHosts/content/js/ctech/databaseUtils.js" />
+
+	<script type="application/x-javascript" src="chrome://changeHosts/content/js/uiManager.js" />
+	<script type="application/x-javascript" src="chrome://changeHosts/content/js/hostsManager.js" />
+	<script type="application/x-javascript" src="chrome://changeHosts/content/js/hostesseTemplateManager.js" />
+	<script type="application/x-javascript" src="chrome://changeHosts/content/js/dnsFlusherIntegration.js" />
+	<script type="application/x-javascript" src="chrome://changeHosts/content/js/dao.js" />
+	<script type="application/x-javascript" src="chrome://changeHosts/content/js/objects.js" />
+
+	<!-- App ctx -->
+	<script type="application/x-javascript" src="chrome://changeHosts/content/js/applicationContext.js" />
+	<script type="application/x-javascript" src="chrome://changeHosts/content/js/optionsCommons.js" />
+	<script type="application/x-javascript" src="chrome://changeHosts/content/js/optionsDefinitions.js" />
+	<script type="application/x-javascript" src="chrome://changeHosts/content/js/optionsGeneral.js" />
+
+	<prefpane
+		id="prefpane_general"
+		label="&cH.tabGeneral;"
+		onload="alert('teste');"
+		onpaneload="coders.changeHosts.options.general.checkPermissions(); coders.changeHosts.options.general.scriptPermissionToggleCheck();">
+		<preferences>
+			<preference id="hosts-location-preference" name="extensions.changeHosts.hosts-location" type="unichar" />
+			<preference id="definitions-root-dir-preference" name="extensions.changeHosts.definitions-root-dir" type="unichar" />
+			<preference id="flush-dns-on-change" name="extensions.changeHosts.flush-dns-on-change" type="bool" />
+			<preference id="label-color-preference" name="extensions.changeHosts.label-color" type="unichar" />
+			<preference id="definition-color-preference" name="extensions.changeHosts.definition-color" type="unichar" />
+			<preference id="show-icon-status-preference" name="extensions.changeHosts.show-icon-status" type="bool" />
+			<preference id="show-definition-name-preference" name="extensions.changeHosts.show-definition-name" type="bool" />
+			<preference id="script-sudo-flag-preference" name="extensions.changeHosts.script-sudo-flag" type="bool" />
+			<preference id="script-flag-preference" name="extensions.changeHosts.script-flag" type="bool" />
+			<preference id="script-location-preference" name="extensions.changeHosts.script-location" type="unichar" />
+			<preference id="close-after-choose-preference" name="extensions.changeHosts.close-after-choose" type="bool" />
+			<preference id="view-parsed-hosts-preference" name="extensions.changeHosts.view-parsed-hosts" type="bool" />
+		</preferences>
+		<hbox class="prefBox">
+			<vbox class="configVBox">
+				<groupbox orient="horizontal">
+					<caption label="&cH.locations;" />
+					<vbox flex="1">
+						<vbox>
+							<label value="&cH.definitionsRootDirectory;" />
+							<description id="definitionsRootDirectoryDisclaimer">&cH.definitionsRootDirectoryDisclaimer; <html:a href="http://www.coders.com.br/change-hosts" style="text-decoration: underline; color: blue;"  target="_blank">more</html:a></description>
+							<textbox id="definitions-root-dir" onkeyup="coders.changeHosts.options.general.rootDirSelected();" preference="definitions-root-dir-preference"  />
+						</vbox>
+						<grid>
+							<columns>
+								<column flex="1" />
+								<column />
+							</columns>
+							<rows>
+								<row>
+									<vbox align="start">
+										<hbox class="imgBox">
+											<image id="testRootDir" class="testImgQuestion" />
+											<label value="&cH.read;" />
+										</hbox>
+									</vbox>
+									<vbox>
+										<button id="find-hosts-button" label="&cH.find;"
+											oncommand="coders.changeHosts.options.general.pickDefinitionsRootDir();" />
+									</vbox>
+								</row>
+							</rows>
+						</grid>
+						<separator class="groove grooveFix"></separator>
+						<vbox>
+							<label value="&cH.hostsLocation;" />
+							<textbox id="hosts-location" onkeyup="coders.changeHosts.options.general.checkHostPermission();" preference="hosts-location-preference"  />
+						</vbox>
+						<grid>
+							<columns>
+								<column flex="1" />
+								<column />
+							</columns>
+							<rows>
+								<row>
+									<vbox align="start">
+										<hbox class="imgBox">
+											<image id="testReadFile" class="testImgQuestion" />
+											<label value="&cH.read;" />
+										</hbox>
+										<hbox class="imgBox">
+											<image id="testWriteFile" class="testImgQuestion" />
+											<label value="&cH.write;" />
+										</hbox>
+									</vbox>
+									<vbox>
+										<button id="find-hosts-button" label="&cH.find;"
+											oncommand="coders.changeHosts.options.general.pickHostFile();" />
+									</vbox>
+								</row>
+							</rows>
+						</grid>
+					</vbox>
+				</groupbox>
+				<groupbox orient="horizontal">
+					<caption label="&cH.postProcessing;" />
+					<vbox flex="1">
+						<hbox>
+							<checkbox id="script-flag" oncommand="coders.changeHosts.options.general.scriptPermissionToggle(this.checked);" preference="script-flag-preference" label="&cH.executeScriptPostProcessing;" />
+						</hbox>
+						<hbox>
+							<checkbox id="script-sudo-flag" preference="script-sudo-flag-preference" label="&cH.executeScriptUsingSudo;" />
+						</hbox>
+
+						<vbox>
+							<label value="&cH.scriptLocation;" />
+							<textbox id="script-location" onblur="coders.changeHosts.options.general.checkScriptPermission();" onkeyup="coders.changeHosts.options.general.checkScriptPermission();"  preference="script-location-preference"  />
+						</vbox>
+						<grid>
+							<columns>
+								<column flex="1"/>
+								<column/>
+							</columns>
+							<rows>
+								<row>
+									<vbox align="start" >
+										<hbox class="imgBox runTest">
+											<image id="testRunFile" class="testImgQuestion" />
+											<label value="&cH.run;" />
+										</hbox>
+									</vbox>
+									<hbox>
+										<button id="execute-script-button" label="&cH.Run;" oncommand="coders.changeHosts.options.general.executeScript();" />
+										<button id="find-script-button" label="&cH.find;" oncommand="coders.changeHosts.options.general.pickScript();" />
+									</hbox>
+								</row>
+							</rows>
+						</grid>
+					</vbox>
+				</groupbox>
+			</vbox>
+			<vbox class="secondConfigVBox">
+				<groupbox orient="vertical">
+					<caption label="&cH.dnsFlusherIntegration;" />
+					<checkbox id="flushDNSOnChangeCheckbox" preference="flush-dns-on-change" label="&cH.flushDNSAfterHostChange;" disabled="true" />
+					<description id="dnsFlusherIntegrationDisclaimerMiss">&cH.DNSFlusherIntegrationMiss; <html:a href="http://www.coders.com.br/change-hosts" style="text-decoration: underline; color: blue;" target="_blank">more</html:a></description>
+					<description id="dnsFlusherIntegrationDisclaimerFound" style="display:none">&cH.DNSFlusherIntegrationFound; <html:a href="http://www.coders.com.br/change-hosts" style="text-decoration: underline; color: blue;"  target="_blank">more</html:a></description>
+				</groupbox>
+				<groupbox orient="vertical">
+					<caption label="&cH.statusBarConfigs;" />
+					<checkbox preference="show-icon-status-preference" label="&cH.showChangeHostsIconOnStatusBar;" oncommand="coders.changeHosts.options.general.showHideViewElements('change_hosts_status_img', this.checked);" />
+					<vbox>
+						<hbox>
+							<checkbox preference="show-definition-name-preference" label="&cH.showDefinitionNameOnStatusBar;" oncommand="coders.changeHosts.options.general.showHideViewElements('change_hosts_status_definition_name', this.checked);" />
+						</hbox>
+						<separator class="groove grooveFix"></separator>
+						<hbox>
+							<label value="&cH.defaultColor;" />
+							<colorpicker id="definition-color-picker" preference="definition-color-preference" type="button" onchange="coders.changeHosts.options.general.defaultColorChanged();" />
+						</hbox>
+						<label value="&cH.setColorByRegex;" />
+						<hbox>
+							<listbox
+								id="regex-color-list"
+								seltype="single"
+								onselect="coders.changeHosts.options.general.handleRegexListClick(this);">
+								<listhead>
+									<listheader label="&cH.regex;" />
+									<listheader label="&cH.color;"/>
+								</listhead>
+								<listcols>
+									<listcol flex="1"/>
+									<listcol />
+								</listcols>
+							</listbox>
+						</hbox>
+						<hbox align="right">
+							<button id="add-regex-button" label="&cH.add;" oncommand="coders.changeHosts.options.general.addRegex()" />
+							<button id="edit-regex-button" label="&cH.edit;" oncommand="coders.changeHosts.options.general.editRegex()" disabled="true" />
+							<button id="remove-regex-button" label="&cH.remove;" oncommand="coders.changeHosts.options.general.removeRegex()" disabled="true" />
+						</hbox>
+					</vbox>
+				</groupbox>
+			</vbox>
+		</hbox>
+	</prefpane>
+	<prefpane
+		id="prefpane_definitions"
+		label="&cH.tabDefinitions;" >
+
+		<menupopup id="dirSelectionMenu" onpopupshowing="coders.changeHosts.options.definitions.handleHostDirPopup(event);">
+			<menuitem label="&cH.new;" onclick="coders.changeHosts.options.definitions.newHostFile(event);"/>
+			<menuitem label="&cH.deleteFolder;" onclick="coders.changeHosts.options.definitions.deleteHostDir(event);"/>
+			<menuitem label="&cH.setColor;" onclick="coders.changeHosts.options.definitions.setColor(event);"/>
+			<menuitem label="&cH.clearColor;" onclick="coders.changeHosts.options.definitions.clearColor(event);"/>
+   		</menupopup>
+
+		<menupopup id="hostSelectionMenu">
+			<menuitem label="&cH.deleteHosts;" onclick="coders.changeHosts.options.definitions.deleteHostFile(event);"/>
+			<menuitem label="&cH.setColor;" onclick="coders.changeHosts.options.definitions.setFileColor(event);"/>
+			<menuitem label="&cH.clearColor;" onclick="coders.changeHosts.options.definitions.clearFileColor(event);"/>
+  		</menupopup>
+
+  		<tooltip id="colortip" orient="vertical" >
+			<label value="&cH.colorTip;"/>
+		</tooltip>
+
+		<grid>
+			<columns>
+				<column flex="1" />
+				<column />
+			</columns>
+			<rows>
+				<row>
+					<hbox>
+						<description id="current-label" value="&cH.current;:" />
+						<description id="current-host" />
+					</hbox>
+					<hbox>
+						<button id="clear-definition-button" label="&cH.clear;" oncommand="var close = coders.changeHosts.options.definitions.clearHosts(); if(close){window.close();}" disabled="false" />
+					</hbox>
+				</row>
+			</rows>
+		</grid>
+		<hbox class="prefBox">
+			<vbox flex="1" >
+				<groupbox orient="horizontal">
+					<caption label="&cH.hostSelection;" />
+					<vbox id="hosts-selection" >
+						<tree
+							id="definitions-tree"
+							flex="0"
+							hidecolumnpicker="false"
+							seltype="single"
+							disabled="true"
+							persist="height"
+							onselect="coders.changeHosts.options.definitions.handleTreeClick(this);">
+							<treecols>
+								<treecol id="dir" primary="true" flex="1" label="&cH.folders;"/>
+								<treecol id="colorDir" label="■" width="20px"  style="text-align: center;" tooltip="colortip"/>
+								<!--<treecol id="hideFromStatus" label="#Hide"/> -->
+							</treecols>
+						</tree>
+						<splitter>
+							<div id="splitter-div"/>
+						</splitter>
+						<listbox
+							id="hosts-list"
+							seltype="single"
+							persist="height"
+							onselect="coders.changeHosts.options.definitions.handleListboxClick(this);">
+							<listhead>
+								<listheader label="&cH.files;" />
+								<listheader label="■" width="35px" style="text-align: center;"  tooltip="colortip"/>
+							</listhead>
+							<listcols>
+								<listcol flex="1"/>
+								<listcol />
+							</listcols>
+						</listbox>
+						<hbox>
+							<button
+								id="new-definition-button"
+                            	label="&cH.new;"
+                            	oncommand="coders.changeHosts.options.definitions.newHostFile();" />
+							<button
+								id="choose-definition-button"
+                            	label="&cH.change;"
+                            	disable="true"
+                            	oncommand="coders.changeHosts.options.definitions.changeHosts(window);" />
+						</hbox>
+					</vbox>
+				</groupbox>
+			</vbox>
+			<!-- Second column -->
+			<vbox flex="1" >
+				<groupbox orient="vertical">
+					<caption id="definition-label" label="&cH.edit;" />
+					<hbox>
+						<vbox>
+							<hbox>
+								<textbox id="content" multiline="true" wrap="off" focusable="false" disable="true" onkeypress="coders.changeHosts.options.definitions.contentKeyPressed(event);" />
+							</hbox>
+							<grid>
+								<columns>
+									<column flex="1" />
+									<column />
+								</columns>
+								<rows>
+									<row>
+										<vbox align="start">
+											<checkbox id="view-parsed-hosts" oncommand="coders.changeHosts.options.definitions.showParsedHostsToggle(this.checked);" preference="view-parsed-hosts-preference" label="&cH.viewParsed;" />
+											<checkbox preference="close-after-choose-preference" label="&cH.closeAfterChange;" />
+										</vbox>
+										<vbox>
+											<hbox>
+												<button
+													id="cancel-definition-button"
+													disabled="true"
+													label="&cH.doCancel;"
+													oncommand="coders.changeHosts.options.definitions.cancelEdition();" />
+												<button
+													id="save-definition-button"
+													disabled="true"
+													label="&cH.save;"
+													oncommand="coders.changeHosts.options.definitions.save();" />
+												<button
+													id="save-and-use-definition-button"
+													disabled="true"
+													label="&cH.saveAndChange;"
+													oncommand="coders.changeHosts.options.definitions.saveAndUse(window);" />
+											</hbox>
+										</vbox>
+									</row>
+								</rows>
+							</grid>
+						</vbox>
+					</hbox>
+				</groupbox>
+			</vbox>
+		</hbox>
+		<textbox id="definition-path" disabled="true" style="display:none;" />
+	</prefpane>
+</prefwindow>

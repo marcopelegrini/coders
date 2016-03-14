@@ -1,0 +1,211 @@
+hbox.prefBox {
+	/*height: 500px;*/
+}
+
+vbox#set-color-content{
+    width: 340px;
+}
+
+#change_hosts_status_img {
+    list-style-image: url("chrome://changeHosts/skin/images/new-icon16.png");
+}
+
+image.testImgOK {
+    list-style-image: url("chrome://changeHosts/skin/images/new-checked-16.png");
+    width: 16px;
+    max-height: 16px;
+    margin: 2.5px;
+}
+
+image.testImgQuestion {
+    list-style-image: url("chrome://changeHosts/skin/images/new-question-16.png");
+    width: 16px;
+    max-height: 16px;
+    margin: 2.5px;
+}
+
+image.testImgFail {
+    list-style-image: url("chrome://changeHosts/skin/images/new-error-16.png");
+    width: 16px;
+    max-height: 16px;
+    margin: 2.5px;
+}
+
+button.up-button {
+	list-style-image: url("chrome://changeHosts/skin/images/arrows.gif");
+    -moz-image-region: rect(0px, 16px, 16px, 0px);
+    width: 45px;
+    min-width: 45px;
+    max-width: 45px;    
+}
+
+button.down-button {
+	list-style-image: url("chrome://changeHosts/skin/images/arrows.gif");
+	-moz-image-region: rect(0px, 32px, 16px, 16px);
+    width: 45px;
+    min-width: 45px;
+    max-width: 45px;    
+}
+
+button#choose-definition-button {
+    min-width: 110px;
+}
+
+description#current-label {
+    font-weight: bold;
+    -moz-margin-end: 0px;
+}
+
+description#dnsFlusherIntegrationDisclaimerMiss, 
+description#dnsFlusherIntegrationDisclaimerFound, 
+description#definitionsRootDirectoryDisclaimer {
+    font-style: italic;
+    color: #888888;
+}
+
+radio[pane = prefpane_general] {
+    list-style-image: url("chrome://changeHosts/skin/images/new-icon-settings32.png");
+}
+
+radio[pane = prefpane_definitions] {
+	list-style-image: url("chrome://changeHosts/skin/images/new-icon32.png");
+}
+
+radio[pane = prefpane_about] {
+	list-style-image: url("chrome://changeHosts/skin/images/question32.png");
+}
+
+caption {
+	font-weight: bold;
+}
+
+vbox.configVBox, 
+vbox.secondConfigVBox {
+    /*width: 400px;*/
+    width: 340px;
+}
+
+vbox#hosts-selection {
+    /*height: 440px;*/
+    width: 210px; 
+}
+
+vbox#migration-dialog-content {
+	width: 570px; 	
+}
+
+hbox#hosts-file-selection-tollbar-box {
+    margin-top: 2px;
+}
+
+splitter {
+    border: none;
+}
+
+/*textbox#definition-path {
+    color: black;
+    width: 587px;
+}
+*/
+textbox#regex-input{
+    width: 300px;
+}
+
+image#regex-image-invalid,
+image#definitions-root-dir-invalid {
+    list-style-image: url("chrome://changeHosts/skin/images/new-error-12.png");
+    -moz-box-ordinal-group: 2;
+    padding: 2.6px;
+    display: none;
+}
+
+label#regex-label-invalid,
+label#definitions-root-dir-label-invalid {
+    color: red;
+    display: none;
+}
+
+textbox#content {
+    color: black;
+    /*width: 587px;
+    height: 378px*/
+    width: 475px;
+    height: 316px;
+}
+
+.legendBox {
+	width: 65px;
+}
+
+hbox.imgBox {
+	margin-left: 5px;
+}
+
+#codersLogo {
+	background: #F8C74B;
+	height: 50px;
+}
+
+image.codersLogo {
+	list-style-image: url("chrome://changeHosts/skin/images/codersLogo.gif");
+	max-width: 215px;
+    max-height: 52px;
+}
+
+hbox.runTest {
+    
+}
+
+tree#definitions-tree{
+    /*height: 294px;*/
+    height: 243px;
+}
+
+treechildren::-moz-tree-row(selected) { 
+    background-color: #C1D2EE;
+}
+
+treechildren::-moz-tree-cell-text(selected) { 
+    color: black; 
+}
+
+listcell.color {
+    text-align: center;
+}
+
+listitem[selected] { 
+    background-color: #C1D2EE; 
+    color: black;
+}
+
+listbox#hosts-list {
+    /*height: 108px;*/
+    height: 87px;
+}
+
+listbox#regex-color-list {
+    height: 112px;
+    width: 320px;
+}
+
+toolbarseparator {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+separator.grooveFix {
+    border-top: 1px dashed #D5DFE5 !important;
+    border-bottom: 1px dashed threedhighlight !important;
+}
+
+div#splitter-div{
+    border-top: 1px dashed #888888 !important;
+    border-bottom: 1px dashed threedhighlight !important;
+    width: 100px;
+    margin-top: 1px;
+}
+
+
+checkbox#show-parsed-hosts {
+    margin-top: 4px;
+}

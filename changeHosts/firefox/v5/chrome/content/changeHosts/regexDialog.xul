@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet href="chrome://changeHosts/skin/changeHosts.css" type="text/css"?>
+
+<!DOCTYPE prefwindow SYSTEM "chrome://changeHosts/locale/changeHosts.dtd">
+
+<dialog id="setColor"
+		title="&cH.setHostsColor;"
+		xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+		buttons="accept,cancel"
+		onload="sizeToContent();window.sizeToContent();onLoad();"
+		ondialogaccept="return ok();"
+		ondialogcancel="return"
+		windowtype="myDialogWindowType">
+
+	<script type="application/x-javascript" src="chrome://changeHosts/content/js/ctech/browserUtils.js" />
+	<script type="application/x-javascript" src="chrome://changeHosts/content/js/regexDialog.js" />
+
+	<vbox id="set-color-content">
+		<description id="set-color-description"></description>
+		<hbox>
+			<label value="Regex: " control="regex-input" />
+			<vbox>
+				<textbox id="regex-input" onkeyup="validate(event);" >
+					<image id="regex-image-invalid" />
+				</textbox>
+				<label id="regex-label-invalid" value="&cH.regexAlreadyExists;" control="regex-input" />
+			</vbox>
+		</hbox>
+		<hbox>
+			<label value="&cH.setColor;: " />
+			<colorpicker id="definition-color-picker" type="button" />
+		</hbox>
+	</vbox>
+</dialog>
