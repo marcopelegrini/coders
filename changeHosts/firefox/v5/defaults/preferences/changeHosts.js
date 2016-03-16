@@ -15,4 +15,4 @@ pref("extensions.changeHosts.view-parsed-hosts", false);
 pref("extensions.changeHosts.log-level", "INFO");
 pref("extensions.changeHosts.read-files-limit", 5000);
 
-pref("browser.preferences.instantApply", true);
+//pref("browser.preferences.instantApply", true);

@@ -42,17 +42,6 @@
             }
         },
 
-        setupUI: function(document){
-            var definitionStatus = this.ctx.browserUtils.getElement("change_hosts_status_definition_name");
-            var current = this.ctx.preferenceUtils.getString('current-host');
-            if (current){
-                var root = this.ctx.preferenceUtils.getString('definitions-root-dir');
-                current = current.replace(root, '');
-                definitionStatus.value = current;
-            }
-            this.setCurrentColor();
-        },
-
         setHostEditionMode: function(enabled){
             var content = this.ctx.browserUtils.getElement("content");
             content.setAttribute("editMode", enabled);
@@ -69,28 +58,37 @@
         },
 
         setCurrentHost: function(path){
-            var fileSeparator = this.ctx.fileUtils.getFileSeparator();
-            var ext = this.ctx.preferenceUtils.getString('default-host-file-extension');
+			var statusLabel = this.getHostNameLabelFromPath(path);
+			this.setStatusDefinitionName(statusLabel);
+            this.setCurrentColor();
+			this.ctx.browserUtils.getElement('current-host').value = statusLabel;
+        },
 
-            var internalLabel;
-            var statusLabel;
-            if (!path || path == ''){
-                statusLabel = 'No host selected';
-                internalLabel = statusLabel + ' (Blank or manually defined)';
-            }else{
-                var root = this.ctx.preferenceUtils.getString('definitions-root-dir');
-                if(!this.ctx.browserUtils.endsWith(root, fileSeparator)){
-                    root = root + fileSeparator;
-                }
-                internalLabel = path.replace(root, '');
-                internalLabel = internalLabel.replace(ext,'');
-                statusLabel = internalLabel;
-            }
-            this.ctx.browserUtils.getElement('current-host').value = internalLabel;
-            this.ctx.browserUtils.getElement("change_hosts_status_definition_name", this.ctx.browserUtils.getBrowserWindow().document)
-            .value = statusLabel;
+        setupUI: function(document){
+            var current = this.ctx.preferenceUtils.getString('current-host');
+			var statusLabel = this.getHostNameLabelFromPath(current);
+			this.setStatusDefinitionName(statusLabel);
             this.setCurrentColor();
         },
+
+		setStatusDefinitionName: function(label){
+			var browserWindow = this.ctx.browserUtils.getBrowserWindow().document;
+			this.ctx.browserUtils.getElement("change_hosts_status_definition_name", browserWindow).value = label;
+		},
+
+		getHostNameLabelFromPath: function(path){
+			if (path && path != ''){
+				var fileSeparator = this.ctx.fileUtils.getFileSeparator();
+				var ext = this.ctx.preferenceUtils.getString('default-host-file-extension');
+				var root = this.ctx.preferenceUtils.getString('definitions-root-dir');
+				if(!this.ctx.browserUtils.endsWith(root, fileSeparator)){
+					root = root + fileSeparator;
+				}
+				return path.replace(root, '').replace(ext,'')
+			}else{
+				return 'No host selected';
+			}
+		},
 
 		setCurrentColor: function(){
 			this.logger.debug("Setting hosts color...");

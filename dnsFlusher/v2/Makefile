@@ -1,11 +1,11 @@
 # The name of the extension.
-extension_name := changeHosts
+extension_name := dnsFlusher
 
 # The UUID of the extension.
-extension_uuid := de1c70de-0466-4913-90e9-562e2efd555d
+extension_uuid := 7d575baa-b543-11dc-8314-0800200c9a66
 
 # The name of the profile dir where the extension can be installed.
-profile_dir := changeHosts
+profile_dir := dnsFlusher
 
 # The zip application to be used.
 ZIP := zip
@@ -78,7 +78,8 @@ xpi_built := \
 	$(call rwildcard,chrome/,*.png) \
 	$(call rwildcard,chrome/,*.dtd) \
 	$(call rwildcard,chrome/,*.properties) \
-	$(call rwildcard,defaults/,*.js)
+	$(call rwildcard,defaults/,*.js) \
+	$(call rwildcard,components/,*.js) 
 
 # This builds everything except for the actual XPI, and then it copies it to the
 # specified profile directory, allowing a quick update that requires no install.

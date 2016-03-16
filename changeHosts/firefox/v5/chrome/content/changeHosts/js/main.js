@@ -39,21 +39,18 @@
 
 		handleUpgrade: function() {
 			var oldVersion = this.ctx.preferenceUtils.getInt("version");
-			if (oldVersion == null) {
+			if (oldVersion == null || oldVersion == 0) {
 				this.logger.info("Upgrading from version 3 to version " + this.currentVersion);
-
-				// Create the new database
-				this.ctx.dao.createDB();
 
 				// Set a preference to open a dialog about the migration
 				this.ctx.preferenceUtils.setBool("open-migration-dialog", true);
-				this.ctx.preferenceUtils.setInt("version", this.currentVersion);
 			}else{
 				if (oldVersion == 4) {
 					this.logger.info("Upgrading from version 4 to version " + this.currentVersion);
 					this.ctx.preferenceUtils.setInt(this.ctx.readFilesLimit, 5000);
 				}
 			}
+			this.ctx.preferenceUtils.setInt("version", this.currentVersion);
 		},
 
 		dispatchStatusClick: function(anchor, event) {

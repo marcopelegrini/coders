@@ -26,10 +26,7 @@
 				this.ctx.browserUtils.getElement("flushDNSOnChangeCheckbox").disabled = false;
 			}
 
-			var openDialog = this.ctx.preferenceUtils.getBool("open-migration-dialog");
-			if (openDialog) {
-				this.handleMigration();
-			}
+			this.handleMigration();
 
 			this.buildRegexList();
 		},
@@ -38,68 +35,13 @@
 
 		},
 
-
 		handleMigration: function() {
-			var params = {
-				inn: null,
-				out: null
-			};
-			window.openDialog("chrome://changeHosts/content/migrationDialog.xul", "showmore", "chrome, dialog, modal, centerscreen", params).focus();
-
-			var out = params.out;
-			if (out) {
-				if(out.filePath){
-					// Set hosts location value on general tab
-					var textbox = this.ctx.browserUtils.getElement("definitions-root-dir");
-					textbox.value = out.filePath;
-					this.ctx.browserUtils.getElement('prefpane_general').userChangedValue(textbox);
-					this.rootDirSelected();
-				}
-				if (out.migrate) {
-					if (out.later) {
-						// Just return. Window will open later.
-						return;
-					} else {
-						// Run migration process
-						this.copyDefinitionsFromDatabaseToFiles();
-						this.reloadTree();
-						// Sucess message
-						var msg = this.ctx.preferenceUtils.getSBundle().getString("cH.migrationComplete");
-						alert(msg);
-
-						// Activate hosts tab
-						var prefWindow = this.ctx.browserUtils.getElement("changeHosts-settings");
-						var prefPane = this.ctx.browserUtils.getElement("prefpane_definitions");
-						prefWindow.showPane(prefPane);
-
-						this.ctx.preferenceUtils.clear("open-migration-dialog");
-					}
-				}else{
+			var openDialog = this.ctx.preferenceUtils.getBool("open-migration-dialog");
+			if (openDialog) {
+				var msg = this.ctx.preferenceUtils.getSBundle().getString("cH.oldVersionDisclaimer");
+				var result = this.ctx.browserUtils.showPrompt("Change Hosts", msg, "Continue");
+				if (result == 0){
 					this.ctx.preferenceUtils.clear("open-migration-dialog");
-				}
-			}
-		},
-
-		copyDefinitionsFromDatabaseToFiles: function(){
-			var definitions = this.ctx.dao.listDefinitions();
-			var hostsLocationPath = this.ctx.browserUtils.getElement("definitions-root-dir").value;
-			var fileSeparator = this.ctx.fileUtils.getFileSeparator();
-			var extension = this.ctx.preferenceUtils.getString('default-host-file-extension');
-			if(!this.ctx.browserUtils.endsWith(hostsLocationPath, fileSeparator)){
-				hostsLocationPath = hostsLocationPath + fileSeparator;
-			}
-
-			for (var i = 0; i < definitions.length; i++){
-				var definition = definitions[i];
-				var filePath = hostsLocationPath + fileSeparator + definition.name + extension;
-				this.logger.info("Migrating file: " + filePath);
-				var file = this.ctx.fileUtils.getFile(filePath);
-				if (file && file.exists()){
-					var msg = this.ctx.preferenceUtils.getSBundle().getFormattedString("cH.replaceContent", [filePath]);
-					var replaceContent = confirm(msg);
-					this.ctx.fileUtils.saveFile(file, definition.content);
-				}else{
-					this.ctx.fileUtils.save(filePath, definition.content);
 				}
 			}
 		},
@@ -274,15 +216,15 @@
 				var regex = regexConfig.regex;
 				var color = regexConfig.color;
 
-				var row = this.ctx.browserUtils.createElement('listitem');
+				var row = document.createElement('listitem');
 				row.setAttribute('value', regex);
 				row.setAttribute('color', color);
 
-				var regexCell = this.ctx.browserUtils.createElement('listcell');
+				var regexCell = document.createElement('listcell');
 				regexCell.setAttribute('label', regex);
 				row.appendChild(regexCell);
 
-				var colorCell = this.ctx.browserUtils.createElement('listcell');
+				var colorCell = document.createElement('listcell');
 				colorCell.setAttribute('label', '\u25A0');
 				colorCell.setAttribute('value', color);
 				colorCell.setAttribute('class', 'color');
@@ -312,7 +254,7 @@
 				},
 				out: null
 			};
-			window.openDialog("chrome://changeHosts/content/regexDialog.xul", "showmore", "chrome, dialog, modal, centerscreen", params).focus();
+			window.openDialog("chrome://changeHosts/content/dialogs/regexDialog.xul", "showmore", "chrome, dialog, modal, centerscreen", params).focus();
 
 			var out = params.out;
 			if (out) {
@@ -339,7 +281,7 @@
 				},
 				out: null
 			};
-			window.openDialog("chrome://changeHosts/content/regexDialog.xul", "showmore", "chrome, dialog, modal, centerscreen", params).focus();
+			window.openDialog("chrome://changeHosts/content/dialogs/regexDialog.xul", "showmore", "chrome, dialog, modal, centerscreen", params).focus();
 
 			var out = params.out;
 			if (out) {
@@ -386,7 +328,7 @@
 		try {
 			coders.changeHosts.options.general.onLoad();
 		} catch (e) {
-			Application.console.log("Error loading general options: " + e);
+			console.log("Error loading general options: " + e);
 		}
 	}, false);
 })();

@@ -47,15 +47,6 @@
 <!ENTITY  cH.DNSFlusherIntegrationMiss			"You don't have DNS Flusher installed. If you had it you could flush the DNS right from Change Hosts. Install it from here!">
 <!ENTITY  cH.DNSFlusherIntegrationFound			"You have DNS Flusher installed, so if you want to flush the DNS after changing hosts, mark the checkbox above.">
 <!ENTITY  cH.definitionsRootDirectoryDisclaimer	"You can select a subfolder of your hosts folder, includes will continue to work properly">
-<!ENTITY  cH.migrationDisclaimer1				"Dear user,
-Coders Team proudly announce a brand new version of Change Hosts.
-In this version we do not store definitions in a Change Hosts database anymore, we're using a different approach which consists in using your OS file system, storing definitions as regular files. 
-It also supports 'includes' using a pattern called 'Hostesse'. More details ">
-
-<!ENTITY  cH.migrationDisclaimer2				"
-
-In order to start using this new version you should migrate your old 'Definitions' to a folder. 
-Choose below a folder to store the files. Make sure it's writable.">
 
 <!ENTITY  cH.defaultColor						"Default color">
 <!ENTITY  cH.add								"Add">

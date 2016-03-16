@@ -9,7 +9,7 @@
 
         ctx: coders.changeHosts.applicationContext,
 		logger: Log.repository.getLogger("coders.changeHosts.dnsFlusherIntegration"),
-		
+
         dnsFlusherService: null,
 
         setContext: function(applicationContext){
@@ -34,6 +34,7 @@
                 }
             } catch (anError) {
                 this.logger.error("Error integrating with DNSFlusher: " + anError);
+				this.logger.error(anError);
             }
             return false;
         }

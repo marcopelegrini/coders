@@ -47,7 +47,7 @@
                 // Pre select
                 this.setTreeSelection(tree);
             }catch(ex){
-                this.ctx.browserUtils.showAlert("Change Hosts", ex);
+                //this.ctx.browserUtils.showAlert("Change Hosts", ex);
                 this.logger.error(ex);
             }
         },
@@ -103,7 +103,7 @@
                 },
                 out:null
             };
-            window.openDialog("chrome://changeHosts/content/deleteDialog.xul", "showmore", "chrome, dialog, modal, centerscreen", params).focus();
+            window.openDialog("chrome://changeHosts/content/dialogs/deleteDialog.xul", "showmore", "chrome, dialog, modal, centerscreen", params).focus();
 
             var out = params.out;
             if (out && out.remove) {
@@ -131,7 +131,7 @@
                 },
                 out:null
             };
-            window.openDialog("chrome://changeHosts/content/deleteDialog.xul", "showmore", "chrome, dialog, modal, centerscreen", params).focus();
+            window.openDialog("chrome://changeHosts/content/dialogs/deleteDialog.xul", "showmore", "chrome, dialog, modal, centerscreen", params).focus();
 
             var out = params.out;
             if (out && out.remove) {
@@ -184,7 +184,7 @@
                     },
                     out:null
                 };
-                window.openDialog("chrome://changeHosts/content/colorDialog.xul", "showmore", "chrome, dialog, modal, resizable=no, centerscreen", params).focus();
+                window.openDialog("chrome://changeHosts/content/dialogs/colorDialog.xul", "showmore", "chrome, dialog, modal, resizable=no, centerscreen", params).focus();
 
                 var out = params.out;
                 if (out) {
@@ -244,7 +244,7 @@
                         },
                         out:null
                     };
-                    window.openDialog("chrome://changeHosts/content/colorDialog.xul", "showmore", "chrome, dialog, modal, resizable=no, centerscreen", params).focus();
+                    window.openDialog("chrome://changeHosts/content/dialogs/colorDialog.xul", "showmore", "chrome, dialog, modal, resizable=no, centerscreen", params).focus();
 
                     var out = params.out;
                     if (out) {
@@ -484,7 +484,7 @@
 
         createTreeChildren: function(id){
             this.logger.trace('Creating treechildren ' + id);
-            var treechildren = this.ctx.browserUtils.createElement('treechildren');
+            var treechildren = document.createElement('treechildren');
             treechildren.setAttribute('id', 'tc-' + id);
             treechildren.setAttribute('contextmenu', 'dirSelectionMenu');
             return treechildren;
@@ -493,11 +493,11 @@
         createTreeChildrenItem: function(label, path){
             this.logger.trace('Create treeitem/row/cell ' + label);
 
-            var dirCell = this.ctx.browserUtils.createElement('treecell');
+            var dirCell = document.createElement('treecell');
             dirCell.setAttribute('label', label);
             dirCell.setAttribute('value', path);
             var color = this.ctx.hostsManager.findHostsColor(path);
-            var colorCell = this.ctx.browserUtils.createElement('treecell');
+            var colorCell = document.createElement('treecell');
             colorCell.setAttribute('label', '\u25A0');
             colorCell.setAttribute('value', color);
 
@@ -505,18 +505,18 @@
 
             colorCell.setAttribute('properties', normalizedPath);
             this.setTreeCellColor(normalizedPath, color);
-            // var hideCell = this.ctx.browserUtils.createElement('treecell');
+            // var hideCell = document.createElement('treecell');
             // hideCell.setAttribute('label', 'Hide');
             // hideCell.setAttribute('value', 'Hide');
 
-            var treerow = this.ctx.browserUtils.createElement('treerow');
+            var treerow = document.createElement('treerow');
             treerow.appendChild(dirCell);
             if(colorCell){
                 treerow.appendChild(colorCell);
             }
             // treerow.appendChild(hideCell);
 
-            var treeitem = this.ctx.browserUtils.createElement('treeitem');
+            var treeitem = document.createElement('treeitem');
             treeitem.setAttribute('id', 'ti-' + label);
             treeitem.setAttribute('open', true);
             treeitem.setAttribute('value', path);
@@ -538,19 +538,19 @@
 
                 for(var i = 0; i < this.hostMap.get(key).length; i++){
                     var host = this.hostMap.get(key)[i];
-                    var row = this.ctx.browserUtils.createElement('listitem');
+                    var row = document.createElement('listitem');
                     row.setAttribute('value', host.path);
                     row.setAttribute('context', 'hostSelectionMenu');
 
                     var hostName = this.getHostNameFromFileName(host.fileName);
 
-                    var hostNameCell = this.ctx.browserUtils.createElement('listcell');
+                    var hostNameCell = document.createElement('listcell');
                     hostNameCell.setAttribute('label', hostName);
                     row.appendChild(hostNameCell);
 
                     var color = this.ctx.hostsManager.findHostsColor(host.path);
 
-                    var colorCell = this.ctx.browserUtils.createElement('listcell');
+                    var colorCell = document.createElement('listcell');
                     colorCell.setAttribute('label', '\u25A0');
                     colorCell.setAttribute('value', color);
                     colorCell.setAttribute('class', 'color');
@@ -610,7 +610,7 @@
             if(tree.view && tree.currentIndex > -1 && tree.view.isContainer(tree.currentIndex)){
                 // Add a menuitem if there isn't one
                 if(!menuitem){
-                    menuitem = this.ctx.browserUtils.createElement('menuitem');
+                    menuitem = document.createElement('menuitem');
                     menuitem.setAttribute('id', 'expansionToggle');
                     menuitem.setAttribute('onclick', 'coders.changeHosts.options.definitions.toggleExpansible(event);');
                 }

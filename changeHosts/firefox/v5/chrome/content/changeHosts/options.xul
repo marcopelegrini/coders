@@ -23,7 +23,6 @@
 		<stringbundle id="coders.changeHosts.string-bundle" src="chrome://changeHosts/locale/localization.properties"/>
 	</stringbundleset>
 
-
 	<!-- Utils -->
 	<script type="application/x-javascript" src="chrome://changeHosts/content/js/ctech/nsLoader.js" />
 	<script type="application/x-javascript" src="chrome://changeHosts/content/js/ctech/preferenceUtils.js" />
@@ -40,14 +39,12 @@
 
 	<!-- App ctx -->
 	<script type="application/x-javascript" src="chrome://changeHosts/content/js/applicationContext.js" />
-	<script type="application/x-javascript" src="chrome://changeHosts/content/js/optionsCommons.js" />
 	<script type="application/x-javascript" src="chrome://changeHosts/content/js/optionsDefinitions.js" />
 	<script type="application/x-javascript" src="chrome://changeHosts/content/js/optionsGeneral.js" />
 
 	<prefpane
 		id="prefpane_general"
 		label="&cH.tabGeneral;"
-		onload="alert('teste');"
 		onpaneload="coders.changeHosts.options.general.checkPermissions(); coders.changeHosts.options.general.scriptPermissionToggleCheck();">
 		<preferences>
 			<preference id="hosts-location-preference" name="extensions.changeHosts.hosts-location" type="unichar" />
