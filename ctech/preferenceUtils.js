@@ -2,73 +2,77 @@
 
 	coders.preferenceUtils = function(branchName, bundleName) {
 
+		this.prefService = Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefService);
 		this.branchName = branchName;
 		this.bundleName = bundleName;
-		this.prefs = null;
+		this.prefsBranch = null;
 
 		//Get preferences branch
-		this.getPrefs = function() {
+		this.getPrefs = function(branchName) {
 			//Lazy loading
-			if (!this.prefs) {
-				var prefService = Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefService);
-				this.prefs = prefService.getBranch(this.branchName);
+			if (branchName){
+				return this.prefService.getBranch(branchName);
+			}else{
+				if (!this.prefsBranch) {
+					this.prefsBranch = this.prefService.getBranch(this.branchName);
+				}
+				return this.prefsBranch;
 			}
-			return this.prefs;
 		}
 
-		this.getBool = function(name) {
+		this.getBool = function(name, branchName) {
 			try {
-				return this.getPrefs().getBoolPref(name);
+				return this.getPrefs(branchName).getBoolPref(name);
 			} catch (e) {
 				return null;
 			}
 		}
 
-		this.setBool = function(name, value) {
+		this.setBool = function(name, value, branchName) {
 			try {
-				this.getPrefs().setBoolPref(name, value);
+				this.getPrefs(branchName).setBoolPref(name, value);
 			} catch (e) {
 				throw "Could not set preference " + name + " to value " + value;
 			}
 		}
 
-		this.getString = function(name) {
+		this.getString = function(name, branchName) {
 			try {
-				return this.getPrefs().getCharPref(name);
+				return this.getPrefs(branchName).getCharPref(name);
 			} catch (e) {
 				return null;
 			}
 		}
 
-		this.setString = function(name, value) {
+		this.setString = function(name, value, branchName) {
 			try {
-				this.getPrefs().setCharPref(name, value);
+				this.getPrefs(branchName).setCharPref(name, value);
 			} catch (e) {
 				throw "Could not set preference " + name + " to value " + value;
 			}
 		}
 
-		this.getInt = function(name) {
+		this.getInt = function(name, branchName) {
 			try {
-				return this.getPrefs().getIntPref(name);
+				return this.getPrefs(branchName).getIntPref(name);
 			} catch (e) {
 				return null;
 			}
 		}
 
-		this.setInt = function(name, value) {
+		this.setInt = function(name, value, branchName) {
 			try {
-				this.getPrefs().setIntPref(name, value);
+				this.getPrefs(branchName).setIntPref(name, value);
 			} catch (e) {
 				throw "Could not set preference " + name + " to value " + value;
 			}
 		}
 
-		this.clear = function(name) {
+		this.clear = function(name, branchName) {
 			try {
-				this.getPrefs().clearUserPref(name);
+				this.getPrefs(branchName).clearUserPref(name);
 			} catch (e) {
-				throw "Could not reset preference ";
+				throw "Could not reset preference " + name;
 			}
 		}
 

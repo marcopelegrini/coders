@@ -22,13 +22,6 @@
             return document.getElementById(id);
         },
 
-        createElement: function(elementType, aDocument){
-            if (aDocument) {
-                return aDocument.createElement(elementType);
-            }
-            return document.createElement(elementType);
-        },
-
         getBrowserWindow: function(){
             var wm = Components.classes["@mozilla.org/appshell/window-mediator;1"].getService(Components.interfaces.nsIWindowMediator);
             return wm.getMostRecentWindow("navigator:browser");
@@ -75,22 +68,17 @@
             prompts.alert(null, title, text);
         },
 
-        showPrompt: function(){
+        showPrompt: function(title, text, buttonLabel){
             var prompts = Components.classes["@mozilla.org/embedcomp/prompt-service;1"].getService(Components.interfaces.nsIPromptService);
 
             // default the checkbox to false
+			var checkboxTitle = null;
             var check = {value: false};
 
-            var flags = prompts.BUTTON_POS_0 * prompts.BUTTON_TITLE_SAVE +
-                        prompts.BUTTON_POS_1 * prompts.BUTTON_TITLE_IS_STRING  +
-                        prompts.BUTTON_POS_2 * prompts.BUTTON_TITLE_CANCEL;
-            // This value of flags will create 3 buttons. The first will be "Save", the
-            // second will be the value of aButtonTitle1, and the third will be "Cancel"
+            var flags = prompts.BUTTON_POS_0 * prompts.BUTTON_TITLE_IS_STRING +
+                        prompts.BUTTON_POS_1 * prompts.BUTTON_TITLE_CANCEL;
 
-            var button = prompts.confirmEx(null, "Title of this Dialog", "What do you want to do?", flags, "", "Button 1", "", null, check);
-
-            // The checkbox will be hidden, and button will contain the index of the button pressed,
-            // 0, 1, or 2.
+            return prompts.confirmEx(null, title, text, flags, buttonLabel, null, null, null, check);
         }
     }
 })(window.coders = window.coders||{});
