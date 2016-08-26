@@ -1,0 +1,1299 @@
+// color variables (appears count calculates by raw css)
+@white: #ffffff; // appears 13 times
+@black: #000000; // appears 4 times
+// Texts
+@text-1: #eeeeee; // appears 218 times
+@text-2: #cccccc; // appears 67 times
+@text-3: #bbbbbb; // appears 6 times
+@text-4: #aaaaaa; // appears 6 times
+@text-5: #202020; // appears 5 times
+// Links
+@link: #6daacb; //
+// Backgrounds
+@background-1: #2b2b2b; // appears 64 times
+@background-2: #333333; // appears 7 times
+@background-3: #525252; // appears 18 times
+@background-4: #65686a; //
+@background-focus: #5d5d5d; //
+// Borders
+@border-1: #EEEEEE; //
+@border-2: #404040; //
+@color5: #445566; // appears 23 times
+@color7: #777777; // appears 18 times
+@color8: #667788; // appears 15 times
+@color9: #999999;
+@color10: #2e2e2e; // appears 12 times
+@color11: #9cf674; // appears 10 times
+@color12: #c8c8ca; // appears 9 times
+@color13: #e5e5e5; // appears 8 times
+@color17: #ccddee; // appears 4 times
+@color19: #66cc66; // appears 3 times
+@color24: #8899aa; // appears 3 times
+@color26: #3c3c3c; // appears 2 times
+@color29: #00cc00; // appears 2 times
+@color31: #ff5555; // appears 2 times
+@color32: #ffff00; // appears 2 times
+@color34: #666666; // appears 2 times
+@color35: #e2dc5a; // appears 2 times
+@color36: #c9adf3; // appears 2 times
+@color37: #4f544d; // appears 2 times
+@color38: #3a9f6a; // appears 2 times
+@color39: #ff4400; // appears 2 times
+@color42: #00ddff; // appears 2 times
+html,
+body {
+    color: @text-1;
+    background-color: @background-4;
+}
+a {
+    color: @link;
+    &:hover {
+        color: #85cbf1;
+        text-decoration: none !important;
+    }
+}
+.container {
+    width: 80%;
+    min-width: 980px;
+    p {
+        color: @text-1;
+    }
+}
+.dashboard {
+    .news {
+        background: @color5;
+        border: 1px solid @text-2;
+        border-radius: 0.3em;
+        padding-top: 0.6em;
+        padding-bottom: 1em;
+    }
+}
+table.files,
+.numbers-summary,
+.readme .markdown-body,
+.readme .plain,
+.blankslate,
+.boxed-group-inner,
+.tint-box,
+.capped-card-content,
+.Box-body {
+    background-color: @background-3;
+    border: none;
+    .Box-body-row {
+        border-top: 1px solid @border-2;
+    }
+    .Box-body-row--highlight.navigation-focus,
+    .Box-body-row--highlight:hover {
+        background-color: @background-focus;
+    }
+    .Box-body-row--highlight .Box-row-link {
+        color: @text-2;
+    }
+}
+.boxed-group-inner {
+    color: @text-1;
+}
+.capped-card {
+    border: none;
+    h3 {
+        background-color: @background-1;
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+    }
+}
+.summary-stats li a {
+    color: @text-1;
+    &:hover {
+        background-color: @background-focus;
+    }
+}
+.file {
+    border: none;
+}
+.file-wrap,
+.file-header {
+    background-color: @background-1;
+    border: none;
+}
+table.files {
+    tr.navigation-focus td {
+        background-color: @background-focus;
+    }
+    td {
+        border-top: 1px solid @border-2;
+        &.icon {
+            color: @text-1;
+        }
+        &.message a {
+            color: @text-3;
+            &:hover {
+                color: @text-2;
+            }
+        }
+    }
+}
+.warning {
+    background-color: @text-1;
+    color: @color31;
+    table.files {
+        td.icon {
+            color: @color31;
+        }
+    }
+}
+.header,
+.site-header {
+    background-color: @background-1;
+    border-bottom: 1px solid @color13;
+    color: @text-2;
+}
+.numbers-summary {
+    a {
+        color: @text-2;
+        &:hover {
+            color: @text-1;
+        }
+    }
+}
+.site-footer {
+    color: @text-2;
+}
+.user-mention {
+    color: @link;
+}
+.repohead {
+    h1 {
+        color: @text-1;
+    }
+}
+.commit-group-title {
+    color: @text-1;
+    .octicon-git-commit {
+        background: none;
+    }
+}
+.commits-list-item {
+    .commit-meta {
+        color: @text-4;
+    }
+    .commit-author {
+        color: @link;
+    }
+    &.navigation-focus {
+        background-color: @background-focus;
+    }
+}
+.header-logo-wordmark {
+    color: @text-1;
+}
+.header-logo-wordmark:hover {
+    color: @text-1;
+}
+.header-logo-invertocat {
+    color: @text-1;
+}
+.header-logo-invertocat:hover {
+    color: @text-1;
+}
+.header-nav-link {
+    color: @text-1;
+}
+.header-nav-link:hover {
+    color: @text-1;
+}
+.auth-form-header {
+    color: @text-1;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
+    background-color: @background-1;
+    border: 1px solid @text-2;
+    border-radius: 5px 5px 0 0;
+}
+.auth-form-body {
+    background-color: @background-1;
+    border-width: 0 1px 1px;
+    border-style: none solid solid;
+    border-image: none;
+    border-radius: 0 0 5px 5px;
+}
+.session-authentication {
+    background-color: @color5;
+    .auth-form-header {
+        background-color: transparent;
+        color: @text-1;
+    }
+    .header-logo {
+        color: @text-1;
+    }
+}
+.header-search-wrapper {
+    padding: 0;
+}
+.url-field {
+    min-height: 26px;
+}
+.notification-indicator {
+    .mail-status {
+        background-image: linear-gradient(@color11, @color12);
+        color: @text-1;
+        border: 2px solid @color13;
+    }
+}
+.main-content {
+    padding-bottom: 24px;
+}
+.discussion-sidebar {
+    padding: 0.8em;
+    border: 1px solid @text-2;
+    border-radius: 0.4em;
+    box-shadow: 0.2em 0.2em 0.5em rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
+    background: @background-1;
+    width: 220px;
+}
+.discussion-timeline-actions {
+    border-top: 2px solid transparent;
+    background: transparent;
+}
+.thread-subscription-status {
+    color: @text-1;
+    background: transparent;
+    border: 1px solid @color13;
+}
+.progress-bar {
+    background-color: @color8;
+}
+.sunken-menu {
+    background-image: linear-gradient(to right, @background-1 0%, @color5 8px);
+    box-shadow: 1px 0 0 @color5 inset;
+}
+.sunken-menu::before {
+    background-color: transparent;
+    background-image: linear-gradient(@color5, rgba(255, 255, 255, 0));
+}
+.sunken-menu::after {
+    background-color: transparent;
+    background-image: linear-gradient(rgba(255, 255, 255, 0), @color5);
+}
+.sunken-menu-item {
+    .octicon {
+        color: @text-2;
+    }
+}
+.sunken-menu-item:focus .octicon,
+.sunken-menu-item:hover .octicon {
+    color: @text-1;
+}
+.sunken-menu-item.selected {
+    color: @text-1;
+    background-color: @color5;
+    border-color: @color8 @color29 @color8 transparent;
+    border-radius: 0 4px 4px 0;
+    box-shadow: 3px 1px 3px rgba(0, 0, 0, 0.35);
+    .octicon {
+        color: @text-1;
+    }
+}
+.sunken-menu-item.selected:after {
+    width: 3px;
+    background-color: @color29;
+    border-radius: 0 3px 3px 0;
+}
+.sunken-menu-separator {
+    background-image: radial-gradient(farthest-side at left top, @background-4, rgba(244, 244, 244, 0));
+}
+.sunken-menu-separator::before {
+    background-image: linear-gradient(to right, @color8 70%, @color24 100%);
+}
+.tabnav-pr {
+    border-color: @color10;
+    .tabnav-tab.selected {
+        color: @text-1;
+        border: 1px solid @color10;
+    }
+}
+.tabnav-pr .tabnav-tab,
+.tabnav-tab {
+    color: @text-2;
+    background-color: @color26;
+    border: 1px solid @color10;
+    border-bottom: none;
+    border-radius: 3px 3px 0 0;
+}
+.tabnav-tab.selected {
+    background-color: @background-4;
+}
+.tabnav-extra {
+    color: @text-2;
+}
+a.tabnav-extra:hover {
+    color: @text-1;
+}
+.subnav-item {
+    border: 1px solid @text-1;
+    background-color: @background-4;
+    color: @text-2;
+}
+.subnav-item:hover,
+.subnav-item:focus {
+    text-decoration: none;
+    background-color: @background-3;
+    color: @text-1;
+}
+.subnav-item.selected,
+.subnav-item.selected:hover,
+.subnav-item.selected:focus {
+    color: @text-2;
+    background-color: @background-3;
+    border-color: @text-1;
+}
+.subnav-search-context {
+    .btn {
+        color: @text-1;
+    }
+}
+.text-emphasized {
+    color: @text-1;
+}
+// .text-muted,
+// .text-gray {
+//     color: @text-2 !important;
+// }
+.repository-meta {
+    color: @text-1;
+}
+.repo-list-item {
+    background: @color5;
+    border: 1px solid @text-2;
+    border-radius: 0.4em;
+    padding: 1em 1em 4em;
+    margin: 1em -1em;
+}
+.repo-list-item .repo-list-stats,
+.repo-list-item .repo-list-name,
+.repo-list-item .repo-list-description,
+.repo-list-item .repo-list-meta {
+    z-index: 2;
+    position: relative;
+}
+.repo-list {
+    .participation-graph {
+        left: 1em;
+        z-index: 1;
+        color: @color11;
+        opacity: 0.2 !important;
+        .bars {
+            rect {
+                fill: @color11 !important;
+            }
+        }
+    }
+}
+.private {
+    .mini-repo-list-item {
+        background-color: @background-4;
+    }
+}
+.mini-repo-list-item .repo-description,
+.mini-repo-list-item .repo-icon,
+.mini-repo-list-item .stars {
+    color: @text-1;
+    fill: currentcolor;
+}
+.filter-bar {
+    background-color: @background-3;
+    border-bottom: 1px solid @border-2;
+}
+.repo-filterer {
+    .repo-filter.filter-selected {
+        color: @text-1;
+        border-bottom-color: @text-1;
+    }
+}
+.feature-callout {
+    color: @color34;
+    background-color: @background-1;
+    border: 1px solid @color8;
+    border-top: 1px dashed @text-2;
+    border-bottom: 0;
+    .feature-dismiss-link {
+        color: @text-1;
+    }
+}
+.bootcamp {
+    h1 {
+        background-color: @background-1;
+        border-bottom: none;
+    }
+    .bootcamp-body {
+        background-color: @background-4;
+        border-color: @color8;
+    }
+    ul {
+        li {
+            background-image: linear-gradient(@color12, @color9);
+            border: 1px solid @color8;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+        }
+    }
+}
+input.input-contrast,
+.input-contrast {
+    background-color: @background-1;
+    color: @text-1;
+}
+input.input-contrast:focus,
+.input-contrast:focus {
+    background-color: @background-4;
+    color: @text-1;
+}
+.site-header-nav-main {
+    .nav-item {
+        border-top: 0;
+        border-bottom: 4px solid transparent;
+    }
+}
+.site-header-nav {
+    .nav-item {
+        color: @text-2;
+    }
+    .nav-item:hover {
+        color: @text-1;
+    }
+}
+.pagehead-nav-item {
+    color: @text-2;
+}
+.pagehead-nav-item:hover {
+    color: @text-1;
+}
+.pagehead-nav-item.selected {
+    color: @text-1;
+    border-bottom: 3px solid @white;
+}
+.collection-card {
+    background: @background-4;
+    border: 1px solid @color8;
+    border-radius: 3px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+.collection-card-meta {
+    color: @text-2;
+}
+.branch-name {
+    background-color: @background-1;
+    border: 1px solid @text-2;
+    color: @text-1;
+}
+a {
+	&.branch-name {
+	    color: @text-1;
+	}
+	&.label-link {
+		border: none;
+	}
+}
+
+.btn {
+    color: @text-1;
+    background-color: @text-1;
+    border: 1px solid @background-2;
+    background: linear-gradient(@text-5, @background-1);
+}
+.btn:disabled,
+.btn:disabled:hover,
+.btn.disabled,
+.btn.disabled:hover {
+    color: rgba(0, 0, 0, 0.5);
+}
+.btn:hover,
+.btn:active,
+.btn.selected,
+.btn.zeroclipboard-is-hover,
+.btn.zeroclipboard-is-active {
+    background-color: @black;
+    background-image: linear-gradient(@black, @black);
+    border-color: @text-5;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15) inset;
+}
+.btn {
+	&:focus, &:hover {
+    	border-color: @text-5;
+		box-shadow: initial;
+	}
+}
+.btn-primary {
+    color: @text-1;
+    background: #6cc644;
+    border: none;
+	&:hover {
+	    color: @text-1;
+		background: #5faf3c;
+		border: none;
+	}
+}
+.btn-link {
+    color: @text-1;
+    background-color: transparent;
+    border: 0 none;
+    -moz-user-select: none;
+}
+.btn-sm {
+    padding: 5px 15px;
+}
+.social-count {
+    background-color: @text-3;
+    padding: 5px 8px;
+}
+.muted-link {
+    color: @text-2 !important;
+    &:hover {
+        color: @text-2 !important;
+    }
+}
+.collection-tools {
+    .select-menu-button {
+        color: @text-2;
+    }
+    .select-menu-button:hover {
+        color: @text-1;
+    }
+}
+.button,
+.button-secondary {
+    background-color: @text-1;
+    color: @text-1;
+}
+.button:hover,
+.button-secondary:hover {
+    background-color: @color11;
+}
+.pl-mb {
+    color: @text-1;
+}
+.pl-c {
+    color: @color19;
+}
+.pl-ent {
+    color: #93d38c;
+}
+.pl-e,
+.pl-en {
+    color: @color36;
+}
+.pl-smi {
+    color: #f6a;
+}
+.pl-k {
+    color: #f6c;
+}
+.commit-tease {
+    background-color: @background-1;
+    border: none;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+.commit-tease-contributors {
+    background-color: @background-3;
+    border-top: none;
+}
+.selected-line.blob-code,
+.blob-code-context,
+.blob-code,
+.highlight pre {
+    background-color: #333;
+    color: @text-2;
+}
+.blob-expanded .blob-code {
+    background-color: @background-1;
+}
+.blob-code-addition {
+    background-color: #336633;
+}
+.blob-num {
+    background: @background-2;
+    color: @text-4;
+}
+.blob-num-addition {
+    background-color: #336633;
+    color: @text-4;
+}
+.blob-code-deletion {
+    background-color: #6d3d3d;
+}
+.blob-num-deletion {
+    background-color: #6d3d3d;
+    color: @text-4;
+}
+.selected-line.blob-code,
+.is-hovered.blob-code.selected-line {
+    background: @background-1;
+    color: @text-1;
+}
+.is-hovered.blob-code {
+    background: @background-focus;
+}
+.blob-code-addition .x {
+    background-color: #063;
+}
+.blob-code-deletion .x {
+    background-color: #630;
+}
+/* comments */
+.pl-c {
+    color: orange;
+}
+/* keywords and symbols */
+.pl-k {
+    color: yellow;
+}
+/* methods? */
+.pl-en {
+    color: lightcyan;
+}
+.pl-e {
+    color: lightskyblue;
+}
+/* args */
+.pl-smi {
+    color: #ddd;
+}
+.pl-s,
+.pl-vpf {
+    color: aliceblue;
+}
+/* numbers and math-y */
+.pl-c1 {
+    color: greenyellow;
+}
+/* quotes? */
+.pl-pds {
+    color: aquamarine;
+}
+/* regexp and strings */
+.pl-pds,
+.pl-s,
+.pl-s .pl-pse .pl-s1,
+.pl-sr,
+.pl-sr .pl-cce,
+.pl-sr .pl-sra,
+.pl-sr .pl-sre {
+    color: lightsalmon;
+}
+/* no idea */
+.blob-code-inner {
+    color: @text-2;
+}
+.pl-s1 {
+    color: lavender;
+}
+/* markers */
+.blob-code-hunk {
+    color: #666;
+}
+.blob-code-expandable,
+.blob-num-expandable {
+    background-color: @background-1;
+    .diff-expander {
+        color: @text-3;
+        &:hover {
+            background-color: @background-focus;
+        }
+    }
+}
+/* blank lines */
+.file-diff-split .empty-cell,
+.blob-code-empty {
+    background-color: black;
+    color: white;
+}
+/* var substitution on strings */
+.pl-s .pl-s1,
+.pl-smi {
+    color: pink;
+}
+/* markdown titles in source */
+.pl-mh {
+    color: aliceblue;
+}
+.tree-browser {
+    .octicon-file-text {
+        color: @text-2;
+    }
+    tr.navigation-focus {
+        td {
+            background-color: @background-4;
+            .octicon-chevron-right {
+                color: @text-1;
+            }
+        }
+    }
+    td {
+        background: @background-4;
+        border-bottom: 1px solid @text-2;
+        padding: 7px 3px;
+        color: @text-2;
+        vertical-align: middle;
+        white-space: nowrap;
+    }
+    td:first-child {
+        border-left: 1px solid @text-2;
+    }
+    td:last-child {
+        border-right: 1px solid @text-2;
+    }
+}
+.tree-browser-result {
+    mark {
+        background-color: transparent;
+        color: @text-1;
+    }
+}
+mark {
+    background: @color32;
+    color: @black;
+}
+.table-list {
+    background-color: @background-3;
+    border-bottom: none;
+}
+.table-list-header {
+    background-color: @background-1;
+    border: 1px solid @color10;
+    border-radius: 3px 3px 0 0;
+}
+.table-list-header-toggle {
+    .btn-link {
+        color: @text-1;
+    }
+}
+.table-list-header-toggle .btn-link:hover,
+.table-list-header-toggle .btn-link.selected,
+.table-list-header-toggle .btn-link.selected:hover {
+    color: @text-1;
+}
+.table-list-bordered {
+    .table-list-cell {
+        border-top-color: @border-2;
+        &:first-child,
+        &:last-child {
+            border-right: none;
+            border-left: none;
+        }
+    }
+}
+.issues-reset-query {
+    color: @text-1;
+}
+.issues-reset-query:hover {
+    color: @text-1;
+}
+.issues-listing {
+    .table-list-issues {
+        background-color: @background-3;
+        .navigation-focus {
+            background-color: @background-3;
+            .issue-title-link {
+                color: @text-1;
+            }
+            .issue-title-link:hover {
+                color: @text-1;
+            }
+        }
+    }
+    .border-right,
+    .border-bottom,
+    .border-left {
+        border: none !important;
+    }
+}
+.issue-title-link {
+    color: @text-2;
+}
+.issue-title-link:hover {
+    color: #7cd654;
+}
+.issue-meta {
+    color: @text-2;
+}
+.closed.octicon,
+.reverted.octicon {
+    color: @color39;
+}
+.merged.octicon {
+    color: #bc8eff;
+}
+.table-list-item.unread {
+    .table-list-cell:first-child {
+        box-shadow: 4px 0 0 @white inset;
+    }
+}
+.toolbar-item,
+.toolbar-item .menu-target {
+    color: @text-1;
+}
+.toolbar-item:hover,
+.toolbar-item .menu-target:hover,
+.toolbar-item:focus,
+.toolbar-item .menu-target:focus {
+    color: @text-1;
+}
+.dropdown-item {
+    color: @background-2;
+}
+.toolbar-commenting {
+    .dropdown-item:hover {
+        color: @text-1;
+    }
+}
+.focused {
+    .drag-and-drop {
+        border-color: @border-1;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.75);
+    }
+}
+.drag-and-drop {
+    color: @text-2;
+    background-color: @background-1;
+	border-color: @background-2;
+    border-style: none solid solid;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+.merge-branch-heading {
+    color: @text-1;
+}
+.range-editor {
+    background-color: #135;
+    border: 1px solid @color13;
+    border-radius: 3px;
+}
+.range-editor-icon {
+    color: @text-2;
+}
+.recently-touched-branches {
+    color: @text-2;
+    background-color: #235;
+    border: 1px solid @white;
+    border-radius: 3px;
+}
+.recently-pushed-branch-details {
+    a {
+        color: @text-1;
+    }
+}
+.branch-group-heading {
+    background: @background-1;
+    text-shadow: none;
+}
+.branch-group-name {
+    color: @text-1;
+}
+.branch-summary {
+    background: @color5;
+    color: @text-2;
+}
+.branch-meta {
+    color: @text-2;
+}
+.branch-action-body {
+    background-color: @background-1;
+    border: 1px solid @white;
+    border-radius: 3px;
+}
+.branch-action-body .merge-message,
+.branch-action-body .merge-branch-form {
+    background-color: @background-4;
+    border-top: 1px solid @white;
+    border-bottom-right-radius: 2px;
+    border-bottom-left-radius: 2px;
+}
+.branch-action-body::after {
+    border-right-color: @text-1;
+}
+.branch-action-state-unknown .branch-action-body,
+.branch-action-state-unstable .branch-action-body {
+    border-color: @color35;
+}
+.build-status-item {
+    background-color: @background-4;
+    border-bottom: 1px solid @color7;
+}
+.merge-branch-description {
+    color: @text-2;
+}
+.commit-ref {
+    border-radius: 3px;
+    color: @color17;
+    background-color: @background-1;
+    border: 1px solid @color7;
+}
+.merge-pr-more-commits {
+    color: @text-2;
+}
+.merge-branch-manually {
+    .copyable-terminal {
+        background-color: @background-1;
+    }
+}
+.status-meta {
+    color: @text-2;
+}
+.new-discussion-timeline {
+    .closed-banner {
+        background: none;
+        border-radius: 0;
+        border-bottom: none;
+    }
+}
+.full-commit {
+    background: @background-1;
+    border: none;
+    border-radius: 3px;
+    p.commit-title {
+        color: @text-1;
+    }
+    .branches-list {
+        li {
+            color: inherit;
+        }
+    }
+    .btn-outline {
+        border: 1px solid #cedee5;
+        &:hover {
+            color: @text-1;
+            border: 1px solid @color12;
+        }
+        &:not(:disabled):hover {
+            color: @white;
+            border: 1px solid @color12;
+        }
+    }
+    .sha-block {
+        color: @text-2;
+        & > .sha {
+            color: @text-1;
+        }
+    }
+    .commit-meta {
+        background: @background-3;
+        border-top: none;
+        border-bottom-right-radius: 3px;
+        border-bottom-left-radius: 3px;
+    }
+}
+.commit {
+    .commit-title a {
+        color: @text-3;
+    }
+}
+.commit-branches {
+    color: inherit;
+}
+.commit-author-section {
+    color: @text-2;
+}
+
+.file-commit-form .commit-form {
+	background-color: @background-3;
+}
+#suggestions {
+    a {
+        color: @text-1;
+    }
+}
+.prose-diff .changed ins,
+.prose-diff .changed ins code,
+.prose-diff .changed ins pre,
+.prose-diff .changed .added {
+    background: @color38;
+}
+.gollum-editor {
+    .form-control {
+        color: @text-1;
+        background-color: @background-2;
+        background-repeat: no-repeat;
+        background-position: right 8px center;
+        border: 1px solid @color7;
+        border-radius: 3px;
+        outline: none;
+        box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.075);
+        &:focus {
+            border-color: @border-2;
+        }
+    }
+}
+.form-control {
+	color: @text-2;
+	background-color: @background-2 !important;
+	border-color: @background-2 !important;
+    &:focus {
+		color: @text-2;
+        background-color: @background-2 !important;
+        border-color: @background-2;
+        box-shadow: 0 0 10px 0 rgba(255,255,255,0.35);
+    }
+}
+.previewable-comment-form .write-content,
+.previewable-comment-form .preview-content {
+    display: none;
+    padding: 0 0 10px;
+    margin: 0 10px;
+}
+.previewable-comment-form.write-selected .write-content,
+.previewable-comment-form.preview-selected .preview-content {
+    display: block;
+}
+.wiki-wrapper .wiki-content .previewable-comment-form.write-selected .write-content,
+.wiki-wrapper .wiki-content .previewable-comment-form.preview-selected .preview-content {
+    padding: 1em;
+    margin: 0;
+    background: @background-1;
+    border-radius: 1em;
+    border: 1px solid @color7;
+}
+.gh-header-meta {
+    color: @text-3;
+}
+.markdown-body {
+    .highlight pre,
+    pre {
+        background: @background-1;
+    }
+}
+.wiki-body {
+    .markdown-body {
+        padding: 1em;
+        margin: 0;
+        background: @background-3;
+        border-radius: 0.8em 0.8em 0 0;
+        border: 1px solid @color10;
+        border-bottom: none;
+    }
+}
+.wiki-wrapper {
+    .wiki-auxiliary-content {
+        background-color: @background-1;
+    }
+    .wiki-auxiliary-content-no-bg {
+        background-color: @background-3;
+    }
+    .wiki-footer {
+        margin: 0;
+        border-radius: 0 0 0.4em 0.4em;
+        border: 1px solid @color10;
+        .markdown-body {
+            margin: 0;
+            border-radius: 0 0 0.4em 0.4em;
+            border: none;
+        }
+    }
+}
+.wiki-pages-box .wiki-more-pages-link {
+    background: @background-1;
+    box-shadow: none;
+}
+.menu {
+    background-color: @background-4;
+    border: 1px solid @color7;
+}
+.menu-item {
+    text-shadow: none;
+    border-bottom: 1px solid @color7;
+}
+.menu-item:hover {
+    background-color: @text-1;
+    color: @text-1;
+}
+.menu-item.selected {
+    color: @text-1;
+    cursor: default;
+    background-color: @background-4;
+}
+.menu-item.selected::before {
+    width: 3px;
+    background-color: @text-1;
+}
+.repohead.experiment-repo-nav {
+    background-color: @text-5;
+}
+.reponav-item {
+    color: @text-3;
+    .octicon {
+        color: @text-3;
+    }
+    .counter {
+        background-color: @text-3;
+        color: @background-2;
+    }
+}
+.reponav-item:hover {
+    color: @text-1;
+    .octicon {
+        color: @text-1;
+    }
+}
+.reponav-item.selected .counter,
+.reponav-item:hover .counter {
+    background-color: @text-1;
+}
+.reponav-item.selected {
+    color: @text-1;
+    background-color: @background-4;
+    border-color: @white @color13 transparent;
+}
+.reponav-item.selected:hover {
+    color: @text-1;
+}
+.blog-aside {
+    .rss {
+        color: @text-1;
+        .octicon {
+            color: @text-1;
+        }
+    }
+}
+.blog-title {
+    color: @text-1;
+}
+.blog-post-meta {
+    color: @text-2;
+    a {
+        color: @text-1;
+    }
+}
+.blog-content {
+    width: auto;
+    display: block;
+    margin-right: 230px;
+    font-family: "helvetica neue", helvetica, arial, freesans, sans-serif;
+    background: @background-4;
+    padding: 2em;
+    border-radius: 1em;
+    border: 1px solid @color7;
+    box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.3);
+}
+.blog-post-body {
+    color: @text-1;
+}
+.blog-feedback {
+    margin: 50px 0;
+    background-color: @background-1;
+    border-width: 1px;
+    border-style: solid;
+    border-color: @color7;
+    border-radius: 3px;
+    box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.3);
+}
+.blog-feedback-header {
+    border-bottom: 1px solid @color7;
+    box-shadow: none;
+}
+.shelf {
+    background-color: #324;
+}
+.shelf-dismiss {
+    .close-button {
+        border: 1px solid @color12;
+        color: @text-1;
+    }
+}
+.pricing-shelf {
+    background-image: linear-gradient(to bottom, #213, rgba(17, 0, 34, 0) 25%);
+}
+.next-charge-box {
+    background: @background-1;
+}
+.overall-summary,
+.repository-lang-stats-graph {
+    border: none;
+    border-radius: 0;
+}
+.repository-lang-stats-graph {
+    .language-color:first-child {
+        border-radius: 0;
+    }
+}
+.boxed-group {
+    & > h3 {
+        background-color: @background-1;
+        border: none;
+    }
+}
+.breadcrumb strong.final-path {
+    color: @text-5;
+}
+.diffstat-summary {
+    color: @text-2;
+}
+.conversation-list-heading {
+    color: @text-1;
+    .inner {
+        background-color: @background-4;
+    }
+}
+.simple-conversation-list {
+    color: @text-2;
+    &>li .num {
+        color: @text-2;
+    }
+}
+.graph-filter .info {
+    color: @text-2;
+}
+#network canvas {
+    opacity: 0.85;
+}
+.discussion-item .author {
+    color: @link;
+}
+.discussion-item-header {
+    color: @text-1;
+}
+.timeline-comment-wrapper {
+    border: none;
+    .timeline-comment-header {
+        background-color: @background-1;
+        border: none;
+    }
+    .comment-body,
+    .timeline-comment {
+        background-color: @background-3;
+        border: none;
+    }
+}
+.new-discussion-timeline .previewable-comment-form .comment-form-head.tabnav {
+    background-color: @background-1;
+}
+.commit-sha {
+    background-color: @background-1;
+}
+.dropdown-menu {
+    background-color: @background-2;
+}
+.select-menu-modal {
+	border-color: @border-2;
+    .select-menu-filters {
+        background-color: @background-3;
+    }
+    .select-menu-header {
+        background-color: @background-1;
+        .select-menu-title {
+            color: @text-2;
+            text-shadow: inherit;
+        }
+    }
+	.select-menu-item {
+		color: @text-1;
+		background-color: @background-4;
+		border-color: @border-2;
+		&.navigation-focus {
+			background-color: @background-3;
+		}
+	}
+	.select-menu-text-filter {
+		border-color: @background-2;
+	}
+}
+.subnav-search-input {
+    border-color: @background-2;
+}
