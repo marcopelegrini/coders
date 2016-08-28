@@ -13,6 +13,11 @@ module.exports = function(grunt) {
 
         less: {
             development: {
+				options: {
+					compress: true,
+					ieCompat: false,
+					optimization: 9
+				},
                 files: {
                     "style.css": "style.less"
                 }

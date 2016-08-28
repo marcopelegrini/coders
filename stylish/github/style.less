@@ -167,6 +167,7 @@ a {
     }
 }
 .summary-stats li {
+	border-left-color: @border-2;
 	.octicon-git-pull-request {
 		color: @purple;
 	}
@@ -178,6 +179,12 @@ a {
 		&:hover {
 			background-color: @background-focus;
 		}
+	}
+}
+.pulse-graph {
+	border-bottom-color: @border-2;
+	&:first-child {
+		border-right-color: @border-2;
 	}
 }
 .file {
@@ -401,8 +408,8 @@ table.files {
 	}
 	&.selected {
 		color: @text-2;
-		border-color: @border-2;
-		background-color: @background-2;
+		border: none;
+		background-color: @background-3;
 	}
 }
 .tabnav-extra {
@@ -501,21 +508,61 @@ a.tabnav-extra:hover {
         background-color: @background-4;
     }
 }
-.mini-repo-list-item .repo-description,
-.mini-repo-list-item .repo-icon,
-.mini-repo-list-item .stars {
-    color: @text-1;
-    fill: currentcolor;
+.simple-box {
+	border: none;
+	background-color: @background-1;
+}
+.protip code {
+	background-color: @background-1;
+}
+.mini-repo-list-item {
+	color: @text-3;
+	border-top-color: @border-2;
+	&:hover {
+		text-decoration: none;
+		color: @text-2;
+	}
+	.repo-description,
+	.repo-icon,
+	.stars {
+		color: @text-2;
+	}
 }
 .filter-bar {
     background-color: @background-3;
     border-bottom: 1px solid @border-2;
+}
+.filter-item {
+	color: @text-2;
+	&:hover {
+		color: white;
+		background-color: @background-focus;
+	}
+	&.selected {
+		background-color: @background-focus;
+	}
 }
 .repo-filterer {
     .repo-filter.filter-selected {
         color: @text-1;
         border-bottom-color: @text-1;
     }
+}
+.notifications {
+	.read.navigation-focus {
+		background-color: @background-3;
+	}
+	.read {
+		.type-icon,
+		.list-group-item-name {
+			>a {
+				color: @text-2;
+			}
+			>a:hover {
+				color: @text-1;
+			}
+		}
+	}
 }
 .feature-callout {
     color: @color34;
@@ -952,7 +999,10 @@ mark {
     color: @text-1;
 }
 .dropdown-item {
-    color: @background-2;
+    color: @text-2;
+	&:hover {
+		background-color: @background-focus;
+	}
 }
 .toolbar-commenting {
     .dropdown-item:hover {
@@ -1218,6 +1268,9 @@ mark {
     pre {
         background: @background-1;
     }
+	img {
+		background-color: transparent;
+	}
 }
 .wiki-body {
     .markdown-body {
@@ -1390,8 +1443,23 @@ mark {
 		padding-bottom: 16px;
     }
 }
+.boxed-group-list {
+	>li	{
+		border-bottom-color: @border-2;
+	}
+	a {
+		color: @text-3;
+		&:hover {
+			color: @text-2;
+		}
+	}
+	.octicon {
+		color: @text-3;
+	}
+}
+
 .breadcrumb strong.final-path {
-    color: @background-0;
+    color: @text-1;
 }
 .diffstat-summary {
     color: @text-2;
@@ -1430,6 +1498,20 @@ mark {
 }
 .discussion-item-header {
     color: @text-1;
+}
+.discussion-item-ref-title {
+	.title-link {
+		color: @text-3;
+		&:hover {
+			color: @text-2;
+		}
+	}
+	.issue-num {
+		color: @text-3;
+	}
+}
+.state-closed {
+	background-color: @red;
 }
 .timeline-comment-wrapper {
     border: none;
@@ -1470,7 +1552,12 @@ mark {
 	border: none;
 }
 .new-discussion-timeline .previewable-comment-form .comment-form-head.tabnav {
+	padding: 10px 10px 0;
     background-color: @background-1;
+}
+.branch-infobar {
+	border: none;
+	background-color: @background-1;
 }
 .commit-sha {
     background-color: @background-1;
