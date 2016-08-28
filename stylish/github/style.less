@@ -1,15 +1,19 @@
 // color variables (appears count calculates by raw css)
 @white: #ffffff; // appears 13 times
 @black: #000000; // appears 4 times
+@green: #6cc644;
+@red: #ff5555;
+@purple: #a96fff;
 // Texts
 @text-1: #eeeeee; // appears 218 times
 @text-2: #cccccc; // appears 67 times
 @text-3: #bbbbbb; // appears 6 times
 @text-4: #aaaaaa; // appears 6 times
-@text-5: #202020; // appears 5 times
 // Links
 @link: #6daacb; //
+@link-hover: #85cbf1;
 // Backgrounds
+@background-0: #202020; // appears 5 times
 @background-1: #2b2b2b; // appears 64 times
 @background-2: #333333; // appears 7 times
 @background-3: #525252; // appears 18 times
@@ -17,7 +21,9 @@
 @background-focus: #5d5d5d; //
 // Borders
 @border-1: #EEEEEE; //
-@border-2: #404040; //
+@border-2: @background-2; //
+@border-highlight: #f38000;
+// Collors
 @color5: #445566; // appears 23 times
 @color7: #777777; // appears 18 times
 @color8: #667788; // appears 15 times
@@ -31,7 +37,7 @@
 @color24: #8899aa; // appears 3 times
 @color26: #3c3c3c; // appears 2 times
 @color29: #00cc00; // appears 2 times
-@color31: #ff5555; // appears 2 times
+
 @color32: #ffff00; // appears 2 times
 @color34: #666666; // appears 2 times
 @color35: #e2dc5a; // appears 2 times
@@ -40,36 +46,92 @@
 @color38: #3a9f6a; // appears 2 times
 @color39: #ff4400; // appears 2 times
 @color42: #00ddff; // appears 2 times
+// Mixins
+// Text 1
+.text1-back1 {
+	color: @text-1;
+    background-color: @background-1;
+}
+.text1-back2 {
+	color: @text-1;
+    background-color: @background-2;
+}
+.text1-back3 {
+	color: @text-1;
+    background-color: @background-3;
+}
+.text1-back4 {
+	color: @text-1;
+    background-color: @background-4;
+}
+// Text 2
+.text2-back0 {
+	color: @text-2;
+	background-color: @background-0;
+}
+.text2-back1 {
+	color: @text-2;
+    background-color: @background-1;
+}
+.text2-back2 {
+	color: @text-2;
+    background-color: @background-2;
+}
+.text2-back3 {
+	color: @text-2;
+    background-color: @background-3;
+}
+// Text 3
+.text3-back1 {
+	color: @text-3;
+    background-color: @background-1;
+}
+.text3-back4 {
+	color: @text-3;
+    background-color: @background-4;
+}
+
 html,
 body {
-    color: @text-1;
-    background-color: @background-4;
+	.text1-back4;
 }
 a {
     color: @link;
     &:hover {
-        color: #85cbf1;
+        color: @link-hover;
         text-decoration: none !important;
     }
+}
+.d {
+	color: @red;
 }
 .container {
     width: 80%;
     min-width: 980px;
-    p {
-        color: @text-1;
-    }
+}
+.container-preview .tabnav-tabs {
+	margin-left: -10px;
+}
+.member-info {
+	.member-username {
+		color: @text-3;
+	}
+	.member-link:hover .member-username {
+		color: @text-2;
+	}
 }
 .dashboard {
     .news {
-        background: @color5;
-        border: 1px solid @text-2;
+        background: @background-2;
+        border-color: @text-2;
         border-radius: 0.3em;
         padding-top: 0.6em;
         padding-bottom: 1em;
     }
 }
-table.files,
-.numbers-summary,
+.numbers-summary {
+	background-color: @background-1;
+}
 .readme .markdown-body,
 .readme .plain,
 .blankslate,
@@ -84,10 +146,13 @@ table.files,
     }
     .Box-body-row--highlight.navigation-focus,
     .Box-body-row--highlight:hover {
-        background-color: @background-focus;
+        background-color: @background-3;
     }
     .Box-body-row--highlight .Box-row-link {
-        color: @text-2;
+        color: @text-3;
+		&:hover {
+			color: @text-2;
+		}
     }
 }
 .boxed-group-inner {
@@ -101,11 +166,19 @@ table.files,
         border-top-right-radius: 3px;
     }
 }
-.summary-stats li a {
-    color: @text-1;
-    &:hover {
-        background-color: @background-focus;
-    }
+.summary-stats li {
+	.octicon-git-pull-request {
+		color: @purple;
+	}
+	.octicon-issue-closed {
+		color: @red;
+	}
+	a {
+		color: @text-1;
+		&:hover {
+			background-color: @background-focus;
+		}
+	}
 }
 .file {
     border: none;
@@ -116,13 +189,32 @@ table.files,
     border: none;
 }
 table.files {
-    tr.navigation-focus td {
-        background-color: @background-focus;
+	background-color: @background-3;
+	border: none;
+	a {
+		color: @text-2;
+		&:hover{
+			color: @text-1;
+		}
+	}
+    tr.navigation-focus {
+		td {
+        	background-color: @background-3;
+			&.icon {
+				color: @text-1;
+				> .octicon-file-directory {
+					color: @text-1;
+				}
+			}
+		}
     }
     td {
-        border-top: 1px solid @border-2;
+        border-top-color: @border-2;
         &.icon {
-            color: @text-1;
+            color: @text-2;
+			> .octicon-file-directory {
+				color: @text-2;
+			}
         }
         &.message a {
             color: @text-3;
@@ -132,12 +224,18 @@ table.files {
         }
     }
 }
+.text-red {
+	color: @red !important;
+}
+.text-green {
+    color: @green !important;
+}
 .warning {
     background-color: @text-1;
-    color: @color31;
+    color: @red;
     table.files {
         td.icon {
-            color: @color31;
+            color: @red;
         }
     }
 }
@@ -172,17 +270,6 @@ table.files {
         background: none;
     }
 }
-.commits-list-item {
-    .commit-meta {
-        color: @text-4;
-    }
-    .commit-author {
-        color: @link;
-    }
-    &.navigation-focus {
-        background-color: @background-focus;
-    }
-}
 .header-logo-wordmark {
     color: @text-1;
 }
@@ -204,8 +291,7 @@ table.files {
 .auth-form-header {
     color: @text-1;
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
-    background-color: @background-1;
-    border: 1px solid @text-2;
+    &:extend(.text2-back1);
     border-radius: 5px 5px 0 0;
 }
 .auth-form-body {
@@ -243,7 +329,7 @@ table.files {
 }
 .discussion-sidebar {
     padding: 0.8em;
-    border: 1px solid @text-2;
+    border-color: @text-2;
     border-radius: 0.4em;
     box-shadow: 0.2em 0.2em 0.5em rgba(0, 0, 0, 0.5);
     box-sizing: border-box;
@@ -257,7 +343,7 @@ table.files {
 .thread-subscription-status {
     color: @text-1;
     background: transparent;
-    border: 1px solid @color13;
+    border-color: @color13;
 }
 .progress-bar {
     background-color: @color8;
@@ -304,23 +390,20 @@ table.files {
 .sunken-menu-separator::before {
     background-image: linear-gradient(to right, @color8 70%, @color24 100%);
 }
-.tabnav-pr {
-    border-color: @color10;
-    .tabnav-tab.selected {
-        color: @text-1;
-        border: 1px solid @color10;
-    }
+.tabnav {
+	border-color: @border-2;
 }
 .tabnav-pr .tabnav-tab,
 .tabnav-tab {
-    color: @text-2;
-    background-color: @color26;
-    border: 1px solid @color10;
-    border-bottom: none;
-    border-radius: 3px 3px 0 0;
-}
-.tabnav-tab.selected {
-    background-color: @background-4;
+    color: @text-3;
+	&:hover {
+		color: @text-1;
+	}
+	&.selected {
+		color: @text-2;
+		border-color: @border-2;
+		background-color: @background-2;
+	}
 }
 .tabnav-extra {
     color: @text-2;
@@ -329,22 +412,20 @@ a.tabnav-extra:hover {
     color: @text-1;
 }
 .subnav-item {
-    border: 1px solid @text-1;
+    border-color: @background-3;
     background-color: @background-4;
     color: @text-2;
 }
 .subnav-item:hover,
 .subnav-item:focus {
     text-decoration: none;
-    background-color: @background-3;
-    color: @text-1;
+    &:extend(.text1-back3);
 }
 .subnav-item.selected,
 .subnav-item.selected:hover,
 .subnav-item.selected:focus {
-    color: @text-2;
-    background-color: @background-3;
-    border-color: @text-1;
+    &:extend(.text2-back3);
+    border-color: @background-3;
 }
 .subnav-search-context {
     .btn {
@@ -358,12 +439,39 @@ a.tabnav-extra:hover {
 // .text-gray {
 //     color: @text-2 !important;
 // }
+.org {
+	.orghead {
+		&:extend(.text2-back0);
+		.org-name, .org-link {
+			color: @text-1;
+		}
+	}
+	a {
+		color: @text-3;
+		.octicon {
+	        color: @text-3;
+	    }
+		.counter {
+			background-color: @text-3;
+			color: @background-2;
+		}
+		&:hover {
+			color: @text-1;
+			.octicon {
+		        color: @text-1;
+		    }
+			.counter {
+				background-color: @text-1;
+			}
+		}
+	}
+}
 .repository-meta {
     color: @text-1;
 }
 .repo-list-item {
-    background: @color5;
-    border: 1px solid @text-2;
+    background: @background-2;
+    border-color: @white;
     border-radius: 0.4em;
     padding: 1em 1em 4em;
     margin: 1em -1em;
@@ -412,7 +520,7 @@ a.tabnav-extra:hover {
 .feature-callout {
     color: @color34;
     background-color: @background-1;
-    border: 1px solid @color8;
+    border-color: @color8;
     border-top: 1px dashed @text-2;
     border-bottom: 0;
     .feature-dismiss-link {
@@ -431,20 +539,13 @@ a.tabnav-extra:hover {
     ul {
         li {
             background-image: linear-gradient(@color12, @color9);
-            border: 1px solid @color8;
+            border-color: @color8;
             box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
         }
     }
 }
-input.input-contrast,
-.input-contrast {
-    background-color: @background-1;
-    color: @text-1;
-}
-input.input-contrast:focus,
-.input-contrast:focus {
-    background-color: @background-4;
-    color: @text-1;
+.input-contrast, .input-contrast:focus {
+    &:extend(.text1-back1);
 }
 .site-header-nav-main {
     .nav-item {
@@ -472,7 +573,7 @@ input.input-contrast:focus,
 }
 .collection-card {
     background: @background-4;
-    border: 1px solid @color8;
+    border-color: @color8;
     border-radius: 3px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
@@ -480,8 +581,7 @@ input.input-contrast:focus,
     color: @text-2;
 }
 .branch-name {
-    background-color: @background-1;
-    border: 1px solid @text-2;
+    &:extend(.text2-back1);
     color: @text-1;
 }
 a {
@@ -496,8 +596,8 @@ a {
 .btn {
     color: @text-1;
     background-color: @text-1;
-    border: 1px solid @background-2;
-    background: linear-gradient(@text-5, @background-1);
+    border-color: @background-2;
+    background: linear-gradient(@background-0, @background-1);
 }
 .btn:disabled,
 .btn:disabled:hover,
@@ -510,20 +610,24 @@ a {
 .btn.selected,
 .btn.zeroclipboard-is-hover,
 .btn.zeroclipboard-is-active {
+	color: @text-1;
     background-color: @black;
     background-image: linear-gradient(@black, @black);
-    border-color: @text-5;
+    border-color: @background-0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15) inset;
 }
-.btn {
-	&:focus, &:hover {
-    	border-color: @text-5;
+.btn,
+.btn.selected {
+	&:focus, &:hover,
+	&:focus:hover {
+    	border-color: @background-0;
 		box-shadow: initial;
 	}
 }
 .btn-primary {
-    color: @text-1;
-    background: #6cc644;
+    color: @white;
+	text-shadow: none;
+    background: @green;
     border: none;
 	&:hover {
 	    color: @text-1;
@@ -544,6 +648,7 @@ a {
     background-color: @text-3;
     padding: 5px 8px;
 }
+.user-mention,
 .muted-link {
     color: @text-2 !important;
     &:hover {
@@ -566,25 +671,6 @@ a {
 .button:hover,
 .button-secondary:hover {
     background-color: @color11;
-}
-.pl-mb {
-    color: @text-1;
-}
-.pl-c {
-    color: @color19;
-}
-.pl-ent {
-    color: #93d38c;
-}
-.pl-e,
-.pl-en {
-    color: @color36;
-}
-.pl-smi {
-    color: #f6a;
-}
-.pl-k {
-    color: #f6c;
 }
 .commit-tease {
     background-color: @background-1;
@@ -633,43 +719,72 @@ a {
     background: @background-focus;
 }
 .blob-code-addition .x {
-    background-color: #063;
+	color: @black;
+    background-color: @green;
 }
 .blob-code-deletion .x {
-    background-color: #630;
+	color: @black;
+    background-color: @red;
+}
+/* regular code */
+.blob-code-inner {
+    color: @text-2;
 }
 /* comments */
+@comments: #75715E;
 .pl-c {
-    color: orange;
+    color: @comments; //OK
+}
+.blob-code-addition {
+	.pl-c {
+	    color: lighten(@comments, 15%); //OK
+	}
 }
 /* keywords and symbols */
-.pl-k {
-    color: yellow;
+@keywords: #F92672;
+.pl-k,
+.pl-ent {
+    color: @keywords; //OK
 }
-/* methods? */
+.blob-code-addition {
+	.pl-k,
+	.pl-ent {
+		color: lighten(@keywords, 15%);
+	}
+}
+/* methods and classes */
+@methods: #A7EC21;
 .pl-en {
-    color: lightcyan;
+    color: @methods; //OK
 }
+.blob-code-addition {
+	.pl-en {
+		color: lighten(@methods, 10%);
+	}
+}
+/* extends */
 .pl-e {
-    color: lightskyblue;
+	color: #66D9EF; //OK
 }
 /* args */
-.pl-smi {
-    color: #ddd;
+.pl-v {
+	//OK
 }
-.pl-s,
-.pl-vpf {
+/* types */
+.pl-smi {
+    color: #66D9EF; //OK
+}
+
+/* markdown titles in source */
+.pl-mh {
     color: aliceblue;
 }
-/* numbers and math-y */
+/* static */
 .pl-c1 {
-    color: greenyellow;
-}
-/* quotes? */
-.pl-pds {
-    color: aquamarine;
+    color: #AE81FF;
 }
 /* regexp and strings */
+.pl-vpf,
 .pl-pds,
 .pl-s,
 .pl-s .pl-pse .pl-s1,
@@ -677,15 +792,19 @@ a {
 .pl-sr .pl-cce,
 .pl-sr .pl-sra,
 .pl-sr .pl-sre {
-    color: lightsalmon;
+    color: #E6DB74;
 }
-/* no idea */
-.blob-code-inner {
-    color: @text-2;
+/* var substitution on strings */
+.pl-s .pl-s1 {
+    color: #a9b7c6;
 }
 .pl-s1 {
     color: lavender;
 }
+.pl-ii {
+	background-color: @red;
+}
+
 /* markers */
 .blob-code-hunk {
     color: #666;
@@ -705,15 +824,6 @@ a {
 .blob-code-empty {
     background-color: black;
     color: white;
-}
-/* var substitution on strings */
-.pl-s .pl-s1,
-.pl-smi {
-    color: pink;
-}
-/* markdown titles in source */
-.pl-mh {
-    color: aliceblue;
 }
 .tree-browser {
     .octicon-file-text {
@@ -752,26 +862,35 @@ mark {
     background: @color32;
     color: @black;
 }
-.table-list {
-    background-color: @background-3;
-    border-bottom: none;
-}
 .table-list-header {
     background-color: @background-1;
-    border: 1px solid @color10;
+    border-color: @color10;
     border-radius: 3px 3px 0 0;
 }
+
 .table-list-header-toggle {
-    .btn-link {
-        color: @text-1;
-    }
+	.btn-link:hover,
+	.btn-link.selected,
+	.btn-link.selected:hover {
+	    color: @text-3;
+	}
 }
-.table-list-header-toggle .btn-link:hover,
-.table-list-header-toggle .btn-link.selected,
-.table-list-header-toggle .btn-link.selected:hover {
-    color: @text-1;
-}
+.table-list,
 .table-list-bordered {
+	background-color: @background-3;
+	border-bottom: none;
+	.table-list-item {
+		&.unread {
+		    .table-list-cell:first-child {
+		        box-shadow: 4px 0 0 @white inset;
+		    }
+		}
+		&:first-child {
+			.table-list-cell {
+				border-top: none;
+			}
+		}
+	}
     .table-list-cell {
         border-top-color: @border-2;
         &:first-child,
@@ -783,9 +902,9 @@ mark {
 }
 .issues-reset-query {
     color: @text-1;
-}
-.issues-reset-query:hover {
-    color: @text-1;
+	&:hover {
+    	color: @text-1;
+	}
 }
 .issues-listing {
     .table-list-issues {
@@ -822,11 +941,6 @@ mark {
 .merged.octicon {
     color: #bc8eff;
 }
-.table-list-item.unread {
-    .table-list-cell:first-child {
-        box-shadow: 4px 0 0 @white inset;
-    }
-}
 .toolbar-item,
 .toolbar-item .menu-target {
     color: @text-1;
@@ -847,15 +961,13 @@ mark {
 }
 .focused {
     .drag-and-drop {
-        border-color: @border-1;
+		border: none;
         box-shadow: 0 1px 2px rgba(0,0,0,0.75);
     }
 }
 .drag-and-drop {
-    color: @text-2;
-    background-color: @background-1;
-	border-color: @background-2;
-    border-style: none solid solid;
+    &:extend(.text2-back1);
+	border: none;
     border-bottom-right-radius: 3px;
     border-bottom-left-radius: 3px;
 }
@@ -864,17 +976,19 @@ mark {
 }
 .range-editor {
     background-color: #135;
-    border: 1px solid @color13;
+    border-color: @color13;
     border-radius: 3px;
 }
 .range-editor-icon {
     color: @text-2;
 }
 .recently-touched-branches {
-    color: @text-2;
-    background-color: #235;
-    border: 1px solid @white;
+    &:extend(.text2-back2);
+    border-color: @white;
     border-radius: 3px;
+	li:last-child {
+		padding-bottom: 36px;
+	}
 }
 .recently-pushed-branch-details {
     a {
@@ -884,39 +998,61 @@ mark {
 .branch-group-heading {
     background: @background-1;
     text-shadow: none;
+	border: none;
+	&+.branch-summary {
+		border: none;
+	}
 }
 .branch-group-name {
-    color: @text-1;
+    color: @text-2;
 }
 .branch-summary {
-    background: @color5;
+    background: @background-3;
     color: @text-2;
+	border-color: @border-2;
+	border-left: none;
+	border-right: none;
+	&:last-child {
+		border-bottom: none;
+	}
 }
-.branch-meta {
-    color: @text-2;
-}
+// .branch-meta {
+//     color: @text-2;
+// }
 .branch-action-body {
     background-color: @background-1;
-    border: 1px solid @white;
-    border-radius: 3px;
+	border: none;
 }
-.branch-action-body .merge-message,
-.branch-action-body .merge-branch-form {
-    background-color: @background-4;
-    border-top: 1px solid @white;
-    border-bottom-right-radius: 2px;
-    border-bottom-left-radius: 2px;
+.branch-action-item+.branch-action-item,
+.branch-action-item+.mergeability-details{
+	border-color: @border-2;
 }
-.branch-action-body::after {
-    border-right-color: @text-1;
+.more-branches {
+	border: none;
+	&:extend(.text3-back1);
+	&:hover {
+		border: none;
+		&:extend(.text2-back1);
+	}
 }
-.branch-action-state-unknown .branch-action-body,
-.branch-action-state-unstable .branch-action-body {
-    border-color: @color35;
+// .branch-action-body .merge-message,
+// .branch-action-body .merge-branch-form {
+//     background-color: @background-4;
+//     border-top: 1px solid @white;
+//     border-bottom-right-radius: 2px;
+//     border-bottom-left-radius: 2px;
+// }
+// .branch-action-state-unknown .branch-action-body,
+// .branch-action-state-unstable .branch-action-body {
+//     border-color: @color35;
+// }
+.merge-status-list {
+	border: none;
 }
+.merge-status-item,
 .build-status-item {
-    background-color: @background-4;
-    border-bottom: 1px solid @color7;
+    background-color: @background-3;
+    border-bottom-color: @border-1;
 }
 .merge-branch-description {
     color: @text-2;
@@ -925,7 +1061,7 @@ mark {
     border-radius: 3px;
     color: @color17;
     background-color: @background-1;
-    border: 1px solid @color7;
+    border-color: @color7;
 }
 .merge-pr-more-commits {
     color: @text-2;
@@ -958,14 +1094,14 @@ mark {
         }
     }
     .btn-outline {
-        border: 1px solid #cedee5;
+        border-color: #cedee5;
         &:hover {
             color: @text-1;
-            border: 1px solid @color12;
+            border-color: @color12;
         }
         &:not(:disabled):hover {
             color: @white;
-            border: 1px solid @color12;
+            border-color: @color12;
         }
     }
     .sha-block {
@@ -981,10 +1117,22 @@ mark {
         border-bottom-left-radius: 3px;
     }
 }
-.commit {
-    .commit-title a {
-        color: @text-3;
-    }
+.commits-list-item {
+	.commit-title a {
+		color: @text-3;
+	}
+	.commit-meta {
+		color: @text-4;
+	}
+	.commit-author {
+		color: @link;
+	}
+	&.navigation-focus {
+		background-color: inherit;
+		.commit-title a {
+			color: @text-2;
+		}
+	}
 }
 .commit-branches {
     color: inherit;
@@ -1007,13 +1155,23 @@ mark {
 .prose-diff .changed .added {
     background: @color38;
 }
+.ace_cursor {
+	color: @white;
+}
+.ace-github-light,
+.ace_gutter {
+	&:extend(.text2-back2);
+}
+.ace_marker-layer .ace_active-line,
+.ace_gutter-active-line {
+	background-color: @background-focus;
+}
 .gollum-editor {
     .form-control {
-        color: @text-1;
-        background-color: @background-2;
+        &:extend(.text1-back2);
         background-repeat: no-repeat;
         background-position: right 8px center;
-        border: 1px solid @color7;
+        border-color: @color7;
         border-radius: 3px;
         outline: none;
         box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.075);
@@ -1023,14 +1181,12 @@ mark {
     }
 }
 .form-control {
-	color: @text-2;
-	background-color: @background-2 !important;
+	&:extend(.text2-back2);
 	border-color: @background-2 !important;
     &:focus {
-		color: @text-2;
-        background-color: @background-2 !important;
+		&:extend(.text2-back2);
         border-color: @background-2;
-        box-shadow: 0 0 10px 0 rgba(255,255,255,0.35);
+        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.35);
     }
 }
 .previewable-comment-form .write-content,
@@ -1042,6 +1198,9 @@ mark {
 .previewable-comment-form.write-selected .write-content,
 .previewable-comment-form.preview-selected .preview-content {
     display: block;
+	border-radius: 3px;
+	background: @background-1;
+	background: linear-gradient(to bottom, @background-1 0%,@background-1 82%,@background-3 84%,@background-3 100%);
 }
 .wiki-wrapper .wiki-content .previewable-comment-form.write-selected .write-content,
 .wiki-wrapper .wiki-content .previewable-comment-form.preview-selected .preview-content {
@@ -1049,7 +1208,7 @@ mark {
     margin: 0;
     background: @background-1;
     border-radius: 1em;
-    border: 1px solid @color7;
+    border-color: @color7;
 }
 .gh-header-meta {
     color: @text-3;
@@ -1066,7 +1225,7 @@ mark {
         margin: 0;
         background: @background-3;
         border-radius: 0.8em 0.8em 0 0;
-        border: 1px solid @color10;
+        border-color: @color10;
         border-bottom: none;
     }
 }
@@ -1080,7 +1239,7 @@ mark {
     .wiki-footer {
         margin: 0;
         border-radius: 0 0 0.4em 0.4em;
-        border: 1px solid @color10;
+        border-color: @color10;
         .markdown-body {
             margin: 0;
             border-radius: 0 0 0.4em 0.4em;
@@ -1094,7 +1253,7 @@ mark {
 }
 .menu {
     background-color: @background-4;
-    border: 1px solid @color7;
+    border-color: @color7;
 }
 .menu-item {
     text-shadow: none;
@@ -1114,32 +1273,39 @@ mark {
     background-color: @text-1;
 }
 .repohead.experiment-repo-nav {
-    background-color: @text-5;
+	&:extend(.text2-back0);
 }
+
 .reponav-item {
     color: @text-3;
     .octicon {
         color: @text-3;
     }
-    .counter {
-        background-color: @text-3;
-        color: @background-2;
-    }
-}
-.reponav-item:hover {
-    color: @text-1;
-    .octicon {
-        color: @text-1;
-    }
+	&:hover {
+	    color: @text-1;
+	    .octicon {
+	        color: @text-1;
+	    }
+	}
+	.counter {
+		background-color: @text-3;
+		color: @background-2;
+	}
 }
 .reponav-item.selected .counter,
 .reponav-item:hover .counter {
     background-color: @text-1;
 }
+
+
+.pagehead-tabs-item.selected,
 .reponav-item.selected {
-    color: @text-1;
-    background-color: @background-4;
-    border-color: @white @color13 transparent;
+    &:extend(.text1-back4);
+	font-weight: normal;
+    border-color: @white @white transparent @white;
+	&:hover {
+		color: @text-1;
+	}
 }
 .reponav-item.selected:hover {
     color: @text-1;
@@ -1169,7 +1335,7 @@ mark {
     background: @background-4;
     padding: 2em;
     border-radius: 1em;
-    border: 1px solid @color7;
+    border-color: @color7;
     box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.3);
 }
 .blog-post-body {
@@ -1189,11 +1355,15 @@ mark {
     box-shadow: none;
 }
 .shelf {
-    background-color: #324;
+    background-color: @background-1;
+	background-image: none;
+}
+.intro-shelf .shelf-cta {
+	box-shadow: none;
 }
 .shelf-dismiss {
     .close-button {
-        border: 1px solid @color12;
+        border-color: @color12;
         color: @text-1;
     }
 }
@@ -1217,10 +1387,11 @@ mark {
     & > h3 {
         background-color: @background-1;
         border: none;
+		padding-bottom: 16px;
     }
 }
 .breadcrumb strong.final-path {
-    color: @text-5;
+    color: @background-0;
 }
 .diffstat-summary {
     color: @text-2;
@@ -1232,16 +1403,27 @@ mark {
     }
 }
 .simple-conversation-list {
+	border: none;
     color: @text-2;
-    &>li .num {
-        color: @text-2;
-    }
+	padding-left: 1em;
+    &>li {
+		border-top-color: @border-2;
+		.num {
+        	color: @text-2;
+    	}
+	}
 }
 .graph-filter .info {
     color: @text-2;
 }
 #network canvas {
     opacity: 0.85;
+}
+.pr-toolbar,
+.diffbar {
+	background-color: @background-2;
+	padding-right: 10px;
+	padding-left: 10px;
 }
 .discussion-item .author {
     color: @link;
@@ -1251,15 +1433,41 @@ mark {
 }
 .timeline-comment-wrapper {
     border: none;
-    .timeline-comment-header {
-        background-color: @background-1;
-        border: none;
-    }
-    .comment-body,
-    .timeline-comment {
-        background-color: @background-3;
-        border: none;
-    }
+}
+.branch-action-body::after,
+.timeline-comment-wrapper>.timeline-comment::after,
+.timeline-comment-wrapper .timeline-comment.current-user::after,
+.timeline-new-comment .timeline-comment::after {
+	border-right-color: @background-1;
+	left: -15px;
+}
+.branch-action-body::before,
+.timeline-comment-wrapper>.timeline-comment::before,
+.timeline-comment-wrapper .timeline-comment.current-user::before,
+.timeline-new-comment .timeline-comment::before {
+	border: none;
+	left: -15px;
+}
+.timeline-comment {
+	background-color: @background-3;
+	border: none;
+}
+.timeline-comment.current-user .timeline-comment-header,
+.timeline-comment-header {
+	background-color: @background-1;
+	border: none;
+}
+.timeline-commits {
+	.commit-message>code a {
+		color: @text-3;
+		&:hover {
+			color: @text-2;
+		}
+	}
+}
+.comment-body {
+	background-color: @background-3;
+	border: none;
 }
 .new-discussion-timeline .previewable-comment-form .comment-form-head.tabnav {
     background-color: @background-1;
@@ -1267,10 +1475,14 @@ mark {
 .commit-sha {
     background-color: @background-1;
 }
+.commit-icon .octicon {
+	background: none;
+}
 .dropdown-menu {
     background-color: @background-2;
 }
 .select-menu-modal {
+	background-color: @background-1;
 	border-color: @border-2;
     .select-menu-filters {
         background-color: @background-3;
@@ -1283,17 +1495,66 @@ mark {
         }
     }
 	.select-menu-item {
-		color: @text-1;
-		background-color: @background-4;
+		&:extend(.text2-back3);
 		border-color: @border-2;
 		&.navigation-focus {
-			background-color: @background-3;
+			&:extend(.text1-back3);
 		}
 	}
 	.select-menu-text-filter {
 		border-color: @background-2;
 	}
+	.select-menu-tabs {
+		border-color: @border-2;
+		a {
+			border: none;
+			padding: 4px 8px 4px;
+			font-size: 12px;
+			&.selected {
+				&:extend(.text1-back2);
+			}
+		}
+		ul {
+			position: inherit;
+		}
+	}
+}
+.subnav-bordered {
+	border: none;
 }
 .subnav-search-input {
     border-color: @background-2;
+}
+.flash {
+	background-color: @background-2;
+	border: none;
+	color: @text-1;
+}
+.input-group .form-control {
+	height: 32px;
+}
+.authors-and-code {
+	border: none;
+}
+.pagination {
+	span {
+		border: none;
+	}
+	a {
+		border: none;
+		&:extend(.text2-back2);
+		&:hover{
+			background-color: @background-focus;
+		}
+	}
+	.current, .current:hover {
+		border: none;
+		background-color: @background-focus;
+	}
+	.disabled, .disabled:hover {
+		background-color: @background-3;
+	}
+	.gap, .gap:hover {
+		background-color: @background-2;
+	}
 }

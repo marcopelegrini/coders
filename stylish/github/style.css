@@ -1,3 +1,69 @@
+.text1-back1,
+.input-contrast,
+.input-contrast:focus {
+  color: #eeeeee;
+  background-color: #2b2b2b;
+}
+.text1-back2,
+.gollum-editor .form-control,
+.select-menu-modal .select-menu-tabs a.selected {
+  color: #eeeeee;
+  background-color: #333333;
+}
+.text1-back3,
+.subnav-item:hover,
+.subnav-item:focus,
+.select-menu-modal .select-menu-item.navigation-focus {
+  color: #eeeeee;
+  background-color: #525252;
+}
+.text1-back4,
+.pagehead-tabs-item.selected,
+.reponav-item.selected {
+  color: #eeeeee;
+  background-color: #65686a;
+}
+.text2-back0,
+.org .orghead,
+.repohead.experiment-repo-nav {
+  color: #cccccc;
+  background-color: #202020;
+}
+.text2-back1,
+.auth-form-header,
+.branch-name,
+.drag-and-drop,
+.more-branches:hover {
+  color: #cccccc;
+  background-color: #2b2b2b;
+}
+.text2-back2,
+.recently-touched-branches,
+.ace-github-light,
+.ace_gutter,
+.form-control,
+.form-control:focus,
+.pagination a {
+  color: #cccccc;
+  background-color: #333333;
+}
+.text2-back3,
+.subnav-item.selected,
+.subnav-item.selected:hover,
+.subnav-item.selected:focus,
+.select-menu-modal .select-menu-item {
+  color: #cccccc;
+  background-color: #525252;
+}
+.text3-back1,
+.more-branches {
+  color: #bbbbbb;
+  background-color: #2b2b2b;
+}
+.text3-back4 {
+  color: #bbbbbb;
+  background-color: #65686a;
+}
 html,
 body {
   color: #eeeeee;
@@ -10,22 +76,32 @@ a:hover {
   color: #85cbf1;
   text-decoration: none !important;
 }
+.d {
+  color: #ff5555;
+}
 .container {
   width: 80%;
   min-width: 980px;
 }
-.container p {
-  color: #eeeeee;
+.container-preview .tabnav-tabs {
+  margin-left: -10px;
+}
+.member-info .member-username {
+  color: #bbbbbb;
+}
+.member-info .member-link:hover .member-username {
+  color: #cccccc;
 }
 .dashboard .news {
-  background: #445566;
-  border: 1px solid #cccccc;
+  background: #333333;
+  border-color: #cccccc;
   border-radius: 0.3em;
   padding-top: 0.6em;
   padding-bottom: 1em;
 }
-table.files,
-.numbers-summary,
+.numbers-summary {
+  background-color: #2b2b2b;
+}
 .readme .markdown-body,
 .readme .plain,
 .blankslate,
@@ -36,8 +112,6 @@ table.files,
   background-color: #525252;
   border: none;
 }
-table.files .Box-body-row,
-.numbers-summary .Box-body-row,
 .readme .markdown-body .Box-body-row,
 .readme .plain .Box-body-row,
 .blankslate .Box-body-row,
@@ -45,10 +119,8 @@ table.files .Box-body-row,
 .tint-box .Box-body-row,
 .capped-card-content .Box-body-row,
 .Box-body .Box-body-row {
-  border-top: 1px solid #404040;
+  border-top: 1px solid #333333;
 }
-table.files .Box-body-row--highlight.navigation-focus,
-.numbers-summary .Box-body-row--highlight.navigation-focus,
 .readme .markdown-body .Box-body-row--highlight.navigation-focus,
 .readme .plain .Box-body-row--highlight.navigation-focus,
 .blankslate .Box-body-row--highlight.navigation-focus,
@@ -56,8 +128,6 @@ table.files .Box-body-row--highlight.navigation-focus,
 .tint-box .Box-body-row--highlight.navigation-focus,
 .capped-card-content .Box-body-row--highlight.navigation-focus,
 .Box-body .Box-body-row--highlight.navigation-focus,
-table.files .Box-body-row--highlight:hover,
-.numbers-summary .Box-body-row--highlight:hover,
 .readme .markdown-body .Box-body-row--highlight:hover,
 .readme .plain .Box-body-row--highlight:hover,
 .blankslate .Box-body-row--highlight:hover,
@@ -65,10 +135,8 @@ table.files .Box-body-row--highlight:hover,
 .tint-box .Box-body-row--highlight:hover,
 .capped-card-content .Box-body-row--highlight:hover,
 .Box-body .Box-body-row--highlight:hover {
-  background-color: #5d5d5d;
+  background-color: #525252;
 }
-table.files .Box-body-row--highlight .Box-row-link,
-.numbers-summary .Box-body-row--highlight .Box-row-link,
 .readme .markdown-body .Box-body-row--highlight .Box-row-link,
 .readme .plain .Box-body-row--highlight .Box-row-link,
 .blankslate .Box-body-row--highlight .Box-row-link,
@@ -76,6 +144,15 @@ table.files .Box-body-row--highlight .Box-row-link,
 .tint-box .Box-body-row--highlight .Box-row-link,
 .capped-card-content .Box-body-row--highlight .Box-row-link,
 .Box-body .Box-body-row--highlight .Box-row-link {
+  color: #bbbbbb;
+}
+.readme .markdown-body .Box-body-row--highlight .Box-row-link:hover,
+.readme .plain .Box-body-row--highlight .Box-row-link:hover,
+.blankslate .Box-body-row--highlight .Box-row-link:hover,
+.boxed-group-inner .Box-body-row--highlight .Box-row-link:hover,
+.tint-box .Box-body-row--highlight .Box-row-link:hover,
+.capped-card-content .Box-body-row--highlight .Box-row-link:hover,
+.Box-body .Box-body-row--highlight .Box-row-link:hover {
   color: #cccccc;
 }
 .boxed-group-inner {
@@ -88,6 +165,12 @@ table.files .Box-body-row--highlight .Box-row-link,
   background-color: #2b2b2b;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
+}
+.summary-stats li .octicon-git-pull-request {
+  color: #a96fff;
+}
+.summary-stats li .octicon-issue-closed {
+  color: #ff5555;
 }
 .summary-stats li a {
   color: #eeeeee;
@@ -103,20 +186,45 @@ table.files .Box-body-row--highlight .Box-row-link,
   background-color: #2b2b2b;
   border: none;
 }
+table.files {
+  background-color: #525252;
+  border: none;
+}
+table.files a {
+  color: #cccccc;
+}
+table.files a:hover {
+  color: #eeeeee;
+}
 table.files tr.navigation-focus td {
-  background-color: #5d5d5d;
+  background-color: #525252;
+}
+table.files tr.navigation-focus td.icon {
+  color: #eeeeee;
+}
+table.files tr.navigation-focus td.icon > .octicon-file-directory {
+  color: #eeeeee;
 }
 table.files td {
-  border-top: 1px solid #404040;
+  border-top-color: #333333;
 }
 table.files td.icon {
-  color: #eeeeee;
+  color: #cccccc;
+}
+table.files td.icon > .octicon-file-directory {
+  color: #cccccc;
 }
 table.files td.message a {
   color: #bbbbbb;
 }
 table.files td.message a:hover {
   color: #cccccc;
+}
+.text-red {
+  color: #ff5555 !important;
+}
+.text-green {
+  color: #6cc644 !important;
 }
 .warning {
   background-color: #eeeeee;
@@ -152,15 +260,6 @@ table.files td.message a:hover {
 .commit-group-title .octicon-git-commit {
   background: none;
 }
-.commits-list-item .commit-meta {
-  color: #aaaaaa;
-}
-.commits-list-item .commit-author {
-  color: #6daacb;
-}
-.commits-list-item.navigation-focus {
-  background-color: #5d5d5d;
-}
 .header-logo-wordmark {
   color: #eeeeee;
 }
@@ -182,8 +281,6 @@ table.files td.message a:hover {
 .auth-form-header {
   color: #eeeeee;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
-  background-color: #2b2b2b;
-  border: 1px solid #cccccc;
   border-radius: 5px 5px 0 0;
 }
 .auth-form-body {
@@ -219,7 +316,7 @@ table.files td.message a:hover {
 }
 .discussion-sidebar {
   padding: 0.8em;
-  border: 1px solid #cccccc;
+  border-color: #cccccc;
   border-radius: 0.4em;
   box-shadow: 0.2em 0.2em 0.5em rgba(0, 0, 0, 0.5);
   box-sizing: border-box;
@@ -233,7 +330,7 @@ table.files td.message a:hover {
 .thread-subscription-status {
   color: #eeeeee;
   background: transparent;
-  border: 1px solid #e5e5e5;
+  border-color: #e5e5e5;
 }
 .progress-bar {
   background-color: #667788;
@@ -278,23 +375,22 @@ table.files td.message a:hover {
 .sunken-menu-separator::before {
   background-image: linear-gradient(to right, #667788 70%, #8899aa 100%);
 }
-.tabnav-pr {
-  border-color: #2e2e2e;
-}
-.tabnav-pr .tabnav-tab.selected {
-  color: #eeeeee;
-  border: 1px solid #2e2e2e;
+.tabnav {
+  border-color: #333333;
 }
 .tabnav-pr .tabnav-tab,
 .tabnav-tab {
-  color: #cccccc;
-  background-color: #3c3c3c;
-  border: 1px solid #2e2e2e;
-  border-bottom: none;
-  border-radius: 3px 3px 0 0;
+  color: #bbbbbb;
 }
+.tabnav-pr .tabnav-tab:hover,
+.tabnav-tab:hover {
+  color: #eeeeee;
+}
+.tabnav-pr .tabnav-tab.selected,
 .tabnav-tab.selected {
-  background-color: #65686a;
+  color: #cccccc;
+  border-color: #333333;
+  background-color: #333333;
 }
 .tabnav-extra {
   color: #cccccc;
@@ -303,22 +399,18 @@ a.tabnav-extra:hover {
   color: #eeeeee;
 }
 .subnav-item {
-  border: 1px solid #eeeeee;
+  border-color: #525252;
   background-color: #65686a;
   color: #cccccc;
 }
 .subnav-item:hover,
 .subnav-item:focus {
   text-decoration: none;
-  background-color: #525252;
-  color: #eeeeee;
 }
 .subnav-item.selected,
 .subnav-item.selected:hover,
 .subnav-item.selected:focus {
-  color: #cccccc;
-  background-color: #525252;
-  border-color: #eeeeee;
+  border-color: #525252;
 }
 .subnav-search-context .btn {
   color: #eeeeee;
@@ -326,12 +418,35 @@ a.tabnav-extra:hover {
 .text-emphasized {
   color: #eeeeee;
 }
+.org .orghead .org-name,
+.org .orghead .org-link {
+  color: #eeeeee;
+}
+.org a {
+  color: #bbbbbb;
+}
+.org a .octicon {
+  color: #bbbbbb;
+}
+.org a .counter {
+  background-color: #bbbbbb;
+  color: #333333;
+}
+.org a:hover {
+  color: #eeeeee;
+}
+.org a:hover .octicon {
+  color: #eeeeee;
+}
+.org a:hover .counter {
+  background-color: #eeeeee;
+}
 .repository-meta {
   color: #eeeeee;
 }
 .repo-list-item {
-  background: #445566;
-  border: 1px solid #cccccc;
+  background: #333333;
+  border-color: #ffffff;
   border-radius: 0.4em;
   padding: 1em 1em 4em;
   margin: 1em -1em;
@@ -363,7 +478,7 @@ a.tabnav-extra:hover {
 }
 .filter-bar {
   background-color: #525252;
-  border-bottom: 1px solid #404040;
+  border-bottom: 1px solid #333333;
 }
 .repo-filterer .repo-filter.filter-selected {
   color: #eeeeee;
@@ -372,7 +487,7 @@ a.tabnav-extra:hover {
 .feature-callout {
   color: #666666;
   background-color: #2b2b2b;
-  border: 1px solid #667788;
+  border-color: #667788;
   border-top: 1px dashed #cccccc;
   border-bottom: 0;
 }
@@ -389,18 +504,8 @@ a.tabnav-extra:hover {
 }
 .bootcamp ul li {
   background-image: linear-gradient(#c8c8ca, #999999);
-  border: 1px solid #667788;
+  border-color: #667788;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
-}
-input.input-contrast,
-.input-contrast {
-  background-color: #2b2b2b;
-  color: #eeeeee;
-}
-input.input-contrast:focus,
-.input-contrast:focus {
-  background-color: #65686a;
-  color: #eeeeee;
 }
 .site-header-nav-main .nav-item {
   border-top: 0;
@@ -424,7 +529,7 @@ input.input-contrast:focus,
 }
 .collection-card {
   background: #65686a;
-  border: 1px solid #667788;
+  border-color: #667788;
   border-radius: 3px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
@@ -432,8 +537,6 @@ input.input-contrast:focus,
   color: #cccccc;
 }
 .branch-name {
-  background-color: #2b2b2b;
-  border: 1px solid #cccccc;
   color: #eeeeee;
 }
 a.branch-name {
@@ -445,7 +548,7 @@ a.label-link {
 .btn {
   color: #eeeeee;
   background-color: #eeeeee;
-  border: 1px solid #333333;
+  border-color: #333333;
   background: linear-gradient(#202020, #2b2b2b);
 }
 .btn:disabled,
@@ -459,18 +562,24 @@ a.label-link {
 .btn.selected,
 .btn.zeroclipboard-is-hover,
 .btn.zeroclipboard-is-active {
+  color: #eeeeee;
   background-color: #000000;
   background-image: linear-gradient(#000000, #000000);
   border-color: #202020;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15) inset;
 }
 .btn:focus,
-.btn:hover {
+.btn.selected:focus,
+.btn:hover,
+.btn.selected:hover,
+.btn:focus:hover,
+.btn.selected:focus:hover {
   border-color: #202020;
   box-shadow: initial;
 }
 .btn-primary {
-  color: #eeeeee;
+  color: #ffffff;
+  text-shadow: none;
   background: #6cc644;
   border: none;
 }
@@ -492,9 +601,11 @@ a.label-link {
   background-color: #bbbbbb;
   padding: 5px 8px;
 }
+.user-mention,
 .muted-link {
   color: #cccccc !important;
 }
+.user-mention:hover,
 .muted-link:hover {
   color: #cccccc !important;
 }
@@ -512,25 +623,6 @@ a.label-link {
 .button:hover,
 .button-secondary:hover {
   background-color: #9cf674;
-}
-.pl-mb {
-  color: #eeeeee;
-}
-.pl-c {
-  color: #66cc66;
-}
-.pl-ent {
-  color: #93d38c;
-}
-.pl-e,
-.pl-en {
-  color: #c9adf3;
-}
-.pl-smi {
-  color: #f6a;
-}
-.pl-k {
-  color: #f6c;
 }
 .commit-tease {
   background-color: #2b2b2b;
@@ -579,43 +671,59 @@ a.label-link {
   background: #5d5d5d;
 }
 .blob-code-addition .x {
-  background-color: #063;
+  color: #000000;
+  background-color: #6cc644;
 }
 .blob-code-deletion .x {
-  background-color: #630;
+  color: #000000;
+  background-color: #ff5555;
+}
+/* regular code */
+.blob-code-inner {
+  color: #cccccc;
 }
 /* comments */
 .pl-c {
-  color: orange;
+  color: #75715E;
+}
+.blob-code-addition .pl-c {
+  color: #9c9884;
 }
 /* keywords and symbols */
-.pl-k {
-  color: yellow;
+.pl-k,
+.pl-ent {
+  color: #F92672;
 }
-/* methods? */
+.blob-code-addition .pl-k,
+.blob-code-addition .pl-ent {
+  color: #fb70a2;
+}
+/* methods and classes */
 .pl-en {
-  color: lightcyan;
+  color: #A7EC21;
 }
+.blob-code-addition .pl-en {
+  color: #baf050;
+}
+/* extends */
 .pl-e {
-  color: lightskyblue;
+  color: #66D9EF;
 }
 /* args */
+/* types */
 .pl-smi {
-  color: #ddd;
+  color: #66D9EF;
 }
-.pl-s,
-.pl-vpf {
+/* markdown titles in source */
+.pl-mh {
   color: aliceblue;
 }
-/* numbers and math-y */
+/* static */
 .pl-c1 {
-  color: greenyellow;
-}
-/* quotes? */
-.pl-pds {
-  color: aquamarine;
+  color: #AE81FF;
 }
 /* regexp and strings */
+.pl-vpf,
 .pl-pds,
 .pl-s,
 .pl-s .pl-pse .pl-s1,
@@ -623,14 +731,17 @@ a.label-link {
 .pl-sr .pl-cce,
 .pl-sr .pl-sra,
 .pl-sr .pl-sre {
-  color: lightsalmon;
+  color: #E6DB74;
 }
-/* no idea */
-.blob-code-inner {
-  color: #cccccc;
+/* var substitution on strings */
+.pl-s .pl-s1 {
+  color: #a9b7c6;
 }
 .pl-s1 {
   color: lavender;
+}
+.pl-ii {
+  background-color: #ff5555;
 }
 /* markers */
 .blob-code-hunk {
@@ -653,15 +764,6 @@ a.label-link {
 .blob-code-empty {
   background-color: black;
   color: white;
-}
-/* var substitution on strings */
-.pl-s .pl-s1,
-.pl-smi {
-  color: pink;
-}
-/* markdown titles in source */
-.pl-mh {
-  color: aliceblue;
 }
 .tree-browser .octicon-file-text {
   color: #cccccc;
@@ -694,27 +796,36 @@ mark {
   background: #ffff00;
   color: #000000;
 }
-.table-list {
-  background-color: #525252;
-  border-bottom: none;
-}
 .table-list-header {
   background-color: #2b2b2b;
-  border: 1px solid #2e2e2e;
+  border-color: #2e2e2e;
   border-radius: 3px 3px 0 0;
-}
-.table-list-header-toggle .btn-link {
-  color: #eeeeee;
 }
 .table-list-header-toggle .btn-link:hover,
 .table-list-header-toggle .btn-link.selected,
 .table-list-header-toggle .btn-link.selected:hover {
-  color: #eeeeee;
+  color: #bbbbbb;
 }
+.table-list,
+.table-list-bordered {
+  background-color: #525252;
+  border-bottom: none;
+}
+.table-list .table-list-item.unread .table-list-cell:first-child,
+.table-list-bordered .table-list-item.unread .table-list-cell:first-child {
+  box-shadow: 4px 0 0 #ffffff inset;
+}
+.table-list .table-list-item:first-child .table-list-cell,
+.table-list-bordered .table-list-item:first-child .table-list-cell {
+  border-top: none;
+}
+.table-list .table-list-cell,
 .table-list-bordered .table-list-cell {
-  border-top-color: #404040;
+  border-top-color: #333333;
 }
+.table-list .table-list-cell:first-child,
 .table-list-bordered .table-list-cell:first-child,
+.table-list .table-list-cell:last-child,
 .table-list-bordered .table-list-cell:last-child {
   border-right: none;
   border-left: none;
@@ -758,9 +869,6 @@ mark {
 .merged.octicon {
   color: #bc8eff;
 }
-.table-list-item.unread .table-list-cell:first-child {
-  box-shadow: 4px 0 0 #ffffff inset;
-}
 .toolbar-item,
 .toolbar-item .menu-target {
   color: #eeeeee;
@@ -778,14 +886,11 @@ mark {
   color: #eeeeee;
 }
 .focused .drag-and-drop {
-  border-color: #EEEEEE;
+  border: none;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
 }
 .drag-and-drop {
-  color: #cccccc;
-  background-color: #2b2b2b;
-  border-color: #333333;
-  border-style: none solid solid;
+  border: none;
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
 }
@@ -794,17 +899,18 @@ mark {
 }
 .range-editor {
   background-color: #135;
-  border: 1px solid #e5e5e5;
+  border-color: #e5e5e5;
   border-radius: 3px;
 }
 .range-editor-icon {
   color: #cccccc;
 }
 .recently-touched-branches {
-  color: #cccccc;
-  background-color: #235;
-  border: 1px solid #ffffff;
+  border-color: #ffffff;
   border-radius: 3px;
+}
+.recently-touched-branches li:last-child {
+  padding-bottom: 36px;
 }
 .recently-pushed-branch-details a {
   color: #eeeeee;
@@ -812,39 +918,45 @@ mark {
 .branch-group-heading {
   background: #2b2b2b;
   text-shadow: none;
+  border: none;
+}
+.branch-group-heading + .branch-summary {
+  border: none;
 }
 .branch-group-name {
-  color: #eeeeee;
+  color: #cccccc;
 }
 .branch-summary {
-  background: #445566;
+  background: #525252;
   color: #cccccc;
+  border-color: #333333;
+  border-left: none;
+  border-right: none;
 }
-.branch-meta {
-  color: #cccccc;
+.branch-summary:last-child {
+  border-bottom: none;
 }
 .branch-action-body {
   background-color: #2b2b2b;
-  border: 1px solid #ffffff;
-  border-radius: 3px;
+  border: none;
 }
-.branch-action-body .merge-message,
-.branch-action-body .merge-branch-form {
-  background-color: #65686a;
-  border-top: 1px solid #ffffff;
-  border-bottom-right-radius: 2px;
-  border-bottom-left-radius: 2px;
+.branch-action-item + .branch-action-item,
+.branch-action-item + .mergeability-details {
+  border-color: #333333;
 }
-.branch-action-body::after {
-  border-right-color: #eeeeee;
+.more-branches {
+  border: none;
 }
-.branch-action-state-unknown .branch-action-body,
-.branch-action-state-unstable .branch-action-body {
-  border-color: #e2dc5a;
+.more-branches:hover {
+  border: none;
 }
+.merge-status-list {
+  border: none;
+}
+.merge-status-item,
 .build-status-item {
-  background-color: #65686a;
-  border-bottom: 1px solid #777777;
+  background-color: #525252;
+  border-bottom-color: #EEEEEE;
 }
 .merge-branch-description {
   color: #cccccc;
@@ -853,7 +965,7 @@ mark {
   border-radius: 3px;
   color: #ccddee;
   background-color: #2b2b2b;
-  border: 1px solid #777777;
+  border-color: #777777;
 }
 .merge-pr-more-commits {
   color: #cccccc;
@@ -881,15 +993,15 @@ mark {
   color: inherit;
 }
 .full-commit .btn-outline {
-  border: 1px solid #cedee5;
+  border-color: #cedee5;
 }
 .full-commit .btn-outline:hover {
   color: #eeeeee;
-  border: 1px solid #c8c8ca;
+  border-color: #c8c8ca;
 }
 .full-commit .btn-outline:not(:disabled):hover {
   color: #ffffff;
-  border: 1px solid #c8c8ca;
+  border-color: #c8c8ca;
 }
 .full-commit .sha-block {
   color: #cccccc;
@@ -903,8 +1015,20 @@ mark {
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
 }
-.commit .commit-title a {
+.commits-list-item .commit-title a {
   color: #bbbbbb;
+}
+.commits-list-item .commit-meta {
+  color: #aaaaaa;
+}
+.commits-list-item .commit-author {
+  color: #6daacb;
+}
+.commits-list-item.navigation-focus {
+  background-color: inherit;
+}
+.commits-list-item.navigation-focus .commit-title a {
+  color: #cccccc;
 }
 .commit-branches {
   color: inherit;
@@ -924,29 +1048,30 @@ mark {
 .prose-diff .changed .added {
   background: #3a9f6a;
 }
+.ace_cursor {
+  color: #ffffff;
+}
+.ace_marker-layer .ace_active-line,
+.ace_gutter-active-line {
+  background-color: #5d5d5d;
+}
 .gollum-editor .form-control {
-  color: #eeeeee;
-  background-color: #333333;
   background-repeat: no-repeat;
   background-position: right 8px center;
-  border: 1px solid #777777;
+  border-color: #777777;
   border-radius: 3px;
   outline: none;
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.075);
 }
 .gollum-editor .form-control:focus {
-  border-color: #404040;
+  border-color: #333333;
 }
 .form-control {
-  color: #cccccc;
-  background-color: #333333 !important;
   border-color: #333333 !important;
 }
 .form-control:focus {
-  color: #cccccc;
-  background-color: #333333 !important;
   border-color: #333333;
-  box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.35);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.35);
 }
 .previewable-comment-form .write-content,
 .previewable-comment-form .preview-content {
@@ -957,6 +1082,9 @@ mark {
 .previewable-comment-form.write-selected .write-content,
 .previewable-comment-form.preview-selected .preview-content {
   display: block;
+  border-radius: 3px;
+  background: #2b2b2b;
+  background: linear-gradient(to bottom, #2b2b2b 0%, #2b2b2b 82%, #525252 84%, #525252 100%);
 }
 .wiki-wrapper .wiki-content .previewable-comment-form.write-selected .write-content,
 .wiki-wrapper .wiki-content .previewable-comment-form.preview-selected .preview-content {
@@ -964,7 +1092,7 @@ mark {
   margin: 0;
   background: #2b2b2b;
   border-radius: 1em;
-  border: 1px solid #777777;
+  border-color: #777777;
 }
 .gh-header-meta {
   color: #bbbbbb;
@@ -978,7 +1106,7 @@ mark {
   margin: 0;
   background: #525252;
   border-radius: 0.8em 0.8em 0 0;
-  border: 1px solid #2e2e2e;
+  border-color: #2e2e2e;
   border-bottom: none;
 }
 .wiki-wrapper .wiki-auxiliary-content {
@@ -990,7 +1118,7 @@ mark {
 .wiki-wrapper .wiki-footer {
   margin: 0;
   border-radius: 0 0 0.4em 0.4em;
-  border: 1px solid #2e2e2e;
+  border-color: #2e2e2e;
 }
 .wiki-wrapper .wiki-footer .markdown-body {
   margin: 0;
@@ -1003,7 +1131,7 @@ mark {
 }
 .menu {
   background-color: #65686a;
-  border: 1px solid #777777;
+  border-color: #777777;
 }
 .menu-item {
   text-shadow: none;
@@ -1022,18 +1150,11 @@ mark {
   width: 3px;
   background-color: #eeeeee;
 }
-.repohead.experiment-repo-nav {
-  background-color: #202020;
-}
 .reponav-item {
   color: #bbbbbb;
 }
 .reponav-item .octicon {
   color: #bbbbbb;
-}
-.reponav-item .counter {
-  background-color: #bbbbbb;
-  color: #333333;
 }
 .reponav-item:hover {
   color: #eeeeee;
@@ -1041,14 +1162,22 @@ mark {
 .reponav-item:hover .octicon {
   color: #eeeeee;
 }
+.reponav-item .counter {
+  background-color: #bbbbbb;
+  color: #333333;
+}
 .reponav-item.selected .counter,
 .reponav-item:hover .counter {
   background-color: #eeeeee;
 }
+.pagehead-tabs-item.selected,
 .reponav-item.selected {
+  font-weight: normal;
+  border-color: #ffffff #ffffff transparent #ffffff;
+}
+.pagehead-tabs-item.selected:hover,
+.reponav-item.selected:hover {
   color: #eeeeee;
-  background-color: #65686a;
-  border-color: #ffffff #e5e5e5 transparent;
 }
 .reponav-item.selected:hover {
   color: #eeeeee;
@@ -1076,7 +1205,7 @@ mark {
   background: #65686a;
   padding: 2em;
   border-radius: 1em;
-  border: 1px solid #777777;
+  border-color: #777777;
   box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.3);
 }
 .blog-post-body {
@@ -1096,10 +1225,14 @@ mark {
   box-shadow: none;
 }
 .shelf {
-  background-color: #324;
+  background-color: #2b2b2b;
+  background-image: none;
+}
+.intro-shelf .shelf-cta {
+  box-shadow: none;
 }
 .shelf-dismiss .close-button {
-  border: 1px solid #c8c8ca;
+  border-color: #c8c8ca;
   color: #eeeeee;
 }
 .pricing-shelf {
@@ -1119,6 +1252,7 @@ mark {
 .boxed-group > h3 {
   background-color: #2b2b2b;
   border: none;
+  padding-bottom: 16px;
 }
 .breadcrumb strong.final-path {
   color: #202020;
@@ -1133,7 +1267,12 @@ mark {
   background-color: #65686a;
 }
 .simple-conversation-list {
+  border: none;
   color: #cccccc;
+  padding-left: 1em;
+}
+.simple-conversation-list > li {
+  border-top-color: #333333;
 }
 .simple-conversation-list > li .num {
   color: #cccccc;
@@ -1144,6 +1283,12 @@ mark {
 #network canvas {
   opacity: 0.85;
 }
+.pr-toolbar,
+.diffbar {
+  background-color: #333333;
+  padding-right: 10px;
+  padding-left: 10px;
+}
 .discussion-item .author {
   color: #6daacb;
 }
@@ -1153,12 +1298,36 @@ mark {
 .timeline-comment-wrapper {
   border: none;
 }
-.timeline-comment-wrapper .timeline-comment-header {
+.branch-action-body::after,
+.timeline-comment-wrapper > .timeline-comment::after,
+.timeline-comment-wrapper .timeline-comment.current-user::after,
+.timeline-new-comment .timeline-comment::after {
+  border-right-color: #2b2b2b;
+  left: -15px;
+}
+.branch-action-body::before,
+.timeline-comment-wrapper > .timeline-comment::before,
+.timeline-comment-wrapper .timeline-comment.current-user::before,
+.timeline-new-comment .timeline-comment::before {
+  border: none;
+  left: -15px;
+}
+.timeline-comment {
+  background-color: #525252;
+  border: none;
+}
+.timeline-comment.current-user .timeline-comment-header,
+.timeline-comment-header {
   background-color: #2b2b2b;
   border: none;
 }
-.timeline-comment-wrapper .comment-body,
-.timeline-comment-wrapper .timeline-comment {
+.timeline-commits .commit-message > code a {
+  color: #bbbbbb;
+}
+.timeline-commits .commit-message > code a:hover {
+  color: #cccccc;
+}
+.comment-body {
   background-color: #525252;
   border: none;
 }
@@ -1168,11 +1337,15 @@ mark {
 .commit-sha {
   background-color: #2b2b2b;
 }
+.commit-icon .octicon {
+  background: none;
+}
 .dropdown-menu {
   background-color: #333333;
 }
 .select-menu-modal {
-  border-color: #404040;
+  background-color: #2b2b2b;
+  border-color: #333333;
 }
 .select-menu-modal .select-menu-filters {
   background-color: #525252;
@@ -1185,16 +1358,58 @@ mark {
   text-shadow: inherit;
 }
 .select-menu-modal .select-menu-item {
-  color: #eeeeee;
-  background-color: #65686a;
-  border-color: #404040;
-}
-.select-menu-modal .select-menu-item.navigation-focus {
-  background-color: #525252;
+  border-color: #333333;
 }
 .select-menu-modal .select-menu-text-filter {
   border-color: #333333;
 }
+.select-menu-modal .select-menu-tabs {
+  border-color: #333333;
+}
+.select-menu-modal .select-menu-tabs a {
+  border: none;
+  padding: 4px 8px 4px;
+  font-size: 12px;
+}
+.select-menu-modal .select-menu-tabs ul {
+  position: inherit;
+}
+.subnav-bordered {
+  border: none;
+}
 .subnav-search-input {
   border-color: #333333;
+}
+.flash {
+  background-color: #333333;
+  border: none;
+  color: #eeeeee;
+}
+.input-group .form-control {
+  height: 32px;
+}
+.authors-and-code {
+  border: none;
+}
+.pagination span {
+  border: none;
+}
+.pagination a {
+  border: none;
+}
+.pagination a:hover {
+  background-color: #5d5d5d;
+}
+.pagination .current,
+.pagination .current:hover {
+  border: none;
+  background-color: #5d5d5d;
+}
+.pagination .disabled,
+.pagination .disabled:hover {
+  background-color: #525252;
+}
+.pagination .gap,
+.pagination .gap:hover {
+  background-color: #333333;
 }
