@@ -1,6 +1,8 @@
 (function(coders){
     coders.databaseUtils = function(sqliteFileName){
 
+		Components.utils.import("resource://gre/modules/Sqlite.jsm");
+
         this.file = sqliteFileName;
         this.mDBConn = null;
 
@@ -19,6 +21,20 @@
 
         this.getLastInsertedRowID = function(){
             return this.getConnection().lastInsertRowID;
+        }
+
+		this.doSQLAsync = function(sql, callback, bindings){
+
+			return Task.spawn(function* () {
+				let conn = yield Sqlite.openConnection({path: this.file});
+
+				try {
+					let result = yield conn.execute(sql, bindings);
+					return result;
+				} finally {
+					yield conn.close();
+				}
+			}.bind(this))
         }
 
         this.assync = function(sql, param){
@@ -50,6 +66,17 @@
                 statement.reset();
             }
         }
+
+		this.buildParams = function(parameters){
+			var params = [];
+			if (parameters.length > 1) {
+				//Starts at 1 because first param is sql by youself
+				for (var m = 1; m < arguments.length; m++) {
+					params.push(parameters[m]);
+				}
+			}
+			return params;
+		}
 
         this.doSQL = function(sql, param){
             var conn = this.getConnection();

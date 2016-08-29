@@ -30,7 +30,7 @@
         },
 
         cleanTree: function(tree){
-            while(tree.hasChildNodes() && tree.childNodes[1] != null) {
+            while(tree.hasChildNodes() && tree.childNodes[1] !== null) {
                 tree.removeChild(tree.childNodes[1]);
             }
         },
@@ -77,14 +77,14 @@
 		},
 
 		getHostNameLabelFromPath: function(path){
-			if (path && path != ''){
+			if (path && path !== ''){
 				var fileSeparator = this.ctx.fileUtils.getFileSeparator();
 				var ext = this.ctx.preferenceUtils.getString('default-host-file-extension');
 				var root = this.ctx.preferenceUtils.getString('definitions-root-dir');
 				if(!this.ctx.browserUtils.endsWith(root, fileSeparator)){
 					root = root + fileSeparator;
 				}
-				return path.replace(root, '').replace(ext,'')
+				return path.replace(root, '').replace(ext,'');
 			}else{
 				return 'No host selected';
 			}
@@ -103,5 +103,5 @@
                 menu.removeChild(itens[0]);
             }
         }
-    }
+    };
 })();

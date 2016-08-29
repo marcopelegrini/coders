@@ -50,7 +50,7 @@
                 browserWindow.document.dispatchEvent(evt);
             }
 
-            this.logger.info("Hosts changed.")
+            this.logger.info("Hosts changed.");
             return true;
         },
 
@@ -59,44 +59,46 @@
         },
 
 		findHostsColor: function(path){
-			if (path && path != undefined && path != null){
-				var hostsPath = path;
-			}else{
-				var hostsPath = this.ctx.preferenceUtils.getString("current-host");
+			var hostsPath = this.ctx.preferenceUtils.getString("current-host");
+			if (path && path !== undefined && path !== null){
+				hostsPath = path;
 			}
-			this.logger.debug("Looking from a color to path: " + hostsPath);
 			if(hostsPath){
-				var hostsConfig = this.ctx.dao.findHostsConfig(hostsPath);
-				if (hostsConfig && hostsConfig.color){
-					//Found a specific color for this hosts
-					this.logger.debug("Found hosts specific color " + hostsConfig.color + " for path: " + hostsPath);
-					return hostsConfig.color;
-				}else{
-					var lio = hostsPath.lastIndexOf(this.ctx.fileUtils.getFileSeparator());
-					var hostsFolder = hostsPath.substr(0, lio);
-					this.logger.debug("Looking for a hosts folder color for path: " + hostsFolder);
-					var folderHostsConfig = this.ctx.dao.findHostsConfig(hostsFolder);
-					if (folderHostsConfig && folderHostsConfig.color){
-						// Found a specific color for this hosts' folder
-						this.logger.debug("Found folder specific color " + folderHostsConfig.color + " for path: " + hostsPath);
-						return folderHostsConfig.color;
+				this.logger.debug("Looking from a color for: " + hostsPath);
+				return Task.spawn(function* () {
+					let hostsConfig = yield this.ctx.dao.findHostsConfig(hostsPath);
+
+					if (hostsConfig && hostsConfig.color){
+						//Found a specific color for this hosts
+						this.logger.debug("Found hosts specific color " + hostsConfig.color + " for: " + hostsPath);
+						return hostsConfig.color;
 					}else{
-						var regexConfigs = this.ctx.dao.findAllRegexConfig();
-			            for(var i = 0; i < regexConfigs.length; i++){
-			                var regexConfig = regexConfigs[i];
-			                var regex = new RegExp(regexConfig.regex, 'i');
+						var lio = hostsPath.lastIndexOf(this.ctx.fileUtils.getFileSeparator());
+						var hostsFolder = hostsPath.substr(0, lio);
+						this.logger.debug("Looking for a color for FOLDER: " + hostsFolder);
+						var folderHostsConfig = yield this.ctx.dao.findHostsConfig(hostsFolder);
+						if (folderHostsConfig && folderHostsConfig.color){
+							// Found a specific color for this hosts' folder
+							this.logger.debug("Found specific color " + folderHostsConfig.color + " for FOLDER: " + hostsPath);
+							return folderHostsConfig.color;
+						}else{
+							var regexConfigs = this.ctx.dao.findAllRegexConfig();
+							for(var i = 0; i < regexConfigs.length; i++){
+								var regexConfig = regexConfigs[i];
+								var regex = new RegExp(regexConfig.regex, 'i');
 
-			                if (hostsPath.match(regex)){
-			               		// Found a regex that matches this hosts path
-			               		this.logger.debug("Found regex that matches: Hostspath: " + hostsPath + " Regex: " + regex);
-			               		return regexConfig.color;
-			                }
-			            }
+								if (hostsPath.match(regex)){
+									// Found a regex that matches this hosts path
+									this.logger.debug("Found regex that matches: Hostspath: " + hostsPath + " Regex: " + regex);
+									return regexConfig.color;
+								}
+							}
+						}
 					}
-				}
+				}.bind(this));
+			}else{
+				return Promise.resolve(this.ctx.preferenceUtils.getString("definition-color"));
 			}
-
-			return this.ctx.preferenceUtils.getString("definition-color");
 		}
-    }
+    };
 })();

@@ -42,7 +42,7 @@
         },
 
         isBlank: function(string){
-            if (string && string != null && string != undefined) {
+            if (string && string !== null && string !== undefined) {
                 if (string.trim().length > 0) {
                     return false;
                 }

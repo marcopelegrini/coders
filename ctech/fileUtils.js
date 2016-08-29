@@ -116,18 +116,6 @@ Components.utils.import("resource://gre/modules/Task.jsm");
             })
         },
 
-        decodeFile: function(array){
-            try {
-                console.log("C:" + array);
-                let decoder = new TextDecoder();
-                var text = decoder.decode(value);
-                console.log("E"+text);
-                return Promise.resolve(text);
-            } catch(ex){
-                return Promise.reject(ex);
-            }
-        },
-
         /**
          * Execute a file from filePath
          *

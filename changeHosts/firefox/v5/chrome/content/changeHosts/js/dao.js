@@ -26,7 +26,6 @@
             this.ctx.databaseUtils.assync(this.createRegexConfigQuery);
         },
 
-        insertConfigQuery: "INSERT INTO hosts_config (path, color, hideFromStatus) values (?1, ?2, ?3);",
         upsertConfigQuery: "INSERT OR REPLACE INTO hosts_config (path, color, hideFromStatus) VALUES (?1, ?2, ?3);",
         saveOrUpdateConfig: function(path, color, hideFromStatus){
             this.ctx.databaseUtils.doSQL(this.upsertConfigQuery, path, color, hideFromStatus);
@@ -54,13 +53,25 @@
 
         findHostsConfigQuery: "SELECT path, color, hideFromStatus FROM hosts_config WHERE path = ?1;",
         findHostsConfig: function(path){
-            var resultSet = this.ctx.databaseUtils.doSQL(this.findHostsConfigQuery, path);
-            if (resultSet && resultSet.length > 0){
-                var row = resultSet[0];
-                return new coders.changeHosts.HostsConfig(row['path'], row['color'], row['hideFromStatus']);
-            }
-            return null;
+			return Task.spawn(function* () {
+				var result = yield this.ctx.databaseUtils.doSQLAsync(this.findHostsConfigQuery, null, [path])
+
+				if (result && result.length > 0){
+					var row = result[0];
+					return new coders.changeHosts.HostsConfig(row.getResultByName("path"), row.getResultByName("color"), row.getResultByName("hideFromStatus"));
+				}
+				return null;
+			}.bind(this))
         },
+
+		handleHostsConfig: function(result){
+			if (result && result.length > 0){
+				var row = result[0];
+				console.log(row.getResultByName("path"));
+				return new coders.changeHosts.HostsConfig(row.getResultByName("path"), row.getResultByName("color"), row.getResultByName("hideFromStatus"));
+			}
+			return null;
+		},
 
         upsertRegexConfigQuery: "INSERT OR REPLACE INTO regex_config (regex, color) VALUES (?1, ?2);",
         saveOrUpdateRegexConfig: function(regex, color){
